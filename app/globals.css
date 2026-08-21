@@ -8,14 +8,14 @@
 ═════════════════════════════════════════════════════════════════ */
 :root {
   /* Primary Colors */
-  --color-primary-green: #1451b5;
-  --color-primary-green-dark: #1451b5;
+  --color-primary-green: #6632d6;
+  --color-primary-green-dark: #6632d6;
   
   /* Neutral Colors */
   --color-neutral-white: #ffffff;
   
   /* Semantic Colors */
-  --color-slider-thumb: #1451b5;
+  --color-slider-thumb: #6632d6;
   --color-shadow-green: rgba(20, 81, 181, 0.2);
   --color-shadow-dark: rgba(0, 0, 0, 0.08);
 }

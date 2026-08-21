@@ -16,13 +16,13 @@ export const COLORS = {
   // ═══════════════════════════════════════════════════════════════════════════
   primary: {
     // Main brand accent - used for CTAs, buttons, and primary actions
-    green: '#1451b5',
-    greenLight: '#1451b5',
-    greenMedium: '#1451b5',
-    greenDark: '#1451b5',
-    green2: '#1451b5',
-    green3: '#1451b5',
-    greenAlt: '#1451b5',
+    green: '#6632d6',
+    greenLight: '#6632d6',
+    greenMedium: '#6632d6',
+    greenDark: '#6632d6',
+    green2: '#6632d6',
+    green3: '#6632d6',
+    greenAlt: '#6632d6',
     greenAlpha: 'rgba(20, 81, 181, 0.65)',
   },
 
@@ -56,7 +56,7 @@ export const COLORS = {
     // Blue variants
     heroBlue: '#c4eafa',       // Hero section background
     lightBlue: '#eaf5ff',      // Vehicle info header, light backgrounds
-    prequalifyBlue: '#1451b526', // Pre-approve card backgrounds
+    prequalifyBlue: '#6632d626', // Pre-approve card backgrounds
     reviewBlue: '#eaeff5',     // Reviews section background
     
     // Brand-tint gradient backgrounds
@@ -91,8 +91,8 @@ export const COLORS = {
   // ═══════════════════════════════════════════════════════════════════════════
   semantic: {
     // Success
-    success: '#1451b5',
-    successLight: '#1451b5',
+    success: '#6632d6',
+    successLight: '#6632d6',
     
     // Error
     error: 'hsl(0 84.2% 60.2%)',
@@ -122,7 +122,7 @@ export const COLORS = {
   // ═══════════════════════════════════════════════════════════════════════════
   special: {
     // Price display
-    price: '#1451b5',
+    price: '#6632d6',
     
     // Rating / Stars
     star: 'hsl(45 100% 51%)',  // Gold/yellow for star ratings
@@ -133,11 +133,11 @@ export const COLORS = {
     avatarPurple: '#512da8',   // Deep purple avatar background
     
     // Accents
-    accent: '#1451b5',
-    accentAlt: '#1451b5',
+    accent: '#6632d6',
+    accentAlt: '#6632d6',
     
     // Indicators
-    indicatorGreen: '#1451b5', // Slider dot indicator
+    indicatorGreen: '#6632d6', // Slider dot indicator
     
     // Sold Overlay
     sold: '#5f5f5f',           // Sold ribbon background
@@ -159,7 +159,7 @@ export const COLORS = {
     header: {
       background: '#fffdfdff',
       navSeparator: 'rgba(181, 180, 180, 0.35)', // #b5b4b459
-      phoneText: '#1451b5',
+      phoneText: '#6632d6',
     },
     
     // Footer
@@ -170,9 +170,9 @@ export const COLORS = {
     
     // Buttons
     button: {
-      primary: '#1451b5',
-      primaryHover: '#1451b5',
-      border: '#1451b5',
+      primary: '#6632d6',
+      primaryHover: '#6632d6',
+      border: '#6632d6',
       secondary: '#ffffff',
       secondaryBorder: 'rgba(20, 81, 181, 0.65)',
     },
@@ -186,8 +186,8 @@ export const COLORS = {
     
     // Accordion / FAQ
     accordion: {
-      header: '#1451b5',
-      checkmark: '#1451b5',
+      header: '#6632d6',
+      checkmark: '#6632d6',
       text: '#ffffff',
     },
     
@@ -205,7 +205,7 @@ export const COLORS = {
       mediumHeavy: 'rgba(0, 0, 0, 0.12)',
       subtle: 'rgba(0, 0, 0, 0.01)',
       hover: 'rgba(0, 0, 0, 0.03)',
-      buttonPress: '0 4px 0 0 #1451b5',
+      buttonPress: '0 4px 0 0 #6632d6',
       lightBlue: 'rgba(244, 249, 252, 1.3)',
       brandGreen: 'rgba(20, 81, 181, 0.2)',
       brandGreenDark: 'rgba(20, 81, 181, 0.1)',
@@ -217,10 +217,10 @@ export const COLORS = {
   // Use these when updating tailwind.config.ts
   // ═══════════════════════════════════════════════════════════════════════════
   tailwind: {
-    'brand-green': '#1451b5',
-    'brand-green-light': '#1451b5',
-    'brand-green-medium': '#1451b5',
-    'brand-green-dark': '#1451b5',
+    'brand-green': '#6632d6',
+    'brand-green-light': '#6632d6',
+    'brand-green-medium': '#6632d6',
+    'brand-green-dark': '#6632d6',
     'hero-bg': '#c4eafa',
     'light-blue': '#eaf5ff',
     'review-blue': '#eaeff5',

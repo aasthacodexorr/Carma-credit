@@ -48,7 +48,7 @@ export default function ContactUs() {
       <div className="dw-font bg-white px-4 py-10 text-[#121212] sm:px-6 lg:mt-4 lg:px-10 xl:px-24 lg:py-14">
         <div className="mx-auto grid w-full max-w-[1350px] grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
-            <p className="m-0 text-[13px] font-semibold uppercase tracking-[0.14em] text-[#1451b5] md:text-[15px]">
+            <p className="m-0 text-[13px] font-semibold uppercase tracking-[0.14em] text-[#6632d6] md:text-[15px]">
               Contact us
             </p>
             <h1 className="mt-3 max-w-xl text-[clamp(1.75rem,5vw,3rem)] font-bold leading-[1.15] tracking-[-0.03em] text-[#121212]">
@@ -60,7 +60,7 @@ export default function ContactUs() {
             </h2>
             <Link
               href="tel:1-855-979-3500"
-              className="mt-1 inline-flex items-center gap-2 text-[15px] font-semibold text-[#121212] hover:text-[#1451b5] md:text-[16px]"
+              className="mt-1 inline-flex items-center gap-2 text-[15px] font-semibold text-[#121212] hover:text-[#6632d6] md:text-[16px]"
             >
               <Phone className="h-5 w-5 shrink-0" strokeWidth={2.25} />
               1-855-979-3500

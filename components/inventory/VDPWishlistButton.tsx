@@ -52,8 +52,8 @@ export default function VDPWishlistButton({ vehicle }: VDPWishlistButtonProps) {
       >
         <svg
           className={`w-6 h-6 transition-colors duration-300`}
-          fill={inWishlist ? "#1451b5" : "none"}
-          stroke={inWishlist ? "#1451b5" : "currentColor"}
+          fill={inWishlist ? "#6632d6" : "none"}
+          stroke={inWishlist ? "#6632d6" : "currentColor"}
           viewBox="0 0 24 24"
           strokeWidth={2}
         >

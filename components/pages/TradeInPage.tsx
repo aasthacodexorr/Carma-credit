@@ -20,7 +20,8 @@ import { PageShell } from "@/components/layout";
 import { TradeQuoteForm } from "@/components/common";
 import FaqAccordion from "@/components/common/FaqAccordion";
 
-const SELL_HERO_IMAGE = "/sell-my-car-carma-offer-blue.png";
+const SELL_HERO_IMAGE = "/sell-my-car-carma-offer-.png";
+import sellImg from "@/assets/cars/sell-my-car-carma-offer-purple.png"
 
 /* Static Data */
 const steps = [
@@ -207,7 +208,7 @@ const TradeIn = () => {
           <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-[1fr_1.1fr] lg:gap-10 lg:pl-10">
             <div className="relative aspect-[16/10] h-auto w-full overflow-hidden rounded-[24px] sm:aspect-[16/11] md:rounded-[32px] lg:aspect-auto lg:h-auto lg:min-h-full">
               <Image
-                src={SELL_HERO_IMAGE}
+                src={sellImg?.src}
                 alt="Get a cash offer to sell my car with Carma Credit"
                 fill
                 sizes="(max-width: 1024px) 100vw, 45vw"

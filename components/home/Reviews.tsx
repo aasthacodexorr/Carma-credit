@@ -141,7 +141,7 @@ const Reviews = () => {
   }, [slidesToShow]);
 
   const arrowClass =
-    "flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-[#d0d0d0] bg-white text-[#1451b5] shadow-sm transition-colors hover:border-[#1451b5] hover:bg-[#1451b5] hover:text-white";
+    "flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-[#d0d0d0] bg-white text-[#6632d6] shadow-sm transition-colors hover:border-[#6632d6] hover:bg-[#6632d6] hover:text-white";
 
   return (
     <section
