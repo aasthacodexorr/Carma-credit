@@ -20,7 +20,7 @@ const DrivewayHero = () => {
         };
 
   return (
-    <section className="relative min-h-[640px] w-full overflow-hidden bg-slate-950 text-white">
+    <section className="relative min-h-[640px] lg:min-h-full w-full overflow-hidden bg-slate-950 text-white">
       {/* Background Image Container with Overlay */}
       <div className="absolute inset-0 z-0 h-full w-full">
         <Image
@@ -37,7 +37,7 @@ const DrivewayHero = () => {
       </div>
 
       {/* Main Container */}
-      <div className="relative z-10 mx-auto flex max-w-[1480px] flex-col justify-between px-6 pb-8 pt-12 sm:px-12 md:pb-12 md:pt-16 xl:px-16">
+      <div className="relative z-10 mx-auto flex max-w-[1480px] flex-col justify-between px-6 pb-8 pt-12 sm:px-12 md:pb-10 md:pt-10 xl:px-16">
         <div className="max-w-2xl">
           {/* Main Headline */}
           <motion.h1
@@ -84,15 +84,15 @@ const DrivewayHero = () => {
               href="/financing"
               className="mt-4 inline-flex items-center justify-center rounded-full bg-[#6632d6] px-5 py-3 text-xs text-white transition-all duration-300 hover:scale-105 group-hover:bg-slate-950 group-hover:text-white sm:mt-0 sm:text-sm"
             >
-              Get pre approved
+              Get Pre-Approved
             </Link>
           </div>
 
           {/* Purple Sell/Trade Card */}
           <div className="group flex cursor-pointer flex-col justify-between rounded-2xl bg-white p-5 text-black shadow-2xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#ff3d68] hover:to-[#ffb3c1] sm:flex-row sm:items-center">
             <div className="flex items-center space-x-3.5">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-black transition-colors duration-300 group-hover:bg-slate-950 group-hover:text-white">
-                <Car className="h-6 w-6 stroke-[2.5]" />
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#6632d6] text-white transition-colors duration-300 group-hover:bg-white group-hover:text-[#6632d6]">
+                <Car className="h-7 w-7 stroke-[2]" />
               </div>
               <div>
                 <h3 className="text-base font-bold transition-colors duration-300 group-hover:text-slate-950 sm:text-lg">
@@ -107,7 +107,7 @@ const DrivewayHero = () => {
               href="/trade-in-my-car"
               className="mt-4 inline-flex items-center justify-center rounded-full bg-[#6632d6] px-5 py-3 text-xs text-white transition-all duration-300 hover:scale-105 group-hover:bg-slate-950 group-hover:text-white sm:mt-0 sm:text-sm"
             >
-              Sell my car
+              Sell my Car
             </Link>
           </div>
         </motion.div>
