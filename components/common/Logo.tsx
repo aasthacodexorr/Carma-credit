@@ -8,7 +8,7 @@ const Logo = () => {
       aria-label="Carma Credit"
     >
       <Image
-        src={logo?.src}
+        src="/carma-logo.png"
         alt="Carma Credit"
         width={358}
         height={95}
