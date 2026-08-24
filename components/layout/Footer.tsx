@@ -55,7 +55,7 @@ const Footer = () => {
   const pathname = usePathname();
 
   return (
-    <footer className="dw-font w-full bg-[rgb(8,32,72)]">
+    <footer className="dw-font w-full bg-[#6632d6]">
       <div className="mx-auto max-w-[1440px] px-5 pb-6 pt-14 sm:px-8 lg:px-[72px] lg:pb-8 lg:pt-20">
         <div className="grid gap-x-8 gap-y-12 lg:grid-cols-[minmax(220px,0.9fr)_minmax(0,2.1fr)] lg:gap-x-12">
           <div className="max-w-[340px]">

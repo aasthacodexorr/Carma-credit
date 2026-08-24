@@ -96,7 +96,7 @@ const DriversSeat = () => {
                   html.scrollTop = 0;
                   document.body.scrollTop = 0;
                 }}
-                className="inline-flex w-full items-center justify-center rounded-full border-2 border-[#1451b5] bg-[#1451b5] px-8 py-3 text-[16px] font-semibold text-white hover:border-[#0f4094] hover:bg-[#0f4094] sm:w-auto"
+                className="inline-flex w-full items-center justify-center rounded-full border-2 border-[#6632d6] bg-[#6632d6] px-8 py-3 text-[16px] font-semibold text-white hover:border-[#0f4094] hover:bg-[#0f4094] sm:w-auto"
               >
                 Get Pre-Approved
               </Link>

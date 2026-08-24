@@ -79,7 +79,7 @@ const HomeHeader = () => {
   };
 
   const navLinkClass =
-    "relative flex h-[64px] xl:h-[77px] items-center px-2 xl:px-3 text-[15px] xl:text-[18px] font-semibold leading-none whitespace-nowrap text-[#353535] transition-colors hover:text-[#1451b5]";
+    "relative flex h-[64px] xl:h-[77px] items-center px-2 xl:px-3 text-[15px] xl:text-[18px] font-semibold leading-none whitespace-nowrap text-[#353535] transition-colors hover:text-[#6632d6]";
 
   const handleHashNav = (href: string, e: MouseEvent) => {
     const hashIndex = href.indexOf("#");
@@ -95,7 +95,11 @@ const HomeHeader = () => {
     <header className="dw-font sticky top-0 z-50 w-full bg-white shadow-[0_1px_0_rgba(0,0,0,0.08)]">
       {/* Desktop / tablet landscape */}
       <div className="relative mx-auto hidden h-[64px] max-w-[1440px] items-center px-4 xl:flex xl:h-[77px] xl:px-10">
-        <Link href="/" aria-label="Carma Credit home" className="mr-4 flex h-8 shrink-0 items-center overflow-hidden xl:mr-8">
+        <Link
+          href="/"
+          aria-label="Carma Credit home"
+          className="mr-4 flex shrink-0 items-top z-10 xl:mr-8"
+        >
           <Logo />
         </Link>
 
@@ -125,7 +129,7 @@ const HomeHeader = () => {
                   aria-haspopup="true"
                   onClick={() => setActiveNav(isOpen ? null : item.label)}
                   className={`${navLinkClass} cursor-pointer gap-1 ${
-                    isOpen ? "text-[#1451b5]" : ""
+                    isOpen ? "text-[#6632d6]" : ""
                   }`}
                 >
                   {item.label}
@@ -174,7 +178,7 @@ const HomeHeader = () => {
                                   }}
                                   className="flex items-start gap-3 rounded-xl px-3 py-3 no-underline transition-colors hover:bg-[#F5F7F8]"
                                 >
-                                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#E8F2FF] text-[#1451b5]">
+                                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#E8F2FF] text-[#6632d6]">
                                     <Icon className="h-[18px] w-[18px]" strokeWidth={2} />
                                   </span>
                                   <span className="min-w-0">
@@ -204,7 +208,7 @@ const HomeHeader = () => {
         <div className="ml-2 flex shrink-0 items-center xl:ml-4">
           <a
             href={PHONE_HREF}
-            className="flex items-center gap-1.5 text-[14px] font-semibold text-[#1451b5] transition-opacity hover:opacity-80 xl:gap-2 xl:text-[17px]"
+            className="flex items-center gap-1.5 text-[14px] font-semibold text-[#6632d6] transition-opacity hover:opacity-80 xl:gap-2 xl:text-[17px]"
           >
             <Phone className="h-[18px] w-[18px] xl:h-[20px] xl:w-[20px]" strokeWidth={1.8} />
             <span className="hidden xl:inline">{PHONE_DISPLAY}</span>
@@ -218,19 +222,23 @@ const HomeHeader = () => {
         <button
           type="button"
           onClick={() => setMobileOpen((v) => !v)}
-          className="flex h-10 w-10 cursor-pointer items-center justify-center text-[#1451b5]"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center text-[#6632d6]"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
 
-        <Link href="/" aria-label="Carma Credit home" className="flex h-8 min-w-0 flex-1 items-center justify-center overflow-hidden">
-          <Logo />
-        </Link>
+       <Link
+  href="/"
+  aria-label="Carma Credit home"
+  className="flex h-10 w-[110px] shrink-0 items-center justify-start overflow-visible"
+>
+  <Logo />
+</Link>
 
         <a
           href={PHONE_HREF}
-          className="flex h-10 w-10 items-center justify-center text-[#1451b5]"
+          className="flex h-10 w-10 items-center justify-center text-[#6632d6]"
           aria-label={`Call ${PHONE_DISPLAY}`}
         >
           <Phone className="h-6 w-6" strokeWidth={1.6} />
@@ -286,7 +294,7 @@ const HomeHeader = () => {
                           }}
                           className="flex items-start gap-3 rounded-xl px-2 py-2.5 hover:bg-[#F5F7F8]"
                         >
-                          <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#E8F2FF] text-[#1451b5]">
+                          <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#E8F2FF] text-[#6632d6]">
                             <Icon className="h-4 w-4" strokeWidth={2} />
                           </span>
                           <span>
@@ -309,7 +317,7 @@ const HomeHeader = () => {
           })}
           <a
             href={PHONE_HREF}
-            className="my-4 flex h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-[#1451b5] text-[15px] font-semibold text-[#1451b5]"
+            className="my-4 flex h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-[#6632d6] text-[15px] font-semibold text-[#6632d6]"
           >
             <Phone className="h-4 w-4" strokeWidth={2} />
             {PHONE_DISPLAY}
