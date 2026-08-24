@@ -228,9 +228,13 @@ const HomeHeader = () => {
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
 
-        <Link href="/" aria-label="Carma Credit home" className="flex h-8 min-w-0 flex-1 items-center justify-center overflow-hidden">
-          <Logo />
-        </Link>
+       <Link
+  href="/"
+  aria-label="Carma Credit home"
+  className="flex h-10 w-[110px] shrink-0 items-center justify-start overflow-visible"
+>
+  <Logo />
+</Link>
 
         <a
           href={PHONE_HREF}
