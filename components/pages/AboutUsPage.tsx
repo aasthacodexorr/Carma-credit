@@ -7,7 +7,7 @@ import { PageShell } from "@/components/layout";
 import { Reveal, Stagger, StaggerItem } from "@/components/common/motion";
 
 const CTA_SECONDARY =
-  "inline-flex items-center justify-center rounded-full border-2 border-white bg-transparent px-8 py-3.5 text-[16px] font-semibold text-white transition-all duration-300 hover:scale-[1.03] hover:bg-white/10";
+  "inline-flex items-center justify-center rounded-full border-2 border-white bg-transparent  px-[58px] lg:px-8 py-3.5 text-[16px] font-semibold text-white transition-all duration-300 hover:scale-[1.03] hover:bg-white/10";
 
 const PILLARS = [
   {
