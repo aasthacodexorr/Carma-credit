@@ -64,7 +64,7 @@ export default function NotFound() {
                 Get Pre-Approved
               </Link>
               <Link href="/trade-in-my-car" className="inline-flex items-center justify-center rounded-full border-2 border-white bg-[#6632d6] px-[56px] md:px-8 py-3.5 text-[16px] font-semibold text-white transition-all duration-300 hover:scale-[1.03] hover:opacity-90">
-                Sell My Car
+                Sell my Car
               </Link>
             </div>
             </div>

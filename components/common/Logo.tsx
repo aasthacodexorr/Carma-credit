@@ -1,4 +1,5 @@
 import Image from "next/image";
+import logo from "@/assets/brand/carma.jpg"
 
 const Logo = () => {
   return (
@@ -7,12 +8,11 @@ const Logo = () => {
       aria-label="Carma Credit"
     >
       <Image
-        src="https://img.carma.com.au/brand/carma-logo.svg"
+        src={logo?.src}
         alt="Carma Credit"
         width={358}
         height={95}
-        className="!h-full !w-full object-contain object-left-top"
-        sizes="(max-width: 1024px) 140px, 175px"
+        className="!h-full !w-full object-contain"
         priority
         unoptimized
       />

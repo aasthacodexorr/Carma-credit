@@ -152,7 +152,7 @@ export default function AboutUsPage() {
                 Get Pre-Approved
               </Link>
               <Link href="/trade-in-my-car" className={CTA_SECONDARY}>
-                Sell My Car
+                Sell my Car
               </Link>
             </div>
           </Reveal>

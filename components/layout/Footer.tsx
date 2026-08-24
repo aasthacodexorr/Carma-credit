@@ -16,8 +16,8 @@ import { usePathname } from "next/navigation";
 import { fallbackValue, defaultAppConfig } from "@/lib/appConfig";
 import { Phone } from "lucide-react";
 
-const LINK = "text-[14px] font-medium leading-[24.5px] text-[#A1B9E1] transition-colors hover:text-white";
-const HEADING = "mb-6 text-[18px] font-bold text-[#E3EAF6]";
+const LINK = "text-[14px] font-medium leading-[24.5px] text-white transition-colors hover:text-white";
+const HEADING = "mb-6 text-[18px] font-bold text-white";
 const PHONE_DISPLAY = "1-855-979-3500";
 const PHONE_HREF = "tel:+18559793500";
 
@@ -116,7 +116,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 sm:mt-16 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mt-12 flex flex-col gap-4 sm:mt-1 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-2">
             <Link href="/privacy-policy" className={LINK}>
               Privacy Policy
@@ -125,7 +125,7 @@ const Footer = () => {
               Terms &amp; Conditions
             </Link>
           </div>
-          <p className="flex flex-wrap items-center gap-2 text-[13px] font-medium text-[#A1B9E1]">
+          <p className="flex flex-wrap items-center gap-2 text-[13px] font-medium text-white">
             © {new Date().getFullYear()} {safeD.dealership_name}. Powered by
             <a
               href="https://www.zopdealer.com/"
