@@ -35,7 +35,7 @@ export default function AutoLoanFraudPage() {
                 </span>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1e1b4b] leading-tight mb-6">
                   Stay Informed.<br />
-                  Stay Protected.
+                  <p className='text-[#ff385c]'>Stay Protected.</p>
                 </h1>
                 <p className="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">
                   Your safety matters. Learn how to spot, avoid and prevent auto loan fraud so you can finance your vehicle with confidence.
