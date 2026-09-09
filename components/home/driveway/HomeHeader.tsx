@@ -205,7 +205,10 @@ const HomeHeader = () => {
           })}
         </nav>
 
-        <div className="ml-2 flex shrink-0 items-center xl:ml-4">
+        <div className="ml-2 flex shrink-0 items-center xl:ml-4 gap-2">
+          <Link href={"/financing"} className="bg-brand text-white py-3 px-3 rounded-xl hover:bg-black">
+          Start 2-Minute Quiz
+          </Link>
           <a
             href={PHONE_HREF}
             className="flex items-center gap-1.5 text-[14px] font-semibold text-[#6632d6] transition-opacity hover:opacity-80 xl:gap-2 xl:text-[17px]"

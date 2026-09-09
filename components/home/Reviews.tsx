@@ -154,7 +154,7 @@ const Reviews = () => {
         paused.current = false;
       }}
     >
-      <div className="mx-auto max-w-[1200px] px-4 md:px-6">
+      <div className="mx-auto max-w-[1480px] px-4 md:px-6">
         <Reveal className="mx-auto mb-7 max-w-[720px] text-center md:mb-8">
           <h2 className="text-[clamp(1.75rem,5vw,2.75rem)] font-bold leading-[1.2] tracking-[-0.6px] text-[#121212]">
             People love {SITE_CONFIG?.dealership.name}

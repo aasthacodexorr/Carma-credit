@@ -10,15 +10,21 @@ export const DW_NAV = [
     href: "/financing",
     items: [],
   },
-  {
-    label: "Sell my Car",
-    href: "/trade-in-my-car",
-    items: [],
-  },
+  // {
+  //   label: "Sell my Car",
+  //   href: "/trade-in-my-car",
+  //   items: [],
+  // },
   {
     label: "Resources",
     href: "/how-it-works",
     items: [
+      {
+        label: "Resources",
+        href: "/resources",
+        description: "Simple steps to get approved and on the road",
+        icon: "resources",
+      },
       {
         label: "How It Works",
         href: "/how-it-works",

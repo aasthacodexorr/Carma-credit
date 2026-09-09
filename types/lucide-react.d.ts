@@ -81,4 +81,8 @@ declare module 'lucide-react' {
   export const Smile:Icon;
   export const CheckCircle2:Icon;
   export const DollarSign:Icon;
+  export const Users:Icon;
+  export const Headphones:Icon;
+  export const MessageSquare:Icon;
+  export const Sprout:Icon;
 }

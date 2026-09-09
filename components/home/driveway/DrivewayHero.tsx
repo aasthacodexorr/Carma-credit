@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { easeOut } from "./motion";
-import { Search, DollarSign, Car, CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import heroImg from "@/assets/cars/heroImg.jpg";
 
 const DrivewayHero = () => {
@@ -14,122 +14,89 @@ const DrivewayHero = () => {
     reduce
       ? undefined
       : {
-          initial: { opacity: 0, y, x },
-          animate: { opacity: 1, y: 0, x: 0 },
-          transition: { duration: 0.65, delay, ease: easeOut },
-        };
+        initial: { opacity: 0, y, x },
+        animate: { opacity: 1, y: 0, x: 0 },
+        transition: { duration: 0.65, delay, ease: easeOut },
+      };
 
   return (
-    <section className="relative min-h-[640px] lg:min-h-full w-full overflow-hidden bg-slate-950 text-white">
+    <section className="relative min-h-[560px] lg:min-h-[400px] w-full overflow-hidden bg-[#0d151c] text-white flex items-center">
       {/* Background Image Container with Overlay */}
       <div className="absolute inset-0 z-0 h-full w-full">
         <Image
           src={heroImg}
-          alt="Carma car hauler truck with blue car"
+          alt="Happy driver holding car keys"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center brightness-90 contrast-[1.05]"
+          className="object-cover object-center brightness-95 contrast-[1.05]"
         />
-        {/* Gradient overlays to match contrast and legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
+        {/* Soft dark gradient overlays mimicking the exact reference banner */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0b1218] via-[#0b1218]/80 to-transparent lg:w-[65%]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0b1218] via-transparent to-[#0b1218]/40" />
       </div>
 
       {/* Main Container */}
-      <div className="relative z-10 mx-auto flex max-w-[1480px] flex-col justify-between px-6 pb-8 pt-12 sm:px-12 md:pb-10 md:pt-10 xl:px-16">
-        <div className="max-w-2xl">
+      <div className="relative z-10 mx-auto w-full max-w-[1480px] px-6 py-12 sm:px-12 xl:px-16">
+        <div className="max-w-xl">
+
+          {/* Small Top Tagline */}
+          <motion.div {...enter(0.0, 10)} className="mb-2">
+            <span className="text-[11px] font-bold tracking-[0.18em] text-[#ff385c] uppercase">
+              Real People. Real Opportunities.
+            </span>
+          </motion.div>
+
           {/* Main Headline */}
           <motion.h1
             {...enter(0.05, 20)}
-            className="text-3xl font-black uppercase leading-[1.02] tracking-tight text-white sm:text-5xl md:text-[54px]"
+            className="text-3xl font-black tracking-tight text-white sm:text-5xl md:text-[52px] leading-[1.08]"
           >
-            SELL AND <br />
-            FINANCE QUALITY <br />
-            USED CARS <br />
-            ONLINE
+            Everyone Deserves <br />
+            a <span className="text-[#ff385c]">Second Chance.</span>
           </motion.h1>
 
-          {/* Subtitle */}
-          <motion.p
-            {...enter(0.15)}
-            className="mt-5 max-w-xl text-sm font-semibold text-slate-100 sm:text-base md:text-lg"
-          >
-            Compare financing options, or sell your car with a real offer from
-            Carma experts.
-          </motion.p>
-        </div>
+          {/* Subtitle / Description */}
+          <motion.div {...enter(0.15)} className="mt-4 space-y-3">
+            <p className="text-sm font-semibold text-white/90 sm:text-base">
+              Bad credit? No credit? Bankruptcy or consumer proposal?
+            </p>
+            <p className="text-xs font-normal text-slate-300 sm:text-sm leading-relaxed max-w-lg">
+              Carma Credit helps Canadians explore auto financing options and get back on the road.
+            </p>
+          </motion.div>
 
-        {/* Feature Cards Grid */}
-        <motion.div
-          {...enter(0.35)}
-          className="mt-12 grid gap-4 md:grid-cols-2"
-        >
-          {/* Blue Financing Card */}
-          <div className="group flex cursor-pointer flex-col justify-between rounded-2xl bg-[#ff385c] p-5 shadow-2xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#ff3d68] hover:to-[#ffb3c1] hover:text-slate-900 sm:flex-row sm:items-center">
-            <div className="flex items-center space-x-3.5">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#6632d6] text-white transition-colors duration-300 group-hover:bg-white group-hover:text-[#6632d6]">
-                <DollarSign className="h-6 w-6 stroke-[2.5]" />
-              </div>
-              <div>
-                <h3 className="text-base font-bold text-white transition-colors duration-300 group-hover:text-slate-950 sm:text-lg">
-                  Financing Made Simple
-                </h3>
-                <p className="text-wrap text-xs text-blue-100 transition-colors duration-300 group-hover:text-slate-800 sm:text-sm">
-                  Apply online and review available options from our <br className="hidden lg:block"/> lending partners.
-                </p>
-              </div>
-            </div>
+          {/* Call to Action Button */}
+          <motion.div {...enter(0.25)} className="mt-7">
             <Link
               href="/financing"
-              className="mt-4 inline-flex items-center justify-center rounded-full bg-[#6632d6] px-5 py-3 text-xs text-white transition-all duration-300 hover:scale-105 group-hover:bg-slate-950 group-hover:text-white sm:mt-0 sm:text-sm"
+              className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-7 py-3.5 text-xs sm:text-sm font-bold text-slate-950 shadow-lg shadow-[#ff385c]/20 transition-all duration-300 hover:bg-brand hover:scale-105"
             >
-              Get Pre-Approved
+              <span>Start My 2-Minute Quiz</span>
+              <ArrowRight className="h-4 w-4 stroke-[2.5]" />
             </Link>
-          </div>
+          </motion.div>
 
-          {/* Purple Sell/Trade Card */}
-          <div className="group flex cursor-pointer flex-col justify-between rounded-2xl bg-white p-5 text-black shadow-2xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#ff3d68] hover:to-[#ffb3c1] sm:flex-row sm:items-center">
-            <div className="flex items-center space-x-3.5">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#6632d6] text-white transition-colors duration-300 group-hover:bg-white group-hover:text-[#6632d6]">
-                <Car className="h-7 w-7 stroke-[2]" />
-              </div>
-              <div>
-                <h3 className="text-base font-bold transition-colors duration-300 group-hover:text-slate-950 sm:text-lg">
-                  Sell or trade your car
-                </h3>
-                <p className="text-xs transition-colors duration-300 group-hover:text-slate-800 sm:text-sm">
-                  Get a real offer in under 2 minutes
-                </p>
-              </div>
+          {/* Trust Check Items */}
+          <motion.div
+            {...enter(0.35)}
+            className="mt-6 flex flex-wrap items-center gap-6 text-xs font-medium text-slate-200"
+          >
+            <div className="flex items-center space-x-2">
+              <CheckCircle2 className="h-4 w-4 text-[#ff385c]" />
+              <span>No judgment</span>
             </div>
-            <Link
-              href="/trade-in-my-car"
-              className="mt-4 inline-flex items-center justify-center rounded-full bg-[#6632d6] px-5 py-3 text-xs text-white transition-all duration-300 hover:scale-105 group-hover:bg-slate-950 group-hover:text-white sm:mt-0 sm:text-sm"
-            >
-              Sell my Car
-            </Link>
-          </div>
-        </motion.div>
+            <div className="flex items-center space-x-2">
+              <CheckCircle2 className="h-4 w-4 text-[#ff385c]" />
+              <span>No obligation</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <CheckCircle2 className="h-4 w-4 text-[#ff385c]" />
+              <span>Just options</span>
+            </div>
+          </motion.div>
 
-        {/* Trust Badges */}
-        <motion.div
-          {...enter(0.4)}
-          className="mt-6 flex flex-wrap gap-6 text-xs font-bold text-white sm:text-sm"
-        >
-          <div className="flex items-center space-x-2">
-            <CheckCircle2 className="h-4 w-4 text-[#6632d6]" />
-            <span>No hidden fees</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <CheckCircle2 className="h-4 w-4 text-[#6632d6]" />
-            <span>Quality inspected</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <CheckCircle2 className="h-4 w-4 text-[#6632d6]" />
-            <span>Extended warranties</span>
-          </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

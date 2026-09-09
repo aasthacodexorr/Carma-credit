@@ -13,6 +13,10 @@ import {
   SellSection,
   DriversSeat,
   HomeFaq,
+  TrustPerksBar,
+  HowItWorksSteps,
+  CreditScoreBanner,
+  CreditSpecialists,
 } from "@/components/home/driveway";
 import { Reviews } from "@/components/home";
 
@@ -22,9 +26,13 @@ const HomePage = () => {
       <main className="dw-font min-h-screen overflow-x-clip bg-white">
         <Header />
         <DrivewayHero />
-        <ShopWithConfidence />
+        <TrustPerksBar/>
+        <HowItWorksSteps/>
+        <CreditScoreBanner/>
+        <CreditSpecialists/>
+        {/* <ShopWithConfidence />
         <SellSection />
-        <DriversSeat />
+        <DriversSeat /> */}
         <Reviews />
         <HomeFaq />
       </main>
