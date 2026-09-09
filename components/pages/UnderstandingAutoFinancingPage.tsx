@@ -109,7 +109,8 @@ export default function AutoLoanFraudPage() {
                   WHAT IS AUTO LOAN FRAUD?
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1e1b4b] mb-6">
-                  It’s More Common<br />Than You Think.
+                  It’s More Common<br /> 
+                  <p className='text-[#ff385c]'>Than You Think.</p>
                 </h2>
                 <p className="text-slate-600 text-base leading-relaxed mb-4">
                   Auto loan fraud happens when someone provides false information or uses someone else’s identity to obtain a vehicle loan. It can affect your credit, your finances and your peace of mind.
@@ -149,7 +150,7 @@ export default function AutoLoanFraudPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 flex flex-col text-center items-center hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 bg-white text-[#ff385c] rounded-xl shadow-sm flex items-center justify-center mb-4">
-                  <FileSpreadsheet size={24} />
+                  <FileSpreadsheet size={36} />
                 </div>
                 <h3 className="font-bold text-lg text-[#1e1b4b] mb-2">Identity Theft</h3>
                 <p className="text-slate-600 text-base leading-relaxed">
@@ -159,7 +160,7 @@ export default function AutoLoanFraudPage() {
 
               <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 flex flex-col text-center items-center hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 bg-white text-[#ff385c] rounded-xl shadow-sm flex items-center justify-center mb-4">
-                  <FileText size={24} />
+                  <FileText size={36} />
                 </div>
                 <h3 className="font-bold text-lg text-[#1e1b4b] mb-2">Income Fraud</h3>
                 <p className="text-slate-600 text-base leading-relaxed">
@@ -169,7 +170,7 @@ export default function AutoLoanFraudPage() {
 
               <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 flex flex-col text-center items-center hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 bg-white text-[#ff385c] rounded-xl shadow-sm flex items-center justify-center mb-4">
-                  <Cpu size={24} />
+                  <Cpu size={36} />
                 </div>
                 <h3 className="font-bold text-lg text-[#1e1b4b] mb-2">Synthetic Identity Fraud</h3>
                 <p className="text-slate-600 text-base leading-relaxed">
@@ -179,7 +180,7 @@ export default function AutoLoanFraudPage() {
 
               <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 flex flex-col text-center items-center hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 bg-white text-[#ff385c] rounded-xl shadow-sm flex items-center justify-center mb-4">
-                  <UserCheck size={24} />
+                  <UserCheck size={36} />
                 </div>
                 <h3 className="font-bold text-lg text-[#1e1b4b] mb-2">Straw Buyer</h3>
                 <p className="text-slate-600 text-base leading-relaxed">
