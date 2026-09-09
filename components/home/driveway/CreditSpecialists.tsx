@@ -5,19 +5,19 @@ export default function CreditSpecialists() {
     {
       name: "Jas",
       role: "Auto Financing Specialist",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       quote: "“Here to find solutions together.”",
     },
     {
       name: "Simran",
       role: "Auto Financing Specialist",
-      image: "https://randomuser.me/api/portraits/women/65.jpg",
+      image: "https://images.unsplash.com/photo-1560087637-bf797bc7796a?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       quote: "“Your goals are our priority.”",
     },
     {
       name: "Aman",
       role: "Auto Financing Specialist",
-      image: "https://randomuser.me/api/portraits/men/75.jpg",
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       quote: "“Let's get you back on the road.”",
     },
   ];
@@ -58,7 +58,7 @@ export default function CreditSpecialists() {
                     src={person.image}
                     alt={person.name}
                     fill
-                    className="object-cover"
+                    className="object-fit"
                     unoptimized
                   />
                 </div>

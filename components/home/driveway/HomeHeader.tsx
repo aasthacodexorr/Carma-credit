@@ -128,15 +128,13 @@ const HomeHeader = () => {
                   aria-expanded={isOpen}
                   aria-haspopup="true"
                   onClick={() => setActiveNav(isOpen ? null : item.label)}
-                  className={`${navLinkClass} cursor-pointer gap-1 ${
-                    isOpen ? "text-[#6632d6]" : ""
-                  }`}
+                  className={`${navLinkClass} cursor-pointer gap-1 ${isOpen ? "text-[#6632d6]" : ""
+                    }`}
                 >
                   {item.label}
                   <ChevronDown
-                    className={`h-3.5 w-3.5 transition-transform duration-200 xl:h-4 xl:w-4 ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
+                    className={`h-3.5 w-3.5 transition-transform duration-200 xl:h-4 xl:w-4 ${isOpen ? "rotate-180" : ""
+                      }`}
                     strokeWidth={2}
                   />
                 </button>
@@ -206,7 +204,7 @@ const HomeHeader = () => {
         </nav>
 
         <div className="ml-2 flex shrink-0 items-center xl:ml-4 gap-2">
-          
+
           <a
             href={PHONE_HREF}
             className="flex items-center gap-1.5 text-[14px] font-semibold text-[#6632d6] transition-opacity hover:opacity-80 xl:gap-2 xl:text-[17px]"
@@ -216,7 +214,7 @@ const HomeHeader = () => {
             <span className="xl:hidden">Call</span>
           </a>
           <Link href={"/financing"} className="bg-brand text-white py-3 px-6 font-bold rounded-full hover:bg-black">
-          Start My 2-Minute Quiz
+            Start My 2-Minute Quiz
           </Link>
         </div>
       </div>
@@ -232,13 +230,13 @@ const HomeHeader = () => {
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
 
-       <Link
-  href="/"
-  aria-label="Carma Credit home"
-  className="flex h-10 w-[110px] shrink-0 items-center justify-start overflow-visible"
->
-  <Logo />
-</Link>
+        <Link
+          href="/"
+          aria-label="Carma Credit home"
+          className="flex h-10 w-[110px] shrink-0 items-center justify-start overflow-visible"
+        >
+          <Logo />
+        </Link>
 
         <a
           href={PHONE_HREF}
