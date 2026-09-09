@@ -38,7 +38,7 @@ export const DW_NAV = [
         icon: "credit",
       },
       {
-        label: "Understanding Auto Financing",
+        label: "Preventing Auto Loan fraud",
         href: "/understanding-auto-financing",
         description: "Learn the terms that matter before you finance",
         icon: "financing",

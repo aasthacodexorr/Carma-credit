@@ -7,7 +7,7 @@ import { Header, Footer } from "@/components/layout";
 export const RESOURCE_LINKS = [
   { label: "How It Works", href: "/how-it-works" },
   { label: "Rebuild Your Credit", href: "/rebuild-your-credit" },
-  { label: "Understanding Auto Financing", href: "/understanding-auto-financing" },
+  { label: "Preventing Auto Loan fraud", href: "/understanding-auto-financing" },
   { label: "FAQ", href: "/faq" },
   { label: "What do I need", href: "/what-do-i-need" },
 ] as const;
