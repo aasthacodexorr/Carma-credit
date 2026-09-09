@@ -6,7 +6,7 @@ import { FAQS } from "@/constants/faqs";
 const HomeFaq = () => {
   return (
     <section id="faq" className="dw-font w-full bg-white px-4 py-14 sm:px-6 md:px-10 md:py-20">
-      <div className="mx-auto max-w-[900px]">
+      <div className="max-w-[1480px] px-4 sm:px-12 xl:px-16 mx-auto">
         <Reveal className="mb-8 text-center md:mb-10">
           <h2 className="mb-3 text-[clamp(1.75rem,3.8vw,2.75rem)] font-bold leading-[1.15] tracking-[-0.03em] text-[#121212]">
             Frequently asked questions
