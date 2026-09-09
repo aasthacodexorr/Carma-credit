@@ -85,4 +85,6 @@ declare module 'lucide-react' {
   export const Headphones:Icon;
   export const MessageSquare:Icon;
   export const Sprout:Icon;
+  export const CheckCircle:Icon;
+  export const CreditCard:Icon;
 }
