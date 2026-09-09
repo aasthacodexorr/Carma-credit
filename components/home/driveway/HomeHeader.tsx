@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  ArrowRight,
   BookOpen,
   Building2,
   ChevronDown,
@@ -213,8 +214,9 @@ const HomeHeader = () => {
             <span className="hidden xl:inline">{PHONE_DISPLAY}</span>
             <span className="xl:hidden">Call</span>
           </a>
-          <Link href={"/financing"} className="bg-brand text-white py-3 px-6 font-bold rounded-full hover:bg-black">
+          <Link href={"/financing"} className="bg-brand text-white py-3 px-3 rounded-xl hover:bg-black flex gap-2">
             Start My 2-Minute Quiz
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>

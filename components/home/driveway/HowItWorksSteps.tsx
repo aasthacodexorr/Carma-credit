@@ -57,7 +57,7 @@ const HowItWorksSteps = () => {
               </div>
 
               {/* Icon Container */}
-              <div className="mt-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#6632d6] shadow-lg shadow-[#6632d6]/30">
+              <div className="mt-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#6632d6] shadow-lg shadow-[#6632d6]/30">
                 {item.icon}
               </div>
 

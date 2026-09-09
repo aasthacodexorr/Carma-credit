@@ -30,7 +30,7 @@ export default function CreditSpecialists() {
           <p className="text-xs md:text-sm font-semibold tracking-widest text-[#B83269] uppercase mb-2">
             Meet The Team
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A1A2E] tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-[#1A1A2E] tracking-tight">
             Your Auto Financing Specialists Are Here to Help.
           </h2>
 
