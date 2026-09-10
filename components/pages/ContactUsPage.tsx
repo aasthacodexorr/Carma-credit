@@ -307,7 +307,7 @@ export default function ContactUs() {
 
                 <div className="mt-6">
                   <Link
-                    href="/faqs"
+                    href="/faq"
                     className="text-[15px] font-bold text-[#ff385c] hover:underline inline-flex items-center gap-1"
                   >
                     View All FAQs &rarr;
