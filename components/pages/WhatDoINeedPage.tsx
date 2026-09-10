@@ -444,8 +444,8 @@ export default function WhatDoINeedPage() {
 
                 <div>
                   <a
-                    href="/#contact"
-                    className="inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3 rounded-full bg-[#ff385c] hover:bg-[#a81a6c] active:bg-[#8e145a] text-white font-semibold text-[14px] sm:text-[15px] transition-colors duration-150 shadow-sm"
+                    href="/financing"
+                    className="inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3 rounded-full bg-[#ff385c] hover:bg-brand active:bg-[#8e145a] text-white font-semibold text-[14px] sm:text-[15px] transition-colors duration-150 shadow-sm"
                   >
                     <span>Talk to an Auto Financing Specialist</span>
                     <span className="text-base leading-none">→</span>
@@ -496,8 +496,8 @@ export default function WhatDoINeedPage() {
 
               <div>
                 <a
-                  href="/#quiz"
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#ff385c] hover:bg-[#a81a6c] active:bg-[#8e145a] text-white font-semibold text-[13.5px] sm:text-[14.5px] transition-colors duration-150 shadow-md"
+                  href="/financing"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#ff385c] hover:bg-brand active:bg-[#8e145a] text-white font-semibold text-[13.5px] sm:text-[14.5px] transition-colors duration-150 shadow-md"
                 >
                   <span>Start My Auto Financing Quiz</span>
                   <span className="text-base leading-none">→</span>
