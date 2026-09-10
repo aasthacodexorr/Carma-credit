@@ -20,6 +20,7 @@ export default {
     extend: {
 
       fontFamily: {
+        
         sans: ["Lato", "sans-serif"],
         carmax: ["Carmax Variable", "sans-serif"],
       },

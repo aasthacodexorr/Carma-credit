@@ -137,7 +137,7 @@ export default function ResourcesPage() {
                         </div>
                     </div>
                 </section>
-                <section className="bg-white border-y border-gray-200 py-6 px-4 sm:px-6 lg:px-8">
+                <section className="bg-white border-b border-gray-200 py-6 px-4 sm:px-6 lg:px-8">
                     <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-0">
                         {features.map((feature, index) => {
                             const IconComponent = feature.icon;
@@ -365,6 +365,16 @@ export default function ResourcesPage() {
                         className="absolute inset-0 bg-gradient-to-r from-[#080b18] via-[#080b18]/60 to-transparent"
                         aria-hidden="true"
                     />
+
+                    {/* Overlay Text positioned on the right side image */}
+                    <div className="absolute right-12 bottom-16 lg:right-20 lg:bottom-20 z-10 hidden sm:block text-right">
+                        <p className="font-handwriting italic text-white text-2xl lg:text-3xl leading-relaxed tracking-wide drop-shadow-md">
+                            Same Roads.<br />
+                            Brighter<br />
+                            Tomorrows.
+                        </p>
+                        <div className="w-32 h-[3px] bg-[#ff385c] mt-2 ml-auto rounded-full" />
+                    </div>
                 </div>
 
                 {/* Content on the Dark Left Side */}
@@ -372,13 +382,13 @@ export default function ResourcesPage() {
                     <div className="flex flex-col items-start justify-start gap-8 px-6 sm:px-0">
 
                         <div>
-                            <span className="text-md uppercase tracking-widest text-pink-300 font-bold block mb-2">
+                            <span className="text-md uppercase tracking-widest text-white font-bold block mb-2">
                                 SAME ROADS. BRIGHTER TOMORROWS.
                             </span>
                             <h2 className="text-3xl sm:text-4xl text-white font-extrabold tracking-tight mb-3">
                                 Start Your Journey Today.
                             </h2>
-                            <p className="text-slate-300 text-lg">
+                            <p className="text-slate-300 text-xl">
                                 It only takes 2 minutes. No judgment. No obligation.
                             </p>
                         </div>
