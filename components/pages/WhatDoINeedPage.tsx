@@ -166,7 +166,7 @@ export default function WhatDoINeedPage() {
           </div>
 
           {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
-          <div className="relative z-20 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
+          <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
             <div className="max-w-[500px] xl:max-w-[540px] flex flex-col items-start justify-center">
               <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase mb-4">
                 What Do I Need?
