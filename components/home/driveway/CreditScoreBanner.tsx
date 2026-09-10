@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 export default function CreditScoreBanner() {
   return (
-    <section className="w-full bg-[#FFF5F7] py-12 px-4 sm:px-6 lg:px-8  overflow-hidden">
-      <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+    <section className="w-full bg-[#FFF5F7] pt-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto flex flex-col lg:flex-row items-cente justify-between gap-12">
 
         {/* Left Content Area */}
         <div className="flex-1 max-w-xl text-center lg:text-left">
@@ -60,20 +60,20 @@ export default function CreditScoreBanner() {
         </div>
 
         {/* Right Visual Area (Phone + Side Text) */}
-        <div className="relative flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 w-full lg:w-auto mt-8 lg:mt-0">
+        <div className="relative flex flex-col  sm:flex-row items-end justify-center lg:justify-start gap-8 w-full lg:w-auto mt-8 lg:mt-0">
 
           {/* Background glowing soft pink circle effect behind phone */}
-          <div className="absolute w-72 h-72 bg-[#ffd1dc] rounded-full blur-3xl -z-10 opacity-70" />
+          <div className="absolute -bottom-10 w-72 h-72   bg-[#ffd1dc] rounded-full blur-3xl -z-10 opacity-70" />
 
           {/* Phone Mockup Container */}
-          <div className="relative w-full max-w-[280px] sm:max-w-[320px] flex justify-center">
+          <div className="relative w-full max-w-[280px]  sm:max-w-[320px] flex justify-center">
             <div className="relative w-full overflow-hidden">
               <Image
                 src="/images/h1.png"
                 alt="Carma Credit score preview on phone mockup"
                 width={800}
                 height={1000}
-                className="block w-full h-auto drop-shadow-xl"
+                className="block w-full h-auto"
                 priority
                 unoptimized
               />
@@ -81,7 +81,7 @@ export default function CreditScoreBanner() {
           </div>
 
           {/* Right Side Text Block */}
-          <div className="max-w-[220px] text-left shrink-0">
+          <div className="max-w-[220px] text-left shrink-0 pb-12 sm:pb-16">
             <p className="text-[#1e102e] text-xl sm:text-[22px] leading-snug font-semibold tracking-wide" style={{ fontFamily: 'Caveat, cursive, sans-serif' }}>
               Know your score.<br />
               Understand your<br />

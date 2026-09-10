@@ -262,53 +262,60 @@ export default function HowItWorksPage() {
         </section>
 
         {/* ================= SECTION 4: READY TO GET STARTED BANNER ================= */}
-        <section className="relative w-full overflow-hidden bg-[#080b18] py-10 sm:py-12 lg:py-14">
-                  {/* Background Image on Right Side */}
-                  <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none opacity-85 lg:opacity-100">
-                    <Image
-                      src="/images/what_do_i_need_sunset_hd.png"
-                      alt="Carma Credit auto financing specialist meeting with customer"
-                      width={1730}
-                      height={909}
-                      className="block w-full h-auto"
-                      priority
-                      unoptimized
-                    />
-        
-                    {/* Smooth gradient blend into the dark left side */}
-                    <div
-                      className="absolute inset-0 bg-gradient-to-r from-[#080b18] via-[#080b18]/60 to-transparent"
-                      aria-hidden="true"
-                    />
-                  </div>
-        
-                  {/* Content on the Dark Left Side */}
-                  <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-xl lg:max-w-2xl xl:max-w-3xl flex flex-col items-start justify-center">
-                      <span className="text-[15px] sm:text-[12px] font-bold tracking-[0.2em] text-slate-300 uppercase mb-2 sm:mb-2.5">
-                        Ready To Get Started?
-                      </span>
-        
-                      <h2 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-extrabold text-white tracking-tight leading-tight mb-2 sm:mb-3 whitespace-normal lg:whitespace-nowrap">
-                        Your Next Car is Closer Than You Think.
-                      </h2>
-        
-                      <p className="text-slate-300 text-base sm:text-base lg:text-[15px] leading-normal mb-5 sm:mb-6">
-                        It only takes 2 minutes. No judgment. No obligation.
-                      </p>
-        
-                      <div>
-                        <a
-                          href="/financing"
-                          className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#ff385c] hover:bg-brand active:bg-[#8e145a] text-white font-semibold text-[13.5px] sm:text-[14.5px] transition-colors duration-150 shadow-md"
-                        >
-                          <span>Start My Auto Financing Quiz</span>
-                          <span className="text-base leading-none">→</span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </section>
+       <section className="relative w-full overflow-hidden bg-[#080b18] py-10 sm:py-12 lg:py-14">
+    {/* Background Image on Right Side */}
+    <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none opacity-85 lg:opacity-100">
+        <Image
+            src="/images/what_do_i_need_sunset_hd.png"
+            alt="Carma Credit auto financing specialist meeting with customer"
+            width={1730}
+            height={909}
+            className="block w-full h-auto"
+            priority
+            unoptimized
+        />
+
+        {/* Smooth gradient blend into the dark left side */}
+        <div
+            className="absolute inset-0 bg-gradient-to-r from-[#080b18] via-[#080b18]/60 to-transparent"
+            aria-hidden="true"
+        />
+
+        {/* Overlay Text positioned on the right side image matching the reference design */}
+        <div className="absolute right-12 bottom-12 lg:right-20 lg:bottom-16 z-10 hidden sm:block text-right">
+            <p className="font-handwriting italic text-white text-2xl lg:text-3xl leading-snug tracking-wide drop-shadow-md">
+                Same Roads.<br />
+                Brighter<br />
+                Tomorrows.
+            </p>
+            <div className="w-28 lg:w-32 h-[3px] bg-[#ff385c] mt-2 ml-auto rounded-full" />
+        </div>
+    </div>
+
+    {/* Content on the Dark Left Side */}
+    <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-xl lg:max-w-2xl xl:max-w-3xl flex flex-col items-start justify-center">
+            
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-extrabold text-white tracking-tight leading-tight mb-2 sm:mb-3 whitespace-normal lg:whitespace-nowrap">
+                Ready to Get Started?
+            </h2>
+
+            <p className="text-slate-300 text-base sm:text-base lg:text-[15px] leading-normal mb-5 sm:mb-6">
+                It only takes 2 minutes. No commitment. No judgment.
+            </p>
+
+            <div>
+                <a
+                    href="/financing"
+                    className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#ff385c] hover:bg-brand active:bg-[#8e145a] text-white font-semibold text-[13.5px] sm:text-[14.5px] transition-colors duration-150 shadow-md"
+                >
+                    <span>Start My Auto Financing Quiz</span>
+                    <span className="text-base leading-none">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
       </main>
       <Footer />
