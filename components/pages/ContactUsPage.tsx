@@ -7,6 +7,7 @@ import { useAppConfig } from "@/app/providers";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, ChevronDown } from "lucide-react";
+import { FaqAccordion } from "../common";
 
 const LIVE_CONTACT_FORM_URL =
   "https://carma.zopsoftware.com/api/templates/render/2";
@@ -278,34 +279,11 @@ export default function ContactUs() {
                   You might find the answer in our FAQs.
                 </p>
 
-                <div className="mt-6 space-y-4 w-full pr-20">
-                  {FAQS.map((faq, i) => {
-                    const isOpen = openFaqIndex === i;
-                    return (
-                      <div
-                        key={i}
-                        onClick={() => toggleFaq(i)}
-                        className="p-4 rounded-xl border border-gray-200 bg-white shadow-sm hover:border-[#e6007e] transition-colors cursor-pointer"
-                      >
-                        <div className="flex items-center justify-between">
-                          <span className="font-semibold text-[15px] text-[#121212]">
-                            {faq.question}
-                          </span>
-                          <ChevronDown
-                            className={`h-5 w-5 text-gray-400 transition-transform duration-200 ${isOpen ? "transform rotate-180 text-[#e6007e]" : ""}`}
-                          />
-                        </div>
-                        {isOpen && (
-                          <div className="mt-3 pt-3 border-t border-gray-100 text-[14px] text-[#555] leading-relaxed">
-                            {faq.answer}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
+                <div className="mt-6 space-y-4 w-full lg:pr-20">
+                  <FaqAccordion faqs={FAQS}/>
                 </div>
 
-                <div className="mt-6">
+                <div className="my-6">
                   <Link
                     href="/faq"
                     className="text-[15px] font-bold text-[#ff385c] hover:underline inline-flex items-center gap-1"

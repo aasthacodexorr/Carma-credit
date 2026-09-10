@@ -17,6 +17,7 @@ import {
 import { Footer, Header } from '../layout';
 import Link from 'next/link';
 import Image from 'next/image';
+import { FaqAccordion } from '../common';
 
 export default function UnderstandingCreditPage() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -26,11 +27,46 @@ export default function UnderstandingCreditPage() {
   };
 
   const faqs = [
-    "Will checking my credit score affect it?",
-    "What is a soft pull vs. a hard pull?",
-    "What if I have no credit history?",
-    "Can I get approved with bad credit?",
-    "How can I improve my credit score?"
+    {
+      q: "Will checking my credit score affect it?",
+      a: (
+        <p>
+          Checking your own credit score is a soft inquiry and does not affect your credit score.
+        </p>
+      ),
+    },
+    {
+      q: "What is a soft pull vs. a hard pull?",
+      a: (
+        <p>
+          A soft pull does not affect your credit score, while a hard pull may have a small temporary impact and is typically used when applying for credit.
+        </p>
+      ),
+    },
+    {
+      q: "What if I have no credit history?",
+      a: (
+        <p>
+          Having no credit history does not necessarily prevent you from getting approved. There may be financing options available for first-time borrowers.
+        </p>
+      ),
+    },
+    {
+      q: "Can I get approved with bad credit?",
+      a: (
+        <p>
+          Yes. Having bad credit does not automatically mean you cannot get approved. Your available options will depend on your overall financial situation and lender requirements.
+        </p>
+      ),
+    },
+    {
+      q: "How can I improve my credit score?",
+      a: (
+        <p>
+          You can improve your credit score by making payments on time, keeping your credit utilization low, limiting new credit applications, and maintaining a healthy credit history.
+        </p>
+      ),
+    },
   ];
 
   return (
@@ -71,6 +107,8 @@ export default function UnderstandingCreditPage() {
               }}
               aria-hidden="true"
             />
+            {/* Mobile Black Overlay for legibility */}
+            <div className="absolute inset-0 bg-black/50 lg:hidden pointer-events-none" aria-hidden="true" />
           </div>
 
           {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
@@ -81,20 +119,20 @@ export default function UnderstandingCreditPage() {
               <span className="text-base sm:text-base font-bold tracking-widest text-[#ff385c] uppercase block">
                 Understanding Your Credit
               </span>
-              <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-[#1a103c] tracking-tight leading-[1.15] mb-3">
+              <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-white lg:text-[#1a103c] tracking-tight leading-[1.15] mb-3">
                 Knowledge <br /> <p className='text-[#ff385c]'>Puts You in the Driver’s Seat.</p>
               </h1>
-              <p className="text-base sm:text-lg text-slate-600 mb-8 max-w-xl leading-relaxed">
+              <p className="text-base sm:text-lg text-white lg:text-slate-600 mb-8 max-w-xl leading-relaxed">
                 Understand your credit, make informed decisions, and feel confident about your auto financing journey.
               </p>
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-2">
                 <Link href={"/financing"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-pink-500/25 transition-all flex items-center gap-2 group">
                   Check My Credit Score
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
 
-              <div className="flex flex-wrap items-center gap-6 mt-8 text-base font-medium text-slate-700">
+              <div className="flex flex-col lg:flex-row flex-wrap items-start lg:items-center gap-y-3 lg:gap-6 mt-8 text-base font-medium text-white lg:text-slate-700">
                 <div className="flex items-center gap-2">
                   <span className="text-[#ff385c] font-bold">✔</span> Soft pull
                 </div>
@@ -108,7 +146,6 @@ export default function UnderstandingCreditPage() {
             </div>
           </div>
         </section>
-
         {/* SECTION 2: WHAT IS A CREDIT SCORE */}
         <section className="py-16 lg:py-16 bg-white">
           <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto text-center px-6">
@@ -259,29 +296,7 @@ export default function UnderstandingCreditPage() {
             </div>
 
             <div className="max-w-4xl mx-auto space-y-4">
-              {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="border border-slate-200/80 rounded-xl overflow-hidden transition-all bg-white"
-                >
-                  <button
-                    onClick={() => toggleFaq(index)}
-                    className="w-full px-6 py-5 text-left flex justify-between items-center font-semibold text-[#1a103c] text-base sm:text-base hover:bg-slate-50/55 transition-colors"
-                  >
-                    <span>{faq}</span>
-                    {openFaq === index ? (
-                      <ChevronUp className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                    )}
-                  </button>
-                  {openFaq === index && (
-                    <div className="px-6 pb-5 text-slate-600 text-base leading-relaxed border-t border-slate-100 pt-3">
-                      Here is detailed information regarding your inquiry. Understanding how this works helps you make empowered decisions throughout your auto financing application.
-                    </div>
-                  )}
-                </div>
-              ))}
+              <FaqAccordion faqs={faqs} />
             </div>
           </div>
         </section>
