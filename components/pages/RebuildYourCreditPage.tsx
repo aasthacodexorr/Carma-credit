@@ -88,10 +88,10 @@ export default function UnderstandingCreditPage() {
                 Understand your credit, make informed decisions, and feel confident about your auto financing journey.
               </p>
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                <button className="bg-[#ff385c] hover:bg-brand text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-pink-500/25 transition-all flex items-center gap-2 group">
+                <Link href={"/financing"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-pink-500/25 transition-all flex items-center gap-2 group">
                   Check My Credit Score
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </div>
 
               <div className="flex flex-wrap items-center gap-6 mt-8 text-base font-medium text-slate-700">
@@ -306,9 +306,9 @@ export default function UnderstandingCreditPage() {
                   </p>
                 </div>
               </div>
-              <button className="bg-[#ff385c] hover:bg-brand text-white font-semibold px-6 py-3.5 rounded-full shadow-md text-base whitespace-nowrap transition-all">
+              <Link href={"/Financing"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold px-6 py-3.5 rounded-full shadow-md text-base whitespace-nowrap transition-all">
                 Talk to a Credit Specialist →
-              </button>
+              </Link>
             </div>
           </div>
         </section>

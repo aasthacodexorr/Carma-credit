@@ -30,7 +30,7 @@ export default function CreditScoreBanner() {
           <div className="mb-8 flex justify-center lg:justify-start">
             <Link 
               href="/financing" 
-              className="inline-flex items-center justify-center bg-[#ff385c] hover:bg-brand text-white font-semibold py-3.5 px-8 rounded-xl shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-base"
+              className="inline-flex items-center justify-center bg-[#ff385c] hover:bg-brand text-white font-semibold py-3.5 px-8 rounded-full shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-base"
             >
               Check My Credit Score <ArrowRight className="ml-2 w-5 h-5" />
             </Link> 

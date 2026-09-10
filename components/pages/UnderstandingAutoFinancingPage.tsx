@@ -269,7 +269,7 @@ export default function AutoLoanFraudPage() {
                   <p className="text-slate-600 text-base leading-relaxed mb-6">
                     If you think you’ve been targeted by fraud or notice suspicious activity, contact us right away. We’re here to help and guide you through the next steps.
                   </p>
-                  <Link href={"financing"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold text-base px-6 py-3 rounded-full inline-flex items-center gap-2 transition-colors shadow-sm">
+                  <Link href={"/contact-us"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold text-base px-6 py-3 rounded-full inline-flex items-center gap-2 transition-colors shadow-sm">
                     Talk to Our Team <ArrowRight size={16} />
                   </Link>
                   <p className="text-[11px] text-slate-400 mt-4">Your security is important to us</p>

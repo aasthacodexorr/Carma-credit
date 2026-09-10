@@ -108,10 +108,10 @@ export default function HowItWorksPage() {
               </p>
 
               <div className="mb-8">
-                <button className="bg-[#ff385c] hover:bg-brand cursor-pointer text-white font-semibold px-8 py-4 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 group">
+                <Link href={"/financing"} className="bg-[#ff385c] w-fit hover:bg-brand cursor-pointer text-white font-semibold px-8 py-4 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 group">
                   Start My Auto Financing Quiz
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </div>
 
               {/* Feature Badges */}
