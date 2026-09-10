@@ -2,6 +2,7 @@
 import { ArrowRight, Check } from "lucide-react";
 import { Footer, Header } from "@/components/layout";
 import Link from "next/link";
+import Image from "next/image";
 
 const steps = [
   {
@@ -13,7 +14,7 @@ const steps = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
       </svg>
     ),
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "images/q1.png",
   },
   {
     number: "2",
@@ -24,7 +25,7 @@ const steps = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
       </svg>
     ),
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "images/q2.png",
   },
   {
     number: "3",
@@ -35,7 +36,7 @@ const steps = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
     ),
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "images/q3.png",
   },
   {
     number: "4",
@@ -47,7 +48,7 @@ const steps = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
       </svg>
     ),
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "images/q4.png",
   },
 ];
 
@@ -58,68 +59,82 @@ export default function HowItWorksPage() {
       <main className="bg-white text-[#1a1b35] overflow-hidden">
 
         {/* ================= SECTION 1: HERO ================= */}
-        <section className="bg-gradient-to-b from-[#fdf4f7] to-white py-16 lg:py-24">
-          <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
+          {/* RIGHT SIDE: Large Dealership Image starting right next to the text and extending to the right edge */}
+          <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none">
+            {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
+            <div
+              className="relative w-full h-full"
+              style={{
+                maskImage:
+                  "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+                WebkitMaskImage:
+                  "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+              }}
+            >
+              <Image
+                src="/images/howitworks_1.png"
+                alt="Carma Credit dealership building"
+                fill
+                priority
+                className="object-cover object-center lg:object-[left_center]"
+                sizes="100vw"
+              />
+            </div>
 
-              {/* Left Content */}
-              <div className="lg:col-span-6 px-6 sm:px-0">
-                <span className="text-[#ff385c] uppercase tracking-widest text-base font-bold lg:px-1 block">
-                  HOW IT WORKS
-                </span>
-                <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-[#1a1b35] leading-tight mb-3">
-                  From Application <br />
-                  <span className="text-[#ff385c]">to Car Keys.</span>
-                </h1>
-                <p className="text-[#4a4b65] text-base sm:text-lg mb-8 leading-relaxed max-w-xl">
-                  A simple process. Real people. Real support. Carma Credit helps you get approved for automotive financing and find the right vehicle — all in one place.
-                </p>
+            {/* SOFT HORIZONTAL FADE: Seamless transition located right nearby the text */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
+              }}
+              aria-hidden="true"
+            />
+          </div>
 
-                <div className="mb-8">
-                  <button className="bg-[#ff385c] hover:bg-brand cursor-pointer text-white font-semibold px-8 py-4 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 group">
-                    Start My Auto Financing Quiz
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
+          {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
+          <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
+            <div className="lg:col-span-6 px-6 sm:px-0">
+              <span className="text-[#ff385c] uppercase tracking-widest text-base font-bold lg:px-1 block">
+                HOW IT WORKS
+              </span>
+              <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-[#1a1b35] leading-tight mb-3">
+                From Application <br />
+                <span className="text-[#ff385c]">to Car Keys.</span>
+              </h1>
+              <p className="text-[#4a4b65] text-base sm:text-lg mb-8 leading-relaxed max-w-xl">
+                A simple process. Real people. Real support. Carma Credit helps you get approved for automotive financing and find the right vehicle — all in one place.
+              </p>
 
-                {/* Feature Badges */}
-                <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-sm text-[#4a4b65] font-medium">
-                  <div className="flex items-center gap-2">
-                    <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white">
-                      <Check className="w-3 h-3 stroke-[3]" />
-                    </div>
-                    <span>No judgment.</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white">
-                      <Check className="w-3 h-3 stroke-[3]" />
-                    </div>
-                    <span>No obligation.</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white">
-                      <Check className="w-3 h-3 stroke-[3]" />
-                    </div>
-                    <span>Automotive financing only</span>
-                  </div>
-                </div>
+              <div className="mb-8">
+                <button className="bg-[#ff385c] hover:bg-brand cursor-pointer text-white font-semibold px-8 py-4 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 group">
+                  Start My Auto Financing Quiz
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
               </div>
 
-              {/* Right Image / Graphic Simulation */}
-              <div className="lg:col-span-6 relative px-6 sm:px-0">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-900 h-[350px] sm:h-[420px]">
-                  <div className="absolute inset-0 bg-cover bg-center opacity-70" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&q=80&w=1000')` }} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-                  <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md px-6 py-4 rounded-2xl shadow-xl flex items-center gap-4">
-                    <div className="text-right">
-                      <p className="text-base text-gray-500 font-semibold uppercase tracking-wider">Carma Credit</p>
-                      <p className="text-sm font-bold text-[#1a1b35]">Same Roads. Brighter Tomorrows.</p>
-                    </div>
+              {/* Feature Badges */}
+              <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-sm text-[#4a4b65] font-medium">
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white">
+                    <Check className="w-3 h-3 stroke-[3]" />
                   </div>
+                  <span>No judgment.</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white">
+                    <Check className="w-3 h-3 stroke-[3]" />
+                  </div>
+                  <span>No obligation.</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white">
+                    <Check className="w-3 h-3 stroke-[3]" />
+                  </div>
+                  <span>Automotive financing only</span>
                 </div>
               </div>
-
             </div>
           </div>
         </section>
@@ -247,25 +262,53 @@ export default function HowItWorksPage() {
         </section>
 
         {/* ================= SECTION 4: READY TO GET STARTED BANNER ================= */}
-        <section className="bg-[#1a1b35] py-20 relative overflow-hidden text-white">
-          <div className="absolute inset-0 opacity-40 bg-cover bg-center" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1600')` }} />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1a1b35] via-[#1a1b35]/90 to-transparent" />
-
-          <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto relative z-10">
-            <div className="max-wxl">
-              <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
-                Ready to Get Started?
-              </h2>
-              <p className="text-gray-300 text-sm sm:text-base mb-8">
-                It only takes 2 minutes. No commitment. No judgment.
-              </p>
-              <Link href={"/financing"} className="bg-[#ff385c] w-fit hover:bg-brand text-white font-semibold px-8 py-4 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 group">
-                Start My Auto Financing Quiz
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-          </div>
-        </section>
+        <section className="relative w-full overflow-hidden bg-[#080b18] py-10 sm:py-12 lg:py-14">
+                  {/* Background Image on Right Side */}
+                  <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none opacity-85 lg:opacity-100">
+                    <Image
+                      src="/images/what_do_i_need_sunset_hd.png"
+                      alt="Carma Credit auto financing specialist meeting with customer"
+                      width={1730}
+                      height={909}
+                      className="block w-full h-auto"
+                      priority
+                      unoptimized
+                    />
+        
+                    {/* Smooth gradient blend into the dark left side */}
+                    <div
+                      className="absolute inset-0 bg-gradient-to-r from-[#080b18] via-[#080b18]/60 to-transparent"
+                      aria-hidden="true"
+                    />
+                  </div>
+        
+                  {/* Content on the Dark Left Side */}
+                  <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-xl lg:max-w-2xl xl:max-w-3xl flex flex-col items-start justify-center">
+                      <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] text-slate-300 uppercase mb-2 sm:mb-2.5">
+                        Ready To Get Started?
+                      </span>
+        
+                      <h2 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-extrabold text-white tracking-tight leading-tight mb-2 sm:mb-3 whitespace-normal lg:whitespace-nowrap">
+                        Your Next Car is Closer Than You Think.
+                      </h2>
+        
+                      <p className="text-slate-300 text-xs sm:text-sm lg:text-[15px] leading-normal mb-5 sm:mb-6">
+                        It only takes 2 minutes. No judgment. No obligation.
+                      </p>
+        
+                      <div>
+                        <a
+                          href="/financing"
+                          className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#ff385c] hover:bg-brand active:bg-[#8e145a] text-white font-semibold text-[13.5px] sm:text-[14.5px] transition-colors duration-150 shadow-md"
+                        >
+                          <span>Start My Auto Financing Quiz</span>
+                          <span className="text-base leading-none">→</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </section>
 
       </main>
       <Footer />
