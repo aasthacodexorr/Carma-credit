@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { easeOut } from "./motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
-import heroImg from "@/assets/cars/heroImg.jpg";
 
 const DrivewayHero = () => {
   const reduce = useReducedMotion();
@@ -20,20 +19,39 @@ const DrivewayHero = () => {
       };
 
   return (
-    <section className="relative min-h-[560px] lg:min-h-[400px] w-full overflow-hidden bg-[#0d151c] text-white flex items-center">
-      {/* Background Image Container with Overlay */}
-      <div className="absolute inset-0 z-0 h-full w-full">
-        <Image
-          src={heroImg}
-          alt="Happy driver holding car keys"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center brightness-95 contrast-[1.05]"
+    <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
+      {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
+      <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
+        {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
+        <div
+          className="relative w-full h-full"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+          }}
+        >
+          <Image
+            src="/images/h2.png"
+            alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
+            width={1730}
+            height={909}
+            className="block w-full h-auto"
+            priority
+            unoptimized
+          />
+        </div>
+
+        {/* SOFT HORIZONTAL FADE: Seamless transition located right nearby the text */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
+          }}
+          aria-hidden="true"
         />
-        {/* Soft dark gradient overlays mimicking the exact reference banner */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0b1218] via-[#0b1218]/80 to-transparent lg:w-[65%]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0b1218] via-transparent to-[#0b1218]/40" />
       </div>
 
       {/* Main Container */}
@@ -50,7 +68,7 @@ const DrivewayHero = () => {
           {/* Main Headline */}
           <motion.h1
             {...enter(0.05, 20)}
-            className="text-3xl font-black tracking-tight text-white sm:text-5xl md:text-[52px] leading-[1.08]"
+            className="text-3xl font-black tracking-tight text-[#131b4d] sm:text-5xl md:text-[52px] leading-[1.08]"
           >
             Everyone Deserves <br />
             a <span className="text-[#ff385c]">Second Chance.</span>
@@ -58,10 +76,10 @@ const DrivewayHero = () => {
 
           {/* Subtitle / Description */}
           <motion.div {...enter(0.15)} className="mt-4 space-y-3">
-            <p className="text-sm font-semibold text-white/90 sm:text-base">
+            <p className="text-sm font-semibold text-[#131b4d] sm:text-base">
               Bad credit? No credit? Bankruptcy or consumer proposal?
             </p>
-            <p className="text-xs font-normal text-slate-300 sm:text-sm leading-relaxed max-w-lg">
+            <p className="text-xs font-normal text-[#131b4d] sm:text-sm leading-relaxed max-w-lg">
               Carma Credit helps Canadians explore auto financing options and get back on the road.
             </p>
           </motion.div>
@@ -80,7 +98,7 @@ const DrivewayHero = () => {
           {/* Trust Check Items */}
           <motion.div
             {...enter(0.35)}
-            className="mt-6 flex flex-wrap items-center gap-6 text-xs font-medium text-slate-200"
+            className="mt-6 flex flex-wrap items-center gap-6 text-xs font-medium text-[#131b4d]"
           >
             <div className="flex items-center space-x-2">
               <CheckCircle2 className="h-4 w-4 text-[#ff385c]" />
