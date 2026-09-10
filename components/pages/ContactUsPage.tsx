@@ -225,7 +225,7 @@ export default function ContactUs() {
         {/* =========================
             SECTION 2: FEATURE BADGES
         ========================= */}
-        <section className="w-full bg-[#fcfcfc] border-y border-gray-100 py-12">
+        <section className="w-full bg-[#fcfcfc] py-12">
           <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-12 xl:px-16">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {FEATURES.map((feat, idx) => (
@@ -248,26 +248,26 @@ export default function ContactUs() {
         {/* =========================
             SECTION 3: REAL PEOPLE BANNER & FAQS
         ========================= */}
-        <section className="w-full py-16">
-          <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-12 xl:px-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-              {/* Left Image / Banner */}
-              <div className="relative rounded-2xl overflow-hidden shadow-lg bg-gray-900 min-h-[380px] flex items-center p-8 lg:p-12">
-                <div className="absolute inset-0 opacity-40 bg-gradient-to-r from-black via-transparent to-transparent z-10" />
-                <div className="absolute inset-0">
-                  <div className="w-full h-full bg-[linear-gradient(135deg,#2D1B4E_0%,#111827_100%)] flex items-center justify-end" />
-                </div>
-                <div className="relative z-20 max-w-sm text-white">
-                  <h2 className="text-[clamp(1.75rem,3vw,2.5rem)] font-extrabold leading-tight tracking-tight">
-                    Real People.<br />
-                    <span className="text-[#ff385c]">Real Support.</span>
-                  </h2>
+        <section className="relative w-full py-12 sm:py-16 lg:py-0 bg-white">
+          <div className="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-0">
+            <div className="flex gap-8 flex-col lg:flex-row items-start">
+              {/* Left Column: Specialist Photo with Script Overlay */}
+              <div className="lg:col-span-6">
+                <div className="relative w-full overflow-hidden">
+                  <Image
+                    src="/images/what_do_i_need_specialist_hd.png"
+                    alt="Carma Credit auto financing specialist meeting with customer"
+                    width={1730}
+                    height={909}
+                    className="block w-full h-auto"
+                    priority
+                    unoptimized
+                  />
                 </div>
               </div>
 
-              {/* Right FAQs */}
-              <div>
+              {/* Right Column: Narrative & CTA */}
+              <div className="w-full  flex flex-col items-start justify-center">
                 <p className="m-0 text-[13px] font-semibold uppercase tracking-[0.14em] text-[#ff385c] md:text-[15px]">
                   Common Questions
                 </p>
@@ -278,7 +278,7 @@ export default function ContactUs() {
                   You might find the answer in our FAQs.
                 </p>
 
-                <div className="mt-6 space-y-4">
+                <div className="mt-6 space-y-4 w-full pr-20">
                   {FAQS.map((faq, i) => {
                     const isOpen = openFaqIndex === i;
                     return (
@@ -315,11 +315,9 @@ export default function ContactUs() {
                 </div>
 
               </div>
-
             </div>
           </div>
         </section>
-
       </div>
     </PageShell>
   );
