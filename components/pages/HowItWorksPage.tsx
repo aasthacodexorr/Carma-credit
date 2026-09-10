@@ -184,8 +184,8 @@ export default function HowItWorksPage() {
                     {/* Right: Image Card with Floating Handwritten Text (Exact Step 1 CSS) */}
                     <div className="relative flex items-center self-center lg:self-auto w-full justify-between">
                       <div className="bg-white p-3 rounded-2xl shadow-lg border border-gray-100 w-full lg:max-w-[450px] lg:min-w-[450px]">
-                        <div className="h-64 rounded-xl overflow-hidden relative shadow-inner bg-gray-900">
-                          <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
+                        <div className="h-64 rounded-xl overflow-hidden relative shadow-inner">
+                          <img src={step.image} alt={step.title} className="w-full h-full object-fit rounded-2xl" />
                         </div>
                       </div>
                       <span className=" hidden lg:block top-1/2 -translate-y-1/2 text-sm sm:text-base font-bold text-[#ff385c] rotate-12 whitespace-nowrap">
