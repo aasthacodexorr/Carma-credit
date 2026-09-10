@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Footer, Header } from "../layout";
+import { CreditSpecialists } from "../home/driveway";
 
 export default function Home() {
   return (
@@ -42,9 +43,9 @@ export default function Home() {
           </div>
 
           {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
-          <div className="relative z-20 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
-            <div className="max-w-[480px] xl:max-w-[510px] flex flex-col items-start justify-center">
-              <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase mb-4">
+          <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
+            <div className="max-w-[480px] xl:max-w-[610px] flex flex-col items-start justify-center">
+              <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase px-1">
                 About Carma Credit
               </span>
 
@@ -61,7 +62,7 @@ export default function Home() {
 
               <div>
                 <a
-                  href="#quiz"
+                  href="/financing"
                   className="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-full bg-[#ff385c] hover:bg-brand active:bg-[#8e145a] text-white font-semibold text-[15px] transition-colors duration-150 shadow-sm"
                 >
                   <span>Start My Auto Financing Quiz</span>
@@ -88,11 +89,11 @@ export default function Home() {
         {/* ========================================================================= */}
         {/* SECTION 2: OUR MISSION */}
         {/* ========================================================================= */}
-        <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-white">
+        <section className="relative w-full py-16 sm:py-20 lg:py-16 bg-white">
           <div className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Top Mission Content (Centered) */}
             <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-              <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase block mb-3">
+              <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase block mb-1">
                 Our Mission
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#131b4d] tracking-tight leading-[1.15] mb-4">
@@ -183,7 +184,7 @@ export default function Home() {
         {/* ========================================================================= */}
         {/* SECTION 3: WHY WE DO IT / WE'VE BEEN THERE TOO. */}
         {/* ========================================================================= */}
-        <section className="relative w-full py-16 sm:py-24 bg-white">
+        <section className="relative w-full py-16 sm:py-16 bg-white">
           <div className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
               {/* Left Column: Dealership Cars Image with Script Overlay */}
@@ -192,9 +193,11 @@ export default function Home() {
                   <Image
                     src="/images/dealership-cars.jpg"
                     alt="Row of clean modern vehicles in dealership lot"
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    width={1730}
+                    height={909}
+                    className="block w-full h-auto"
+                    priority
+                    unoptimized
                   />
 
                   {/* Dark gradient at the bottom for script contrast */}
@@ -213,7 +216,7 @@ export default function Home() {
               </div>
 
               {/* Right Column: Narrative Content */}
-              <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col items-start space-y-6">
+              <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col items-start space-y-2">
                 <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase">
                   Why We Do It
                 </span>
@@ -224,7 +227,7 @@ export default function Home() {
                   There Too.
                 </h2>
 
-                <div className="space-y-5 text-[#4b5563] text-base leading-[1.65]">
+                <div className="space-y-5 text-[#4b5563] text-base lg:text-xl leading-[1.65]">
                   <p>
                     We know life happens. Whether it&apos;s a tough financial situation, unexpected
                     expenses or simply a lack of credit history, it can feel like the odds are stacked
@@ -241,13 +244,20 @@ export default function Home() {
           </div>
         </section>
 
+        {/* sectio 4 meet team */}
+
+        <section>
+          /<CreditSpecialists />
+
+        </section>
+
         {/* ========================================================================= */}
         {/* SECTION 4: FINAL CTA ("READY TO TAKE THE NEXT STEP?") */}
         {/* (Meet the team is omitted per instruction) */}
         {/* ========================================================================= */}
         <section
           id="quiz"
-          className="relative w-full py-20 sm:py-28 lg:py-32 bg-gradient-to-b from-white via-[#fef7fb] to-[#fdf1f7] overflow-hidden"
+          className="relative w-full py-20 sm:py-28 lg:py-14 bg-gradient-to-b from-white via-[#fef7fb] to-[#fdf1f7] overflow-hidden"
         >
           {/* Subtle Decorative Curved Pink Waves/Lines in Background matching screenshot */}
           <div className="absolute inset-0 pointer-events-none opacity-40">
@@ -310,7 +320,7 @@ export default function Home() {
           </div>
 
           <div className="relative max-w-4xl mx-auto px-5 sm:px-8 text-center flex flex-col items-center">
-            <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase mb-4">
+            <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase mb-1">
               Ready To Take The Next Step?
             </span>
 
@@ -324,7 +334,7 @@ export default function Home() {
 
             <div>
               <a
-                href="#quiz-start"
+                href="/financing"
                 className="group inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full bg-[#ff385c] hover:bg-brand active:bg-[#8e145a] text-white font-semibold text-base sm:text-lg transition-all duration-200 shadow-md hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer"
               >
                 <span>Start My Auto Financing Quiz</span>

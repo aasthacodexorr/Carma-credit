@@ -16,11 +16,12 @@ import {
 } from 'lucide-react';
 import { Footer, Header } from '../layout';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function UnderstandingCreditPage() {
   const [openFaq, setOpenFaq] = useState(null);
 
-  const toggleFaq = (index:any) => {
+  const toggleFaq = (index: any) => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
@@ -36,25 +37,61 @@ export default function UnderstandingCreditPage() {
     <>
       <Header />
       <div className="bg-white text-slate-900 font-sans overflow-hidden">
-
         {/* SECTION 1: HERO */}
-        <section className="relative bg-gradient-to-r from-pink-50/60 via-purple-50/30 to-white pt-12 pb-16 lg:py-24">
-          <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 px-6 sm:px-0">
+        <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
+          {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
+          <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
+            {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
+            <div
+              className="relative w-full h-full"
+              style={{
+                maskImage:
+                  "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+                WebkitMaskImage:
+                  "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+              }}
+            >
+              <Image
+                src="/images/rebuild.png"
+                alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
+                width={1730}
+                height={909}
+                className="block w-full h-auto"
+                priority
+                unoptimized
+              />
+            </div>
+
+            {/* SOFT HORIZONTAL FADE: Seamless transition located right nearby the text */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
+              }}
+              aria-hidden="true"
+            />
+          </div>
+
+          {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
+          <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
+
+
+            <div className="lg:col-span-7 px-6 sm:px-0 max-w-[500px] xl:max-w-[600px] flex flex-col items-start justify-center">
               <span className="text-base sm:text-base font-bold tracking-widest text-[#ff385c] uppercase block">
                 Understanding Your Credit
               </span>
               <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-[#1a103c] tracking-tight leading-[1.15] mb-3">
-                Knowledge Puts You in the Driver’s Seat.
+                Knowledge <br /> <p className='text-[#ff385c]'>Puts You in the Driver’s Seat.</p>
               </h1>
               <p className="text-base sm:text-lg text-slate-600 mb-8 max-w-xl leading-relaxed">
                 Understand your credit, make informed decisions, and feel confident about your auto financing journey.
               </p>
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                <button className="bg-[#ff385c] hover:bg-brand text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-pink-500/25 transition-all flex items-center gap-2 group">
+                <Link href={"/financing"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-pink-500/25 transition-all flex items-center gap-2 group">
                   Check My Credit Score
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </div>
 
               <div className="flex flex-wrap items-center gap-6 mt-8 text-base font-medium text-slate-700">
@@ -69,44 +106,11 @@ export default function UnderstandingCreditPage() {
                 </div>
               </div>
             </div>
-
-            <div className="lg:col-span-5 relative flex justify-center lg:justify-end px-6 sm:px-0">
-              <div className="relative w-full max-w-[340px] aspect-[9/19] bg-[#1a103c] rounded-[40px] p-3 shadow-2xl border-4 border-slate-900">
-                {/* Simulated Phone Screen */}
-                <div className="w-full h-full bg-white rounded-[32px] p-5 flex flex-col justify-between relative overflow-hidden">
-                  <div>
-                    <div className="flex justify-between items-center text-base text-slate-400 mb-6">
-                      <span className="font-bold text-slate-700">Your Credit Score</span>
-                      <span>10:24</span>
-                    </div>
-                    <div className="text-center my-4">
-                      <div className="inline-block relative w-44 h-24 overflow-hidden mb-2">
-                        {/* Gauge Mock */}
-                        <div className="absolute top-0 left-0 w-44 h-44 rounded-full border-[16px] border-slate-100 border-t-[#00c853] border-r-[#00c853] -rotate-45"></div>
-                      </div>
-                      <h3 className="text-4xl font-black text-slate-800">720</h3>
-                      <span className="text-base font-bold text-[#00c853] uppercase tracking-wider">Good</span>
-                    </div>
-                    <div className="bg-pink-50 rounded-xl p-3 flex items-center gap-3 mt-4">
-                      <div className="w-2 h-2 rounded-full bg-[#ff385c]"></div>
-                      <span className="text-base font-semibold text-[#1a103c]">No impact to your credit</span>
-                    </div>
-                  </div>
-                  <div className="text-[10px] text-center text-slate-400">
-                    🔄 Updated today
-                  </div>
-                </div>
-              </div>
-              {/* Background Graphic text accent */}
-              <div className="absolute top-1/2 -right-10 text-slate-800 font-serif italic text-lg hidden xl:block pointer-events-none">
-                A clearer picture.<br />A brighter tomorrow.
-              </div>
-            </div>
           </div>
         </section>
 
         {/* SECTION 2: WHAT IS A CREDIT SCORE */}
-        <section className="py-16 lg:py-24 bg-white">
+        <section className="py-16 lg:py-16 bg-white">
           <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto text-center px-6">
             <span className="text-base font-bold tracking-widest text-[#ff385c] uppercase mb-2 block">
               The Basics
@@ -167,7 +171,7 @@ export default function UnderstandingCreditPage() {
         </section>
 
         {/* SECTION 3: CREDIT SCORE RANGES */}
-        <section className="py-16 lg:py-20 bg-gradient-to-b from-white to-pink-50/30">
+        <section className="py-16 lg:py-14 bg-gradient-to-b from-white to-pink-50/30">
           <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto text-center px-6">
             <span className="text-base font-bold tracking-widest text-[#ff385c] uppercase mb-2 block">
               Credit Score Ranges
@@ -243,7 +247,7 @@ export default function UnderstandingCreditPage() {
         </section>
 
         {/* SECTION 4: FAQ / COMMON QUESTIONS */}
-        <section className="py-16 lg:py-24 bg-white">
+        <section className="py-16 lg:py-14 bg-white">
           <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto px-6">
             <div className="text-center mb-12">
               <span className="text-base font-bold tracking-widest text-[#ff385c] uppercase mb-2 block">
@@ -302,36 +306,58 @@ export default function UnderstandingCreditPage() {
                   </p>
                 </div>
               </div>
-              <button className="bg-[#ff385c] hover:bg-brand text-white font-semibold px-6 py-3.5 rounded-full shadow-md text-base whitespace-nowrap transition-all">
+              <Link href={"/Financing"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold px-6 py-3.5 rounded-full shadow-md text-base whitespace-nowrap transition-all">
                 Talk to a Credit Specialist →
-              </button>
+              </Link>
             </div>
           </div>
         </section>
 
         {/* SECTION 6: READY TO MOVE FORWARD FOOTER CTA */}
-        <section className="relative bg-[#1a103c] text-white py-16 lg:py-20 overflow-hidden">
-          {/* Background Overlay image mockup for car dashboard */}
-          <div className="absolute inset-0 opacity-20 bg-cover bg-center pointer-events-none" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop')` }}></div>
+        <section className="relative w-full overflow-hidden bg-[#080b18] py-10 sm:py-12 lg:py-14">
+          {/* Background Image on Right Side */}
+          <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none opacity-85 lg:opacity-100">
+            <Image
+              src="/images/what_do_i_need_sunset_hd.png"
+              alt="Carma Credit auto financing specialist meeting with customer"
+              width={1730}
+              height={909}
+              className="block w-full h-auto"
+              priority
+              unoptimized
+            />
 
-          <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto relative z-10 px-6 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <span className="text-base font-bold tracking-widest text-[#ff385c] uppercase mb-2 block">
-                Ready to Move Forward?
+            {/* Smooth gradient blend into the dark left side */}
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-[#080b18] via-[#080b18]/60 to-transparent"
+              aria-hidden="true"
+            />
+          </div>
+
+          {/* Content on the Dark Left Side */}
+          <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-xl lg:max-w-2xl xl:max-w-3xl flex flex-col items-start justify-center">
+              <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] text-slate-300 uppercase mb-2 sm:mb-2.5">
+                Ready To Get Started?
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold mb-3">
-                Start Your Auto Financing Journey.
+
+              <h2 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-extrabold text-white tracking-tight leading-tight mb-2 sm:mb-3 whitespace-normal lg:whitespace-nowrap">
+                Your Next Car is Closer Than You Think.
               </h2>
-              <p className="text-slate-300 text-base sm:text-base max-w-xl mb-6">
+
+              <p className="text-slate-300 text-xs sm:text-sm lg:text-[15px] leading-normal mb-5 sm:mb-6">
                 It only takes 2 minutes. No judgment. No obligation.
               </p>
-              <Link href={"/financing"} className="bg-[#ff385c] w-fit hover:bg-brand text-white font-semibold px-8 py-4 rounded-full shadow-lg transition-all flex items-center gap-2">
-                Start My Auto Financing Quiz →
-              </Link>
-            </div>
 
-            <div className="hidden lg:block text-right font-serif italic text-slate-400 text-xl">
-              Same roads.<br />Brighter Tomorrows.
+              <div>
+                <a
+                  href="/financing"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#ff385c] hover:bg-brand active:bg-[#8e145a] text-white font-semibold text-[13.5px] sm:text-[14.5px] transition-colors duration-150 shadow-md"
+                >
+                  <span>Start My Auto Financing Quiz</span>
+                  <span className="text-base leading-none">→</span>
+                </a>
+              </div>
             </div>
           </div>
         </section>

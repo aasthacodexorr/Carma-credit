@@ -12,89 +12,74 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { Footer, Header } from '../layout';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AutoLoanFraudPage() {
   return (
-    <div className="bg-white text-slate-800 font-sans antialiased overflow-hidden min-h-screen flex flex-col">
+    <div className=" ">
       {/* Header wrapped to match full width */}
       <div className="w-full bg-white border-b border-slate-100 sticky top-0 z-50">
-        <div className="max-w-[1480px] mx-auto">
-          <Header />
-        </div>
+        <Header />
       </div>
 
-      <main className="flex-grow">
+      <main className="flex-grow bg-white text-slate-800 font-sans antialiased overflow-hidden min-h-screen flex flex-col  ">
         {/* SECTION 1: Hero Section */}
-        <section className="w-full bg-white py-12 md:py-16">
-          <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Left Text Column */}
-              <div>
-                <span className="text-[#9333ea] uppercase tracking-wider text-base font-bold block mb-3">
-                  PREVENTING AUTO LOAN FRAUD
-                </span>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1e1b4b] leading-tight mb-6">
-                  Stay Informed.<br />
-                  <p className='text-[#ff385c]'>Stay Protected.</p>
-                </h1>
-                <p className="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">
-                  Your safety matters. Learn how to spot, avoid and prevent auto loan fraud so you can finance your vehicle with confidence.
-                </p>
-                <button className="bg-[#ff385c] hover:bg-opacity-90 text-white font-semibold px-8 py-3.5 rounded-full inline-flex items-center gap-2 transition-colors shadow-sm">
-                  Get Started Safely <ArrowRight size={18} />
-                </button>
-              </div>
 
-              {/* Right Image/Banner Column */}
-              <div className="relative h-[320px] sm:h-[380px] lg:h-[420px] rounded-3xl overflow-hidden bg-slate-900 shadow-lg">
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent z-10" />
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/10 shadow-2xl">
-                  <div className="w-32 h-44 bg-slate-900 rounded-xl border border-slate-700 p-3 flex flex-col justify-between items-center text-white shadow-inner">
-                    <div className="w-8 h-1 bg-slate-700 rounded-full" />
-                    <div className="grid grid-cols-2 gap-2 w-full px-2">
-                      <div className="w-6 h-6 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center text-[10px]">🔓</div>
-                      <div className="w-6 h-6 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center text-[10px]">🔒</div>
-                    </div>
-                    <div className="text-[9px] text-slate-400 tracking-widest">CARMA</div>
-                  </div>
-                </div>
-                <div className="absolute right-6 bottom-6 z-20 text-right text-white">
-                  <p className="text-base tracking-widest text-slate-300 uppercase">Same Roads.</p>
-                  <p className="text-lg font-bold">Brighter Tomorrows.</p>
-                </div>
-              </div>
+
+        <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
+          {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
+          <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
+            {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
+            <div
+              className="relative w-full h-full"
+              style={{
+                maskImage:
+                  "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+                WebkitMaskImage:
+                  "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+              }}
+            >
+              <Image
+                src="/images/autoFinance.png"
+                alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
+                width={1730}
+                height={909}
+                className="block w-full h-auto"
+                priority
+                unoptimized
+              />
             </div>
 
-            {/* Feature Indicator Badges Sub-Bar */}
-            <div className="mt-12 pt-8 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="flex items-start gap-3">
-                <div className="p-2.5 rounded-xl bg-pink-50 text-[#ff385c]"><ShieldCheck size={28} /></div>
-                <div>
-                  <h4 className="font-bold text-base text-[#1e1b4b]">Be Aware</h4>
-                  <p className="text-base text-slate-500">Learn the risks</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="p-2.5 rounded-xl bg-pink-50 text-[#ff385c]"><Search size={28} /></div>
-                <div>
-                  <h4 className="font-bold text-base text-[#1e1b4b]">Know the Signs</h4>
-                  <p className="text-base text-slate-500">Spot red flags</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="p-2.5 rounded-xl bg-pink-50 text-[#ff385c]"><FileText size={28} /></div>
-                <div>
-                  <h4 className="font-bold text-base text-[#1e1b4b]">Protect Your Information</h4>
-                  <p className="text-base text-slate-500">Keep your data safe</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="p-2.5 rounded-xl bg-pink-50 text-[#ff385c]"><CheckCircle2 size={28} /></div>
-                <div>
-                  <h4 className="font-bold text-base text-[#1e1b4b]">Finance with Confidence</h4>
-                  <p className="text-base text-slate-500">Work with trusted professionals</p>
-                </div>
-              </div>
+            {/* SOFT HORIZONTAL FADE: Seamless transition located right nearby the text */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
+              }}
+              aria-hidden="true"
+            />
+          </div>
+
+          {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
+          <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
+
+
+            <div className="max-w-[500px] xl:max-w-[540px] flex flex-col items-start justify-center">
+              <span className="text-[#9333ea] uppercase tracking-wider text-base font-bold block px-2">
+                PREVENTING AUTO LOAN FRAUD
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1e1b4b] leading-tight mb-2">
+                Stay Informed.<br />
+                <p className='text-[#ff385c]'>Stay Protected.</p>
+              </h1>
+              <p className="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">
+                Your safety matters. Learn how to spot, avoid and prevent auto loan fraud so you can finance your vehicle with confidence.
+              </p>
+              <Link href={"/financing"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold px-8 py-3.5 rounded-full inline-flex items-center gap-2 transition-colors shadow-sm">
+                Get Started Safely <ArrowRight size={18} />
+              </Link>
             </div>
           </div>
         </section>
@@ -109,7 +94,7 @@ export default function AutoLoanFraudPage() {
                   WHAT IS AUTO LOAN FRAUD?
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1e1b4b] mb-6">
-                  It’s More Common<br /> 
+                  It’s More Common<br />
                   <p className='text-[#ff385c]'>Than You Think.</p>
                 </h2>
                 <p className="text-slate-600 text-base leading-relaxed mb-4">
@@ -133,7 +118,7 @@ export default function AutoLoanFraudPage() {
 
 
         {/* SECTION 3: Types of Auto Loan Fraud */}
-        <section className="w-full bg-white py-16">
+        <section className="w-full bg-white py-12">
           <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <span className="text-[#ff385c] uppercase tracking-wider text-base font-bold block mb-2">
@@ -193,19 +178,25 @@ export default function AutoLoanFraudPage() {
 
 
         {/* SECTION 4: Tips to Stay Safe */}
-        <section className="w-full bg-slate-50 py-16">
-          <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="relative bg-slate-900 rounded-3xl overflow-hidden min-h-[340px] flex items-end p-8 shadow-md">
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent z-10" />
-                <div className="absolute inset-0 opacity-40 bg-cover bg-center" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop")' }} />
-                <div className="relative z-20">
-                  <p className="text-[#ff385c] font-bold text-base tracking-wider uppercase mb-1">Real People.</p>
-                  <p className="text-white text-2xl font-extrabold">Real Support.</p>
+        <section className="relative w-full py-12 sm:py-16 lg:py-10 bg-white">
+          <div className="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-0">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
+              {/* Left Column: Specialist Photo with Script Overlay */}
+              <div className="lg:col-span-6">
+                <div className="relative w-full overflow-hidden shadow-md bg-slate-100">
+                  <Image
+                    src="/images/what_do_i_need_specialist_hd.png"
+                    alt="Carma Credit auto financing specialist meeting with customer"
+                    width={1730}
+                    height={909}
+                    className="block w-full h-auto"
+                    priority
+                    unoptimized
+                  />
                 </div>
               </div>
 
-              <div>
+              <div className='lg:col-span-6 flex flex-col items-start justify-center'>
                 <span className="text-[#ff385c] uppercase tracking-wider text-base font-bold block mb-2">
                   HOW TO PROTECT YOURSELF
                 </span>
@@ -278,9 +269,9 @@ export default function AutoLoanFraudPage() {
                   <p className="text-slate-600 text-base leading-relaxed mb-6">
                     If you think you’ve been targeted by fraud or notice suspicious activity, contact us right away. We’re here to help and guide you through the next steps.
                   </p>
-                  <button className="bg-[#ff385c] hover:bg-opacity-90 text-white font-semibold text-base px-6 py-3 rounded-full inline-flex items-center gap-2 transition-colors shadow-sm">
+                  <Link href={"/contact-us"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold text-base px-6 py-3 rounded-full inline-flex items-center gap-2 transition-colors shadow-sm">
                     Talk to Our Team <ArrowRight size={16} />
-                  </button>
+                  </Link>
                   <p className="text-[11px] text-slate-400 mt-4">Your security is important to us</p>
                 </div>
               </div>
@@ -290,27 +281,49 @@ export default function AutoLoanFraudPage() {
 
 
         {/* SECTION 6: Bottom Banner Section */}
-        <section className="w-full bg-white py-12">
-          <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto">
-            <div className="relative rounded-3xl overflow-hidden bg-slate-900 text-white p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row justify-between items-center gap-8 shadow-xl">
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-slate-900/40 z-10" />
+        <section className="relative w-full overflow-hidden bg-[#080b18] py-10 sm:py-12 lg:py-14">
+          {/* Background Image on Right Side */}
+          <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none opacity-85 lg:opacity-100">
+            <Image
+              src="/images/what_do_i_need_sunset_hd.png"
+              alt="Carma Credit auto financing specialist meeting with customer"
+              width={1730}
+              height={909}
+              className="block w-full h-auto"
+              priority
+              unoptimized
+            />
 
-              <div className="relative z-20 max-w-xl text-center lg:text-left">
-                <span className="text-[#ff385c] uppercase tracking-wider text-base font-bold block mb-2">
-                  DRIVE FORWARD WITH CONFIDENCE
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold mb-3">
-                  Safe Financing. A Brighter Tomorrow.
-                </h2>
-                <p className="text-slate-300 text-base">
-                  Get the information you need and finance with peace of mind.
-                </p>
-              </div>
+            {/* Smooth gradient blend into the dark left side */}
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-[#080b18] via-[#080b18]/60 to-transparent"
+              aria-hidden="true"
+            />
+          </div>
 
-              <div className="relative z-20 shrink-0">
-                <button className="bg-[#ff385c] hover:bg-opacity-90 text-white font-semibold px-8 py-3.5 rounded-full inline-flex items-center gap-2 transition-colors shadow-md">
-                  Start My Auto Financing Quiz <ArrowRight size={18} />
-                </button>
+          {/* Content on the Dark Left Side */}
+          <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-xl lg:max-w-2xl xl:max-w-3xl flex flex-col items-start justify-center">
+              <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] text-slate-300 uppercase mb-2 sm:mb-2.5">
+                Ready To Get Started?
+              </span>
+
+              <h2 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-extrabold text-white tracking-tight leading-tight mb-2 sm:mb-3 whitespace-normal lg:whitespace-nowrap">
+                Your Next Car is Closer Than You Think.
+              </h2>
+
+              <p className="text-slate-300 text-xs sm:text-sm lg:text-[15px] leading-normal mb-5 sm:mb-6">
+                It only takes 2 minutes. No judgment. No obligation.
+              </p>
+
+              <div>
+                <a
+                  href="/financing"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#ff385c] hover:bg-brand active:bg-[#8e145a] text-white font-semibold text-[13.5px] sm:text-[14.5px] transition-colors duration-150 shadow-md"
+                >
+                  <span>Start My Auto Financing Quiz</span>
+                  <span className="text-base leading-none">→</span>
+                </a>
               </div>
             </div>
           </div>

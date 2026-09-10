@@ -76,7 +76,7 @@ const HowItWorksSteps = () => {
         <div className="mt-12">
           <Link
             href="/financing"
-            className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-8 py-4 text-sm font-bold text-white shadow-xl shadow-[#ff385c]/30 transition-all duration-300 hover:bg-brand hover:scale-105"
+            className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-8 py-4 text-sm font-bold text-white shadow-xl shadow-[#ff385c]/30 transition-all duration-300 hover:bg-brand"
           >
             <span>Start My 2-Minute Quiz</span>
             <ArrowRight className="h-4 w-4" />

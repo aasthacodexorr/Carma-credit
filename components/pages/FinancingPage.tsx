@@ -9,7 +9,7 @@ import { PageShell } from "@/components/layout";
 import { getConstants } from "@/constants";
 import { useAppConfig } from "@/app/providers";
 
-const MIN_HEIGHT = 800;
+const MIN_HEIGHT = 1400;
 const FALLBACK_HEIGHT = 1000;
 
 const Finance = () => {
