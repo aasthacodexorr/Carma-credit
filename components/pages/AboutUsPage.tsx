@@ -45,7 +45,7 @@ export default function Home() {
           {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
           <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
             <div className="max-w-[480px] xl:max-w-[610px] flex flex-col items-start justify-center">
-              <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase px-1">
+              <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase px-1">
                 About Carma Credit
               </span>
 
@@ -93,7 +93,7 @@ export default function Home() {
           <div className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Top Mission Content (Centered) */}
             <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-              <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase block mb-1">
+              <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase block mb-1">
                 Our Mission
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#131b4d] tracking-tight leading-[1.15] mb-4">
@@ -130,7 +130,7 @@ export default function Home() {
                   <h3 className="text-lg sm:text-xl font-bold text-[#131b4d] mb-2">
                     People First
                   </h3>
-                  <p className="text-[#4b5563] text-sm leading-[1.6] max-w-[240px]">
+                  <p className="text-[#4b5563] text-base leading-[1.6] max-w-[240px]">
                     We treat every customer with respect, honesty and care.
                   </p>
                 </div>
@@ -150,7 +150,7 @@ export default function Home() {
                   <h3 className="text-lg sm:text-xl font-bold text-[#131b4d] mb-2">
                     Real Solutions
                   </h3>
-                  <p className="text-[#4b5563] text-sm leading-[1.6] max-w-[250px]">
+                  <p className="text-[#4b5563] text-base leading-[1.6] max-w-[250px]">
                     We work with trusted automotive lending partners to find options that fit your situation.
                   </p>
                 </div>
@@ -172,7 +172,7 @@ export default function Home() {
                   <h3 className="text-lg sm:text-xl font-bold text-[#131b4d] mb-2">
                     Brighter Tomorrows
                   </h3>
-                  <p className="text-[#4b5563] text-sm leading-[1.6] max-w-[240px]">
+                  <p className="text-[#4b5563] text-base leading-[1.6] max-w-[240px]">
                     We help you get back on the road and move forward with confidence.
                   </p>
                 </div>
@@ -217,7 +217,7 @@ export default function Home() {
 
               {/* Right Column: Narrative Content */}
               <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col items-start space-y-2">
-                <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase">
+                <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase">
                   Why We Do It
                 </span>
 
@@ -320,7 +320,7 @@ export default function Home() {
           </div>
 
           <div className="relative max-w-4xl mx-auto px-5 sm:px-8 text-center flex flex-col items-center">
-            <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase mb-1">
+            <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase mb-1">
               Ready To Take The Next Step?
             </span>
 

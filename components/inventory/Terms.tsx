@@ -33,7 +33,7 @@ const Terms = ({ vehicle }: any) => {
     return (
         <>
 
-            <div className="w-full font-sans mt-8">
+            <div className="w-full  mt-8">
                 {/* Main Container Card */}
                 <div className="bg-white border border-gray-200 rounded-2xl p-5 text-gray-800">
 

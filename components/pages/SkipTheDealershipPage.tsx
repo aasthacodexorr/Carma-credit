@@ -48,7 +48,7 @@ export default function SkipTheDealership() {
     const { SITE_CONFIG } = getConstants(appConfig);
     return (
         <PageShell showGetInTouch>
-            <div className="w-full font-sans antialiased text-gray-900 selection:bg-yellow-200 lg:mt-20 overflow-hidden">
+            <div className="w-full  antialiased text-gray-900 selection:bg-yellow-200 lg:mt-20 overflow-hidden">
 
                 {/* 1. Banner Section */}
                 <section className="lg:py-18 py-9 px-4 text-center bg-[var(--color-special-highlight-yellow)]">

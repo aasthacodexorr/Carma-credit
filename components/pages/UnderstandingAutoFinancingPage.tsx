@@ -23,7 +23,7 @@ export default function AutoLoanFraudPage() {
         <Header />
       </div>
 
-      <main className="flex-grow bg-white text-slate-800 font-sans antialiased overflow-hidden min-h-screen flex flex-col  ">
+      <main className="flex-grow bg-white text-slate-800  antialiased overflow-hidden min-h-screen flex flex-col  ">
         {/* SECTION 1: Hero Section */}
 
 
@@ -67,7 +67,7 @@ export default function AutoLoanFraudPage() {
 
 
             <div className="max-w-[500px] xl:max-w-[540px] flex flex-col items-start justify-center">
-              <span className="text-[#9333ea] uppercase tracking-wider text-base font-bold block px-2">
+              <span className="text-[#ff385c] uppercase tracking-wider text-base font-bold block px-2">
                 PREVENTING AUTO LOAN FRAUD
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1e1b4b] leading-tight mb-2">
@@ -272,7 +272,7 @@ export default function AutoLoanFraudPage() {
                   <Link href={"/contact-us"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold text-base px-6 py-3 rounded-full inline-flex items-center gap-2 transition-colors shadow-sm">
                     Talk to Our Team <ArrowRight size={16} />
                   </Link>
-                  <p className="text-[11px] text-slate-400 mt-4">Your security is important to us</p>
+                  <p className="text-[15px] text-slate-400 mt-4">Your security is important to us</p>
                 </div>
               </div>
             </div>
@@ -304,7 +304,7 @@ export default function AutoLoanFraudPage() {
           {/* Content on the Dark Left Side */}
           <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-xl lg:max-w-2xl xl:max-w-3xl flex flex-col items-start justify-center">
-              <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] text-slate-300 uppercase mb-2 sm:mb-2.5">
+              <span className="text-[15px] sm:text-[12px] font-bold tracking-[0.2em] text-slate-300 uppercase mb-2 sm:mb-2.5">
                 Ready To Get Started?
               </span>
 
@@ -312,7 +312,7 @@ export default function AutoLoanFraudPage() {
                 Your Next Car is Closer Than You Think.
               </h2>
 
-              <p className="text-slate-300 text-xs sm:text-sm lg:text-[15px] leading-normal mb-5 sm:mb-6">
+              <p className="text-slate-300 text-base sm:text-base lg:text-[15px] leading-normal mb-5 sm:mb-6">
                 It only takes 2 minutes. No judgment. No obligation.
               </p>
 

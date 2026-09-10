@@ -36,7 +36,7 @@ export default function UnderstandingCreditPage() {
   return (
     <>
       <Header />
-      <div className="bg-white text-slate-900 font-sans overflow-hidden">
+      <div className="bg-white text-slate-900  overflow-hidden">
         {/* SECTION 1: HERO */}
         <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
           {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
@@ -171,7 +171,7 @@ export default function UnderstandingCreditPage() {
         </section>
 
         {/* SECTION 3: CREDIT SCORE RANGES */}
-        <section className="py-16 lg:py-14 bg-gradient-to-b from-white to-pink-50/30">
+        <section className="py-16 lg:py-14 bg-[#ff385c]/5">
           <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto text-center px-6">
             <span className="text-base font-bold tracking-widest text-[#ff385c] uppercase mb-2 block">
               Credit Score Ranges
@@ -187,7 +187,7 @@ export default function UnderstandingCreditPage() {
               {/* Range 1 */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col justify-between">
                 <div>
-                  <h4 className="font-bold text-slate-800 text-base mb-1">300 – 579</h4>
+                  <h4 className="font-bold text-slate-800  text-base lg:text-xl mb-1">300 – 579</h4>
                   <span className="text-base font-bold text-red-500 uppercase tracking-wider block mb-4">Poor</span>
                 </div>
                 <p className="text-base text-slate-500 leading-relaxed">
@@ -196,9 +196,9 @@ export default function UnderstandingCreditPage() {
               </div>
 
               {/* Range 2 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col justify-between">
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col">
                 <div>
-                  <h4 className="font-bold text-slate-800 text-base mb-1">580 – 669</h4>
+                  <h4 className="font-bold text-slate-800  text-base lg:text-xl mb-1">580 – 669</h4>
                   <span className="text-base font-bold text-amber-500 uppercase tracking-wider block mb-4">Fair</span>
                 </div>
                 <p className="text-base text-slate-500 leading-relaxed">
@@ -207,9 +207,9 @@ export default function UnderstandingCreditPage() {
               </div>
 
               {/* Range 3 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col justify-between">
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col ">
                 <div>
-                  <h4 className="font-bold text-slate-800 text-base mb-1">670 – 739</h4>
+                  <h4 className="font-bold text-slate-800  text-base lg:text-xl mb-1">670 – 739</h4>
                   <span className="text-base font-bold text-yellow-500 uppercase tracking-wider block mb-4">Good</span>
                 </div>
                 <p className="text-base text-slate-500 leading-relaxed">
@@ -218,9 +218,9 @@ export default function UnderstandingCreditPage() {
               </div>
 
               {/* Range 4 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col justify-between">
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col ">
                 <div>
-                  <h4 className="font-bold text-slate-800 text-base mb-1">740 – 799</h4>
+                  <h4 className="font-bold text-slate-800  text-base lg:text-xl mb-1">740 – 799</h4>
                   <span className="text-base font-bold text-emerald-500 uppercase tracking-wider block mb-4">Very Good</span>
                 </div>
                 <p className="text-base text-slate-500 leading-relaxed">
@@ -229,9 +229,9 @@ export default function UnderstandingCreditPage() {
               </div>
 
               {/* Range 5 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col sm:col-span-2 lg:col-span-1">
                 <div>
-                  <h4 className="font-bold text-slate-800 text-base mb-1">800 – 900</h4>
+                  <h4 className="font-bold text-slate-800  text-base lg:text-xl mb-1">800 – 900</h4>
                   <span className="text-base font-bold text-[#00c853] uppercase tracking-wider block mb-4">Excellent</span>
                 </div>
                 <p className="text-base text-slate-500 leading-relaxed">
@@ -337,7 +337,7 @@ export default function UnderstandingCreditPage() {
           {/* Content on the Dark Left Side */}
           <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-xl lg:max-w-2xl xl:max-w-3xl flex flex-col items-start justify-center">
-              <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] text-slate-300 uppercase mb-2 sm:mb-2.5">
+              <span className="text-[15px] sm:text-[12px] font-bold tracking-[0.2em] text-slate-300 uppercase mb-2 sm:mb-2.5">
                 Ready To Get Started?
               </span>
 
@@ -345,7 +345,7 @@ export default function UnderstandingCreditPage() {
                 Your Next Car is Closer Than You Think.
               </h2>
 
-              <p className="text-slate-300 text-xs sm:text-sm lg:text-[15px] leading-normal mb-5 sm:mb-6">
+              <p className="text-slate-300 text-base sm:text-base lg:text-[15px] leading-normal mb-5 sm:mb-6">
                 It only takes 2 minutes. No judgment. No obligation.
               </p>
 

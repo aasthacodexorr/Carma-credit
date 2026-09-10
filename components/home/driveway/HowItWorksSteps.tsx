@@ -34,13 +34,13 @@ const HowItWorksSteps = () => {
       <div className="mx-auto max-w-[1480px] px-6 sm:px-12 xl:px-16 text-center">
 
         {/* Section Header */}
-        <span className="text-xs font-bold uppercase tracking-widest text-[#6632d6]">
+        <span className="text-base font-bold uppercase tracking-widest text-[#6632d6]">
           How It Works
         </span>
         <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
           Your Road Back Starts Here.
         </h2>
-        <p className="mx-auto mt-3 max-w-xl text-sm font-medium text-slate-600 sm:text-base">
+        <p className="mx-auto mt-3 max-w-xl text-base font-medium text-slate-600 sm:text-base">
           Getting back into the driver's seat shouldn't be stressful. Follow our simple 4-step process.
         </p>
 
@@ -52,7 +52,7 @@ const HowItWorksSteps = () => {
               className="relative flex flex-col items-center rounded-3xl bg-white p-8 shadow-xl shadow-slate-200/50 border border-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
               {/* Step Badge */}
-              <div className="absolute -top-4 flex h-8 w-8 items-center justify-center rounded-full bg-[#ff385c] text-xs font-black text-white shadow-md">
+              <div className="absolute -top-4 flex h-8 w-8 items-center justify-center rounded-full bg-[#ff385c] text-base font-black text-white shadow-md">
                 {item.stepNum}
               </div>
 
@@ -65,7 +65,7 @@ const HowItWorksSteps = () => {
               <h3 className="mt-6 text-lg font-bold text-slate-950">
                 {item.title}
               </h3>
-              <p className="mt-2 text-xs font-medium text-slate-600 sm:text-sm leading-relaxed">
+              <p className="mt-2 text-base font-medium text-slate-600 sm:text-base leading-relaxed">
                 {item.description}
               </p>
             </div>
@@ -76,7 +76,7 @@ const HowItWorksSteps = () => {
         <div className="mt-12">
           <Link
             href="/financing"
-            className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-8 py-4 text-sm font-bold text-white shadow-xl shadow-[#ff385c]/30 transition-all duration-300 hover:bg-brand"
+            className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-8 py-4 text-base font-bold text-white shadow-xl shadow-[#ff385c]/30 transition-all duration-300 hover:bg-brand"
           >
             <span>Start My 2-Minute Quiz</span>
             <ArrowRight className="h-4 w-4" />

@@ -5,19 +5,19 @@ import Image from 'next/image';
 
 export default function CreditScoreBanner() {
   return (
-    <section className="w-full bg-[#FFF5F7] py-12 px-4 sm:px-6 lg:px-8 font-sans overflow-hidden">
+    <section className="w-full bg-[#FFF5F7] py-12 px-4 sm:px-6 lg:px-8  overflow-hidden">
       <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
 
         {/* Left Content Area */}
         <div className="flex-1 max-w-xl text-center lg:text-left">
           {/* Top Subtitle */}
-          <p className="text-xs font-bold tracking-widest text-[#ff385c] uppercase px-1">
+          <p className="text-base font-bold tracking-widest text-[#ff385c] uppercase px-1">
             KNOW YOUR CREDIT BEFORE YOU SHOP
           </p>
 
           {/* Main Headline */}
           <h1 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold text-[#111827] leading-[1.15] mb-4 tracking-tight">
-            Check Your Credit Score.{' '}
+            Check Your Credit Score.{' '}<br/>
             <span className="text-[#ff385c] block sm:inline mt-1 sm:mt-0">(No Impact to Your Credit.)</span>
           </h1>
 
@@ -37,21 +37,21 @@ export default function CreditScoreBanner() {
           </div>
 
           {/* Feature Checkmarks List */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-gray-800 font-semibold text-sm">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-gray-800 font-semibold text-base">
             <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-[#59163d] flex items-center justify-center text-white">
+              <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white">
                 <Check className="w-3.5 h-3.5 stroke-[3]" />
               </div>
               <span>Soft Pull</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-[#59163d] flex items-center justify-center text-white">
+              <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white">
                 <Check className="w-3.5 h-3.5 stroke-[3]" />
               </div>
               <span>No Impact</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-[#59163d] flex items-center justify-center text-white">
+              <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white">
                 <Check className="w-3.5 h-3.5 stroke-[3]" />
               </div>
               <span>Instant Results</span>

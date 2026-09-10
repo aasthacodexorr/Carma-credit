@@ -9,7 +9,7 @@ import VehicleCategoryGrid from '@/components/thank-you/VehicleCategoryGrid';
 export default function CarLoanLanding() {
   return (
     <PageShell showGetInTouch>
-      <main className="mt-20 font-sans text-gray-800 bg-white">
+      <main className="mt-20  text-gray-800 bg-white">
         {/* 1. Confirmation Banner Section */}
         <section className="py-20 pb-8 text-gray-900 bg-background-light">
           <div className="max-w-7xl mx-auto px-4 text-center">
@@ -59,11 +59,11 @@ export default function CarLoanLanding() {
                 Applying for a car loan with confidence
               </h1>
 
-              <p className="text-sm md:text-base mb-8">
+              <p className="text-base md:text-base mb-8">
                 Complete our online car loan application in minutes to pre-approve for the car of your choice. We offer financing options for all credit situations.
               </p>
 
-              <Link className="w-fit text-white text-sm font-semibold py-3 px-8 cursor-pointer rounded-full border-2 border-brand transition duration-200 hover:opacity-90 bg-brand" href={"/finance"}>
+              <Link className="w-fit text-white text-base font-semibold py-3 px-8 cursor-pointer rounded-full border-2 border-brand transition duration-200 hover:opacity-90 bg-brand" href={"/finance"}>
                 Get started
               </Link>
             </div>
@@ -188,10 +188,10 @@ export default function CarLoanLanding() {
         {/* 6. Clients Testimonial / Carousel Placeholder */}
         <section className="py-16 md:py-20 bg-hero-bg">
           <div className="max-w-6xl mx-auto text-start px-4">
-            <h3 className="text-xs md:text-2xl 2xl:text-4xl uppercase font-bold mb-4">
+            <h3 className="text-base md:text-2xl 2xl:text-4xl uppercase font-bold mb-4">
               A WORD FROM OUR CLIENTS
             </h3>
-            <p className="text-sm text-gray-600 italic">
+            <p className="text-base text-gray-600 italic">
               "Your feedback matters! Here's what our satisfied clients have to say about their car buying and loan experiences."
             </p>
           </div>
@@ -210,7 +210,7 @@ export default function CarLoanLanding() {
 
               {/* Left Selector Text */}
               <div className="lg:col-span-1 pt-2">
-                <span className="text-sm font-medium text-gray-800 block mb-1">
+                <span className="text-base font-medium text-gray-800 block mb-1">
                   Search for a used vehicle by
                 </span>
                 <h4 className="text-3xl font-bold text-gray-900 mb-2">
@@ -218,7 +218,7 @@ export default function CarLoanLanding() {
                 </h4>
                 <Link
                   href="/"
-                  className="font-semibold text-sm flex items-center gap-1 transition-colors hover:opacity-80 text-brand"
+                  className="font-semibold text-base flex items-center gap-1 transition-colors hover:opacity-80 text-brand"
                 >
                   See all vehicles
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3 h-3">

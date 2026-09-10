@@ -214,7 +214,7 @@ export default async function VehicleDetailsPage({
 
                             {/* Sell my car banner */}
                             <div className="w-full lg:mb-30 max-w-[925px] -mt-3 lg:-mt-0">
-                                <div className="flex flex-col md:flex-row items-center justify-between border border-gray-200 rounded-2xl p-6 bg-white w-full gap-6 box-border font-sans">
+                                <div className="flex flex-col md:flex-row items-center justify-between border border-gray-200 rounded-2xl p-6 bg-white w-full gap-6 box-border ">
                                     <div className="flex sm:flex-row md:gap- flex-1">
                                         <div className="flex-shrink-0">
                                             <Image src={doller} alt="Sell my car" className="w-[65px] h-auto block" />
@@ -239,7 +239,7 @@ export default async function VehicleDetailsPage({
                             <div className="w-full max-w-[925px]">
                                 <AboutVehicle vehicle={vehicle} />
                                 <div className="w-full border-t border-gray-200 mt-4">
-                                    <div className="flex flex-col sm:flex-row items-center border border-gray-200 rounded-2xl px-6 py-4  mt-4 bg-white w-full mx-auto gap-5 box-border font-sans">
+                                    <div className="flex flex-col sm:flex-row items-center border border-gray-200 rounded-2xl px-6 py-4  mt-4 bg-white w-full mx-auto gap-5 box-border ">
                                         <div className="flex items-center sm:text-left gap-3">
                                             <div className="flex-shrink-0">
                                                 <Image src={protectShield} alt="Protection Shield" className="w-[50px] h-auto block" />
@@ -304,7 +304,7 @@ export default async function VehicleDetailsPage({
             </section>
 
             {/* Disclaimers & Info banner footer base */}
-            <div className="w-full text-left text-xs md:text-[12px] px-2 md:px-10 bg-neutral-mediumDarkGray/10 pt-10 pb-16 italic text-black">
+            <div className="w-full text-left text-base md:text-[12px] px-2 md:px-10 bg-neutral-mediumDarkGray/10 pt-10 pb-16 italic text-black">
                 <div className="max-w-[1440px] xl:max-w-[1600px] mx-auto">
                     Every reasonable effort is made to ensure the accuracy of the information listed above. Vehicle pricing, incentives, options (including standard equipment), and technical specifications listed for the {vehicle.year} {vehicle.make} {vehicle.model} {vehicle.trim} may not match the exact vehicle displayed. {appConfig.site.inventory_pricing_verbage} Please confirm with a sales representative the accuracy of this information.
                 </div>

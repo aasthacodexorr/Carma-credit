@@ -295,7 +295,7 @@ const ProtectionPlans = () => {
                 className="w-ful min-w-[160px] sm:min-w-[180px] lg:min-w-0 shrink-0 lg:shrink grow bg-card rounded-full cursor-pointer px-4 py-3 flex items-center justify-center gap-3 transition-all duration-200 border-2 border-brand2 text-brand2 hover:text-white hover:bg-brand-green-alpha"
               >
                 <Icon className="h-5 w-5 shrink-0" strokeWidth={2} />
-                <p className="mt-1 text-sm whitespace-nowrap lg:whitespace-normal">{label}</p>
+                <p className="mt-1 text-base whitespace-nowrap lg:whitespace-normal">{label}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -335,7 +335,7 @@ const ProtectionPlans = () => {
       </section>
 
       {/* Gap Coverage */}
-      <section className="text-gray-900 pt-18 py-1 lg:px-4 font-sans">
+      <section className="text-gray-900 pt-18 py-1 lg:px-4 ">
         <div className="max-w-[1240px] mx-auto px-6 md:px-1 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

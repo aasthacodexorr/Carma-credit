@@ -6,6 +6,7 @@
    CSS Variables for Global Colors
    These map to lib/colors.ts for centralized color management
 ═════════════════════════════════════════════════════════════════ */
+
 :root {
   /* Primary Colors */
   --color-primary-green: #6632d6;
@@ -18,11 +19,13 @@
   --color-slider-thumb: #6632d6;
   --color-shadow-green: rgba(20, 81, 181, 0.2);
   --color-shadow-dark: rgba(0, 0, 0, 0.08);
+
+  
 }
 
 /* Driveway-style homepage typography (Poppins ≈ Circular) */
 .dw-font {
-  font-family: "Poppins", "Circular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Caveat, cursive, sans-serif", "Poppins", "Circular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .finance-slider {

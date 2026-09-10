@@ -23,11 +23,11 @@ export default function CreditSpecialists() {
   ];
 
   return (
-    <section className="bg-[#FAF4F5] py-16 px-6 md:px-8 lg:px-8 relative overflow-hidden">
+    <section className="bg-[#FAF4F5] py-16 lg:py-10 px-6 md:px-8 lg:px-8 relative overflow-hidden">
       <div className="mx-auto max-w-[1480px] px-0 sm:px-12 xl:px-16">
         {/* Header Content */}
-        <div className="text-center relative mb-16">
-          <p className="text-xs md:text-sm font-semibold tracking-widest text-[#B83269] uppercase mb-2">
+        <div className="text-center relative mb-8">
+          <p className="text-base md:text-base font-semibold tracking-widest text-[#ff385c] uppercase">
             Meet The Team
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-[#1A1A2E] tracking-tight">
@@ -42,7 +42,7 @@ export default function CreditSpecialists() {
             <p className="font-handwriting text-xl text-[#1A1A2E] italic transform rotate-3">
               Real Support.
             </p>
-            <div className="w-24 h-1 bg-[#B83269] rounded-full mt-1 ml-auto transform -rotate-2" />
+            <div className="w-24 h-1 bg-[#ff385c] rounded-full mt-1 ml-auto transform -rotate-2" />
           </div>
         </div>
 
@@ -53,7 +53,7 @@ export default function CreditSpecialists() {
               {/* Image & Quote Row Container */}
               <div className="flex items-center gap-4 w-full justify-center">
                 {/* Photo Card */}
-                <div className="relative w-full max-w-[240px] h-64 md:h-72 bg-gray-200 rounded-2xl overflow-hidden shadow-sm shrink-0">
+                <div className="relative w-full max-w-[270px] h-64 md:h-72 bg-gray-200 rounded-2xl overflow-hidden shadow-sm shrink-0">
                   <Image
                     src={person.image}
                     alt={person.name}
@@ -76,7 +76,7 @@ export default function CreditSpecialists() {
                 <h3 className="text-xl font-bold text-[#1A1A2E]">
                   {person.name}
                 </h3>
-                <p className="text-sm text-gray-600 font-medium">
+                <p className="text-base text-gray-600 font-medium">
                   {person.role}
                 </p>
               </div>
