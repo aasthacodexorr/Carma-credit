@@ -27,7 +27,7 @@ export default function CreditSpecialists() {
       <div className="mx-auto max-w-[1480px] px-0 sm:px-12 xl:px-16">
         {/* Header Content */}
         <div className="text-center relative mb-8">
-          <p className="text-base md:text-base font-semibold tracking-widest text-[#ff385c] uppercase">
+          <p className="text-base md:text-base font-semibold tracking-widest text-brand uppercase">
             Meet The Team
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-[#1A1A2E] tracking-tight">
@@ -65,7 +65,7 @@ export default function CreditSpecialists() {
 
                 {/* Quote on the Right */}
                 <div className="max-w-[130px]">
-                  <p className="font-handwriting text-base md:text-lg text-[#1A1A2E] italic leading-tight">
+                  <p className="hidden lg:block font-handwriting text-base md:text-lg text-[#1A1A2E] italic leading-tight">
                     {person.quote}
                   </p>
                 </div>

@@ -60,7 +60,7 @@ export default function CreditScoreBanner() {
         </div>
 
         {/* Right Visual Area (Phone + Side Text) */}
-        <div className="relative flex flex-col  sm:flex-row items-end justify-center lg:justify-start gap-8 w-full lg:w-auto mt-8 lg:mt-0">
+        <div className="relative flex flex-col  sm:flex-row items-center lg:items-end justify-center lg:justify-start gap-8 w-full lg:w-auto mt-8 lg:mt-0">
 
           {/* Background glowing soft pink circle effect behind phone */}
           <div className="absolute -bottom-10 w-72 h-72   bg-[#ffd1dc] rounded-full blur-3xl -z-10 opacity-70" />

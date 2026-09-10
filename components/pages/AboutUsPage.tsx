@@ -40,6 +40,8 @@ export default function Home() {
               }}
               aria-hidden="true"
             />
+            {/* Mobile Black Overlay for legibility */}
+            <div className="absolute inset-0 bg-black/50 lg:hidden pointer-events-none" aria-hidden="true" />
           </div>
 
           {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
@@ -50,11 +52,11 @@ export default function Home() {
               </span>
 
               <h1 className="text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-extrabold tracking-tight leading-[1.12] mb-5">
-                <span className="text-[#131b4d] block">Real People.</span>
+                <span className="text-white lg:text-[#131b4d] block">Real People.</span>
                 <span className="text-[#ff385c] block">A Brighter Tomorrow.</span>
               </h1>
 
-              <p className="text-[#4b5563] text-base leading-[1.65] mb-8">
+              <p className="text-white lg:text-[#4b5563] text-lg leading-[1.65] mb-8">
                 Carma Credit helps Canadians with all types of credit get approved for automotive
                 financing and find the right vehicle. Because everyone deserves a second chance on
                 the road.

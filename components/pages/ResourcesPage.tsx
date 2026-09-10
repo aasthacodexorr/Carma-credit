@@ -137,8 +137,9 @@ export default function ResourcesPage() {
                         </div>
                     </div>
                 </section>
+
                 <section className="bg-white border-b border-gray-200 py-6 px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-0">
+                    <div className="max-w-7xl mx-auto grid grid-cols-2 lg:flex lg:flex-row justify-between items-center gap-6 lg:gap-0">
                         {features.map((feature, index) => {
                             const IconComponent = feature.icon;
                             return (

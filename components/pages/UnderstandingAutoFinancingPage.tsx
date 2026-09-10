@@ -27,63 +27,64 @@ export default function AutoLoanFraudPage() {
         {/* SECTION 1: Hero Section */}
 
 
-        <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
-          {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
-            {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
-            <div
-              className="relative w-full h-full"
-              style={{
-                maskImage:
-                  "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
-                WebkitMaskImage:
-                  "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
-              }}
-            >
-              <Image
-                src="/images/autoFinance.png"
-                alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
-                width={1730}
-                height={909}
-                className="block w-full h-auto"
-                priority
-                unoptimized
-              />
-            </div>
+      <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
+         {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
+         <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
+           {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
+           <div
+             className="relative w-full h-full"
+             style={{
+               maskImage:
+                 "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+               WebkitMaskImage:
+                 "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+             }}
+           >
+             <Image
+               src="/images/autoFinance.png"
+               alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
+               width={1730}
+               height={909}
+               className="block w-full h-auto"
+               priority
+               unoptimized
+             />
+           </div>
 
-            {/* SOFT HORIZONTAL FADE: Seamless transition located right nearby the text */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
-              }}
-              aria-hidden="true"
-            />
-          </div>
+           {/* SOFT HORIZONTAL FADE: Seamless transition located right nearby the text */}
+           <div
+             className="absolute inset-0 pointer-events-none"
+             style={{
+               background:
+                 "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
+             }}
+             aria-hidden="true"
+           />
+           {/* Mobile Black Overlay for legibility */}
+           <div className="absolute inset-0 bg-black/50 lg:hidden pointer-events-none" aria-hidden="true" />
+         </div>
 
-          {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
-          <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
+         {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
+         <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
 
 
-            <div className="max-w-[500px] xl:max-w-[540px] flex flex-col items-start justify-center">
-              <span className="text-[#ff385c] uppercase tracking-wider text-base font-bold block px-2">
-                PREVENTING AUTO LOAN FRAUD
-              </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1e1b4b] leading-tight mb-2">
-                Stay Informed.<br />
-                <p className='text-[#ff385c]'>Stay Protected.</p>
-              </h1>
-              <p className="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">
-                Your safety matters. Learn how to spot, avoid and prevent auto loan fraud so you can finance your vehicle with confidence.
-              </p>
-              <Link href={"/financing"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold px-8 py-3.5 rounded-full inline-flex items-center gap-2 transition-colors shadow-sm">
-                Get Started Safely <ArrowRight size={18} />
-              </Link>
-            </div>
-          </div>
-        </section>
-
+           <div className="max-w-[500px] xl:max-w-[540px] flex flex-col items-start justify-center">
+             <span className="text-[#ff385c] uppercase tracking-wider text-base font-bold block px-2">
+               PREVENTING AUTO LOAN FRAUD
+             </span>
+             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white lg:text-[#1e1b4b] leading-tight mb-2">
+               Stay Informed.<br />
+               <p className='text-[#ff385c]'>Stay Protected.</p>
+             </h1>
+             <p className="text-white lg:text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">
+               Your safety matters. Learn how to spot, avoid and prevent auto loan fraud so you can finance your vehicle with confidence.
+             </p>
+             <Link href={"/financing"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold px-8 py-3.5 rounded-full inline-flex items-center gap-2 transition-colors shadow-sm">
+               Get Started Safely <ArrowRight size={18} />
+             </Link>
+           </div>
+         </div>
+       </section>
 
         {/* SECTION 2: What is Auto Loan Fraud? (Full-width light background tint) */}
         <section className="w-full py-1">
