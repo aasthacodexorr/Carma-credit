@@ -147,10 +147,11 @@ export default function WhatDoINeedPage() {
               <Image
                 src="/images/what_do_i_need_hero_hd.png"
                 alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
-                fill
+                width={1730}
+                height={909}
+                className="block w-full h-auto"
                 priority
-                className="object-cover object-center lg:object-[left_center]"
-                sizes="100vw"
+                unoptimized
               />
             </div>
 
@@ -319,7 +320,7 @@ export default function WhatDoINeedPage() {
         {/* ========================================================================= */}
         {/* SECTION 3: HELPFUL TIPS — Make the Process Even Smoother */}
         {/* ========================================================================= */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-20 bg-white">
+        <section className="relative w-full py-12 sm:py-16 lg:pb-20 lg:pt-0 bg-white">
           <div className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Single Unified Light-Pink Card Container containing both Heading and 3 Columns */}
             <div className="w-full rounded-2xl sm:rounded-3xl bg-[#fdf6fa] border border-[#f8dfea]/80 py-10 px-6 sm:py-14 sm:px-8 lg:py-16 lg:px-12">
@@ -403,18 +404,20 @@ export default function WhatDoINeedPage() {
         {/* ========================================================================= */}
         {/* SECTION 4: YOU'RE NOT ALONE — We're Here to Help (Specialist Two-Column) */}
         {/* ========================================================================= */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-20 bg-white">
-          <div className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative w-full py-12 sm:py-16 lg:py-0 bg-white">
+          <div className="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-0">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
               {/* Left Column: Specialist Photo with Script Overlay */}
               <div className="lg:col-span-6">
-                <div className="relative mx-auto w-full aspect-[16/10] sm:aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md bg-slate-100 border border-[#f4e2ec]/60">
+                <div className="relative w-full overflow-hidden shadow-md bg-slate-100">
                   <Image
                     src="/images/what_do_i_need_specialist_hd.png"
                     alt="Carma Credit auto financing specialist meeting with customer"
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    width={1730}
+                    height={909}
+                    className="block w-full h-auto"
+                    priority
+                    unoptimized
                   />
                 </div>
               </div>
@@ -461,10 +464,12 @@ export default function WhatDoINeedPage() {
           <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none opacity-85 lg:opacity-100">
             <Image
               src="/images/what_do_i_need_sunset_hd.png"
-              alt="Car driving along scenic road into sunset"
-              fill
-              className="object-cover object-right"
-              sizes="(max-width: 1024px) 100vw, 58vw"
+              alt="Carma Credit auto financing specialist meeting with customer"
+              width={1730}
+              height={909}
+              className="block w-full h-auto"
+              priority
+              unoptimized
             />
 
             {/* Smooth gradient blend into the dark left side */}

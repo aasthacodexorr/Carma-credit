@@ -91,4 +91,6 @@ declare module 'lucide-react' {
   export const FileSpreadsheet:Icon;
   export const UserCheck:Icon;
   export const Megaphone:Icon;
+  export const HelpCircle:Icon;
+  export const Calculator:Icon;
 }
