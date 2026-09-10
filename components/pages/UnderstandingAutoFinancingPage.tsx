@@ -15,15 +15,13 @@ import { Footer, Header } from '../layout';
 
 export default function AutoLoanFraudPage() {
   return (
-    <div className="bg-white text-slate-800 font-sans antialiased overflow-hidden min-h-screen flex flex-col">
+    <div className=" ">
       {/* Header wrapped to match full width */}
       <div className="w-full bg-white border-b border-slate-100 sticky top-0 z-50">
-        <div className="max-w-[1480px] mx-auto">
           <Header />
-        </div>
       </div>
 
-      <main className="flex-grow">
+      <main className="flex-grow bg-white text-slate-800 font-sans antialiased overflow-hidden min-h-screen flex flex-col  ">
         {/* SECTION 1: Hero Section */}
         <section className="w-full bg-white py-12 md:py-16">
           <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto">
