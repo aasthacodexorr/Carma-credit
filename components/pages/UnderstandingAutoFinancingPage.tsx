@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { Footer, Header } from '../layout';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AutoLoanFraudPage() {
   return (
@@ -66,19 +67,19 @@ export default function AutoLoanFraudPage() {
 
 
             <div className="max-w-[500px] xl:max-w-[540px] flex flex-col items-start justify-center">
-              <span className="text-[#9333ea] uppercase tracking-wider text-base font-bold block mb-3">
+              <span className="text-[#9333ea] uppercase tracking-wider text-base font-bold block px-2">
                 PREVENTING AUTO LOAN FRAUD
               </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1e1b4b] leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1e1b4b] leading-tight mb-2">
                 Stay Informed.<br />
                 <p className='text-[#ff385c]'>Stay Protected.</p>
               </h1>
               <p className="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">
                 Your safety matters. Learn how to spot, avoid and prevent auto loan fraud so you can finance your vehicle with confidence.
               </p>
-              <button className="bg-[#ff385c] hover:bg-opacity-90 text-white font-semibold px-8 py-3.5 rounded-full inline-flex items-center gap-2 transition-colors shadow-sm">
+              <Link href={"/financing"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold px-8 py-3.5 rounded-full inline-flex items-center gap-2 transition-colors shadow-sm">
                 Get Started Safely <ArrowRight size={18} />
-              </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -268,9 +269,9 @@ export default function AutoLoanFraudPage() {
                   <p className="text-slate-600 text-base leading-relaxed mb-6">
                     If you think you’ve been targeted by fraud or notice suspicious activity, contact us right away. We’re here to help and guide you through the next steps.
                   </p>
-                  <button className="bg-[#ff385c] hover:bg-opacity-90 text-white font-semibold text-base px-6 py-3 rounded-full inline-flex items-center gap-2 transition-colors shadow-sm">
+                  <Link href={"financing"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold text-base px-6 py-3 rounded-full inline-flex items-center gap-2 transition-colors shadow-sm">
                     Talk to Our Team <ArrowRight size={16} />
-                  </button>
+                  </Link>
                   <p className="text-[11px] text-slate-400 mt-4">Your security is important to us</p>
                 </div>
               </div>
