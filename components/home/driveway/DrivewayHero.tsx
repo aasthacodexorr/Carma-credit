@@ -88,7 +88,7 @@ const DrivewayHero = () => {
           <motion.div {...enter(0.25)} className="mt-7">
             <Link
               href="/financing"
-              className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-[#ff385c]/20 transition-all duration-300 hover:bg-brand hover:scale-105"
+              className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-[#ff385c]/20 transition-all duration-300 hover:bg-brand"
             >
               <span>Start My 2-Minute Quiz</span>
               <ArrowRight className="h-4 w-4 stroke-[2.5]" />

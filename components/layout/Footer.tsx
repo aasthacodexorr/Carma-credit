@@ -35,7 +35,7 @@ const Footer = () => {
       title: "Company",
       links: [
         { label: "Get Pre-Approved", href: "/financing" },
-        { label: "Sell my Car", href: "/trade-in-my-car" },
+        // { label: "Sell my Car", href: "/trade-in-my-car" },
         { label: "About Us", href: "/about-us" },
         { label: "Contact Us", href: "/contact-us" },
       ],
@@ -43,6 +43,7 @@ const Footer = () => {
     {
       title: "Resources",
       links: [
+        { label: "Resources", href: "/resources" },
         { label: "How It Works", href: "/how-it-works" },
         { label: "Rebuild Your Credit", href: "/rebuild-your-credit" },
         { label: "Preventing Auto Loan fraud", href: "/understanding-auto-financing" },
