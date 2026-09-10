@@ -31,7 +31,7 @@ const TrustPerksBar = () => {
                 {perk.icon}
               </div>
               <div>
-                <h4 className="text-base font-bold text-slate-900 sm:text-sm leading-tight">
+                <h4 className="text-base font-bold text-slate-900 sm:text-base leading-tight">
                   {perk.title}
                 </h4>
               </div>

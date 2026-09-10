@@ -190,7 +190,7 @@ export default function ContactUs() {
                     <div className="absolute inset-0 opacity-80 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px]" />
                     <div className="absolute inset-0 flex items-center justify-center p-4">
                       <div className="bg-white px-4 py-2 rounded-lg shadow-md border border-gray-100 text-center">
-                        <span className="block font-bold text-xs text-[#ff385c]">Carma Credit</span>
+                        <span className="block font-bold text-base text-[#ff385c]">Carma Credit</span>
                         <span className="text-[10px] text-gray-500">Brampton, ON</span>
                       </div>
                     </div>

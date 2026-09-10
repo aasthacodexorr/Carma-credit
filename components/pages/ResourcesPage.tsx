@@ -56,11 +56,35 @@ const creditCards = [
         image: "images/a9.png",
     },
 ];
+
+const features = [
+    {
+        icon: BookOpen,
+        title: 'Educational Guides',
+        description: 'Learn at your own pace',
+    },
+    {
+        icon: Wrench,
+        title: 'Helpful Tools',
+        description: 'Plan and prepare',
+    },
+    {
+        icon: HelpCircle,
+        title: 'Common Questions',
+        description: 'Get clear answers',
+    },
+    {
+        icon: Users,
+        title: 'Expert Support',
+        description: "We're here to help",
+    },
+];
+
 export default function ResourcesPage() {
     return (
         <>
             <Header />
-            <div className="bg-white text-slate-900 font-sans selection:[#ff385c] selection:text-[#ff385c]">
+            <div className="bg-white text-slate-900  selection:[#ff385c] selection:text-[#ff385c]">
                 {/* SECTION 1: HERO */}
                 <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[500px] flex items-center">
                     {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
@@ -107,10 +131,40 @@ export default function ResourcesPage() {
                                 Helpful Information <br />
                                 <span className="text-[#1e1b4b]">for Your Journey.</span>
                             </h1>
-                            <p className="text-slate-600 text-lg leading-relaxed max-w-xl">
+                            <p className="text-slate-600 text-xl leading-relaxed max-w-xl">
                                 Guides, tools and tips to help you make confident decisions about your auto financing and get the most out of your car ownership experience.
                             </p>
                         </div>
+                    </div>
+                </section>
+                <section className="bg-white border-y border-gray-200 py-6 px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-0">
+                        {features.map((feature, index) => {
+                            const IconComponent = feature.icon;
+                            return (
+                                <div key={index} className="flex items-center gap-4 w-full lg:w-auto relative group">
+                                    {/* Feature Icon */}
+                                    <div className="w-11 h-11 bg-[#ff385c] text-white rounded-full flex items-center justify-center shrink-0">
+                                        <IconComponent className="w-5 h-5" />
+                                    </div>
+
+                                    {/* Feature Text */}
+                                    <div>
+                                        <h4 className="text-sm sm:text-base font-bold text-gray-900 m-0">
+                                            {feature.title}
+                                        </h4>
+                                        <p className="text-xs sm:text-sm text-gray-600 m-0">
+                                            {feature.description}
+                                        </p>
+                                    </div>
+
+                                    {/* Vertical divider separator (hidden on mobile, visible between items on large screens) */}
+                                    {index < features.length - 1 && (
+                                        <div className="hidden lg:block absolute right-[-24px] top-1/2 -translate-y-1/2 h-9 w-[1px] bg-gray-200" />
+                                    )}
+                                </div>
+                            );
+                        })}
                     </div>
                 </section>
                 {/* SECTION 2: GUIDES AND TOOLS GRID */}
@@ -131,38 +185,38 @@ export default function ResourcesPage() {
 
                         {/* Cards Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-6 sm:px-0">
-    {creditCards.map((card) => (
-        <div key={card.title} className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
-            <div>
-                <div className="h-44 bg-slate-100 relative overflow-hidden">
-                    <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
-                </div>
+                            {creditCards.map((card) => (
+                                <div key={card.title} className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+                                    <div>
+                                        <div className="h-44 bg-slate-100 relative overflow-hidden">
+                                            <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+                                        </div>
 
-                <div className="p-5">
-                    <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-[#ff385c] transition-colors">
-                        {card.title}
-                    </h3>
+                                        <div className="p-5">
+                                            <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-[#ff385c] transition-colors">
+                                                {card.title}
+                                            </h3>
 
-                    <p className="text-slate-600 text-lg leading-relaxed">
-                        {card.description}
-                    </p>
-                </div>
-            </div>
+                                            <p className="text-slate-600 text-lg leading-relaxed">
+                                                {card.description}
+                                            </p>
+                                        </div>
+                                    </div>
 
-            <div className="p-5 pt-0 flex justify-end">
-                <span className="w-8 h-8 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
-                    <ArrowRight className="w-4 h-4" />
-                </span>
-            </div>
-        </div>
-    ))}
-</div>
+                                    <div className="p-5 pt-0 flex justify-end">
+                                        <span className="w-8 h-8 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
+                                            <ArrowRight className="w-4 h-4" />
+                                        </span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
 
                     </div>
                 </section>
 
                 {/* SECTION 3: OTHER HELPFUL RESOURCES (QUICK LINKS) */}
-                <section className="py-16 bg-[#fcf8fa] border-t border-b border-slate-100">
+                <section className="py-16 bg-[#fce7f3]/60 border-t border-b border-slate-100">
                     <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto">
 
                         <div className="text-center max-w-xl mx-auto mb-10 px-6 sm:px-0">

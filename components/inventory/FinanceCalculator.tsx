@@ -177,7 +177,7 @@ const FinanceCalculator = ({ vehiclePrice, inventoryId = "2851" }: FinanceCalcul
   };
 
   return (
-    <div className="md:py-14 py-6 mt-10 font-sans px-2 md:px-10 overflow-hidden w-full bg-background-lightBeige">
+    <div className="md:py-14 py-6 mt-10  px-2 md:px-10 overflow-hidden w-full bg-background-lightBeige">
       <div className="w-full mx-auto max-w-[1620px]">
         <div className="flex flex-col lg:flex-row pl-2 lg:gap-10">
           
@@ -240,7 +240,7 @@ const FinanceCalculator = ({ vehiclePrice, inventoryId = "2851" }: FinanceCalcul
             {/* Purchase Price and Deposit */}
             <div className="grid lg:grid-cols-2 lg:gap-10 gap-5">
               <div className="flex flex-col gap-2">
-                <label className="text-xl md:text-sm font-semibold text-gray-500 tracking-wider">Purchase price</label>
+                <label className="text-xl md:text-base font-semibold text-gray-500 tracking-wider">Purchase price</label>
                 <input
                   type="number"
                   value={purchasePrice}
@@ -251,7 +251,7 @@ const FinanceCalculator = ({ vehiclePrice, inventoryId = "2851" }: FinanceCalcul
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-xl md:text-sm font-semibold text-gray-500 tracking-wider">Deposit amount</label>
+                <label className="text-xl md:text-base font-semibold text-gray-500 tracking-wider">Deposit amount</label>
                 <input
                   type="number"
                   value={depositAmount}
@@ -264,7 +264,7 @@ const FinanceCalculator = ({ vehiclePrice, inventoryId = "2851" }: FinanceCalcul
 
             {/* Term of Loan */}
             <div className="flex flex-col gap-2 mt-4">
-              <label className="text-xl md:text-sm font-semibold text-gray-500">Term of Loan (years)</label>
+              <label className="text-xl md:text-base font-semibold text-gray-500">Term of Loan (years)</label>
               <div className="grid grid-cols-5 gap-2">
                 {[4, 5, 6, 7, 8].map((year) => {
                   const isActive = loanTerm === year;
@@ -313,7 +313,7 @@ const FinanceCalculator = ({ vehiclePrice, inventoryId = "2851" }: FinanceCalcul
                     }}
                     className="w-14 text-right outline-none border-none bg-transparent p-0 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   />
-                  <span className="text-gray-500 font-medium text-sm ml-0.5">%</span>
+                  <span className="text-gray-500 font-medium text-base ml-0.5">%</span>
                 </div>
               </div>
 

@@ -138,7 +138,7 @@ export const ImageGallery = ({ images, title, isSold = false, centered }: ImageG
           className="relative rounded-2xl xl:min-w-[775px] xl:max-w-[750px] 2xl:min-w-[850px] overflow-hidden bg-gray-100 shadow-sm cursor-zoom-in aspect-[4/3] w-full"
         >
           {isSold && (
-            <div className="absolute top-4 right-4 z-20 bg-red-600 text-white text-sm font-bold px-4 py-2 rounded-md shadow-lg uppercase">
+            <div className="absolute top-4 right-4 z-20 bg-red-600 text-white text-base font-bold px-4 py-2 rounded-md shadow-lg uppercase">
               Sold
             </div>
           )}

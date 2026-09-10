@@ -169,7 +169,7 @@ export default function WhatDoINeedPage() {
           {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
           <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
             <div className="max-w-[500px] xl:max-w-[540px] flex flex-col items-start justify-center">
-              <span className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase mb-4">
+              <span className="text-base sm:text-[18px] font-bold tracking-[0.2em] text-[#ff385c] uppercase">
                 What Do I Need?
               </span>
 
@@ -178,7 +178,7 @@ export default function WhatDoINeedPage() {
                 <span className="text-[#ff385c] block">Get Approved.</span>
               </h1>
 
-              <p className="text-[#4b5563] text-base leading-[1.65] mb-8">
+              <p className="text-[#4b5563] text-base lg:text-lg leading-[1.65] mb-8">
                 Having the right information ready helps us find the best auto financing options for
                 you — faster and easier.
               </p>
@@ -204,7 +204,7 @@ export default function WhatDoINeedPage() {
                       />
                     </svg>
                   </div>
-                  <div className="flex flex-col text-xs sm:text-[13px] font-bold text-[#131b4d] leading-tight">
+                  <div className="flex flex-col text-base sm:text-[18px] font-bold text-[#131b4d] leading-tight">
                     <span>Faster</span>
                     <span>approvals</span>
                   </div>
@@ -235,7 +235,7 @@ export default function WhatDoINeedPage() {
                       />
                     </svg>
                   </div>
-                  <div className="flex flex-col text-xs sm:text-[13px] font-bold text-[#131b4d] leading-tight">
+                  <div className="flex flex-col text-base sm:text-[18px] font-bold text-[#131b4d] leading-tight">
                     <span>A smoother</span>
                     <span>process</span>
                   </div>
@@ -256,7 +256,7 @@ export default function WhatDoINeedPage() {
                       <path d="M12 12.5C13.8 12.5 15.2 11.1 15.2 9.3C15.2 7.5 13.8 6.1 12 6.1C10.2 6.1 8.8 7.5 8.8 9.3C8.8 11.1 10.2 12.5 12 12.5ZM12 14.5C9.5 14.5 4.5 15.8 4.5 18.3V20.5H19.5V18.3C19.5 15.8 14.5 14.5 12 14.5ZM19.2 12.5C20.6 12.5 21.7 11.4 21.7 10C21.7 8.6 20.6 7.5 19.2 7.5C17.8 7.5 16.7 8.6 16.7 10C16.7 11.4 17.8 12.5 19.2 12.5ZM21.2 14.5C20.6 14.5 19.8 14.6 18.8 14.9C19.8 15.8 20.5 16.9 20.5 18.3V20.5H23.5V18.3C23.5 16.2 19.8 14.5 21.2 14.5ZM4.8 12.5C6.2 12.5 7.3 11.4 7.3 10C7.3 8.6 6.2 7.5 4.8 7.5C3.4 7.5 2.3 8.6 2.3 10C2.3 11.4 3.4 12.5 4.8 12.5ZM5.2 14.9C4.2 14.6 3.4 14.5 2.8 14.5C0.8 14.5 0.5 16.2 0.5 18.3V20.5H3.5V18.3C3.5 16.9 4.2 15.8 5.2 14.9Z" />
                     </svg>
                   </div>
-                  <div className="flex flex-col text-xs sm:text-[13px] font-bold text-[#131b4d] leading-tight">
+                  <div className="flex flex-col text-base sm:text-[18px] font-bold text-[#131b4d] leading-tight">
                     <span>We&apos;re here</span>
                     <span>to help</span>
                   </div>
@@ -269,17 +269,17 @@ export default function WhatDoINeedPage() {
         {/* ========================================================================= */}
         {/* SECTION 2: THE ESSENTIALS — Documents You'll Need (6 Feature Cards) */}
         {/* ========================================================================= */}
-        <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-white">
+        <section className="relative w-full py-16 sm:py-20 lg:py-16 bg-white">
           <div className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-              <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase block mb-3">
+              <span className="text-[12px] sm:text-[18px] font-bold tracking-[0.2em] text-[#ff385c] uppercase block mb-3">
                 The Essentials
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#131b4d] tracking-tight leading-[1.15] mb-3 sm:mb-4">
                 Documents You&apos;ll Need
               </h2>
-              <p className="text-[#4b5563] text-sm sm:text-base leading-[1.65] max-w-2xl mx-auto">
+              <p className="text-[#4b5563] text-base sm:text-base leading-[1.65] max-w-2xl mx-auto">
                 Here&apos;s what you&apos;ll typically need to get started with your auto financing
                 application.
               </p>
@@ -301,14 +301,14 @@ export default function WhatDoINeedPage() {
                   <h3 className="text-lg sm:text-[19px] font-bold text-[#131b4d] mb-2.5">
                     {item.title}
                     {item.subtitle && (
-                      <span className="text-xs sm:text-[13px] font-normal text-slate-500">
+                      <span className="text-base sm:text-[18px] font-normal text-slate-500">
                         {item.subtitle}
                       </span>
                     )}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-[#4b5563] text-xs sm:text-[13.5px] leading-[1.6] max-w-[270px]">
+                  <p className="text-[#4b5563] text-base sm:text-[13.5px] leading-[1.6] max-w-[270px]">
                     {item.description}
                   </p>
                 </div>
@@ -326,7 +326,7 @@ export default function WhatDoINeedPage() {
             <div className="w-full rounded-2xl sm:rounded-3xl bg-[#fdf6fa] border border-[#f8dfea]/80 py-10 px-6 sm:py-14 sm:px-8 lg:py-16 lg:px-12">
               {/* Header INSIDE Card */}
               <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase block mb-3">
+                <span className="text-[12px] sm:text-[18px] font-bold tracking-[0.2em] text-[#ff385c] uppercase block mb-3">
                   Helpful Tips
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-[42px] font-extrabold text-[#131b4d] tracking-tight leading-[1.15]">
@@ -347,7 +347,7 @@ export default function WhatDoINeedPage() {
                   <h3 className="text-lg sm:text-[19px] font-bold text-[#131b4d] mb-2">
                     Have digital copies ready
                   </h3>
-                  <p className="text-[#4b5563] text-xs sm:text-[13.5px] leading-[1.6] max-w-[240px]">
+                  <p className="text-[#4b5563] text-base sm:text-[13.5px] leading-[1.6] max-w-[240px]">
                     Photos or PDFs work great and save time.
                   </p>
                 </div>
@@ -370,7 +370,7 @@ export default function WhatDoINeedPage() {
                   <h3 className="text-lg sm:text-[19px] font-bold text-[#131b4d] mb-2">
                     Make sure information is up to date
                   </h3>
-                  <p className="text-[#4b5563] text-xs sm:text-[13.5px] leading-[1.6] max-w-[240px]">
+                  <p className="text-[#4b5563] text-base sm:text-[13.5px] leading-[1.6] max-w-[240px]">
                     Current documents help us get you the best options.
                   </p>
                 </div>
@@ -392,7 +392,7 @@ export default function WhatDoINeedPage() {
                   <h3 className="text-lg sm:text-[19px] font-bold text-[#131b4d] mb-2">
                     Not sure about something?
                   </h3>
-                  <p className="text-[#4b5563] text-xs sm:text-[13.5px] leading-[1.6] max-w-[240px]">
+                  <p className="text-[#4b5563] text-base sm:text-[13.5px] leading-[1.6] max-w-[240px]">
                     No problem. Our team will guide you through it.
                   </p>
                 </div>
@@ -424,7 +424,7 @@ export default function WhatDoINeedPage() {
 
               {/* Right Column: Narrative & CTA */}
               <div className="lg:col-span-6 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase mb-2.5">
+                <span className="text-[12px] sm:text-[18px] font-bold tracking-[0.2em] text-[#ff385c] uppercase mb-2.5">
                   You&apos;re Not Alone
                 </span>
 
@@ -432,7 +432,7 @@ export default function WhatDoINeedPage() {
                   We&apos;re Here to Help
                 </h2>
 
-                <div className="space-y-3 text-[#4b5563] text-sm sm:text-[15px] leading-[1.65] mb-6 sm:mb-7 max-w-lg">
+                <div className="space-y-3 text-[#4b5563] text-base sm:text-[15px] leading-[1.65] mb-6 sm:mb-7 max-w-lg">
                   <p>
                     Every situation is different. If you&apos;re unsure about anything or don&apos;t have
                     a specific document, just reach out.
@@ -482,7 +482,7 @@ export default function WhatDoINeedPage() {
           {/* Content on the Dark Left Side */}
           <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-xl lg:max-w-2xl xl:max-w-3xl flex flex-col items-start justify-center">
-              <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] text-slate-300 uppercase mb-2 sm:mb-2.5">
+              <span className="text-[15px] sm:text-[12px] font-bold tracking-[0.2em] text-slate-300 uppercase mb-2 sm:mb-2.5">
                 Ready To Get Started?
               </span>
 
@@ -490,7 +490,7 @@ export default function WhatDoINeedPage() {
                 Your Next Car is Closer Than You Think.
               </h2>
 
-              <p className="text-slate-300 text-xs sm:text-sm lg:text-[15px] leading-normal mb-5 sm:mb-6">
+              <p className="text-slate-300 text-base sm:text-base lg:text-[15px] leading-normal mb-5 sm:mb-6">
                 It only takes 2 minutes. No judgment. No obligation.
               </p>
 

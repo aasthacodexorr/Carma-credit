@@ -99,7 +99,7 @@ export default function HowItWorksPage() {
               <span className="text-[#ff385c] uppercase tracking-widest text-base font-bold lg:px-1 block">
                 HOW IT WORKS
               </span>
-              <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-[#1a1b35] leading-tight mb-3">
+              <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-[#1a1b35] leading-tight">
                 From Application <br />
                 <span className="text-[#ff385c]">to Car Keys.</span>
               </h1>
@@ -115,7 +115,7 @@ export default function HowItWorksPage() {
               </div>
 
               {/* Feature Badges */}
-              <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-sm text-[#4a4b65] font-medium">
+              <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-base text-[#4a4b65] font-medium">
                 <div className="flex items-center gap-2">
                   <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white">
                     <Check className="w-3 h-3 stroke-[3]" />
@@ -183,12 +183,12 @@ export default function HowItWorksPage() {
 
                     {/* Right: Image Card with Floating Handwritten Text (Exact Step 1 CSS) */}
                     <div className="relative flex items-center self-center lg:self-auto w-full justify-between">
-                      <div className="bg-white p-3 rounded-2xl shadow-lg border border-gray-100 w-full lg:max-w-[450px] lg:min-w-[450px]">
+                      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 w-full lg:max-w-[450px] lg:min-w-[450px]">
                         <div className="h-64 rounded-xl overflow-hidden relative shadow-inner">
                           <img src={step.image} alt={step.title} className="w-full h-full object-fit rounded-2xl" />
                         </div>
                       </div>
-                      <span className=" hidden lg:block top-1/2 -translate-y-1/2 text-sm sm:text-base font-bold text-[#ff385c] rotate-12 whitespace-nowrap">
+                      <span className=" hidden lg:block text-[#1e102e] text-xl sm:text-[22px] leading-snug font-semibold tracking-wide rotate-4 ml-10" style={{ fontFamily: 'Caveat, cursive, sans-serif' }}>
                         It only takes 2 minutes.
                       </span>
                     </div>
@@ -285,7 +285,7 @@ export default function HowItWorksPage() {
                   {/* Content on the Dark Left Side */}
                   <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-xl lg:max-w-2xl xl:max-w-3xl flex flex-col items-start justify-center">
-                      <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] text-slate-300 uppercase mb-2 sm:mb-2.5">
+                      <span className="text-[15px] sm:text-[12px] font-bold tracking-[0.2em] text-slate-300 uppercase mb-2 sm:mb-2.5">
                         Ready To Get Started?
                       </span>
         
@@ -293,7 +293,7 @@ export default function HowItWorksPage() {
                         Your Next Car is Closer Than You Think.
                       </h2>
         
-                      <p className="text-slate-300 text-xs sm:text-sm lg:text-[15px] leading-normal mb-5 sm:mb-6">
+                      <p className="text-slate-300 text-base sm:text-base lg:text-[15px] leading-normal mb-5 sm:mb-6">
                         It only takes 2 minutes. No judgment. No obligation.
                       </p>
         

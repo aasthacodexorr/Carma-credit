@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { easeOut } from "./motion";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, Check } from "lucide-react";
 
 const DrivewayHero = () => {
   const reduce = useReducedMotion();
@@ -60,7 +60,7 @@ const DrivewayHero = () => {
 
           {/* Small Top Tagline */}
           <motion.div {...enter(0.0, 10)} className="mb-2">
-            <span className="text-[11px] font-bold tracking-[0.18em] text-[#ff385c] uppercase">
+            <span className="text-[15px] font-bold tracking-[0.18em] text-[#ff385c] uppercase">
               Real People. Real Opportunities.
             </span>
           </motion.div>
@@ -76,10 +76,10 @@ const DrivewayHero = () => {
 
           {/* Subtitle / Description */}
           <motion.div {...enter(0.15)} className="mt-4 space-y-3">
-            <p className="text-sm font-semibold text-[#131b4d] sm:text-base">
+            <p className="text-base font-semibold text-[#131b4d] sm:text-base">
               Bad credit? No credit? Bankruptcy or consumer proposal?
             </p>
-            <p className="text-xs font-normal text-[#131b4d] sm:text-sm leading-relaxed max-w-lg">
+            <p className="text-base font-normal text-[#131b4d] sm:text-base leading-relaxed max-w-lg">
               Carma Credit helps Canadians explore auto financing options and get back on the road.
             </p>
           </motion.div>
@@ -88,7 +88,7 @@ const DrivewayHero = () => {
           <motion.div {...enter(0.25)} className="mt-7">
             <Link
               href="/financing"
-              className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-[#ff385c]/20 transition-all duration-300 hover:bg-brand"
+              className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-7 py-3.5 text-base sm:text-base font-bold text-white shadow-lg shadow-[#ff385c]/20 transition-all duration-300 hover:bg-brand"
             >
               <span>Start My 2-Minute Quiz</span>
               <ArrowRight className="h-4 w-4 stroke-[2.5]" />
@@ -96,23 +96,26 @@ const DrivewayHero = () => {
           </motion.div>
 
           {/* Trust Check Items */}
-          <motion.div
-            {...enter(0.35)}
-            className="mt-6 flex flex-wrap items-center gap-6 text-xs font-medium text-[#131b4d]"
-          >
-            <div className="flex items-center space-x-2">
-              <CheckCircle2 className="h-4 w-4 text-[#ff385c]" />
-              <span>No judgment</span>
+          <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-base text-[#4a4b65] font-medium mt-6">
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white">
+                <Check className="w-3 h-3 stroke-[3]" />
+              </div>
+              <span>No judgment.</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <CheckCircle2 className="h-4 w-4 text-[#ff385c]" />
-              <span>No obligation</span>
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white">
+                <Check className="w-3 h-3 stroke-[3]" />
+              </div>
+              <span>No obligation.</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <CheckCircle2 className="h-4 w-4 text-[#ff385c]" />
-              <span>Just options</span>
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white">
+                <Check className="w-3 h-3 stroke-[3]" />
+              </div>
+              <span>Automotive financing only</span>
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>

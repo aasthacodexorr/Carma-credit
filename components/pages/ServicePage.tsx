@@ -284,7 +284,7 @@ const Service = () => {
 
                       <div className="px-3 mt-4">
                         <h3 className="text-[17px] font-bold text-gray-800 capitalize">{id.replace('-', ' ')}</h3>
-                        <p className="mt-1 text-sm text-black/70 font-normal leading-relaxed">
+                        <p className="mt-1 text-base text-black/70 font-normal leading-relaxed">
                           {cardText}
                         </p>
                       </div>
@@ -326,7 +326,7 @@ const Service = () => {
                       className="shrink-0 inline-flex items-center gap-2 bg-white rounded-full px-4 py-3 transition-all duration-150 border-2 border-brand2 text-brand2 hover:bg-brand-btn-gradient hover:text-white"
                     >
                       <RenderIcon className="h-4 w-4 shrink-0" />
-                      <span className="text-sm whitespace-nowrap mt-[3px]">{label}</span>
+                      <span className="text-base whitespace-nowrap mt-[3px]">{label}</span>
                     </Link>
                   </div>
                 ))}
