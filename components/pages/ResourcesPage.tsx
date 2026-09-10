@@ -14,94 +14,105 @@ import {
 import { Footer, Header } from '../layout';
 import Link from 'next/link';
 
+const creditCards = [
+    {
+        title: "Understanding Your Credit",
+        description: "Learn how credit works and what your score means.",
+        image: "images/a2.png",
+    },
+    {
+        title: "What Do I Need?",
+        description: "See the documents and information required to apply.",
+        image: "images/a3.png",
+    },
+    {
+        title: "Preventing Auto Loan Fraud",
+        description: "Learn how to protect yourself and your information.",
+        image: "images/a4.png",
+    },
+    {
+        title: "The Car Buying Process",
+        description: "A step-by-step guide to buying a car with confidence.",
+        image: "images/a5.png",
+    },
+    {
+        title: "Budgeting for a Car",
+        description: "Tips to help you plan payments, insurance, and ownership costs.",
+        image: "images/a6.png",
+    },
+    {
+        title: "Newcomers to Canada",
+        description: "Information and tips for newcomers looking to finance a vehicle.",
+        image: "images/a7.png",
+    },
+    {
+        title: "Building or Rebuilding Your Credit",
+        description: "Steps you can take to improve your credit over time.",
+        image: "images/a8.png",
+    },
+    {
+        title: "Car Ownership Tips",
+        description: "Helpful advice to keep your vehicle running smoothly for the road ahead.",
+        image: "images/a9.png",
+    },
+];
 export default function ResourcesPage() {
     return (
         <>
             <Header />
             <div className="bg-white text-slate-900 font-sans selection:[#ff385c] selection:text-[#ff385c]">
-
                 {/* SECTION 1: HERO */}
-                <section className="bg-[#fcf8fa] pt-12 pb-16 border-b border-slate-100">
-                    <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto">
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-
-                            {/* Left Content */}
-                            <div className="lg:col-span-6 px-6 sm:px-0">
-                                <span className="text-[#ff385c] font-bold text-md uppercase tracking-widest block px-1">
-                                    RESOURCES
-                                </span>
-                                <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-[#1e1b4b] tracking-tight leading-[1.15] mb-3">
-                                    Helpful Information <br />
-                                    <span className="text-[#ff385c]">for Your Journey.</span>
-                                </h1>
-                                <p className="text-slate-600 text-lg leading-relaxed max-w-xl">
-                                    Guides, tools and tips to help you make confident decisions about your auto financing and get the most out of your car ownership experience.
-                                </p>
-                            </div>
-
-                            {/* Right Image / Graphic mock */}
-                            <div className="lg:col-span-6 relative">
-                                <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-200 bg-white relative">
-                                    {/* Simulated Laptop & Setup Graphic */}
-                                    <div className="h-[280px] sm:h-[340px] bg-slate-100 relative flex items-center justify-center overflow-hidden">
-                                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#98105d_1px,transparent_1px)] [background-size:16px_16px]"></div>
-                                        {/* Decorative elements representing image content */}
-                                        <div className="text-center z-10 p-6 bg-white/80 backdrop-blur-md rounded-xl shadow-lg border border-slate-100 max-w-sm mx-4">
-                                            <p className="font-serif italic text-xl font-bold text-slate-800 mb-1">“Knowledge Drives Better Choices.”</p>
-                                            <p className="text-md text-[#ff385c] font-semibold tracking-wider uppercase">Credit • Car Buying • Financing</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[500px] flex items-center">
+                    {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
+                    <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
+                        {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
+                        <div
+                            className="relative w-full h-full"
+                            style={{
+                                maskImage:
+                                    "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+                                WebkitMaskImage:
+                                    "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+                            }}
+                        >
+                            <Image
+                                src="/images/a1.png"
+                                alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
+                                width={1730}
+                                height={909}
+                                className="block w-full h-auto"
+                                priority
+                                unoptimized
+                            />
                         </div>
 
-                        {/* Quick Sub-navigation Bar */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8 border-t border-slate-200/60 px-6 sm:px-0">
-                            <div className="flex items-center space-x-3 group cursor-pointer">
-                                <div className="w-10 h-10 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
-                                    <BookOpen className="w-8 h-8" />
-                                </div>
-                                <div>
-                                    <h4 className="text-lg font-bold text-slate-900 leading-tight">Educational Guides</h4>
-                                    <p className="text-md text-slate-500">Learn at your own pace</p>
-                                </div>
-                            </div>
+                        {/* SOFT HORIZONTAL FADE: Seamless transition located right nearby the text */}
+                        <div
+                            className="absolute inset-0 pointer-events-none"
+                            style={{
+                                background:
+                                    "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
+                            }}
+                            aria-hidden="true"
+                        />
+                    </div>
 
-                            <div className="flex items-center space-x-3 group cursor-pointer">
-                                <div className="w-10 h-10 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
-                                    <Wrench className="w-8 h-8" />
-                                </div>
-                                <div>
-                                    <h4 className="text-lg font-bold text-slate-900 leading-tight">Helpful Tools</h4>
-                                    <p className="text-md text-slate-500">Plan and prepare</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center space-x-3 group cursor-pointer">
-                                <div className="w-10 h-10 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
-                                    <HelpCircle className="w-8 h-8" />
-                                </div>
-                                <div>
-                                    <h4 className="text-lg font-bold text-slate-900 leading-tight">Common Questions</h4>
-                                    <p className="text-md text-slate-500">Get clear answers</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center space-x-3 group cursor-pointer">
-                                <div className="w-10 h-10 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
-                                    <Users className="w-8 h-8" />
-                                </div>
-                                <div>
-                                    <h4 className="text-lg font-bold text-slate-900 leading-tight">Expert Support</h4>
-                                    <p className="text-md text-slate-500">We're here to help</p>
-                                </div>
-                            </div>
+                    {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
+                    <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
+                        <div className="lg:col-span-6 px-6 sm:px-0 max-w-[500px] xl:max-w-[700px] flex flex-col items-start justify-center">
+                            <span className="text-[#ff385c] font-bold text-md uppercase tracking-widest block px-1">
+                                RESOURCES
+                            </span>
+                            <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-[#ff385c] tracking-tight leading-[1.15] mb-3">
+                                Helpful Information <br />
+                                <span className="text-[#1e1b4b]">for Your Journey.</span>
+                            </h1>
+                            <p className="text-slate-600 text-lg leading-relaxed max-w-xl">
+                                Guides, tools and tips to help you make confident decisions about your auto financing and get the most out of your car ownership experience.
+                            </p>
                         </div>
-
                     </div>
                 </section>
-
                 {/* SECTION 2: GUIDES AND TOOLS GRID */}
                 <section className="py-16 bg-white">
                     <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto">
@@ -120,189 +131,32 @@ export default function ResourcesPage() {
 
                         {/* Cards Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-6 sm:px-0">
+    {creditCards.map((card) => (
+        <div key={card.title} className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+            <div>
+                <div className="h-44 bg-slate-100 relative overflow-hidden">
+                    <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+                </div>
 
-                            {/* Card 1 */}
-                            <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
-                                <div>
-                                    <div className="h-44 bg-slate-100 relative overflow-hidden">
-                                        <div className="absolute inset-0 bg-slate-200 flex items-center justify-center text-slate-400 font-medium text-lg">
-                                            {/* Placeholder image representation */}
-                                            <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
-                                                <span className="text-md text-slate-500 font-semibold">[Understanding Credit Image]</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-5">
-                                        <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-[#ff385c] transition-colors">
-                                            Understanding Your Credit
-                                        </h3>
-                                        <p className="text-slate-600 text-lg leading-relaxed">
-                                            Learn how credit works and what your score means.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="p-5 pt-0 flex justify-end">
-                                    <span className="w-8 h-8 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
-                                        <ArrowRight className="w-4 h-4" />
-                                    </span>
-                                </div>
-                            </div>
+                <div className="p-5">
+                    <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-[#ff385c] transition-colors">
+                        {card.title}
+                    </h3>
 
-                            {/* Card 2 */}
-                            <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
-                                <div>
-                                    <div className="h-44 bg-slate-100 relative overflow-hidden flex items-center justify-center">
-                                        <span className="text-md text-slate-500 font-semibold">[What Do I Need Image]</span>
-                                    </div>
-                                    <div className="p-5">
-                                        <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-[#ff385c] transition-colors">
-                                            What Do I Need?
-                                        </h3>
-                                        <p className="text-slate-600 text-lg leading-relaxed">
-                                            See the documents and information required to apply.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="p-5 pt-0 flex justify-end">
-                                    <span className="w-8 h-8 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
-                                        <ArrowRight className="w-4 h-4" />
-                                    </span>
-                                </div>
-                            </div>
+                    <p className="text-slate-600 text-lg leading-relaxed">
+                        {card.description}
+                    </p>
+                </div>
+            </div>
 
-                            {/* Card 3 */}
-                            <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
-                                <div>
-                                    <div className="h-44 bg-slate-100 relative overflow-hidden flex items-center justify-center">
-                                        <span className="text-md text-slate-500 font-semibold">[Preventing Fraud Image]</span>
-                                    </div>
-                                    <div className="p-5">
-                                        <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-[#ff385c] transition-colors">
-                                            Preventing Auto Loan Fraud
-                                        </h3>
-                                        <p className="text-slate-600 text-lg leading-relaxed">
-                                            Learn how to protect yourself and your information.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="p-5 pt-0 flex justify-end">
-                                    <span className="w-8 h-8 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
-                                        <ArrowRight className="w-4 h-4" />
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* Card 4 */}
-                            <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
-                                <div>
-                                    <div className="h-44 bg-slate-100 relative overflow-hidden flex items-center justify-center">
-                                        <span className="text-md text-slate-500 font-semibold">[Car Buying Process Image]</span>
-                                    </div>
-                                    <div className="p-5">
-                                        <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-[#ff385c] transition-colors">
-                                            The Car Buying Process
-                                        </h3>
-                                        <p className="text-slate-600 text-lg leading-relaxed">
-                                            A step-by-step guide to buying a car with confidence.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="p-5 pt-0 flex justify-end">
-                                    <span className="w-8 h-8 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
-                                        <ArrowRight className="w-4 h-4" />
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* Card 5 */}
-                            <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
-                                <div>
-                                    <div className="h-44 bg-slate-100 relative overflow-hidden flex items-center justify-center">
-                                        <span className="text-md text-slate-500 font-semibold">[Budgeting Image]</span>
-                                    </div>
-                                    <div className="p-5">
-                                        <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-[#ff385c] transition-colors">
-                                            Budgeting for a Car
-                                        </h3>
-                                        <p className="text-slate-600 text-lg leading-relaxed">
-                                            Tips to help you plan payments, insurance, and ownership costs.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="p-5 pt-0 flex justify-end">
-                                    <span className="w-8 h-8 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
-                                        <ArrowRight className="w-4 h-4" />
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* Card 6 */}
-                            <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
-                                <div>
-                                    <div className="h-44 bg-slate-100 relative overflow-hidden flex items-center justify-center">
-                                        <span className="text-md text-slate-500 font-semibold">[Newcomers Image]</span>
-                                    </div>
-                                    <div className="p-5">
-                                        <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-[#ff385c] transition-colors">
-                                            Newcomers to Canada
-                                        </h3>
-                                        <p className="text-slate-600 text-lg leading-relaxed">
-                                            Information and tips for newcomers looking to finance a vehicle.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="p-5 pt-0 flex justify-end">
-                                    <span className="w-8 h-8 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
-                                        <ArrowRight className="w-4 h-4" />
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* Card 7 */}
-                            <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
-                                <div>
-                                    <div className="h-44 bg-slate-100 relative overflow-hidden flex items-center justify-center">
-                                        <span className="text-md text-slate-500 font-semibold">[Building Credit Image]</span>
-                                    </div>
-                                    <div className="p-5">
-                                        <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-[#ff385c] transition-colors">
-                                            Building or Rebuilding Your Credit
-                                        </h3>
-                                        <p className="text-slate-600 text-lg leading-relaxed">
-                                            Steps you can take to improve your credit over time.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="p-5 pt-0 flex justify-end">
-                                    <span className="w-8 h-8 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
-                                        <ArrowRight className="w-4 h-4" />
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* Card 8 */}
-                            <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
-                                <div>
-                                    <div className="h-44 bg-slate-100 relative overflow-hidden flex items-center justify-center">
-                                        <span className="text-md text-slate-500 font-semibold">[Car Ownership Image]</span>
-                                    </div>
-                                    <div className="p-5">
-                                        <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-[#ff385c] transition-colors">
-                                            Car Ownership Tips
-                                        </h3>
-                                        <p className="text-slate-600 text-lg leading-relaxed">
-                                            Helpful advice to keep your vehicle running smoothly for the road ahead.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="p-5 pt-0 flex justify-end">
-                                    <span className="w-8 h-8 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
-                                        <ArrowRight className="w-4 h-4" />
-                                    </span>
-                                </div>
-                            </div>
-
-                        </div>
+            <div className="p-5 pt-0 flex justify-end">
+                <span className="w-8 h-8 rounded-full bg-[#fce7f3] text-[#ff385c] flex items-center justify-center group-hover:bg-[#ff385c] group-hover:text-white transition-colors">
+                    <ArrowRight className="w-4 h-4" />
+                </span>
+            </div>
+        </div>
+    ))}
+</div>
 
                     </div>
                 </section>
