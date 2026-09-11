@@ -466,8 +466,7 @@ export default function WhatDoINeedPage() {
             <Image
               src="/images/what_do_i_need_sunset_hd.png"
               alt="Carma Credit auto financing specialist meeting with customer"
-              width={1730}
-              height={909}
+              fill
               className="block w-full h-auto"
               priority
               unoptimized

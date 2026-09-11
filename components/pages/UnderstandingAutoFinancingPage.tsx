@@ -25,7 +25,7 @@ export default function AutoLoanFraudPage() {
         {/* ================= SECTION 1: HERO ================= */}
         <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
           {/* RIGHT SIDE: Large Image starting right next to the text and extending to the right edge */}
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none">
+          <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[66%] overflow-hidden pointer-events-none">
             {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
             <div
               className="relative w-full h-full"
@@ -315,8 +315,7 @@ export default function AutoLoanFraudPage() {
             <Image
               src="/images/what_do_i_need_sunset_hd.png"
               alt="Carma Credit auto financing specialist meeting with customer"
-              width={1730}
-              height={909}
+              fill
               className="block w-full h-auto"
               priority
               unoptimized
