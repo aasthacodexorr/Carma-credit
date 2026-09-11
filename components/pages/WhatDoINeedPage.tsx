@@ -169,7 +169,7 @@ export default function WhatDoINeedPage() {
 
           {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
           <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
-            <div className="max-w-[500px] xl:max-w-[540px] flex flex-col items-start justify-center">
+            <div className="max-w-[500px] xl:max-w-[600px] flex flex-col items-start justify-center">
               <span className="text-base sm:text-[18px] font-bold tracking-[0.2em] text-brand uppercase">
                 What do you need to finance a vehicle?
               </span>
@@ -187,7 +187,7 @@ export default function WhatDoINeedPage() {
               {/* 3 Mini Feature Badges */}
               <div className="flex flex-col lg:flex-row  flex-wrap items-start lg:items-center gap-y-4 lg:gap-4 sm:gap-6 pt-2  text-[#131b4d]">
                 {/* Badge 1: Faster approvals */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-7 h-7 text-[#ff385c]"
@@ -205,9 +205,8 @@ export default function WhatDoINeedPage() {
                       />
                     </svg>
                   </div>
-                  <div className="flex lg:flex-col gap-2 lg:gap-0 text-base sm:text-[18px]  text-xl lg:text-base text-[#131b4d] leading-tight">
-                    <span>Faster</span>
-                    <span>approvals</span>
+                  <div className="flex lg:flex-co gap-2 lg:gap-0 text-base sm:text-[18px]  text-xl lg:text-base text-[#131b4d] leading-tight">
+                    <span>Faster approvals</span>
                   </div>
                 </div>
 
@@ -215,7 +214,7 @@ export default function WhatDoINeedPage() {
                 <div className="hidden lg:block sm:block w-px h-8 bg-[#e8d5e0]" aria-hidden="true" />
 
                 {/* Badge 2: A smoother process */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-7 h-7"
@@ -237,8 +236,7 @@ export default function WhatDoINeedPage() {
                     </svg>
                   </div>
                   <div className="flex lg:flex-col gap-2 lg:gap-0 text-base sm:text-[18px]  text-xl lg:text-base text-[#131b4d] leading-tight">
-                    <span>A smoother</span>
-                    <span>process</span>
+                    <span>A smoother process</span>
                   </div>
                 </div>
 
@@ -246,7 +244,7 @@ export default function WhatDoINeedPage() {
                 <div className="hidden lg:block sm:block w-px h-8 bg-[#e8d5e0]" aria-hidden="true" />
 
                 {/* Badge 3: We're here to help */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-7 h-7 text-[#ff385c]"
@@ -258,8 +256,7 @@ export default function WhatDoINeedPage() {
                     </svg>
                   </div>
                   <div className="flex lg:flex-col gap-2 lg:gap-0 text-base sm:text-[18px] text-xl lg:text-base text-[#131b4d] leading-tight">
-                    <span>We&apos;re here</span>
-                    <span>to help</span>
+                    <span>We&apos;re here to help</span>
                   </div>
                 </div>
               </div>
