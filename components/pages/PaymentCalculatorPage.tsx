@@ -76,7 +76,7 @@ export default function PaymentCalculator() {
                 {/* ---------------- Hero ---------------- */}
                 <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[420px] sm:min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center py-12 lg:py-0">
                     {/* RIGHT SIDE: Large Dealership Image (Hidden or adjusted on mobile so text is fully readable on white/light-pink background) */}
-                    <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-20 lg:opacity-100">
+                    <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[55%] overflow-hidden pointer-events-none opacity-20 lg:opacity-100">
                         <div
                             className="relative w-full h-full"
                             style={{
@@ -87,7 +87,7 @@ export default function PaymentCalculator() {
                             }}
                         >
                             <Image
-                                src="/images/howitworks_1.png"
+                                src="/images/pc1.png"
                                 alt="Carma Credit dealership building"
                                 fill
                                 priority
@@ -111,8 +111,7 @@ export default function PaymentCalculator() {
                         <div className={`${WRAPPER} grid grid-cols-1 lg:grid-cols-2 gap-10 items-center`}>
                             <div>
                                 <p
-                                    className="text-sm font-bold tracking-[0.15em] mb-3"
-                                    style={{ color: PINK }}
+                                    className="text-sm font-bold tracking-[0.09em] mb-3 text-brand"
                                 >
                                     PAYMENT CALCULATOR
                                 </p>
@@ -308,8 +307,7 @@ export default function PaymentCalculator() {
                                     Your Estimated Payment
                                 </p>
                                 <h3
-                                    className="text-4xl sm:text-5xl font-extrabold mb-1"
-                                    style={{ color: "#ff385c" }}
+                                    className="text-4xl sm:text-5xl font-extrabold mb-1 text-brand"
                                 >
                                     {formatCurrency(monthlyPayment)}
                                 </h3>
@@ -413,10 +411,9 @@ export default function PaymentCalculator() {
                 <section className="relative w-full overflow-hidden bg-[#080b18] py-10 sm:py-12 lg:py-14">
                     <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none opacity-40 lg:opacity-100">
                         <Image
-                            src="/images/what_do_i_need_sunset_hd.png"
+                            src="/images/pc2.png"
                             alt="Carma Credit auto financing specialist meeting with customer"
-                            width={1730}
-                            height={909}
+                            fill
                             className="block w-full h-auto"
                             priority
                             unoptimized

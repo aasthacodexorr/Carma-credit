@@ -49,6 +49,8 @@ const Footer = () => {
         { label: "Preventing Auto Loan fraud", href: "/understanding-auto-financing" },
         { label: "FAQ", href: "/faq" },
         { label: "What do you need to finance a vehicle?", href: "/what-do-i-need" },
+        { label: "Payment Calculator", href: "/payment-calculator" },
+
       ],
     },
   ];

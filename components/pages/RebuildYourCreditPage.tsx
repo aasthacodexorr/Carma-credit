@@ -233,7 +233,7 @@ export default function UnderstandingCreditPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
               {/* Range 1 */}
-              <div className="bg-white rounded-3xl p-6 shadow-sm border border-pink-100 flex flex-col justify-between text-left">
+              <div className="bg-white rounded-3xl p-6 shadow-sm border border-pink-100 flex flex-col text-left">
                 <div className=''>
                   <h4 className="font-bold text-[#1a1b35] text-xl mb-1">300 – 579</h4>
                   <span className="text-sm font-bold text-red-500 uppercase tracking-wider block mb-4">Poor</span>
@@ -244,7 +244,7 @@ export default function UnderstandingCreditPage() {
               </div>
 
               {/* Range 2 */}
-              <div className="bg-white rounded-3xl p-6 shadow-sm border border-pink-100 flex flex-col justify-between text-left">
+              <div className="bg-white rounded-3xl p-6 shadow-sm border border-pink-100 flex flex-col text-left">
                 <div>
                   <h4 className="font-bold text-[#1a1b35] text-xl mb-1">580 – 669</h4>
                   <span className="text-sm font-bold text-amber-500 uppercase tracking-wider block mb-4">Fair</span>
@@ -255,7 +255,7 @@ export default function UnderstandingCreditPage() {
               </div>
 
               {/* Range 3 */}
-              <div className="bg-white rounded-3xl p-6 shadow-sm border border-pink-100 flex flex-col justify-between text-left">
+              <div className="bg-white rounded-3xl p-6 shadow-sm border border-pink-100 flex flex-col text-left">
                 <div>
                   <h4 className="font-bold text-[#1a1b35] text-xl mb-1">670 – 739</h4>
                   <span className="text-sm font-bold text-yellow-500 uppercase tracking-wider block mb-4">Good</span>
@@ -266,7 +266,7 @@ export default function UnderstandingCreditPage() {
               </div>
 
               {/* Range 4 */}
-              <div className="bg-white rounded-3xl p-6 shadow-sm border border-pink-100 flex flex-col justify-between text-left">
+              <div className="bg-white rounded-3xl p-6 shadow-sm border border-pink-100 flex flex-col text-left">
                 <div>
                   <h4 className="font-bold text-[#1a1b35] text-xl mb-1">740 – 799</h4>
                   <span className="text-sm font-bold text-emerald-500 uppercase tracking-wider block mb-4">Very Good</span>
@@ -277,7 +277,7 @@ export default function UnderstandingCreditPage() {
               </div>
 
               {/* Range 5 */}
-              <div className="bg-white rounded-3xl p-6 shadow-sm border border-pink-100 flex flex-col justify-between text-left sm:col-span-2 lg:col-span-1">
+              <div className="bg-white rounded-3xl p-6 shadow-sm border border-pink-100 flex flex-col text-left sm:col-span-2 lg:col-span-1">
                 <div>
                   <h4 className="font-bold text-[#1a1b35] text-xl mb-1">800 – 900</h4>
                   <span className="text-sm font-bold text-[#00c853] uppercase tracking-wider block mb-4">Excellent</span>

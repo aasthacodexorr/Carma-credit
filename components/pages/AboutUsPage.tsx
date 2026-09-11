@@ -193,7 +193,7 @@ export default function Home() {
               <div className="lg:col-span-6 order-2 lg:order-1">
                 <div className="relative mx-auto w-full aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-slate-100 border border-slate-100">
                   <Image
-                    src="/images/dealership-cars.jpg"
+                    src="/images/dealership-cars.png"
                     alt="Row of clean modern vehicles in dealership lot"
                     width={1730}
                     height={909}
