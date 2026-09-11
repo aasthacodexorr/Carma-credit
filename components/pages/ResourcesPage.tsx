@@ -131,7 +131,7 @@ export default function ResourcesPage() {
           </div>
 
           {/* Main Container */}
-          <div className="relative z-20 mx-auto w-full max-w-[1480px] px-6 py-0 sm:px-12 xl:px-16 lg:-mt-20 -mt-20">
+          <div className="relative z-20 mx-auto w-full max-w-[1480px] px-6 py-0 sm:px-12 xl:px-16 lg:-mt-20 -mt-44">
             <div className="max-w-xl">
               {/* Small Top Tagline */}
               <motion.div {...enter(0.0, 10)} className="mb-2">
@@ -160,7 +160,7 @@ export default function ResourcesPage() {
         </section>
 
         {/* SECTION 2: FEATURES BAR */}
-        <section className="bg-white border-b border-gray-200 py-6 -mt-28 lg:-mt-2 px-4 sm:px-6 lg:px-8">
+        <section className="bg-white border-b border-gray-200 py-6 -mt-52 lg:-mt-2 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto grid grid-cols-2 lg:flex lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-0">
             {features.map((feature, index) => (
               <div key={index} className="flex items-center gap-4 w-full lg:w-auto relative group">
