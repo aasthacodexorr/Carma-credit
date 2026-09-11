@@ -334,36 +334,41 @@ export default function ResourcesPage() {
         </section>
 
         {/* SECTION 6: READY TO GET STARTED? (Dark Sunset Highway CTA Banner) */}
-        <section className="relative w-full overflow-hidden bg-[#080b18] py-10 sm:py-12 lg:py-14 max-w-full mx-auto px-4 sm:px-6 lg:px-0">
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none opacity-85 lg:opacity-100">
-            <Image
-              src="/images/what_do_i_need_sunset_hd.png"
-              alt="Sunset Highway"
-              fill
-              className="block w-full h-full object-cover"
-              unoptimized
-            />
-            <div
-              className="absolute inset-0 bg-gradient-to-r from-[#080b18] via-[#080b18]/60 to-transparent"
-              aria-hidden="true"
-            />
-            {/* Overlay Text positioned on the right side image */}
-            <div className="absolute right-12 bottom-12 lg:right-20 lg:bottom-16 z-10 hidden sm:block text-right">
-              <p className="font-handwriting italic text-white text-2xl lg:text-3xl leading-snug tracking-wide drop-shadow-md">
-                Same Roads.<br />
-                Brighter<br />
-                Tomorrows.
-              </p>
-              <div className="w-28 lg:w-32 h-[3px] bg-[#ff385c] mt-2 ml-auto rounded-full" />
-            </div>
-          </div>
+        <section className="relative w-full overflow-hidden bg-[#080b18] py-10 sm:py-12 lg:py-14">
+                  {/* Background Image on Right Side */}
+                  <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none opacity-85 lg:opacity-100">
+                    <Image
+                      src="/images/what_do_i_need_sunset_hd.png"
+                      alt="Carma Credit auto financing specialist meeting with customer"
+                      fill
+                      className="block w-full h-auto"
+                      priority
+                      unoptimized
+                    />
+        
+                    {/* Smooth gradient blend into the dark left side */}
+                    <div
+                      className="absolute inset-0 bg-gradient-to-r from-[#080b18] via-[#080b18]/60 to-transparent"
+                      aria-hidden="true"
+                    />
+        
+                    {/* Overlay Text positioned on the right side image */}
+                    <div className="absolute right-12 bottom-12 lg:right-20 lg:bottom-16 z-10 hidden sm:block text-right">
+                      <p className="font-handwriting italic text-white text-2xl lg:text-3xl leading-snug tracking-wide drop-shadow-md">
+                        Same Roads.<br />
+                        Brighter<br />
+                        Tomorrows.
+                      </p>
+                      <div className="w-28 lg:w-32 h-[3px] bg-[#ff385c] mt-2 ml-auto rounded-full" />
+                    </div>
+                  </div>
 
           <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto relative z-10">
             <div className="max-w-xl">
-              <span className="text-md uppercase tracking-widest text-brand font-bold block mb-2">
+              <span className="text-sm lg:text-md uppercase lg:tracking-widest text-brand lg:font-bold block mb-2">
                 Same Roads. Brighter Tomorrows.
               </span>
-              <h2 className="text-3xl sm:text-4xl text-white font-extrabold tracking-tight mb-3">
+              <h2 className="text-2xl sm:text-4xl text-white font-extrabold tracking-tight mb-3">
                 Start Your Journey Today.
               </h2>
               <p className="text-slate-300 text-lg mb-8">
