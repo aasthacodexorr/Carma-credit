@@ -262,14 +262,13 @@ export default function HowItWorksPage() {
         </section>
 
         {/* ================= SECTION 4: READY TO GET STARTED BANNER ================= */}
-        <section className="relative w-full overflow-hidden bg-[#080b18] py-10 sm:py-12 lg:py-14">
+        <section className="relative w-full overflow-hidden bg-[#080b18] py-18 sm:py-18 lg:py-24">
           {/* Background Image on Right Side */}
           <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none opacity-85 lg:opacity-100">
             <Image
               src="/images/what_do_i_need_sunset_hd.png"
               alt="Carma Credit auto financing specialist meeting with customer"
-              width={1730}
-              height={909}
+              fill
               className="block w-full h-auto"
               priority
               unoptimized

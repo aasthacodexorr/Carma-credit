@@ -132,8 +132,8 @@ export default function WhatDoINeedPage() {
         {/* SECTION 1: HERO (Single Full-Width Continuous Banner like About Us page) */}
         {/* ========================================================================= */}
         <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[580px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
-          {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
+         {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
+         <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
             {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
             <div
               className="relative w-full h-full"
@@ -147,8 +147,9 @@ export default function WhatDoINeedPage() {
               <Image
                 src="/images/what_do_i_need_hero_hd.png"
                 alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
-                fill
-                className="block w-full h-full object-cover lg:h-auto"
+                width={800}
+                height={600}
+                className="w-auto h-full max-h-none object-contain object-right"
                 priority
                 unoptimized
               />
@@ -165,11 +166,11 @@ export default function WhatDoINeedPage() {
             />
             {/* Mobile Black Overlay for legibility */}
             <div className="absolute inset-0 bg-white/80 lg:hidden pointer-events-none" aria-hidden="true" />
-          </div>
+         </div>
 
-          {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
-          <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
-            <div className="max-w-[500px] xl:max-w-[540px] flex flex-col items-start justify-center">
+         {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
+         <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
+            <div className="max-w-[500px] xl:max-w-[600px] flex flex-col items-start justify-center">
               <span className="text-base sm:text-[18px] font-bold tracking-[0.2em] text-brand uppercase">
                 What do you need to finance a vehicle?
               </span>
@@ -187,7 +188,7 @@ export default function WhatDoINeedPage() {
               {/* 3 Mini Feature Badges */}
               <div className="flex flex-col lg:flex-row  flex-wrap items-start lg:items-center gap-y-4 lg:gap-4 sm:gap-6 pt-2  text-[#131b4d]">
                 {/* Badge 1: Faster approvals */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-7 h-7 text-[#ff385c]"
@@ -205,9 +206,8 @@ export default function WhatDoINeedPage() {
                       />
                     </svg>
                   </div>
-                  <div className="flex lg:flex-col gap-2 lg:gap-0 text-base sm:text-[18px]  text-xl lg:text-base text-[#131b4d] leading-tight">
-                    <span>Faster</span>
-                    <span>approvals</span>
+                  <div className="flex lg:flex-co gap-2 lg:gap-0 text-base sm:text-[18px]  text-xl lg:text-base text-[#131b4d] leading-tight">
+                    <span>Faster approvals</span>
                   </div>
                 </div>
 
@@ -215,7 +215,7 @@ export default function WhatDoINeedPage() {
                 <div className="hidden lg:block sm:block w-px h-8 bg-[#e8d5e0]" aria-hidden="true" />
 
                 {/* Badge 2: A smoother process */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-7 h-7"
@@ -237,8 +237,7 @@ export default function WhatDoINeedPage() {
                     </svg>
                   </div>
                   <div className="flex lg:flex-col gap-2 lg:gap-0 text-base sm:text-[18px]  text-xl lg:text-base text-[#131b4d] leading-tight">
-                    <span>A smoother</span>
-                    <span>process</span>
+                    <span>A smoother process</span>
                   </div>
                 </div>
 
@@ -246,7 +245,7 @@ export default function WhatDoINeedPage() {
                 <div className="hidden lg:block sm:block w-px h-8 bg-[#e8d5e0]" aria-hidden="true" />
 
                 {/* Badge 3: We're here to help */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-7 h-7 text-[#ff385c]"
@@ -258,14 +257,13 @@ export default function WhatDoINeedPage() {
                     </svg>
                   </div>
                   <div className="flex lg:flex-col gap-2 lg:gap-0 text-base sm:text-[18px] text-xl lg:text-base text-[#131b4d] leading-tight">
-                    <span>We&apos;re here</span>
-                    <span>to help</span>
+                    <span>We&apos;re here to help</span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+         </div>
+      </section>
 
         {/* ========================================================================= */}
         {/* SECTION 2: THE ESSENTIALS — Documents You'll Need (6 Feature Cards) */}
@@ -466,8 +464,7 @@ export default function WhatDoINeedPage() {
             <Image
               src="/images/what_do_i_need_sunset_hd.png"
               alt="Carma Credit auto financing specialist meeting with customer"
-              width={1730}
-              height={909}
+              fill
               className="block w-full h-auto"
               priority
               unoptimized
