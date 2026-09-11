@@ -26,6 +26,22 @@ const WRAPPER = 'max-w-[1480px] px-4 sm:px-12 xl:px-16 mx-auto';
 
 const TERM_OPTIONS = [24, 36, 48, 60, 72];
 
+// ---- Field limits (min/max + how many characters the user can type) ------
+const FIELD_LIMITS = {
+    vehiclePrice: { min: 5000, max: 100000, allowDecimal: false },
+    downPayment: { min: 0, max: 50000, allowDecimal: false },
+    apr: { min: 0, max: 29.99, allowDecimal: true },
+} as const;
+
+// maxLength is derived from how many characters the max value needs
+// (e.g. "100000" -> 6, "50000" -> 5, "29.99" -> 5). This stops someone
+// from physically typing something like "4546546546456.1".
+const FIELD_MAX_LENGTH = {
+    vehiclePrice: String(FIELD_LIMITS.vehiclePrice.max).length, // 6
+    downPayment: String(FIELD_LIMITS.downPayment.max).length, // 5
+    apr: String(FIELD_LIMITS.apr.max).length, // 5 ("29.99")
+};
+
 function formatCurrency(value: number, fractionDigits = 0) {
     return value.toLocaleString('en-US', {
         style: 'currency',
@@ -43,6 +59,34 @@ function calculateMonthlyPayment(principal: number, aprPercent: number, termMont
     return (principal * monthlyRate * factor) / (factor - 1);
 }
 
+function clamp(value: number, min: number, max: number) {
+    if (Number.isNaN(value)) return min;
+    return Math.min(Math.max(value, min), max);
+}
+
+// Strips illegal characters, collapses leading zeros ("05" -> "5", but
+// keeps a single "0" or "0." so the user can still type "0.5"), and caps
+// the string length.
+function sanitizeNumberInput(raw: string, allowDecimal: boolean, maxLength: number) {
+    let val = raw.replace(allowDecimal ? /[^0-9.]/g : /[^0-9]/g, '');
+
+    if (allowDecimal) {
+        const firstDot = val.indexOf('.');
+        if (firstDot !== -1) {
+            val = val.slice(0, firstDot + 1) + val.slice(firstDot + 1).replace(/\./g, '');
+        }
+    }
+
+    // Remove leading zeros unless it's "0" on its own or "0." for decimals
+    val = val.replace(/^0+(?=\d)/, '');
+
+    if (val.length > maxLength) {
+        val = val.slice(0, maxLength);
+    }
+
+    return val;
+}
+
 const DEFAULTS = {
     vehiclePrice: 25000,
     downPayment: 2500,
@@ -51,10 +95,17 @@ const DEFAULTS = {
 };
 
 export default function PaymentCalculator() {
-    const [vehiclePrice, setVehiclePrice] = useState<number>(DEFAULTS.vehiclePrice);
-    const [downPayment, setDownPayment] = useState<number>(DEFAULTS.downPayment);
+    // Each numeric field keeps a raw string (what's shown in the box) plus
+    // the parsed number used for calculations. Clamping to min/max only
+    // happens on blur, so the user isn't fighting the field while typing.
+    const [vehiclePriceInput, setVehiclePriceInput] = useState<string>(String(DEFAULTS.vehiclePrice));
+    const [downPaymentInput, setDownPaymentInput] = useState<string>(String(DEFAULTS.downPayment));
+    const [aprInput, setAprInput] = useState<string>(String(DEFAULTS.apr));
     const [term, setTerm] = useState<number>(DEFAULTS.term);
-    const [apr, setApr] = useState<number>(DEFAULTS.apr);
+
+    const vehiclePrice = parseFloat(vehiclePriceInput) || 0;
+    const downPayment = parseFloat(downPaymentInput) || 0;
+    const apr = parseFloat(aprInput) || 0;
 
     const amountFinanced = Math.max(vehiclePrice - downPayment, 0);
     const monthlyPayment = useMemo(
@@ -63,11 +114,33 @@ export default function PaymentCalculator() {
     );
 
     const handleReset = () => {
-        setVehiclePrice(DEFAULTS.vehiclePrice);
-        setDownPayment(DEFAULTS.downPayment);
+        setVehiclePriceInput(String(DEFAULTS.vehiclePrice));
+        setDownPaymentInput(String(DEFAULTS.downPayment));
+        setAprInput(String(DEFAULTS.apr));
         setTerm(DEFAULTS.term);
-        setApr(DEFAULTS.apr);
     };
+
+    // Generic change handler for a text-based number field
+    const handleNumberChange =
+        (setter: (v: string) => void, allowDecimal: boolean, maxLength: number) =>
+        (e: React.ChangeEvent<HTMLInputElement>) => {
+            setter(sanitizeNumberInput(e.target.value, allowDecimal, maxLength));
+        };
+
+    // Clamp + reformat on blur so the final value always respects min/max
+    const handleNumberBlur =
+        (setter: (v: string) => void, min: number, max: number, decimals: number) =>
+        (e: React.ChangeEvent<HTMLInputElement>) => {
+            const parsed = parseFloat(e.target.value);
+            const clamped = clamp(parsed, min, max);
+            setter(decimals > 0 ? clamped.toFixed(decimals) : String(clamped));
+        };
+
+    // Range sliders always show the clamped value, even while the text box
+    // temporarily holds something out of range mid-typing.
+    const vehiclePriceForSlider = clamp(vehiclePrice, FIELD_LIMITS.vehiclePrice.min, FIELD_LIMITS.vehiclePrice.max);
+    const downPaymentForSlider = clamp(downPayment, FIELD_LIMITS.downPayment.min, FIELD_LIMITS.downPayment.max);
+    const aprForSlider = clamp(apr, FIELD_LIMITS.apr.min, FIELD_LIMITS.apr.max);
 
     return (
         <>
@@ -75,7 +148,7 @@ export default function PaymentCalculator() {
             <div className="bg-white">
                 {/* ---------------- Hero ---------------- */}
                 <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[420px] sm:min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center py-12 lg:py-0">
-                    {/* RIGHT SIDE: Large Dealership Image (Hidden or adjusted on mobile so text is fully readable on white/light-pink background) */}
+                    {/* RIGHT SIDE: Large Dealership Image */}
                     <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[55%] overflow-hidden pointer-events-none opacity-20 lg:opacity-100">
                         <div
                             className="relative w-full h-full"
@@ -110,9 +183,7 @@ export default function PaymentCalculator() {
                     <div className="relative z-20 w-full">
                         <div className={`${WRAPPER} grid grid-cols-1 lg:grid-cols-2 gap-10 items-center`}>
                             <div>
-                                <p
-                                    className="text-sm font-bold tracking-[0.09em] mb-3 text-brand"
-                                >
+                                <p className="text-sm font-bold tracking-[0.09em] mb-3 text-brand">
                                     PAYMENT CALCULATOR
                                 </p>
                                 <h1
@@ -152,9 +223,22 @@ export default function PaymentCalculator() {
                                                 $
                                             </span>
                                             <input
-                                                type="number"
-                                                value={vehiclePrice}
-                                                onChange={(e) => setVehiclePrice(Number(e.target.value))}
+                                                type="text"
+                                                inputMode="numeric"
+                                                maxLength={FIELD_MAX_LENGTH.vehiclePrice}
+                                                value={vehiclePriceInput}
+                                                onChange={handleNumberChange(
+                                                    setVehiclePriceInput,
+                                                    false,
+                                                    FIELD_MAX_LENGTH.vehiclePrice
+                                                )}
+                                                onFocus={(e) => e.target.select()}
+                                                onBlur={handleNumberBlur(
+                                                    setVehiclePriceInput,
+                                                    FIELD_LIMITS.vehiclePrice.min,
+                                                    FIELD_LIMITS.vehiclePrice.max,
+                                                    0
+                                                )}
                                                 className="w-full pl-7 pr-3 py-2.5 rounded-lg border border-gray-300 outline-none focus:ring-2"
                                                 style={{ ['--tw-ring-color' as any]: PINK }}
                                             />
@@ -163,11 +247,11 @@ export default function PaymentCalculator() {
                                     <div className="w-full lg:w-1/2 lg:mt-6">
                                         <input
                                             type="range"
-                                            min={5000}
-                                            max={100000}
+                                            min={FIELD_LIMITS.vehiclePrice.min}
+                                            max={FIELD_LIMITS.vehiclePrice.max}
                                             step={500}
-                                            value={vehiclePrice}
-                                            onChange={(e) => setVehiclePrice(Number(e.target.value))}
+                                            value={vehiclePriceForSlider}
+                                            onChange={(e) => setVehiclePriceInput(e.target.value)}
                                             className="w-full"
                                             style={{ accentColor: PINK }}
                                         />
@@ -189,9 +273,22 @@ export default function PaymentCalculator() {
                                                 $
                                             </span>
                                             <input
-                                                type="number"
-                                                value={downPayment}
-                                                onChange={(e) => setDownPayment(Number(e.target.value))}
+                                                type="text"
+                                                inputMode="numeric"
+                                                maxLength={FIELD_MAX_LENGTH.downPayment}
+                                                value={downPaymentInput}
+                                                onChange={handleNumberChange(
+                                                    setDownPaymentInput,
+                                                    false,
+                                                    FIELD_MAX_LENGTH.downPayment
+                                                )}
+                                                onFocus={(e) => e.target.select()}
+                                                onBlur={handleNumberBlur(
+                                                    setDownPaymentInput,
+                                                    FIELD_LIMITS.downPayment.min,
+                                                    FIELD_LIMITS.downPayment.max,
+                                                    0
+                                                )}
                                                 className="w-full pl-7 pr-3 py-2.5 rounded-lg border border-gray-300 outline-none focus:ring-2"
                                                 style={{ ['--tw-ring-color' as any]: PINK }}
                                             />
@@ -200,11 +297,11 @@ export default function PaymentCalculator() {
                                     <div className="w-full lg:w-1/2 lg:mt-6">
                                         <input
                                             type="range"
-                                            min={0}
-                                            max={50000}
+                                            min={FIELD_LIMITS.downPayment.min}
+                                            max={FIELD_LIMITS.downPayment.max}
                                             step={500}
-                                            value={downPayment}
-                                            onChange={(e) => setDownPayment(Number(e.target.value))}
+                                            value={downPaymentForSlider}
+                                            onChange={(e) => setDownPaymentInput(e.target.value)}
                                             className="w-full"
                                             style={{ accentColor: PINK }}
                                         />
@@ -255,10 +352,22 @@ export default function PaymentCalculator() {
                                         </label>
                                         <div className="relative mb-3">
                                             <input
-                                                type="number"
-                                                step={0.01}
-                                                value={apr}
-                                                onChange={(e) => setApr(Number(e.target.value))}
+                                                type="text"
+                                                inputMode="decimal"
+                                                maxLength={FIELD_MAX_LENGTH.apr}
+                                                value={aprInput}
+                                                onChange={handleNumberChange(
+                                                    setAprInput,
+                                                    true,
+                                                    FIELD_MAX_LENGTH.apr
+                                                )}
+                                                onFocus={(e) => e.target.select()}
+                                                onBlur={handleNumberBlur(
+                                                    setAprInput,
+                                                    FIELD_LIMITS.apr.min,
+                                                    FIELD_LIMITS.apr.max,
+                                                    2
+                                                )}
                                                 className="w-full pl-3 pr-8 py-2.5 rounded-lg border border-gray-300 outline-none focus:ring-2"
                                                 style={{ ['--tw-ring-color' as any]: PINK }}
                                             />
@@ -270,11 +379,11 @@ export default function PaymentCalculator() {
                                     <div className="w-full lg:w-1/2 lg:mt-6">
                                         <input
                                             type="range"
-                                            min={0}
-                                            max={29.99}
+                                            min={FIELD_LIMITS.apr.min}
+                                            max={FIELD_LIMITS.apr.max}
                                             step={0.01}
-                                            value={apr}
-                                            onChange={(e) => setApr(Number(e.target.value))}
+                                            value={aprForSlider}
+                                            onChange={(e) => setAprInput(e.target.value)}
                                             className="w-full"
                                             style={{ accentColor: PINK }}
                                         />
@@ -306,9 +415,7 @@ export default function PaymentCalculator() {
                                 <p className="text-base lg:text-2xl font-bold text-gray-600 mb-4">
                                     Your Estimated Payment
                                 </p>
-                                <h3
-                                    className="text-4xl sm:text-5xl font-extrabold mb-1 text-brand"
-                                >
+                                <h3 className="text-4xl sm:text-5xl font-extrabold mb-1 text-brand">
                                     {formatCurrency(monthlyPayment)}
                                 </h3>
                                 <p className="text-base mb-6 text-gray-600">per month</p>
@@ -329,10 +436,7 @@ export default function PaymentCalculator() {
                             </div>
 
                             <div className="mt-6 rounded-xl bg-white/70 p-4 flex gap-3">
-                                <Info
-                                    className="w-5 h-5 flex-shrink-0 mt-0.5"
-                                    style={{ color: PINK }}
-                                />
+                                <Info className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: PINK }} />
                                 <p className="text-xs text-gray-600 leading-relaxed">
                                     This is an estimate only. Actual rates, terms and payments may
                                     vary based on your credit profile, income and lender approval.
@@ -370,7 +474,12 @@ export default function PaymentCalculator() {
 
                 {/* ---------------- Factors ---------------- */}
                 <section className="py-10 md:py-14 max-w-[1480px] mx-auto px-4 sm:px-12 xl:px-16">
-                    <div className={"py-10 px-6  rounded-2xl  max-w-[1480px] mx-auto px-4 sm:px-12 xl:px-16"} style={{ backgroundColor: SECTION_GRAY }}>
+                    <div
+                        className={
+                            'py-10 px-6  rounded-2xl  max-w-[1480px] mx-auto px-4 sm:px-12 xl:px-16'
+                        }
+                        style={{ backgroundColor: SECTION_GRAY }}
+                    >
                         <h3 className="text-2xl font-bold mb-2" style={{ color: NAVY }}>
                             Factors That Can Affect Your Payment
                         </h3>
@@ -517,3 +626,4 @@ function FactorItem({ icon, label }: { icon: React.ReactNode; label: string }) {
         </div>
     );
 }
+    
