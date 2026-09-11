@@ -59,8 +59,8 @@ export default function HowItWorksPage() {
       <main className="bg-white text-[#1a1b35] overflow-hidden">
 
         {/* ================= SECTION 1: HERO ================= */}
-        <section className="relative w-full overflow-hidden bg-[#fff7fb] lg:bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
-          {/* RIGHT SIDE: Large Dealership Image starting right next to the text and extending to the right edge */}
+        <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
+          {/* RIGHT SIDE: Large Image starting right next to the text and extending to the right edge */}
           <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none">
             {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
             <div
@@ -84,7 +84,7 @@ export default function HowItWorksPage() {
 
             {/* SOFT HORIZONTAL FADE: Seamless transition located right nearby the text */}
             <div
-              className="absolute inset-0 pointer-events-none lg:block bg-black/60 lg:bg-transparent"
+              className="absolute inset-0 pointer-events-none"
               style={{
                 background:
                   "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
@@ -92,20 +92,22 @@ export default function HowItWorksPage() {
               aria-hidden="true"
             />
             {/* Mobile Black Overlay for legibility */}
-            <div className="absolute inset-0 bg-black/50 lg:hidden pointer-events-none" aria-hidden="true" />
+            <div className="absolute inset-0 bg-white/80 lg:hidden pointer-events-none" aria-hidden="true" />
           </div>
 
           {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
           <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
-            <div className="lg:col-span-6 px-6 sm:px-0">
-              <span className="text-[#ff385c] lg:text-[#ff385c] uppercase tracking-widest text-base font-bold lg:px-1 block">
+            <div className="max-w-[480px] xl:max-w-[610px] flex flex-col items-start justify-center">
+              <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-brand uppercase px-1">
                 HOW IT WORKS
               </span>
-              <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-white lg:text-[#1a1b35] leading-tight">
-                From Application <br />
-                <span className="text-[#ff385c]">to Car Keys.</span>
+
+              <h1 className="text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-extrabold tracking-tight leading-[1.12] mb-5">
+                <span className="text-[#1a1b35] block">From Application</span>
+                <span className="text-[#ff385c] block">to Car Keys.</span>
               </h1>
-              <p className="text-gray-200 lg:text-[#4a4b65] text-base sm:text-lg mb-8 leading-relaxed max-w-xl">
+
+              <p className="text-gray-800  lg:text-[#4a4b65] text-base leading-[1.65] mb-8">
                 A simple process. Real people. Real support. Carma Credit helps you get approved for automotive financing and find the right vehicle — all in one place.
               </p>
 
@@ -117,21 +119,21 @@ export default function HowItWorksPage() {
               </div>
 
               {/* Feature Badges */}
-              <div className="flex flex-col lg:flex-row flex-wrap items-start lg:items-center gap-y-4 lg:gap-y-3 gap-x-6 text-base text-gray-200 lg:text-[#4a4b65] font-medium">
+              <div className="flex flex-col lg:flex-row flex-wrap items-start lg:items-center gap-y-4 lg:gap-y-3 gap-x-6 text-xl lg:text-base text-gray-800 lg:text-[#4a4b65] font-medium">
                 <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white  shrink-0">
                     <Check className="w-3 h-3 stroke-[3]" />
                   </div>
                   <span>No judgment.</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white  shrink-0">
                     <Check className="w-3 h-3 stroke-[3]" />
                   </div>
                   <span>No obligation.</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white  shrink-0">
                     <Check className="w-3 h-3 stroke-[3]" />
                   </div>
                   <span>Automotive financing only</span>
@@ -140,12 +142,13 @@ export default function HowItWorksPage() {
             </div>
           </div>
         </section>
+
         {/* ================= SECTION 2: 4-STEP PROCESS ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto">
 
             <div className="text-center max-w-2xl mx-auto mb-20">
-              <span className="text-[#ff385c] uppercase tracking-widest text-base font-bold block mb-2">
+              <span className="text-brand uppercase tracking-widest text-base font-bold block mb-2">
                 A SIMPLE 4-STEP PROCESS
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1b35]">
@@ -160,20 +163,18 @@ export default function HowItWorksPage() {
               {/* Continuous vertical tracking line on the left */}
               <div className="hidden lg:block absolute left-[31px] top-12 bottom-12 w-[2px] bg-pink-200 z-0" />
 
-              <div className="space-y-16 lg:space-y-24 relative z-10">
+              <div className="space-y-5 lg:space-y-24 relative z-10">
                 {steps.map((step, index) => (
                   <div
                     key={step.number}
-                    className={`flex flex-col lg:flex-row items-start lg:items-center gap-8 w-full ${index !== 0 ? "mt-12" : ""}`}
+                    className={`flex flex-col lg:flex-row  px-5 items-start lg:items-center gap-8 w-full ${index !== 0 ? "mt-12" : ""}`}
                   >
                     {/* Left: Number + Icon + Text Group */}
                     <div className="flex flex-col lg:flex-row items-center gap-8 lg:max-w-xl lg:min-w-xl max-w-full">
                       <div className="w-16 h-16 rounded-full bg-[#ff385c] text-white flex items-center justify-center font-bold text-xl shadow-md flex-shrink-0 z-10">
                         {step.number}
                       </div>
-                      <div className="w-28 h-28 rounded-full bg-[#fdf4f7] border border-pink-100 flex items-center justify-center text-[#ff385c] flex-shrink-0 shadow-sm">
-                        {step.icon}
-                      </div>
+                     
                       <div>
                         <h3 className="text-2xl font-extrabold text-[#1a1b35] mb-2">{step.title}</h3>
                         <p className="text-[#4a4b65] text-base leading-relaxed">
@@ -184,8 +185,8 @@ export default function HowItWorksPage() {
 
                     {/* Right: Image Card with Floating Handwritten Text (Exact Step 1 CSS) */}
                     <div className="relative flex items-center self-center lg:self-auto w-full justify-between">
-                      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 w-full lg:max-w-[450px] lg:min-w-[450px]">
-                        <div className="h-64 rounded-xl overflow-hidden relative shadow-inner">
+                      <div className="bg-white rounded-2xl lg:shadow-lg border border-gray-100 w-full lg:max-w-[450px] lg:min-w-[450px]">
+                        <div className="h-full lg:h-64 rounded-xl overflow-hidden relative shadow-inner">
                           <img src={step.image} alt={step.title} className="w-full h-full object-fit rounded-2xl" />
                         </div>
                       </div>
@@ -195,8 +196,6 @@ export default function HowItWorksPage() {
                     </div>
                   </div>
                 ))}
-
-
               </div>
             </div>
 

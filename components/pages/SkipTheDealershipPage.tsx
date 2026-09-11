@@ -179,7 +179,7 @@ export default function SkipTheDealership() {
                                 <div className="bg-white p-5 rounded-xl shadow-sm flex justify-between items-start gap-4 border border-gray-100">
                                     <div>
                                         <h4 className="font-bold text-xl text-gray-900 mb-1">Get Approved Instantly</h4>
-                                        <p className="text-base">No impact, fast approvals — even with bad credit.</p>
+                                        <p className="text-base">No impact, fast approvals — even with Less than perfect credit.</p>
                                     </div>
                                     <FileText className="w-8 h-8" />
                                 </div>

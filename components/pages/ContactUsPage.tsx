@@ -115,7 +115,7 @@ export default function ContactUs() {
 
               {/* LEFT CONTENT */}
               <div>
-                <p className="m-0 text-[13px] font-semibold uppercase tracking-[0.14em] text-[#ff385c] md:text-[15px]">
+                <p className="m-0 text-[13px] font-semibold uppercase tracking-[0.14em] text-brand md:text-[15px]">
                   Contact Us
                 </p>
 
@@ -129,7 +129,7 @@ export default function ContactUs() {
 
                 {/* Call Us */}
                 <div className="mt-8">
-                  <div className="flex items-center gap-3 text-[#ff385c]">
+                  <div className="flex items-center gap-3 text-black">
                     <Phone className="h-5 w-5 shrink-0" strokeWidth={2.25} />
                     <h2 className="text-[18px] font-bold tracking-[-0.02em] text-[#121212] md:text-[20px]">
                       Call Us
@@ -148,7 +148,7 @@ export default function ContactUs() {
 
                 {/* Email Us */}
                 <div className="mt-6">
-                  <div className="flex items-center gap-3 text-[#ff385c]">
+                  <div className="flex items-center gap-3 text-black">
                     <Mail className="h-5 w-5 shrink-0" strokeWidth={2.25} />
                     <h2 className="text-[18px] font-bold tracking-[-0.02em] text-[#121212] md:text-[20px]">
                       Email Us
@@ -167,7 +167,7 @@ export default function ContactUs() {
 
                 {/* Visit Us */}
                 <div className="mt-6">
-                  <div className="flex items-center gap-3 text-[#ff385c]">
+                  <div className="flex items-center gap-3 text-black">
                     <MapPin className="h-5 w-5 shrink-0" strokeWidth={2.25} />
                     <h2 className="text-[18px] font-bold tracking-[-0.02em] text-[#121212] md:text-[20px]">
                       Visit Us
@@ -201,7 +201,7 @@ export default function ContactUs() {
               </div>
 
               {/* CONTACT FORM (IFRAME) */}
-              <div className="w-full min-w-0 rounded-2xl bg-[#fff5f8] p-6 sm:p-8 shadow-[0_16px_50px_rgba(230,0,126,0.08)] ring-1 ring-[#ff385c]/15">
+              <div className="w-full min-w-0 rounded-2xl bg-[#fff5f8] p-0  sm:p-6 shadow-[0_16px_50px_rgba(230,0,126,0.08)] ring-1 ring-[#ff385c]/15">
                 <iframe
                   ref={iframeRef}
                   id="contact_form"
@@ -269,7 +269,7 @@ export default function ContactUs() {
 
               {/* Right Column: Narrative & CTA */}
               <div className="w-full  flex flex-col items-start justify-center">
-                <p className="m-0 text-[13px] font-semibold uppercase tracking-[0.14em] text-[#ff385c] md:text-[15px]">
+                <p className="m-0 text-[13px] font-semibold uppercase tracking-[0.14em] text-brand md:text-[15px]">
                   Common Questions
                 </p>
                 <h2 className="mt-2 text-[28px] font-extrabold tracking-[-0.02em] text-[#121212] md:text-[32px]">

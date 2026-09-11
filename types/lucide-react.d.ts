@@ -93,4 +93,10 @@ declare module 'lucide-react' {
   export const Megaphone:Icon;
   export const HelpCircle:Icon;
   export const Calculator:Icon;
+  export const SlidersHorizontal:Icon;
+  export const Percent:Icon;
+  export const Gauge:Icon;
+  export const Landmark:Icon;
+  export const CalendarDays:Icon;
+  export const Info:Icon;
 }

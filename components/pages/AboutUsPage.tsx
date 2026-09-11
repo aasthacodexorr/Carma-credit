@@ -41,22 +41,22 @@ export default function Home() {
               aria-hidden="true"
             />
             {/* Mobile Black Overlay for legibility */}
-            <div className="absolute inset-0 bg-black/50 lg:hidden pointer-events-none" aria-hidden="true" />
+            <div className="absolute inset-0 bg-white/80 lg:hidden pointer-events-none" aria-hidden="true" />
           </div>
 
           {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
           <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
             <div className="max-w-[480px] xl:max-w-[610px] flex flex-col items-start justify-center">
-              <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase px-1">
+              <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-brand  uppercase px-1">
                 About Carma Credit
               </span>
 
               <h1 className="text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-extrabold tracking-tight leading-[1.12] mb-5">
-                <span className="text-white lg:text-[#131b4d] block">Real People.</span>
+                <span className="text-[#131b4d] block">Real People.</span>
                 <span className="text-[#ff385c] block">A Brighter Tomorrow.</span>
               </h1>
 
-              <p className="text-white lg:text-[#4b5563] text-lg leading-[1.65] mb-8">
+              <p className="text-[#4b5563] text-xl lg:text-lg leading-[1.65] mb-8">
                 Carma Credit helps Canadians with all types of credit get approved for automotive
                 financing and find the right vehicle. Because everyone deserves a second chance on
                 the road.
@@ -92,13 +92,13 @@ export default function Home() {
         {/* SECTION 2: OUR MISSION */}
         {/* ========================================================================= */}
         <section className="relative w-full py-16 sm:py-20 lg:py-16 bg-white">
-          <div className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-6 lg:px-8">
             {/* Top Mission Content (Centered) */}
             <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-              <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase block mb-1">
+              <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-brand uppercase block mb-1">
                 Our Mission
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#131b4d] tracking-tight leading-[1.15] mb-4">
+              <h2 className="text-2xl sm:text-4xl lg:text-[44px] font-extrabold text-[#131b4d] tracking-tight leading-[1.15] mb-4">
                 Changing Lives Through
                 <br />
                 Auto Financing.
@@ -187,7 +187,7 @@ export default function Home() {
         {/* SECTION 3: WHY WE DO IT / WE'VE BEEN THERE TOO. */}
         {/* ========================================================================= */}
         <section className="relative w-full py-16 sm:py-16 bg-white">
-          <div className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
               {/* Left Column: Dealership Cars Image with Script Overlay */}
               <div className="lg:col-span-6 order-2 lg:order-1">
@@ -219,13 +219,13 @@ export default function Home() {
 
               {/* Right Column: Narrative Content */}
               <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col items-start space-y-2">
-                <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase">
+                <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-brand uppercase">
                   Why We Do It
                 </span>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-[#131b4d] tracking-tight leading-[1.15]">
-                  We&apos;ve Been
-                  <br />
+                  We&apos;ve Been,
+                  <br className="lg:block hidden" />
                   There Too.
                 </h2>
 
@@ -322,7 +322,7 @@ export default function Home() {
           </div>
 
           <div className="relative max-w-4xl mx-auto px-5 sm:px-8 text-center flex flex-col items-center">
-            <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-[#ff385c] uppercase mb-1">
+            <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-brand uppercase mb-1">
               Ready To Take The Next Step?
             </span>
 

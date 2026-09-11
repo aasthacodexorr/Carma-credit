@@ -5,20 +5,20 @@ import Image from 'next/image';
 
 export default function CreditScoreBanner() {
   return (
-    <section className="w-full bg-[#FFF5F7] pt-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="w-full bg-[#FFF5F7] pt-12 px-6 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-[1480px] px-0 sm:px-12 xl:px-16 mx-auto flex flex-col lg:flex-row items-cente justify-between gap-12">
 
         {/* Left Content Area */}
-        <div className="flex-1 max-w-xl text-center lg:text-left">
+        <div className="flex-1 max-w-xl text-left">
           {/* Top Subtitle */}
-          <p className="text-base font-bold tracking-widest text-[#ff385c] uppercase px-1">
+          <p className="text-sm lg:text-base mb-1 font-bold tracking-widest text-brand uppercase px-1">
             KNOW YOUR CREDIT BEFORE YOU SHOP
           </p>
 
           {/* Main Headline */}
           <h1 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold text-[#111827] leading-[1.15] mb-4 tracking-tight">
             Check Your Credit Score.{' '}<br/>
-            <span className="text-[#ff385c] block sm:inline mt-1 sm:mt-0">(No Impact to Your Credit.)</span>
+            <span className=" block sm:inline mt-1 sm:mt-0">(No Impact to Your Credit.)</span>
           </h1>
 
           {/* Description Paragraph */}
@@ -27,7 +27,7 @@ export default function CreditScoreBanner() {
           </p>
 
           {/* CTA Button */}
-          <div className="mb-8 flex justify-center lg:justify-start">
+          <div className="mb-8 flex justify-start">
             <Link 
               href="/financing" 
               className="inline-flex items-center justify-center bg-[#ff385c] hover:bg-brand text-white font-semibold py-3.5 px-8 rounded-full shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-base"
@@ -37,7 +37,7 @@ export default function CreditScoreBanner() {
           </div>
 
           {/* Feature Checkmarks List */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-gray-800 font-semibold text-base">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-start gap-6 text-gray-800 font-semibold text-base">
             <div className="flex items-center gap-2">
               <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white">
                 <Check className="w-3.5 h-3.5 stroke-[3]" />

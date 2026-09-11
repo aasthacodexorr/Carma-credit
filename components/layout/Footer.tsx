@@ -48,7 +48,7 @@ const Footer = () => {
         { label: "Rebuild Your Credit", href: "/rebuild-your-credit" },
         { label: "Preventing Auto Loan fraud", href: "/understanding-auto-financing" },
         { label: "FAQ", href: "/faq" },
-        { label: "What do I need", href: "/what-do-i-need" },
+        { label: "What do you need to finance a vehicle?", href: "/what-do-i-need" },
       ],
     },
   ];
@@ -77,7 +77,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-x-10 gap-y-14 sm:gap-x-20 sm:gap-y-16 lg:max-w-[720px] lg:grid-cols-3 lg:justify-self-end lg:gap-x-24">
+          <div className="grid lg:grid-cols-2 gap-x-10 gap-y-14 sm:gap-x-20 sm:gap-y-16 lg:max-w-[720px] lg:grid-cols-3 lg:justify-self-end lg:gap-x-24">
             {columns
               .filter((col) => col.links.length > 0)
               .map((col) => (

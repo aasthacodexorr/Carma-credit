@@ -77,7 +77,7 @@ export default function ThankYouPage() {
           <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Top Hero Text */}
             <div className="relative z-10 max-w-[620px] lg:max-w-[660px] flex flex-col items-start pt-1 sm:pt-2">
-              <span className="text-[14px] sm:text-[15px] font-bold tracking-[0.18em] text-[#ff385c] uppercase mb-3 sm:mb-4">
+              <span className="text-[14px] sm:text-[15px] font-bold tracking-[0.18em] text-brand uppercase mb-3 sm:mb-4">
                 THANK YOU
               </span>
 
@@ -398,7 +398,7 @@ export default function ThankYouPage() {
 
             {/* 4 Resource Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4.5">
-              {/* Card 1: What Do I Need? */}
+              {/* Card 1: What do you need to finance a vehicle?? */}
               <a
                 href="/what-do-i-need"
                 className="bg-white rounded-2xl p-4 sm:p-4.5 flex items-center justify-between border border-[#e5e9f2] shadow-[0_2px_6px_rgba(0,0,0,0.02)] hover:shadow-md hover:border-[#ff385c]/30 transition-all duration-200 group cursor-pointer min-h-[82px]"
@@ -417,7 +417,7 @@ export default function ThankYouPage() {
                   </div>
                   <div className="flex flex-col min-w-0">
                     <h3 className="text-[14.5px] sm:text-[15px] font-bold text-[#102a5c] group-hover:text-[#ff385c] transition-colors leading-tight truncate">
-                      What Do I Need?
+                      What do you need to finance a vehicle?
                     </h3>
                     <p className="text-[12px] sm:text-[12.5px] text-[#6b7280] mt-0.5 leading-tight truncate">
                       See the documents you may need.
