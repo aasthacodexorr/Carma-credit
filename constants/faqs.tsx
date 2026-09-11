@@ -48,11 +48,11 @@ export const FAQS: FAQItem[] = [
     ),
   },
   {
-    q: "Can I apply with bad credit?",
+    q: "Can I apply with less than perfect credit?",
     a: (
       <p>
         Over 50% of our approvals are for Canadians with less than perfect credit. Get pre-approved
-        for bad credit car loans in minutes!
+        for less than perfect credit car loans in minutes!
       </p>
     ),
   },
@@ -60,10 +60,7 @@ export const FAQS: FAQItem[] = [
     q: "What is the interest rate on a car loan?",
     a: (
       <p>
-        The interest rate is the amount of money a lender would charge you to lend money. Depending
-        on your credit, interest rates in Canada can range anywhere from 0% to 29.99%. If a lender
-        believes that the loan is a higher risk, they would charge a higher interest rate. It is
-        important to maintain a strong credit profile to avoid this.
+        The interest rate is the amount of money a lender would charge you to lend money is awkward and should be something like - An interest rate is the percentage a lender charges for borrowing money. Not sure if that percentage is okay to put that's mentioned there.
       </p>
     ),
   },

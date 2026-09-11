@@ -9,7 +9,7 @@ export const RESOURCE_LINKS = [
   { label: "Rebuild Your Credit", href: "/rebuild-your-credit" },
   { label: "Preventing Auto Loan fraud", href: "/understanding-auto-financing" },
   { label: "FAQ", href: "/faq" },
-  { label: "What do I need", href: "/what-do-i-need" },
+  { label: "What do you need to finance a vehicle?", href: "/what-do-i-need" },
 ] as const;
 
 type ResourcePageProps = {

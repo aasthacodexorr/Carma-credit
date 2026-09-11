@@ -79,28 +79,28 @@ export const defaultAppConfig = defineAppConfig({
     book_a_test_drive_page_title: "Book Vehicles Test Drive Today",
     book_a_test_drive_page_description:
       "Looking for test drive? Book a test drive for various vehicles at %dealership_name %city_1, %province_1 by filling in the form and the rest we will take care of it!",
-    contact_us_page_title: "Contact Us",
+    contact_us_page_title: "Carma | Contact Us",
     contact_us_page_description:
-      "Call %dealership_name %city_1, %province_1 at %sales_number_1 and our team will help you schedule a test drive or answer your questions. You can also drop us an email at %email_1.",
+      "Want to sell or trade in your old car? Good news: Carma takes care of both! Get a valuation online, with easy drop-off and seamless transition between cars.",
     trade_in_appraisal_page_title: "Sell My Car | Get a Cash Offer",
     trade_in_appraisal_page_description:
       "Sell your used car, truck or SUV in %city_1, %province_1 at %dealership_name. Get a fast cash offer with our simple online appraisal form.",
-    home_page_title: "Used Cars, SUVs, Trucks for Sale in %city_1, %province_1",
+    home_page_title: "Carma | The easy way to buy and sell used cars in Australia",
     home_page_description:
-      "At %dealership_name, we have a great variety of used cars, trucks, SUVs, and vans that we are sure you will find the right fit for you! Visit us today in %city_1, %province_1",
-    finance_page_title: "Auto Financing in %city_1, %province_1",
+      "Want to sell or trade in your old car? Good news: Carma takes care of both! Get a valuation online, with easy drop-off and seamless transition between cars.",
+    finance_page_title: "Carma | Used car finance",
     finance_page_description:
       "Easiest car loan approvals for good or bad credit only at %dealership_name %city_1, %province_1. Quick online pre-approval for car loans with low and affordable monthly payments.",
     inventory_page_default_title:
       "Used Cars in %city_1, %province_1 - Browse our Inventory Online",
     inventory_page_default_description:
       "Searching for the perfect used car in %province_1? Stop by %dealership_name ! We are your source for the best selection of used cars for sale in %city_1, %province_1.",
-    payment_calculator_page_title: "Estimate Your Car Payment",
+    payment_calculator_page_title: "Carma | Estimate Your Car Payment",
     payment_calculator_page_description:
-      "Use %dealership_name's payment calculator to easily estimate and compare monthly payments on your next vehicle purchase.",
+      "Want to sell or trade in your old car? Good news: Carma takes care of both! Get a valuation online, with easy drop-off and seamless transition between cars.",
     thank_you_page_title: "Thank You",
     thank_you_page_description:
-      "Thank You for entrusting us with your business - %dealership_name",
+      "Want to sell or trade in your old car? Good news: Carma takes care of both! Get a valuation online, with easy drop-off and seamless transition between cars.",
     terms_and_conditions_page_title: "Terms And Conditions",
     terms_and_conditions_page_description:
       "Please review terms and conditions of %dealership_name %city_1, %province_1. If you have any questions, feel free to contact us at %sales_number_1 or email us at %email_1",

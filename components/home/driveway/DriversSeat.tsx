@@ -64,7 +64,7 @@ const DriversSeat = () => {
             </div>
 
             <div className="relative flex min-w-0 flex-col justify-center md:mr-0 md:w-[min(48%,453px)] md:shrink-0 lg:w-[415px] xl:mr-[40px] xl:w-[453px] 2xl:mr-[80px] 2xl:w-[438px]">
-              <p className="text-[16px] font-medium uppercase tracking-[1px] text-[#184F56]">
+              <p className="text-[16px] font-medium uppercase tracking-[1px]">
                 {CARD.heading}
               </p>
               <h3 className="mb-4 mt-2 min-h-[70px] text-[29px] font-bold leading-[1.2] tracking-[-0.6px] text-[#121212] md:min-h-0 md:text-[33px] md:tracking-[-0.7px] xl:mt-4 xl:text-[39px] xl:tracking-[-1.2px]">

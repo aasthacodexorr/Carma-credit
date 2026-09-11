@@ -50,7 +50,7 @@ export const DW_NAV = [
         icon: "faq",
       },
       {
-        label: "What do I need",
+        label: "What do you need to finance a vehicle?",
         href: "/what-do-i-need",
         description: "Documents to bring for a smooth application",
         icon: "docs",

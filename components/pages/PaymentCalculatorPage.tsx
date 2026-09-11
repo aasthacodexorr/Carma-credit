@@ -1,323 +1,519 @@
 'use client';
 
-import { PageShell } from '@/components/layout';
-import { useAppConfig } from '@/app/providers';
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useMemo, useState } from 'react';
+import {
+    Calculator,
+    SlidersHorizontal,
+    Gauge,
+    Car,
+    Percent,
+    DollarSign,
+    Landmark,
+    CalendarDays,
+    Info,
+    Check,
+} from 'lucide-react';
+import { Footer, Header } from '../layout';
+import Image from 'next/image';
+
+// ---- Brand tokens (match the reference design) ----------------------------
+const PINK = '#ff385c';
+const NAVY = '#1B2A4E';
+const PANEL_PINK = '#FCEEF4';
+const SECTION_GRAY = '#F4F5F7';
+
+const WRAPPER = 'max-w-[1480px] px-4 sm:px-12 xl:px-16 mx-auto';
+
+const TERM_OPTIONS = [24, 36, 48, 60, 72];
+
+function formatCurrency(value: number, fractionDigits = 0) {
+    return value.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: fractionDigits,
+        maximumFractionDigits: fractionDigits,
+    });
+}
+
+function calculateMonthlyPayment(principal: number, aprPercent: number, termMonths: number) {
+    if (principal <= 0 || termMonths <= 0) return 0;
+    const monthlyRate = aprPercent / 100 / 12;
+    if (monthlyRate === 0) return principal / termMonths;
+    const factor = Math.pow(1 + monthlyRate, termMonths);
+    return (principal * monthlyRate * factor) / (factor - 1);
+}
+
+const DEFAULTS = {
+    vehiclePrice: 25000,
+    downPayment: 2500,
+    term: 48,
+    apr: 9.99,
+};
 
 export default function PaymentCalculator() {
-    const appConfig = useAppConfig();
-    // Input States
-    const [vehiclePrice, setVehiclePrice] = useState<number>(appConfig?.payment_calculator?.vehicle_price);
-    const [downPayment, setDownPayment] = useState<number>(appConfig?.payment_calculator?.downpayment);
-    const [additionalFees, setAdditionalFees] = useState<number>(appConfig?.payment_calculator?.additional_fees);
-    const [financeFee, setFinanceFee] = useState<number>(999);
-    const [gapFee, setGapFee] = useState<number>(1999);
-    const [warrantyCost, setWarrantyCost] = useState<number>(0);
-    const [term, setTerm] = useState<number>(84);
-    const [tradeInValue, setTradeInValue] = useState<number>(0);
-    const [loanBalance, setLoanBalance] = useState<number>(0);
-    const [creditScore, setCreditScore] = useState<string>('Excellent');
-    const [apr, setApr] = useState<number>(7.99);
-    const [includeTax, setIncludeTax] = useState<boolean>(false);
+    const [vehiclePrice, setVehiclePrice] = useState<number>(DEFAULTS.vehiclePrice);
+    const [downPayment, setDownPayment] = useState<number>(DEFAULTS.downPayment);
+    const [term, setTerm] = useState<number>(DEFAULTS.term);
+    const [apr, setApr] = useState<number>(DEFAULTS.apr);
 
-    // Output State
-    const [biWeeklyPayment, setBiWeeklyPayment] = useState<string>('0.00');
-    const [desiredPayment, setDesiredPayment] = useState<string>('');
+    const amountFinanced = Math.max(vehiclePrice - downPayment, 0);
+    const monthlyPayment = useMemo(
+        () => calculateMonthlyPayment(amountFinanced, apr, term),
+        [amountFinanced, apr, term]
+    );
 
-    // Loan Calculation Logic
-    useEffect(() => {
-        // Total Principal = Vehicle Price + Fees + Existing Loan Balance - Down Payment - Trade-in
-        const basePrincipal =
-            vehiclePrice +
-            additionalFees +
-            financeFee +
-            gapFee +
-            warrantyCost +
-            loanBalance -
-            downPayment -
-            tradeInValue;
-
-        // Simulate simple 13% tax add-on if checked (adjust rate as per your specific region)
-        const totalPrincipal = includeTax ? basePrincipal * 1.13 : basePrincipal;
-
-        if (totalPrincipal <= 0 || term <= 0) {
-            setBiWeeklyPayment('0.00');
-            return;
-        }
-
-        // Convert Annual APR to a Bi-Weekly Interest Rate
-        // There are 26 bi-weekly periods in a year
-        const annualRate = apr / 100;
-        const biWeeklyRate = annualRate / 26;
-
-        // Convert Month term to total number of bi-weekly payments
-        // Approximation: (Months * 12) / 26 periods a year -> or roughly Months * 2.166
-        const totalPayments = (term / 12) * 26;
-
-        let payment = 0;
-        if (biWeeklyRate === 0) {
-            payment = totalPrincipal / totalPayments;
-        } else {
-            // Standard Amortization Formula: P * (r(1+r)^n) / ((1+r)^n - 1)
-            payment =
-                (totalPrincipal * biWeeklyRate * Math.pow(1 + biWeeklyRate, totalPayments)) /
-                (Math.pow(1 + biWeeklyRate, totalPayments) - 1);
-        }
-
-        setBiWeeklyPayment(payment.toFixed(2));
-    }, [vehiclePrice, downPayment, additionalFees, financeFee, gapFee, warrantyCost, term, tradeInValue, loanBalance, apr, includeTax]);
+    const handleReset = () => {
+        setVehiclePrice(DEFAULTS.vehiclePrice);
+        setDownPayment(DEFAULTS.downPayment);
+        setTerm(DEFAULTS.term);
+        setApr(DEFAULTS.apr);
+    };
 
     return (
-        <PageShell showGetInTouch>
-            <div className="lg:mt-20 mx-auto px-4 sm:px-5 lg:px-16 py-6 sm:py-8 lg:py-12 shadow-sm  text-gray-700 bg-light-gray2">
-                <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 sm:mb-8 text-black">Payment Calculator</h1>
-
-                <div className=' bg-white'>
-                    <div className="grid grid-cols-1 md:grid-cols-3">
-
-                    {/* Left Form Column (Spans 2 columns) */}
-                    <div className="md:col-span-2 bg-white px-4 py-8 sm:px-6 sm:py-10 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-x-7 border-r border-slate-200">
-
-                        <div>
-                            <label className="block text-black  text-base font-lg mb-1">Vehicle Price</label>
-                            <div className="relative">
-                                <span className="absolute left-3 top-[12px] text-xl font-light text-input-text">$</span>
-                                <input
-                                    type="number"
-                                    value={vehiclePrice || ''}
-                                    onChange={(e) => setVehiclePrice(Number(e.target.value))}
-                                    className="w-full pl-8 pr-3 py-3 rounded-xl border border-border-lightGray transition-all duration-200 outline-none  focus:ring-4 focus:ring-blue-100 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                />
-                            </div>
+        <>
+            <Header />
+            <div className="bg-white">
+                {/* ---------------- Hero ---------------- */}
+                <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[420px] sm:min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center py-12 lg:py-0">
+                    {/* RIGHT SIDE: Large Dealership Image (Hidden or adjusted on mobile so text is fully readable on white/light-pink background) */}
+                    <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[55%] overflow-hidden pointer-events-none opacity-20 lg:opacity-100">
+                        <div
+                            className="relative w-full h-full"
+                            style={{
+                                maskImage:
+                                    "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+                                WebkitMaskImage:
+                                    "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+                            }}
+                        >
+                            <Image
+                                src="/images/pc1.png"
+                                alt="Carma Credit dealership building"
+                                fill
+                                priority
+                                className="object-cover object-center lg:object-[left_center]"
+                                sizes="100vw"
+                            />
                         </div>
 
-                        <div>
-                            <label className="block text-black text-base font-lg mb-1">Down Payment</label>
-                            <div className="relative">
-                                <span className="absolute left-3 top-[12px] text-xl font-light text-input-text">$</span>
-                                <input
-                                    type="number"
-                                    value={downPayment || ''}
-                                    onChange={(e) => setDownPayment(Number(e.target.value))}
-                                    className="w-full pl-8 pr-3 py-3 rounded-xl border border-border-lightGray focus:outline-none focus:ring-1  focus:ring-4 focus:ring-blue-100 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                    placeholder="0.00"
-                                />
+                        <div
+                            className="absolute inset-0 pointer-events-none bg-transparent"
+                            style={{
+                                background:
+                                    "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
+                            }}
+                            aria-hidden="true"
+                        />
+                    </div>
+
+                    {/* LEFT CONTENT */}
+                    <div className="relative z-20 w-full">
+                        <div className={`${WRAPPER} grid grid-cols-1 lg:grid-cols-2 gap-10 items-center`}>
+                            <div>
+                                <p
+                                    className="text-sm font-bold tracking-[0.09em] mb-3 text-brand"
+                                >
+                                    PAYMENT CALCULATOR
+                                </p>
+                                <h1
+                                    className="text-3xl sm:text-4xl lg:text-[3.4rem] font-bold leading-[1.1] mb-4 sm:mb-5"
+                                    style={{ color: NAVY }}
+                                >
+                                    See What Your Payments Could{' '}
+                                    <span style={{ color: PINK }}>Look Like.</span>
+                                </h1>
+                                <p className="text-base sm:text-lg text-gray-600">
+                                    Use our payment calculator to estimate your monthly payments.
+                                    Adjust the numbers to see what works for your budget.
+                                </p>
                             </div>
                         </div>
+                    </div>
+                </section>
 
-                        <div>
-                            <label className="block text-black text-base font-lg mb-1">Additional Fees</label>
-                            <div className="relative">
-                                <span className="absolute left-3 top-[12px] text-xl font-light text-input-text">$</span>
-                                <input
-                                    type="number"
-                                    value={additionalFees || ''}
-                                    placeholder="0.00"
-                                    onChange={(e) => setAdditionalFees(Number(e.target.value))}
-                                    className="w-full pl-8 pr-3 py-3 rounded-xl border border-border-lightGray focus:outline-none focus:ring-1  focus:ring-4 focus:ring-blue-100 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                />
-                            </div>
-                        </div>
+                {/* ---------------- Calculator ---------------- */}
+                <section className="py-10 md:py-16">
+                    <div className={`${WRAPPER} grid grid-cols-1 lg:grid-cols-3 gap-6`}>
+                        {/* Form */}
+                        <div className="lg:col-span-2 rounded-2xl border border-gray-200 p-6 sm:p-8">
+                            <h2 className="text-2xl font-bold mb-6" style={{ color: NAVY }}>
+                                Calculate Your Payment
+                            </h2>
 
-                        <div>
-                            <label className="block text-black text-base font-lg mb-1">Finance Fee</label>
-                            <div className="relative">
-                                <span className="absolute left-3 top-[12px] text-xl font-light text-input-text">$</span>
-                                <input
-                                    type="number"
-                                    value={financeFee || ''}
-                                    placeholder="0.00"
-                                    onChange={(e) => setFinanceFee(Number(e.target.value))}
-                                    className="w-full pl-8 pr-3 py-3 rounded-xl border border-border-lightGray focus:outline-none focus:ring-1  focus:ring-4 focus:ring-blue-100 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                />
-                            </div>
-                        </div>
+                            <div className="space-y-6">
+                                {/* Vehicle Price */}
+                                <div className="flex flex-col lg:flex-row gap-2 items-center justify-center">
+                                    <div className="w-full lg:w-1/2">
+                                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                            Vehicle Price
+                                        </label>
+                                        <div className="relative mb-3">
+                                            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                                                $
+                                            </span>
+                                            <input
+                                                type="number"
+                                                value={vehiclePrice}
+                                                onChange={(e) => setVehiclePrice(Number(e.target.value))}
+                                                className="w-full pl-7 pr-3 py-2.5 rounded-lg border border-gray-300 outline-none focus:ring-2"
+                                                style={{ ['--tw-ring-color' as any]: PINK }}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="w-full lg:w-1/2 lg:mt-6">
+                                        <input
+                                            type="range"
+                                            min={5000}
+                                            max={100000}
+                                            step={500}
+                                            value={vehiclePrice}
+                                            onChange={(e) => setVehiclePrice(Number(e.target.value))}
+                                            className="w-full"
+                                            style={{ accentColor: PINK }}
+                                        />
+                                        <div className="flex justify-between text-xs text-gray-400 mt-1">
+                                            <span>$5,000</span>
+                                            <span>$100,000</span>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <div>
-                            <label className="block text-black text-base font-lg mb-1">Gap Fee</label>
-                            <div className="relative">
-                                <span className="absolute left-3 top-[12px] text-xl font-light text-input-text">$</span>
-                                <input
-                                    type="number"
-                                    value={gapFee || ''}
-                                    onChange={(e) => setGapFee(Number(e.target.value))}
-                                    className="w-full pl-8 pr-3 py-3 rounded-xl border border-border-lightGray focus:outline-none focus:ring-1  focus:ring-4 focus:ring-blue-100 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                />
-                            </div>
-                        </div>
+                                {/* Down Payment */}
+                                <div className="flex flex-col lg:flex-row gap-2 items-center justify-center w-full">
+                                    <div className="w-full lg:w-1/2">
+                                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                            Down Payment
+                                        </label>
+                                        <div className="relative mb-3">
+                                            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                                                $
+                                            </span>
+                                            <input
+                                                type="number"
+                                                value={downPayment}
+                                                onChange={(e) => setDownPayment(Number(e.target.value))}
+                                                className="w-full pl-7 pr-3 py-2.5 rounded-lg border border-gray-300 outline-none focus:ring-2"
+                                                style={{ ['--tw-ring-color' as any]: PINK }}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="w-full lg:w-1/2 lg:mt-6">
+                                        <input
+                                            type="range"
+                                            min={0}
+                                            max={50000}
+                                            step={500}
+                                            value={downPayment}
+                                            onChange={(e) => setDownPayment(Number(e.target.value))}
+                                            className="w-full"
+                                            style={{ accentColor: PINK }}
+                                        />
+                                        <div className="flex justify-between text-xs text-gray-400 mt-1">
+                                            <span>$0</span>
+                                            <span>$50,000</span>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <div>
-                            <label className="block text-black text-base font-lg mb-1">Warranty Cost</label>
-                            <div className="relative">
-                                <span className="absolute left-3 top-[12px] text-xl font-light text-input-text">$</span>
-                                <input
-                                    type="number"
-                                    value={warrantyCost || ''}
-                                    onChange={(e) => setWarrantyCost(Number(e.target.value))}
-                                    className="w-full pl-8 pr-3 py-3 rounded-xl border border-border-lightGray focus:outline-none focus:ring-1  focus:ring-4 focus:ring-blue-100 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                    placeholder="0.00"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Term Radio Toggle Buttons */}
-                            <div className="sm:col-span-2">
-                                <label className="block text-black text-base font-medium mb-3 text-slate-700">Term (Months)</label>
-                                <div className="flex flex-wrap gap-1 p-1">
-                                    {[12, 24, 36, 48, 60, 72, 84, 96].map((m) => {
-                                        return (
+                                {/* Loan Term */}
+                                <div>
+                                    <label className="block text-sm font-semibold text-gray-700 mb-3">
+                                        Loan Term
+                                    </label>
+                                    <div className="flex flex-wrap gap-2">
+                                        {TERM_OPTIONS.map((m) => (
                                             <button
                                                 key={m}
                                                 type="button"
                                                 onClick={() => setTerm(m)}
-                                                className={`px-4 py-2.5 text-base font-medium rounded-xl cursor-pointer border transition-all duration-200 sm:px-7 sm:py-3 ${term === m
-                                                        ? 'text-white border-brand bg-brand-gradient shadow-[0_4px_0_0_var(--color-primary-green)]'
-                                                        : 'border-slate-300 text-gray-700 hover:shadow-[0_4px_0_0_var(--color-primary-green)] shadow-[0_0_10px_rgba(0,0,0,0.1)]'
-                                                    }`}
+                                                className="px-4 py-2.5 rounded-lg border text-sm font-medium transition-colors"
+                                                style={
+                                                    term === m
+                                                        ? {
+                                                              borderColor: PINK,
+                                                              color: PINK,
+                                                              backgroundColor: PANEL_PINK,
+                                                          }
+                                                        : {
+                                                              borderColor: '#D1D5DB',
+                                                              color: '#374151',
+                                                              backgroundColor: 'white',
+                                                          }
+                                                }
                                             >
-                                                {m}
+                                                {m} Months
                                             </button>
-                                        );
-                                    })}
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* APR */}
+                                <div className="flex flex-col lg:flex-row gap-2 items-center justify-center w-full">
+                                    <div className="w-full lg:w-1/2">
+                                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                            Interest Rate (APR)
+                                        </label>
+                                        <div className="relative mb-3">
+                                            <input
+                                                type="number"
+                                                step={0.01}
+                                                value={apr}
+                                                onChange={(e) => setApr(Number(e.target.value))}
+                                                className="w-full pl-3 pr-8 py-2.5 rounded-lg border border-gray-300 outline-none focus:ring-2"
+                                                style={{ ['--tw-ring-color' as any]: PINK }}
+                                            />
+                                            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+                                                %
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="w-full lg:w-1/2 lg:mt-6">
+                                        <input
+                                            type="range"
+                                            min={0}
+                                            max={29.99}
+                                            step={0.01}
+                                            value={apr}
+                                            onChange={(e) => setApr(Number(e.target.value))}
+                                            className="w-full"
+                                            style={{ accentColor: PINK }}
+                                        />
+                                        <div className="flex justify-between text-xs text-gray-400 mt-1">
+                                            <span>0%</span>
+                                            <span>29.99%</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center gap-6 pt-2">
+                                    <button
+                                        type="button"
+                                        onClick={handleReset}
+                                        className="text-sm font-medium text-gray-500 hover:text-gray-700"
+                                    >
+                                        ↺ Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Output panel */}
+                        <div
+                            className="rounded-2xl p-6 sm:p-8 flex flex-col justify-between"
+                            style={{ backgroundColor: PANEL_PINK }}
+                        >
+                            <div>
+                                <p className="text-base lg:text-2xl font-bold text-gray-600 mb-4">
+                                    Your Estimated Payment
+                                </p>
+                                <h3
+                                    className="text-4xl sm:text-5xl font-extrabold mb-1 text-brand"
+                                >
+                                    {formatCurrency(monthlyPayment)}
+                                </h3>
+                                <p className="text-base mb-6 text-gray-600">per month</p>
+
+                                <div className="divide-y divide-pink-100 border-t border-pink-100">
+                                    <Row label="Vehicle Price" value={formatCurrency(vehiclePrice)} />
+                                    <Row
+                                        label="Down Payment"
+                                        value={`- ${formatCurrency(downPayment)}`}
+                                    />
+                                    <Row
+                                        label="Amount Financed"
+                                        value={formatCurrency(amountFinanced)}
+                                    />
+                                    <Row label="APR (Interest Rate)" value={`${apr.toFixed(2)}%`} />
+                                    <Row label="Term" value={`${term} Months`} />
                                 </div>
                             </div>
 
-                        <div>
-                            <label className="block text-black text-base font-lg mb-1">Trade-In Value</label>
-                            <div className="relative">
-                                <span className="absolute left-3 top-[12px] text-xl font-light text-input-text">$</span>
-                                <input
-                                    type="number"
-                                    value={tradeInValue || ''}
-                                    onChange={(e) => setTradeInValue(Number(e.target.value))}
-                                    className="w-full pl-8 pr-3 py-3 rounded-xl border border-border-lightGray focus:outline-none focus:ring-1 focus: -blue-400 focus:ring-4 focus:ring-blue-100 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                    placeholder="0.00"
+                            <div className="mt-6 rounded-xl bg-white/70 p-4 flex gap-3">
+                                <Info
+                                    className="w-5 h-5 flex-shrink-0 mt-0.5"
+                                    style={{ color: PINK }}
                                 />
+                                <p className="text-xs text-gray-600 leading-relaxed">
+                                    This is an estimate only. Actual rates, terms and payments may
+                                    vary based on your credit profile, income and lender approval.
+                                </p>
                             </div>
                         </div>
+                    </div>
+                </section>
 
-                        <div>
-                            <label className="block text-black text-base font-lg mb-1">Existing vehicle loan balance</label>
-                            <div className="relative">
-                                <span className="absolute left-3 top-[12px] text-xl font-light text-input-text">$</span>
-                                <input
-                                    type="number"
-                                    value={loanBalance || ''}
-                                    onChange={(e) => setLoanBalance(Number(e.target.value))}
-                                    className="w-full pl-8 pr-3 py-3 rounded-xl border border-border-lightGray focus:outline-none focus:ring-1  focus:ring-4 focus:ring-blue-100 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                    placeholder="0.00"
-                                />
-                            </div>
-                        </div>
+                {/* ---------------- Feature cards ---------------- */}
+                <section className="pb-10 md:pb-16">
+                    <div className={`${WRAPPER} grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8`}>
+                        <FeatureCard
+                            icon={<Calculator className="w-6 h-6" style={{ color: PINK }} />}
+                            title="Plan With Confidence"
+                            description="See how different prices, terms and rates can affect your payments."
+                        />
+                        <FeatureCard
+                            icon={<SlidersHorizontal className="w-6 h-6" style={{ color: PINK }} />}
+                            title="Explore Your Options"
+                            description="Adjust the numbers to find what fits your budget."
+                        />
+                        <FeatureCard
+                            icon={<Gauge className="w-6 h-6" style={{ color: PINK }} />}
+                            title="No Credit Impact"
+                            description="This calculator is a planning tool and does not affect your credit score."
+                        />
+                        <FeatureCard
+                            icon={<Car className="w-6 h-6" style={{ color: PINK }} />}
+                            title="One Step Closer"
+                            description="When you're ready, take our 2-minute quiz to see your real options."
+                        />
+                    </div>
+                </section>
 
-                        {/* Credit Score Toggles */}
-                        <div className="sm:col-span-2">
-                            <label className="block text-black text-base font-lg mb-2">Approx. Credit Score</label>
-                            <div className="flex w-full flex-wrap gap-2 sm:w-auto">
-                                {['Poor', 'Fair', 'Good', 'Excellent'].map((score) => (
-                                    <button
-                                        key={score}
-                                        type="button"
-                                        onClick={() => {
-                                            setCreditScore(score);
-                                            // Match estimated APR shifts based on credit tir
-                                            if (score === 'Excellent') setApr(4.99);
-                                            if (score === 'Good') setApr(5.99);
-                                            if (score === 'Fair') setApr(9.99);
-                                            if (score === 'Poor') setApr(14.99);
-                                        }}
-                                        className={`flex-1 px-3 py-2 border rounded-xl text-base font-medium transition-colors cursor-pointer sm:flex-none sm:px-4 lg:px-6 ${creditScore === score
-                                                ? 'text-white border-none bg-brand-gradient shadow-[0_4px_0_0_var(--color-primary-green)]'
-                                                : 'bg-white text-gray-700 hover:bg-gray-50 border-slate-300 hover:shadow-[0_4px_0_0_var(--color-primary-green)]'
-                                            }`}
-                                    >
-                                        {score}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
+                {/* ---------------- Factors ---------------- */}
+                <section className="py-10 md:py-14 max-w-[1480px] mx-auto px-4 sm:px-12 xl:px-16">
+                    <div className={"py-10 px-6  rounded-2xl  max-w-[1480px] mx-auto px-4 sm:px-12 xl:px-16"} style={{ backgroundColor: SECTION_GRAY }}>
+                        <h3 className="text-2xl font-bold mb-2" style={{ color: NAVY }}>
+                            Factors That Can Affect Your Payment
+                        </h3>
+                        <p className="text-gray-600 mb-8">
+                            Your actual payment may be different based on:
+                        </p>
 
-                        <div>
-                            <label className="block text-black text-base font-lg mb-1">Estimated APR</label>
-                            <div className="relative">
-                                <input
-                                    type="number"
-                                    step="0.01"
-                                    value={apr}
-                                    onChange={(e) => setApr(Number(e.target.value))}
-                                    className="w-full pr-8 pl-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-1  focus:ring-4 focus:ring-blue-100 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                />
-                                <span className="absolute right-3 top-[9px] text-input-text">%</span>
-                            </div>
-                        </div>
-
-                        <div className="sm:col-span-2 flex items-center mt-2">
-                            <input
-                                id="sales-tax"
-                                type="checkbox"
-                                checked={includeTax}
-                                onChange={(e) => setIncludeTax(e.target.checked)}
-                                className="h-4 w-4 text-brand-green "
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+                            <FactorItem
+                                icon={<Gauge className="w-6 h-6" style={{ color: PINK }} />}
+                                label="Your credit history"
                             />
-                            <label htmlFor="sales-tax" className="ml-2 text-base font-medium text-gray-700 select-none">
-                                Include Sales Tax
-                            </label>
+                            <FactorItem
+                                icon={<CalendarDays className="w-6 h-6" style={{ color: PINK }} />}
+                                label="Loan term (length)"
+                            />
+                            <FactorItem
+                                icon={<Percent className="w-6 h-6" style={{ color: PINK }} />}
+                                label="Interest rate (APR)"
+                            />
+                            <FactorItem
+                                icon={<DollarSign className="w-6 h-6" style={{ color: PINK }} />}
+                                label="Down payment amount"
+                            />
+                            <FactorItem
+                                icon={<Car className="w-6 h-6" style={{ color: PINK }} />}
+                                label="Vehicle type (new or used)"
+                            />
+                            <FactorItem
+                                icon={<Landmark className="w-6 h-6" style={{ color: PINK }} />}
+                                label="Lender and program options"
+                            />
                         </div>
+                    </div>
+                </section>
 
+                {/* ---------------- CTA ---------------- */}
+                <section className="relative w-full overflow-hidden bg-[#080b18] py-10 sm:py-12 lg:py-14">
+                    <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none opacity-40 lg:opacity-100">
+                        <Image
+                            src="/images/pc2.png"
+                            alt="Carma Credit auto financing specialist meeting with customer"
+                            fill
+                            className="block w-full h-auto"
+                            priority
+                            unoptimized
+                        />
+                        <div
+                            className="absolute inset-0 bg-gradient-to-r from-[#080b18] via-[#080b18]/60 to-transparent"
+                            aria-hidden="true"
+                        />
                     </div>
 
-                    {/* Right Output Sidebar Box */}
-                    <div className="bg-white px-2 lg:px-6 lg:py-9 flex flex-col justify-between h-fit text-center">
-                        <div>
-                            <p className="text-xl lg:text-base tracking-wider mb-4">
-                                Based on your input, your estimated payment:
+                    <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="max-w-xl lg:max-w-2xl xl:max-w-3xl flex flex-col items-start justify-center">
+                            <h2 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[34px] font-extrabold text-white tracking-tight leading-tight mb-2 sm:mb-3">
+                                Ready to see what you could qualify for?
+                            </h2>
+                            <p className="text-white text-base leading-normal mb-5 sm:mb-6">
+                                Our 2-minute auto financing quiz gives you personalized options with no impact to your credit score.
                             </p>
-                            <h4 className="text-md font-semibold text-gray-600 my-8">Bi-Weekly Payment</h4>
-                            <h3 className="text-4xl font-bold text-gray-900 mb-8">${biWeeklyPayment}</h3>
-
-                            <Link href={"/finance"}>
-
-                            <button className="w-full cursor-pointer text-white font-semibold py-3 px-4 rounded-full border-2 border-brand transition-colors shadow-sm mb-6 hover:brightness-95 bg-brand-gradient">
-                                Get pre-approved
-                            </button>
-                            
-
-                            </Link>
-                        </div>
-
-                        <div className=" ">
-                            <label className="block text-base mb-2 text-left">Desired Bi-Weekly Payment</label>
-                            <div className="relative mb-3">
-                                <span className="absolute left-3 top-[9px] text-input-text">$</span>
-                                <input
-                                    type="number"
-                                    value={desiredPayment}
-                                    onChange={(e) => setDesiredPayment(e.target.value)}
-                                    className="w-full pl-8 pr-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-1  focus:ring-4 focus:ring-blue-100 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                    placeholder="0.00"
-                                />
+                            <div>
+                                <a
+                                    href="/financing"
+                                    className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#ff385c] hover:bg-brand active:bg-[#8e145a] text-white font-semibold text-[13.5px] sm:text-[14.5px] transition-colors duration-150 shadow-md"
+                                >
+                                    <span>Start My Auto Financing Quiz</span>
+                                    <span className="text-base leading-none">→</span>
+                                </a>
                             </div>
-                            <button
-                                type="button"
-                                className=" bg-black hover:bg-gray-800 text-white text-base font-bold py-4 px-4 rounded-xl cursor-pointer uppercase tracking-wider transition-colors"
-                            >
-                                Adjust Bi-Weekly
-                            </button>
+
+                            <div className="flex flex-col lg:flex-row flex-wrap items-start lg:items-center gap-y-3 gap-x-6 text-base text-white font-medium mt-6">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
+                                        <Check className="w-3 h-3 stroke-[3]" />
+                                    </div>
+                                    <span>No judgment.</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
+                                        <Check className="w-3 h-3 stroke-[3]" />
+                                    </div>
+                                    <span>No obligation.</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
+                                        <Check className="w-3 h-3 stroke-[3]" />
+                                    </div>
+                                    <span>Automotive financing only</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                </div>
-
-                {/* Disclosures Section */}
-                <div className="px-6 lg:pt-6 pb-14">
-                    <p className="font-semibold mb-1 text-gray-700 text-base">Finance disclosures</p>
-                    <p className='text-base leading-relaxed'>
-                        The payment estimator is not an advertisement or offer for specific terms of credit and actual terms may vary. Payment amounts presented are for illustrative purposes only and may not be available. Actual vehicle price may vary by Dealer. The Estimated Monthly Payment amount calculated is based on the variables entered, the price of the vehicle you entered, the term you select, the down payment you enter, the Annual Percentage Rate (APR) you select, and any net trade-in amount. The payment estimate displayed does not include taxes, title, license and/or registration fees. Payment amount is for illustrative purposes only. Actual prices may vary by Dealer. Payment amounts may be different due to various factors such as fees, specials, rebates, term, down payment, APR, net trade-in, and applicable tax rate. Actual APR is based on available finance programs and the creditworthiness of the customer. Not all customers will qualify for credit or for the lowest rate. Please contact an authorized dealer for actual rates, program details and actual terms.
-                    </p>
-                </div>
-                </div>
+                </section>
             </div>
-        </PageShell>
+            <Footer />
+        </>
+    );
+}
+
+function Row({ label, value }: { label: string; value: string }) {
+    return (
+        <div className="flex items-center justify-between py-3 text-base">
+            <span className="text-gray-600 font-semibold">{label}</span>
+            <span className="font-bold" style={{ color: NAVY }}>
+                {value}
+            </span>
+        </div>
+    );
+}
+
+function FeatureCard({
+    icon,
+    title,
+    description,
+}: {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+}) {
+    return (
+        <div className="text-center">
+            <div
+                className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
+                style={{ backgroundColor: PANEL_PINK }}
+            >
+                {icon}
+            </div>
+            <h4 className="font-bold mb-2" style={{ color: NAVY }}>
+                {title}
+            </h4>
+            <p className="text-sm text-gray-600 max-w-[220px] mx-auto">{description}</p>
+        </div>
+    );
+}
+
+function FactorItem({ icon, label }: { icon: React.ReactNode; label: string }) {
+    return (
+        <div className="flex flex-col items-center text-center gap-3">
+            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm">
+                {icon}
+            </div>
+            <p className="text-sm font-medium text-gray-700">{label}</p>
+        </div>
     );
 }
