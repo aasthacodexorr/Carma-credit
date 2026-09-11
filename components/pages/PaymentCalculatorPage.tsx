@@ -87,7 +87,7 @@ export default function PaymentCalculator() {
                             }}
                         >
                             <Image
-                                src="/images/pc1.png"
+                                src="/images/PC1.png"
                                 alt="Carma Credit dealership building"
                                 fill
                                 priority
@@ -411,7 +411,7 @@ export default function PaymentCalculator() {
                 <section className="relative w-full overflow-hidden bg-[#080b18] py-10 sm:py-12 lg:py-14">
                     <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none opacity-40 lg:opacity-100">
                         <Image
-                            src="/images/pc2.png"
+                            src="/images/PC2.png"
                             alt="Carma Credit auto financing specialist meeting with customer"
                             fill
                             className="block w-full h-auto"
