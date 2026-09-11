@@ -132,8 +132,8 @@ export default function WhatDoINeedPage() {
         {/* SECTION 1: HERO (Single Full-Width Continuous Banner like About Us page) */}
         {/* ========================================================================= */}
         <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[580px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
-          {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
+         {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
+         <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
             {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
             <div
               className="relative w-full h-full"
@@ -147,8 +147,9 @@ export default function WhatDoINeedPage() {
               <Image
                 src="/images/what_do_i_need_hero_hd.png"
                 alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
-                fill
-                className="block w-full h-full object-cover lg:h-auto"
+                width={800}
+                height={600}
+                className="w-auto h-full max-h-none object-contain object-right"
                 priority
                 unoptimized
               />
@@ -165,10 +166,10 @@ export default function WhatDoINeedPage() {
             />
             {/* Mobile Black Overlay for legibility */}
             <div className="absolute inset-0 bg-white/80 lg:hidden pointer-events-none" aria-hidden="true" />
-          </div>
+         </div>
 
-          {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
-          <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
+         {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
+         <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
             <div className="max-w-[500px] xl:max-w-[600px] flex flex-col items-start justify-center">
               <span className="text-base sm:text-[18px] font-bold tracking-[0.2em] text-brand uppercase">
                 What do you need to finance a vehicle?
@@ -261,8 +262,8 @@ export default function WhatDoINeedPage() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+         </div>
+      </section>
 
         {/* ========================================================================= */}
         {/* SECTION 2: THE ESSENTIALS — Documents You'll Need (6 Feature Cards) */}
