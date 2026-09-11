@@ -22,7 +22,7 @@ export default function Home() {
               }}
             >
               <Image
-                src="/images/hero-building.jpg"
+                src="/images/hero-building.png"
                 alt="Carma Credit dealership building"
                 fill
                 priority
