@@ -161,7 +161,7 @@ export default function HowItWorksPage() {
             <div className="max-w-[1250px] mx-auto relative">
 
               {/* Continuous vertical tracking line on the left */}
-              <div className="hidden lg:block absolute left-[31px] top-12 bottom-12 w-[2px] bg-pink-200 z-0" />
+              <div className="hidden lg:block absolute left-[52px] top-12 bottom-12 w-[2px] bg-pink-200 z-0" />
 
               <div className="space-y-5 lg:space-y-24 relative z-10">
                 {steps.map((step, index) => (
