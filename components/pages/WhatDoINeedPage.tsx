@@ -425,7 +425,7 @@ export default function WhatDoINeedPage() {
 
               {/* Right Column: Narrative & CTA */}
               <div className="lg:col-span-6 flex flex-col items-start justify-center">
-                <span className="text-[12px] sm:text-[18px] font-bold tracking-[0.2em] text-[#ff385c] uppercase mb-2.5">
+                <span className="text-[12px] sm:text-[18px] font-bold tracking-[0.2em] text-brand uppercase mb-2.5">
                   You&apos;re Not Alone
                 </span>
 
