@@ -86,7 +86,7 @@ const reviews: Review[] = [
 ];
 
 const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/search?q=cardora#lrd=0x882b3f8957c9a033:0x9a07057d8dafccb0,1";
+  "https://www.google.com/maps/place/Carma/@-33.8902668,151.2050276,17z/data=!4m6!3m5!1s0x4605ff28a07c8029:0x939905e9cf86b1fc!8m2!3d-33.8902668!4d151.2050276!16s%2Fg%2F11smr6d02r?entry=tts&g_ep=EgoyMDI1MTIwOC4wIPu8ASoASAFQAw%3D%3D&skid=880d6098-bbac-441a-9753-0110e95cbf73";
 
 const Reviews = () => {
   const appConfig = useAppConfig();
