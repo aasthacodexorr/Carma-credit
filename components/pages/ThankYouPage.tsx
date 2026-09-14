@@ -329,7 +329,7 @@ export default function ThankYouPage() {
             {/* ================= CONTACT NOTICE ================= */}
             <div className="relative z-20 w-full translate-y-1/ rounded-2xl bg-[#fdf2f8] border border-[#f8dfea] px-5 sm:px-7 py-4 sm:py-5 flex flex-row items-start sm:items-center gap-4 sm:gap-5 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
 
-              <div className="w-6 h-6 lg:w-12 lg:h-12  rounded-xl sm:rounded-2xl bg-[#fad6eb] flex items-center justify-center text-[#ff385c] flex-shrink-0">
+              <div className="w-8 h-8 lg:w-12 lg:h-12  rounded-xl sm:rounded-2xl bg-[#fad6eb] flex items-center justify-center text-[#ff385c] flex-shrink-0">
                 <svg
                   className="w-6 h-6"
                   viewBox="0 0 24 24"
