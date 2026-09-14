@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://cardora.zopsoftware.com/api/website/sitemap
+Sitemap: https://carma.zopsoftware.com/api/website/sitemap
