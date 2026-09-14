@@ -34,7 +34,7 @@ export default async function RootLayout({
   const safeD = getSafeDealershipConfig(appConfig.dealership);
   const safeSO = getSafeSchemaOrgConfig(appConfig.schema_org);
 
-  let host = "www.cardora.ca";
+  let host = "www.carmacredit.ca";
   try {
     const headersList = await headers();
     const headerHost = headersList.get("host");
