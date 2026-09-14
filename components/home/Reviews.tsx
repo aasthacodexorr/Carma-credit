@@ -56,25 +56,25 @@ const reviews: Review[] = [
   {
     name: "Maria S.",
     vehicle: "Red Toyota Corolla",
-    image: "/images/r5.png",
+    image: "/images/r6.png",
     text: "I just wanted a reliable car and a payment that worked for me. They made the process so easy and helped me get my Corolla. Thank you Carma Credit!",
   },
   {
     name: "Tanya J.",
     vehicle: "GMC Terrain",
-    image: "/images/r5.png",
+    image: "/images/r7.png",
     text: "I work long shifts and really needed a dependable SUV. I had some credit challenges, but they treated me with respect and helped me get approved for my Terrain.",
   },
   {
     name: "Chris & Ashley M.",
     vehicle: "Red Jeep Wrangler",
-    image: "/images/r5.png",
+    image: "/images/r8.png",
     text: "We always wanted a Wrangler but didn't think we could make it work. Carma Credit helped us understand our options and got us into our dream Jeep!",
   },
   {
     name: "Brianna C.",
     vehicle: "White Mercedes-Benz GLC",
-    image: "/images/r5.png",
+    image: "/images/r9.png",
     text: "I still can't believe this is my car! I thought my credit meant I had to settle. Carma Credit helped me get approved and into the Mercedes I really wanted.",
   },
   {
