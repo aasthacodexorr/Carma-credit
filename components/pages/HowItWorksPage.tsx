@@ -15,6 +15,7 @@ const steps = [
       </svg>
     ),
     image: "images/q1.png",
+    text:"It only takes 2 minutes."
   },
   {
     number: "2",
@@ -26,6 +27,7 @@ const steps = [
       </svg>
     ),
     image: "images/q2.png",
+     text:"Real people. Real support."
   },
   {
     number: "3",
@@ -37,6 +39,7 @@ const steps = [
       </svg>
     ),
     image: "images/q3.png",
+     text:"More opportunities for you."
   },
   {
     number: "4",
@@ -49,6 +52,7 @@ const steps = [
       </svg>
     ),
     image: "images/q4.png",
+     text:"From approval to keys."
   },
 ];
 
@@ -185,13 +189,13 @@ export default function HowItWorksPage() {
 
                     {/* Right: Image Card with Floating Handwritten Text (Exact Step 1 CSS) */}
                     <div className="relative flex items-center self-center lg:self-auto w-full justify-between">
-                      <div className="bg-white rounded-2xl lg:shadow-lg border border-gray-100 w-full lg:max-w-[450px] lg:min-w-[450px]">
-                        <div className="h-full lg:h-64 rounded-xl overflow-hidden relative shadow-inner">
+                      <div className="bg-white rounded-2xl border border-gray-100 w-full lg:max-w-[450px] lg:min-w-[412px]">
+                        <div className="h-full lg:h-full rounded-xl overflow-hidden relative shadow-inner">
                           <img src={step.image} alt={step.title} className="w-full h-full object-fit rounded-2xl" />
                         </div>
                       </div>
-                      <span className=" hidden lg:block text-[#1e102e] text-xl sm:text-[22px] leading-snug font-semibold tracking-wide rotate-4 ml-10" style={{ fontFamily: 'Caveat, cursive, sans-serif' }}>
-                        It only takes 2 minutes.
+                      <span className="hidden lg:block text-[#1e102e] text-xl sm:text-[22px] leading-snug font-bold tracking-wide -rotate-10 ml-10 font-kalam">
+                        {step.text}
                       </span>
                     </div>
                   </div>

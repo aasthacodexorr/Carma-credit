@@ -70,46 +70,13 @@ export default function UnderstandingCreditPage() {
       <main className="bg-white text-[#1a1b35] overflow-hidden">
 
         {/* ================= SECTION 1: HERO ================= */}
-        <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
-          {/* RIGHT SIDE: Large Image starting right next to the text and extending to the right edge */}
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none">
-            {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
-            <div
-              className="relative w-full h-full"
-              style={{
-                maskImage:
-                  "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
-                WebkitMaskImage:
-                  "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
-              }}
-            >
-              <Image
-                src="/images/rebuild.png"
-                alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
-                fill
-                priority
-                className="object-cover object-center lg:object-[left_center]"
-                sizes="100vw"
-                unoptimized
-              />
-            </div>
+        <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-start">
 
-            {/* SOFT HORIZONTAL FADE: Seamless transition located right nearby the text */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
-              }}
-              aria-hidden="true"
-            />
-            {/* Mobile Black Overlay for legibility */}
-            <div className="absolute inset-0 bg-white/80 lg:hidden pointer-events-none" aria-hidden="true" />
-          </div>
+          {/* Main Grid Container: Allocates explicit layout columns on large screens to prevent clipping */}
+          <div className="relative z-20 mx-auto w-full max-w-[1600px] px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-32 grid grid-cols-1 lg:grid-cols-12 items-start">
 
-          {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
-          <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
-            <div className="max-w-[480px] xl:max-w-[610px] flex flex-col items-start justify-center">
+            {/* LEFT CONTENT: Sits safely within its own grid column span */}
+            <div className="max-w-[480px] xl:max-w-[610px] lg:col-span-6 flex flex-col items-start justify-center z-20">
               <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-brand uppercase px-1">
                 UNDERSTANDING YOUR CREDIT
               </span>
@@ -119,7 +86,7 @@ export default function UnderstandingCreditPage() {
                 <span className="text-[#ff385c] block">in the Driver’s Seat.</span>
               </h1>
 
-              <p className=" text-[#4a4b65] text-xl  lg:text-base leading-[1.65] mb-8">
+              <p className="text-[#4a4b65] text-xl lg:text-base leading-[1.65] mb-8">
                 Understand your credit, make informed decisions, and feel confident about your auto financing journey.
               </p>
 
@@ -131,7 +98,7 @@ export default function UnderstandingCreditPage() {
               </div>
 
               {/* Feature Badges */}
-              <div className="flex flex-col lg:flex-row flex-wrap items-start lg:items-center gap-y-4 lg:gap-y-3 gap-x-6 text-xl lg:text-base text-[#4a4b65]  lg:font-medium">
+              <div className="flex flex-col lg:flex-row flex-wrap items-start lg:items-center gap-y-4 lg:gap-y-3 gap-x-6 text-xl lg:text-base text-[#4a4b65] lg:font-medium">
                 <div className="flex items-center gap-2">
                   <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
                     <span className="text-xs font-bold">✓</span>
@@ -153,6 +120,45 @@ export default function UnderstandingCreditPage() {
               </div>
             </div>
           </div>
+
+          {/* RIGHT SIDE IMAGE CONTAINER: Absolutely anchored to the right viewport edge */}
+          <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] xl:w-[55%] overflow-hidden pointer-events-none z-10">
+
+            {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
+            <div
+              className="relative w-full h-full"
+              style={{
+                maskImage:
+                  "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+                WebkitMaskImage:
+                  "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
+              }}
+            >
+              <Image
+                src="/images/rebuild.png"
+                alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
+                width={1730}
+                height={909}
+                priority
+                className="block w-full h-full object-cover object-center lg:object-right"
+                unoptimized
+              />
+            </div>
+
+            {/* SOFT HORIZONTAL FADE */}
+            <div
+              className="absolute inset-0 pointer-events-none hidden lg:block z-10"
+              style={{
+                background:
+                  "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
+              }}
+              aria-hidden="true"
+            />
+
+            {/* Mobile Black Overlay for legibility */}
+            <div className="absolute inset-0 bg-white/80 lg:hidden pointer-events-none z-10" aria-hidden="true" />
+          </div>
+
         </section>
 
         {/* ================= SECTION 2: WHAT IS A CREDIT SCORE ================= */}

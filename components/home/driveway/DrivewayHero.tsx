@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { easeOut } from "./motion";
-import { CheckCircle2, ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 const DrivewayHero = () => {
   const reduce = useReducedMotion();
@@ -20,9 +20,8 @@ const DrivewayHero = () => {
 
   return (
     <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
-      {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
-      <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
-        {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
+      {/* RIGHT SIDE: Large Image */}
+      <div className="absolute inset-0 lg:left-auto lg:w-[55%] xl:w-[52%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
         <div
           className="relative w-full h-full"
           style={{
@@ -35,21 +34,20 @@ const DrivewayHero = () => {
           <Image
             src="/images/h2.png"
             alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
-            width={1730}
-            height={909}
-            className="block w-full h-full object-cover lg:h-auto"
+            fill
+            className="block w-full h-full object-cover object-center"
             priority
             unoptimized
           />
         </div>
 
-        {/* MOBILE WHITE OVERLAY: Applied strictly to the absolute image container on mobile only */}
+        {/* MOBILE WHITE OVERLAY */}
         <div
           className="absolute inset-0 bg-white/70 lg:hidden pointer-events-none z-10"
           aria-hidden="true"
         />
 
-        {/* SOFT HORIZONTAL FADE: Seamless transition located right nearby the text */}
+        {/* SOFT HORIZONTAL FADE */}
         <div
           className="absolute inset-0 pointer-events-none hidden lg:block z-10"
           style={{
@@ -63,13 +61,12 @@ const DrivewayHero = () => {
       {/* Main Container */}
       <div className="relative z-20 mx-auto w-full max-w-[1480px] px-6 py-12 sm:px-12 xl:px-16">
         <div className="max-w-xl">
-
           {/* Small Top Tagline */}
-          <motion.div {...enter(0.0, 10)} className="mb-2">
+          {/* <motion.div {...enter(0.0, 10)} className="mb-2">
             <span className="text-[15px] font-bold tracking-[0.18em] text-brand uppercase">
               Real People. Real Opportunities.
             </span>
-          </motion.div>
+          </motion.div> */}
 
           {/* Main Headline */}
           <motion.h1
@@ -85,6 +82,7 @@ const DrivewayHero = () => {
             <p className="text-base font-semibold text-[#131b4d] sm:text-base">
               Less than perfect credit? No credit? Bankruptcy or consumer proposal?
             </p>
+
             <p className="text-base font-normal text-[#131b4d] sm:text-base leading-relaxed max-w-lg">
               Carma Credit helps Canadians explore auto financing options and get back on the road.
             </p>
@@ -109,12 +107,14 @@ const DrivewayHero = () => {
               </div>
               <span>No judgment.</span>
             </div>
+
             <div className="flex items-center gap-2">
               <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
                 <Check className="w-3 h-3 stroke-[3]" />
               </div>
               <span>No obligation.</span>
             </div>
+
             <div className="flex items-center gap-2">
               <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
                 <Check className="w-3 h-3 stroke-[3]" />
@@ -122,7 +122,6 @@ const DrivewayHero = () => {
               <span>Automotive financing only</span>
             </div>
           </div>
-
         </div>
       </div>
     </section>

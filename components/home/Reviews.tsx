@@ -18,39 +18,75 @@ import { Reveal } from "@/components/common";
 type Review = {
   name: string;
   text: string;
+  vehicle:string,
   image: string;
 };
 
 const reviews: Review[] = [
   {
-    name: "It's Jerry",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
-    text: "Bought a 2021 Jetta Highline from Cardora and the experience was amazing—thanks to Sam. He stepped in personally and resolved everything with professionalism and genuine care.",
+    name: "Sarah K.",
+    vehicle: "White Toyota RAV4",
+    image: "/images/r1.png",
+    text: "I was turned down before and honestly didn't think I'd get approved. Carma Credit made everything easy. I still can't believe I got the car I wanted!",
   },
   {
-    name: "Shimul Rajput",
-    image: "https://randomuser.me/api/portraits/women/65.jpg",
-    text: "Just bought my first car and Sam was amazing! Supportive, quick to respond, and made the whole process easy and stress-free. Highly recommended!",
+    name: "Michael T.",
+    vehicle: "Black Ford F-150",
+    image: "/images/r2.png",
+    text: "I needed a truck for work but my credit wasn't perfect. They were just focused on helping me get approved and into the right truck. Loving my F-150!",
   },
   {
-    name: "Katie McWade",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
-    text: "Sam worked hard to get us the best rate and turned a stressful process into something seamless. We are incredibly happy with our newly purchased vehicle.",
+    name: "Danielle R.",
+    vehicle: "Nissan Rogue",
+    image: "/images/r3.png",
+    text: "As a mom, I needed something reliable with room for my kids. Carma Credit listened to what I needed and helped me get into my Rogue. So thankful!",
   },
   {
-    name: "Gary Williams",
-    image: "https://randomuser.me/api/portraits/men/75.jpg",
-    text: "Amazing experience dealing with Sam and his team. I highly recommend them for any vehicle purchase and will definitely be back for my next upgrade.",
+    name: "Andre & Nicole B.",
+    vehicle: "Blue Genesis",
+    image: "/images/r4.png",
+    text: "We thought our credit situation would limit our options. The team explained everything and helped us find a beautiful Genesis. The whole experience was better than we expected.",
   },
   {
-    name: "Inderjeet",
-    image: "https://randomuser.me/api/portraits/men/11.jpg",
-    text: "Sam was knowledgeable, patient, and helpful throughout. He even went out of his way to find the perfect car. Stress-free and enjoyable from start to finish.",
+    name: "Marcus & Jayden W.",
+    vehicle: "Black RAM",
+    image: "/images/r5.png",
+    text: "My son and I came in not knowing what was possible. They worked with us, kept it simple and got us into this RAM. Can't believe we got the truck!",
+  },
+  {
+    name: "Maria S.",
+    vehicle: "Red Toyota Corolla",
+    image: "/images/r6.png",
+    text: "I just wanted a reliable car and a payment that worked for me. They made the process so easy and helped me get my Corolla. Thank you Carma Credit!",
+  },
+  {
+    name: "Tanya J.",
+    vehicle: "GMC Terrain",
+    image: "/images/r7.png",
+    text: "I work long shifts and really needed a dependable SUV. I had some credit challenges, but they treated me with respect and helped me get approved for my Terrain.",
+  },
+  {
+    name: "Chris & Ashley M.",
+    vehicle: "Red Jeep Wrangler",
+    image: "/images/r8.png",
+    text: "We always wanted a Wrangler but didn't think we could make it work. Carma Credit helped us understand our options and got us into our dream Jeep!",
+  },
+  {
+    name: "Brianna C.",
+    vehicle: "White Mercedes-Benz GLC",
+    image: "/images/r9.png",
+    text: "I still can't believe this is my car! I thought my credit meant I had to settle. Carma Credit helped me get approved and into the Mercedes I really wanted.",
+  },
+  {
+    name: "Jennifer L.",
+    vehicle: "Red Nissan Sentra",
+    image: "/images/r5.png",
+    text: "I needed a safe, reliable car for me and my daughter. They didn't judge my situation—they just helped. Now we have our Sentra and I couldn't be happier.",
   },
 ];
 
 const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/search?q=cardora#lrd=0x882b3f8957c9a033:0x9a07057d8dafccb0,1";
+  "https://www.google.com/maps/place/Carma/@-33.8902668,151.2050276,17z/data=!4m6!3m5!1s0x4605ff28a07c8029:0x939905e9cf86b1fc!8m2!3d-33.8902668!4d151.2050276!16s%2Fg%2F11smr6d02r?entry=tts&g_ep=EgoyMDI1MTIwOC4wIPu8ASoASAFQAw%3D%3D&skid=880d6098-bbac-441a-9753-0110e95cbf73";
 
 const Reviews = () => {
   const appConfig = useAppConfig();

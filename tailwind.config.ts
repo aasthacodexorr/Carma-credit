@@ -20,7 +20,7 @@ export default {
     extend: {
 
       fontFamily: {
-        
+        kalam: ['var(--font-kalam)', 'cursive'],
         sans: ["Lato", "sans-serif"],
         carmax: ["Carmax Variable", "sans-serif"],
       },

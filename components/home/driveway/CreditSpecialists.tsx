@@ -5,19 +5,19 @@ export default function CreditSpecialists() {
     {
       name: "Jas",
       role: "Auto Financing Specialist",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "/images/team1.png",
       quote: "“Here to find solutions together.”",
     },
     {
       name: "Simran",
       role: "Auto Financing Specialist",
-      image: "https://images.unsplash.com/photo-1560087637-bf797bc7796a?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "images/team2.png",
       quote: "“Your goals are our priority.”",
     },
     {
       name: "Aman",
       role: "Auto Financing Specialist",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "/images/team3.png",
       quote: "“Let's get you back on the road.”",
     },
   ];

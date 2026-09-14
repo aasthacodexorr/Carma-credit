@@ -1,4 +1,4 @@
-const ALLOWED_IFRAME_ORIGIN = "https://cardora.zopsoftware.com";
+const ALLOWED_IFRAME_ORIGIN = "https://carma.zopsoftware.com";
 
 $(document).ready(function () {
 
