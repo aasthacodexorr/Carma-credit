@@ -365,9 +365,9 @@ export default function ResourcesPage() {
 
           <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto relative z-10">
             <div className="max-w-xl">
-              <span className="text-sm lg:text-md uppercase lg:tracking-widest text-brand lg:font-bold block mb-2">
+              {/* <span className="text-sm lg:text-md uppercase lg:tracking-widest text-brand lg:font-bold block mb-2">
                 Same Roads. Brighter Tomorrows.
-              </span>
+              </span> */}
               <h2 className="text-2xl sm:text-4xl text-white font-extrabold tracking-tight mb-3">
                 Start Your Journey Today.
               </h2>

@@ -4,19 +4,19 @@ import { Users, Car, MapPin, Headphones, CarFront } from "lucide-react";
 const TrustPerksBar = () => {
   const perks = [
     {
-      icon: <Users className="h-8 w-8 text-[#6632d6]" />,
+      icon: "/images/people.png",
       title: "Trusted Lending Partners",
     },
     {
-      icon: <CarFront className="h-8 w-8 text-[#ff385c]" />,
+      icon: "/images/car.png",
       title: "2,500+ Vehicles",
     },
     {
-      icon: <Sprout className="h-8 w-8 text-[#6632d6]" />,
+      icon: "/images/deal.png",
       title: "Dealer Network Across Canada",
     },
     {
-      icon: <Headphones className="h-8 w-8 text-[#ff385c]" />,
+      icon: "/images/specialist.png",
       title: "Real Credit Specialists",
     },
   ];
@@ -28,7 +28,7 @@ const TrustPerksBar = () => {
           {perks.map((perk, index) => (
             <div key={index} className="flex items-center space-x-3 lg:px-6 first:lg:pl-0 last:lg:pr-0">
               <div className="flex h-18 w-18 shrink-0 p-1 items-center justify-center rounded-xl bg-slate-100">
-                {perk.icon}
+                <img src={perk.icon} className="text-green-500"/>
               </div>
               <div>
                 <h4 className="text-base font-bold text-slate-900 sm:text-base leading-tight">
