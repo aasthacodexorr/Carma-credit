@@ -17,8 +17,8 @@ export default function CreditScoreBanner() {
 
           {/* Main Headline */}
           <h1 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold text-[#111827] leading-[1.15] mb-4 tracking-tight">
-            Check Your Credit Score.{' '}<br/>
-            <span className=" block sm:inline mt-1 sm:mt-0">(No Impact to Your Credit.)</span>
+            Check Your Credit Score{' '}<br/>
+            <span className=" block sm:inline mt-1 sm:mt-0 text-[#ff385c]">(No Impact to Your Credit)</span>
           </h1>
 
           {/* Description Paragraph */}
