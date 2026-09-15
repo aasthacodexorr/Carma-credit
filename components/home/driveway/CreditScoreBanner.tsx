@@ -79,20 +79,6 @@ export default function CreditScoreBanner() {
               />
             </div>
           </div>
-
-          {/* Right Side Text Block */}
-          <div className="max-w-[220px] text-left shrink-0 pb-12 sm:pb-16">
-            <p className="text-[#1e102e] text-xl sm:text-[22px] leading-snug font-semibold tracking-wide" style={{ fontFamily: 'Caveat, cursive, sans-serif' }}>
-              Know your score.<br />
-              Understand your<br />
-              car loan options.<br />
-              Shop with<br />
-              confidence.
-            </p>
-            {/* Hand-drawn style brush underline accent */}
-            <div className="mt-2 w-32 h-2 bg-[#ff385c] rounded-full transform -rotate-2 opacity-90" />
-          </div>
-
         </div>
 
       </div>

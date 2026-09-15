@@ -35,7 +35,7 @@ export default function CreditSpecialists() {
           </h2>
 
           {/* Top Right Decorative Text & Underline */}
-          <div className="hidden lg:block absolute -right-8 top-0 text-right">
+          {/* <div className="hidden lg:block absolute -right-8 top-0 text-right">
             <p className="font-handwriting text-xl text-[#1A1A2E] italic transform rotate-3">
               Real People.
             </p>
@@ -43,7 +43,7 @@ export default function CreditSpecialists() {
               Real Support.
             </p>
             <div className="w-24 h-1 bg-[#ff385c] rounded-full mt-1 ml-auto transform -rotate-2" />
-          </div>
+          </div> */}
         </div>
 
         {/* Specialists Grid */}
