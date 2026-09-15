@@ -12,8 +12,8 @@ import { FaqAccordion } from "../common";
 const LIVE_CONTACT_FORM_URL =
   "https://carma.zopsoftware.com/api/templates/render/2";
 
-const MIN_HEIGHT = 650;
-const DEFAULT_HEIGHT = 800;
+const MIN_HEIGHT = 450;
+const DEFAULT_HEIGHT = 400;
 
 const HOURS_STRING = "Mon - Fri: 9:00 AM - 8:00 PM | Sat: 9:00 AM - 6:00 PM | Sun: 11:00 AM - 5:00 PM";
 
@@ -136,14 +136,11 @@ export default function ContactUs() {
                     </h2>
                   </div>
                   <Link
-                    href="tel:4161234567"
+                    href="tel:18559793500"
                     className="mt-1 block text-[16px] font-semibold text-[#121212] hover:text-[#ff385c] md:text-[18px]"
                   >
-                    (416) 123-4567
+                    1-855-979-3500
                   </Link>
-                  <p className="mt-1 text-[13px] text-[#666] md:text-[14px]">
-                    {HOURS_STRING}
-                  </p>
                 </div>
 
                 {/* Email Us */}
@@ -160,44 +157,7 @@ export default function ContactUs() {
                   >
                     hello@carmacredit.ca
                   </Link>
-                  <p className="mt-1 text-[13px] text-[#666] md:text-[14px]">
-                    We typically respond within 1 business hour.
-                  </p>
                 </div>
-
-                {/* Visit Us */}
-                <div className="mt-6">
-                  <div className="flex items-center gap-3 text-black">
-                    <MapPin className="h-5 w-5 shrink-0" strokeWidth={2.25} />
-                    <h2 className="text-[18px] font-bold tracking-[-0.02em] text-[#121212] md:text-[20px]">
-                      Visit Us
-                    </h2>
-                  </div>
-                  <p className="mt-1 text-[15px] font-semibold text-[#121212] md:text-[16px]">
-                    123 Example Drive<br />
-                    Brampton, ON L6T 5A8
-                  </p>
-                  <Link
-                    href="https://maps.google.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-1 inline-block text-[14px] font-semibold text-[#ff385c] hover:underline"
-                  >
-                    Get directions &rarr;
-                  </Link>
-
-                  {/* Map Preview Graphic */}
-                  <div className="mt-4 overflow-hidden rounded-xl border border-gray-200 shadow-sm bg-gray-50 h-[220px] relative">
-                    <div className="absolute inset-0 opacity-80 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px]" />
-                    <div className="absolute inset-0 flex items-center justify-center p-4">
-                      <div className="bg-white px-4 py-2 rounded-lg shadow-md border border-gray-100 text-center">
-                        <span className="block font-bold text-base text-[#ff385c]">Carma Credit</span>
-                        <span className="text-[10px] text-gray-500">Brampton, ON</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
               </div>
 
               {/* CONTACT FORM (IFRAME) */}
