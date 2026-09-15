@@ -19,7 +19,7 @@ const DrivewayHero = () => {
         };
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
+    <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[520px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
       {/* RIGHT SIDE: Large Image */}
       <div className="absolute inset-0 lg:left-auto lg:w-[55%] xl:w-[52%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
         <div
@@ -31,22 +31,31 @@ const DrivewayHero = () => {
               "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
           }}
         >
-          <Image
-            src="/images/h2.png"
-            alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
-            fill
-            className="block w-full h-full object-cover object-center"
-            priority
-            unoptimized
-          />
+          {/* MOBILE IMAGE: h3.png */}
+          <div className="block lg:hidden relative w-full h-full">
+            <Image
+              src="/images/h3.png"
+              alt="Carma Credit mobile hero image"
+              fill
+              className="w-full h-full object-cover object-center"
+              priority
+              unoptimized
+            />
+          </div>
+
+          {/* DESKTOP IMAGE: h2.png */}
+          <div className="hidden lg:block relative w-full h-full">
+            <Image
+              src="/images/h2.png"
+              alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
+              fill
+              className="w-full h-full object-cover"
+              priority
+              unoptimized
+            />
+          </div>
         </div>
-
-        {/* MOBILE WHITE OVERLAY */}
-        <div
-          className="absolute inset-0 bg-white/70 lg:hidden pointer-events-none z-10"
-          aria-hidden="true"
-        />
-
+ 
         {/* SOFT HORIZONTAL FADE */}
         <div
           className="absolute inset-0 pointer-events-none hidden lg:block z-10"
@@ -59,68 +68,61 @@ const DrivewayHero = () => {
       </div>
 
       {/* Main Container */}
-      <div className="relative z-20 mx-auto w-full max-w-[1480px] px-6 py-12 sm:px-12 xl:px-16">
+      <div className="relative z-20 mx-auto w-full max-w-[1480px] px-6 py-12 sm:px-12 xl:px-16 min-h-[520px] lg:min-h-0 flex flex-col lg:block justify-between">
         <div className="max-w-xl">
-          {/* Small Top Tagline */}
-          {/* <motion.div {...enter(0.0, 10)} className="mb-2">
-            <span className="text-[15px] font-bold tracking-[0.18em] text-brand uppercase">
-              Real People. Real Opportunities.
-            </span>
-          </motion.div> */}
-
-          {/* Main Headline */}
+          {/* Main Headline (Shown on all screen sizes) */}
           <motion.h1
             {...enter(0.05, 20)}
             className="text-3xl font-black tracking-tight text-[#131b4d] sm:text-5xl md:text-[52px] leading-[1.08]"
           >
             Everyone Deserves <br />
-            a <span className="text-[#ff385c]">Second Chance.</span>
+            a <span className="text-[#ff385c]">Second <br className="lg:hidden"/> Chance.</span>
           </motion.h1>
 
-          {/* Subtitle / Description */}
-          <motion.div {...enter(0.15)} className="mt-4 space-y-3">
-            <p className="text-base font-semibold text-[#131b4d] sm:text-base">
+          {/* Subtitle / Description - Hidden on mobile, visible on lg and up */}
+          <motion.div {...enter(0.15)} className=" mt-4 space-y-3">
+            <p className="text-base font-semibold text-[#131b4d] max-w-[160px] lg:max-w-full">
               Less than perfect credit? No credit? Bankruptcy or consumer proposal?
             </p>
 
-            <p className="text-base font-normal text-[#131b4d] sm:text-base leading-relaxed max-w-lg">
+            <p className=" hidden lg:block text-base font-normal text-[#131b4d] leading-relaxed max-w-lg">
               Carma Credit helps Canadians explore auto financing options and get back on the road.
             </p>
           </motion.div>
+        </div>
 
-          {/* Call to Action Button */}
-          <motion.div {...enter(0.25)} className="mt-14 lg:mt-7">
-            <Link
-              href="/financing"
-              className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-7 py-3.5 text-base sm:text-base font-bold text-white shadow-lg shadow-[#ff385c]/20 transition-all duration-300 hover:bg-brand"
-            >
-              <span>Start My 2-Minute Quiz</span>
-              <ArrowRight className="h-4 w-4 stroke-[2.5]" />
-            </Link>
-          </motion.div>
+        {/* Call to Action Button (Placed at bottom on mobile, original flow on desktop) */}
+        <motion.div {...enter(0.25)} className="mt-auto lg:mt-7">
+          <Link
+            href="/financing"
+            className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-[#ff385c]/20 transition-all duration-300 hover:bg-brand"
+          >
+            <span>Start My 2-Minute Quiz</span>
+            <ArrowRight className="h-4 w-4 stroke-[2.5]" />
+          </Link>
+        </motion.div>
 
-          {/* Trust Check Items */}
-          <div className="flex flex-col lg:flex-row flex-wrap items-start lg:items-center gap-y-3 gap-x-6 text-base text-[#4a4b65] font-medium mt-6">
-            <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
-                <Check className="w-3 h-3 stroke-[3]" />
-              </div>
-              <span>No judgment.</span>
+        {/* Trust Check Items - Hidden on mobile, visible on lg and up */}
+        <div className="hidden lg:flex flex-col lg:flex-row flex-wrap items-start lg:items-center gap-y-3 gap-x-6 text-base text-[#4a4b65] font-medium mt-6">
+          <div className="flex items-center gap-2">
+            <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
+              <Check className="w-3 h-3 stroke-[3]" />
             </div>
+            <span>No judgment.</span>
+          </div>
 
-            <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
-                <Check className="w-3 h-3 stroke-[3]" />
-              </div>
-              <span>No obligation.</span>
+          <div className="flex items-center gap-2">
+            <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
+              <Check className="w-3 h-3 stroke-[3]" />
             </div>
+            <span>No obligation.</span>
+          </div>
 
-            <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
-                <Check className="w-3 h-3 stroke-[3]" />
-              </div>
-              <span>Automotive financing only</span>
+          <div className="flex items-center gap-2">
+            <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
+              <Check className="w-3 h-3 stroke-[3]" />
             </div>
+            <span>Automotive financing only</span>
           </div>
         </div>
       </div>

@@ -49,7 +49,7 @@ const HowItWorksSteps = () => {
           {steps.map((item, index) => (
             <div
               key={index}
-              className="relative flex flex-col items-center p-8 pt-10"
+              className="relative flex flex-col items-center p-8 pt-0 lg:pt-10"
             >
               {/* Icon & Badge Group Container */}
               <div className="relative mt-2">
@@ -64,7 +64,7 @@ const HowItWorksSteps = () => {
                 </div>
               </div>
 
-              {/* Title & Description */}
+              {/* Title & Description */} 
               <h3 className="mt-6 text-lg font-bold text-slate-950">
                 {item.title}
               </h3>

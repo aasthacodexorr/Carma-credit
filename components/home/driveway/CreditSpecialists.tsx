@@ -3,21 +3,21 @@ import Image from "next/image";
 export default function CreditSpecialists() {
   const specialists = [
     {
-      name: "Jas",
-      role: "Auto Financing Specialist",
-      image: "/images/team1.png",
-      quote: "“Here to find solutions together.”",
-    },
-    {
       name: "Simran",
       role: "Auto Financing Specialist",
-      image: "images/team2.png",
+      image: "images/team1.png",
       quote: "“Your goals are our priority.”",
     },
     {
-      name: "Aman",
+      name: "Jaz",
       role: "Auto Financing Specialist",
       image: "/images/team3.png",
+      quote: "“Here to find solutions together.”",
+    },
+    {
+      name: "Andy",
+      role: "Auto Financing Specialist",
+      image: "/images/team2.png",
       quote: "“Let's get you back on the road.”",
     },
   ];

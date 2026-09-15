@@ -25,19 +25,19 @@ const reviews: Review[] = [
   {
     name: "Sarah K.",
     vehicle: "2024 Toyota RAV4",
-    image: "/images/r1.png",
+    image: "/images/r3.png",
     text: "I was turned down before and honestly didn't think I'd get approved. Carma Credit made everything easy. I still can't believe I got the car I wanted!",
   },
   {
     name: "Michael T.",
     vehicle: "2024 Ford F-150",
-    image: "/images/r2.png",
+    image: "/images/r1.png",
     text: "I needed a truck for work but my credit wasn't perfect. They were just focused on helping me get approved and into the right truck. Loving my F-150!",
   },
   {
     name: "Danielle R.",
     vehicle: "2024 Nissan Rogue",
-    image: "/images/r3.png",
+    image: "/images/r5.png",
     text: "As a mom, I needed something reliable with room for my kids. Carma Credit listened to what I needed and helped me get into my Rogue. So thankful!",
   },
   {
@@ -49,46 +49,43 @@ const reviews: Review[] = [
   {
     name: "Marcus & Jayden W.",
     vehicle: "2024 RAM",
-    image: "/images/r5.png",
+    image: "/images/r2.png",
     text: "My son and I came in not knowing what was possible. They worked with us, kept it simple and got us into this RAM. Can't believe we got the truck!",
   },
   {
     name: "Maria S.",
     location: "North York, ON",
     vehicle: "2024 Toyota Corolla",
-    image: "/images/r6.png",
-    text: "I just wanted a reliable car and a payment that worked for me. Carma Credit made everything easy and helped me get my Corolla. I'm so grateful!",
+    image: "/images/toyota.png",
+    text: "I just wanted a reliable car and a payment that worked for me. They made the process so easy and helped me get my Corolla. Thank you Carma Credit!",
   },
   {
     name: "Tanya J.",
     location: "Etobicoke, ON",
     vehicle: "2024 GMC Terrain",
-    image: "/images/r7.png",
-    text: "I work long shifts and needed a dependable SUV. They didn't judge my credit — they just helped me get approved. I love my Terrain!",
+    image: "/images/r6.png",
+    text: "I work long shifts and really needed a dependable SUV. I had some credit challenges, but they treated me with respect and helped me get approved for my Terrain.",
   },
   {
     name: "Chris & Ashley M.",
     location: "Hamilton, ON",
     vehicle: "2024 Jeep Wrangler Rubicon",
-    image: "/images/r8.png",
-    text: "We always wanted a Wrangler but thought it was out of reach. Carma Credit helped us find an option that worked and got us into our dream Jeep.",
+    image: "/images/r7.png",
+    text: "We always wanted a Wrangler but didn’t think we could make it work. Carma Credit helped us understand our options and got us into our dream Jeep!",
   },
   {
     name: "Brianna C.",
     vehicle: "2024 Mercedes-Benz GLC",
-    image: "/images/r9.png",
+    image: "/images/r8.png",
     text: "I still can't believe this is my car! I thought my credit meant I had to settle. Carma Credit helped me get approved and into the Mercedes I really wanted.",
   },
   {
     name: "Jennifer L.",
     vehicle: "2024 Nissan Sentra",
-    image: "/images/r5.png",
+    image: "/images/r9.png",
     text: "I needed a safe, reliable car for me and my daughter. They didn't judge my situation — they just helped. Now we have our Sentra and I couldn't be happier.",
   },
 ];
-
-const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/maps/place/Carma/@-33.8902668,151.2050276,17z/data=!4m6!3m5!1s0x4605ff28a07c8029:0x939905e9cf86b1fc!8m2!3d-33.8902668!4d151.2050276!16s%2Fg%2F11smr6d02r?entry=tts&g_ep=EgoyMDI1MTIwOC4wIPu8ASoASAFQAw%3D%3D&skid=880d6098-bbac-441a-9753-0110e95cbf73";
 
 const Reviews = () => {
   const appConfig = useAppConfig();
@@ -275,14 +272,6 @@ const Reviews = () => {
               People Like You. Approved for What&apos;s Next.
             </h2>
           </div>
-
-          <a
-            href={GOOGLE_REVIEWS_URL}
-            className="group inline-flex shrink-0 items-center gap-1.5 text-[15px] font-bold text-[#ff385c] transition-colors hover:text-[#c8177a]"
-          >
-            See More Stories
-            <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
         </Reveal>
 
         <div className="relative px-0 md:px-4">
@@ -339,9 +328,6 @@ const Reviews = () => {
                           </p>
                         )}
 
-                        <p className="text-[13px] text-[#6b6b6b]">
-                          {r.vehicle}
-                        </p>
                       </div>
                     </div>
                   </article>
