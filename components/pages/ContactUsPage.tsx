@@ -12,7 +12,7 @@ import { FaqAccordion } from "../common";
 const LIVE_CONTACT_FORM_URL =
   "https://carma.zopsoftware.com/api/templates/render/2";
 
-const MIN_HEIGHT = 450;
+const MIN_HEIGHT = 500;
 const DEFAULT_HEIGHT = 400;
 
 const HOURS_STRING = "Mon - Fri: 9:00 AM - 8:00 PM | Sat: 9:00 AM - 6:00 PM | Sun: 11:00 AM - 5:00 PM";
