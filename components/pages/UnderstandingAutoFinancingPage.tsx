@@ -10,7 +10,8 @@ import {
   UserCheck,
   AlertTriangle,
   Megaphone,
-  ArrowRight
+  ArrowRight,
+  Check
 } from 'lucide-react';
 import { Footer, Header } from '@/components/layout';
 import Image from 'next/image';
@@ -23,10 +24,24 @@ export default function AutoLoanFraudPage() {
       <main className="bg-white text-[#1a1b35] overflow-hidden">
 
         {/* ================= SECTION 1: HERO ================= */}
-        <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
-          {/* RIGHT SIDE: Large Image starting right next to the text and extending to the right edge */}
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[66%] overflow-hidden pointer-events-none">
-            {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
+        <section className="relative w-full overflow-hidden bg-[#fff7fb] flex flex-col lg:flex-row lg:items-center lg:min-h-[540px] xl:min-h-[500px]">
+
+          {/* MOBILE/TABLET ONLY: Clearly visible standalone image box stacked right below text */}
+          <div className="block lg:hidden w-full px-6 order-2">
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
+              <Image
+                src="/images/autoFinance.png"
+                alt="Carma Credit auto financing security documents on desk"
+                fill
+                className="block w-full h-full object-cover object-center"
+                priority
+                unoptimized
+              />
+            </div>
+          </div>
+
+          {/* DESKTOP ONLY: Large Flat Lay Image with soft mask fade, positioned behind text on the right */}
+          <div className="absolute inset-y-0 right-0 w-[60%] xl:w-[58%] overflow-hidden pointer-events-none hidden lg:block">
             <div
               className="relative w-full h-full"
               style={{
@@ -40,76 +55,74 @@ export default function AutoLoanFraudPage() {
                 src="/images/autoFinance.png"
                 alt="Carma Credit auto financing security documents on desk"
                 fill
+                className="block w-full h-full object-cover object-[left_center]"
                 priority
-                className="object-cover object-center lg:object-[left_center]"
-                sizes="100vw"
                 unoptimized
               />
             </div>
 
-            {/* SOFT HORIZONTAL FADE: Seamless transition located right nearby the text */}
+            {/* SOFT HORIZONTAL FADE: Seamless transition into the text side, desktop only */}
             <div
-              className="absolute inset-0 pointer-events-none"
+              className="absolute inset-0 pointer-events-none z-10"
               style={{
                 background:
                   "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
               }}
               aria-hidden="true"
             />
-            {/* Mobile Black Overlay for legibility */}
-            <div className="absolute inset-0 bg-white/80 lg:hidden pointer-events-none" aria-hidden="true" />
           </div>
 
-          {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
-          <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
-            <div className="max-w-[480px] xl:max-w-[610px] flex flex-col items-start justify-center">
-              <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-brand uppercase px-1">
-                PREVENTING AUTO LOAN FRAUD
-              </span>
+          {/* TEXT CONTENT — sits cleanly on its own on mobile, overlays the masked image on desktop */}
+          <div className="relative z-20 mx-auto w-full max-w-[1480px] px-6 pt-10 pb-8 sm:px-12 sm:pt-14 xl:px-16 lg:py-0">
+            <div className="max-w-xl">
 
-              <h1 className="text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-extrabold tracking-tight leading-[1.12] mb-5">
-                <span className=" text-[#1a1b35] block">Stay Informed.</span>
-                <span className="text-[#ff385c] block">Stay Protected.</span>
+              <div className="mb-2">
+                <span className="text-[15px] font-bold tracking-[0.18em] text-brand uppercase">
+                  Preventing Auto Loan Fraud
+                </span>
+              </div>
+
+              <h1 className="text-3xl font-black tracking-tight text-[#131b4d] sm:text-5xl md:text-[52px] leading-[1.08] mb-4">
+                Stay Informed. <br />
+                <span className="text-[#ff385c]">Stay Protected.</span>
               </h1>
 
-              <p className=" text-[#4a4b65] text-xl lg:text-base leading-[1.65] mb-8 ">
-                Your safety matters. Learn how to spot, avoid and prevent auto loan fraud so you can finance your vehicle with confidence.
-              </p>
+              <div className="mb-6">
+                <p className="text-base font-normal text-[#4b5563] sm:text-base leading-relaxed">
+                  Your safety matters. Learn how to spot, avoid and prevent auto loan fraud so you can finance your vehicle with confidence.
+                </p>
+              </div>
 
               <div className="mb-8">
-                <Link href={"/financing"} className="bg-[#ff385c] w-fit hover:bg-brand cursor-pointer text-white font-semibold px-8 py-4 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 group">
-                  Get Started Safely
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <Link
+                  href="/financing"
+                  className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-8 py-4 text-base font-bold text-white shadow-lg shadow-[#ff385c]/20 transition-all duration-300 hover:bg-brand group"
+                >
+                  <span>Get Started Safely</span>
+                  <ArrowRight className="h-5 w-5 stroke-[2.5] group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
 
               {/* Feature Badges */}
-              <div className="flex flex-col lg:flex-row flex-wrap items-start lg:items-center gap-y-4 lg:gap-y-3 gap-x-6 text-xl lg:text-base text-gray-800 lg:text-[#4a4b65] lg:font-medium">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
-                    <span className="text-xs font-bold">✓</span>
+              <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-y-3 gap-x-6 text-sm sm:text-base font-medium text-[#4b5563]">
+                {["Secure guidance", "Verified process", "Trusted specialists"].map((badge, idx) => (
+                  <div key={idx} className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
+                      <Check
+                        className="w-3 h-3 stroke-[3]" />
+                    </div>
+                    <span>{badge}</span>
                   </div>
-                  <span>Secure guidance</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
-                    <span className="text-xs font-bold">✓</span>
-                  </div>
-                  <span>Verified process</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
-                    <span className="text-xs font-bold">✓</span>
-                  </div>
-                  <span>Trusted specialists</span>
-                </div>
+                ))}
               </div>
+
             </div>
           </div>
+
         </section>
 
         {/* ================= SECTION 2: WHAT IS AUTO LOAN FRAUD? ================= */}
-        <section className="py-20 bg-white">
+        <section className="py-8 lg:py-20 bg-white">
           <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto">
             <div className="bg-[#fdf4f7] border border-pink-100 rounded-3xl p-8 sm:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7">
@@ -295,7 +308,7 @@ export default function AutoLoanFraudPage() {
                       If you think you’ve been targeted by fraud or notice suspicious activity, contact us right away. We’re here to help and guide you through the next steps.
                     </p>
                   </div>
-                  
+
                   <div className="w-full">
                     <Link href={"/contact-us"} className="bg-[#ff385c] hover:bg-brand text-white font-semibold text-base px-8 py-4 rounded-full w-full inline-flex items-center justify-center gap-2 transition-all shadow-md mb-4">
                       Talk to Our Team <ArrowRight size={18} />

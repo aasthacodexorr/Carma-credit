@@ -123,18 +123,18 @@ export default function PaymentCalculator() {
     // Generic change handler for a text-based number field
     const handleNumberChange =
         (setter: (v: string) => void, allowDecimal: boolean, maxLength: number) =>
-        (e: React.ChangeEvent<HTMLInputElement>) => {
-            setter(sanitizeNumberInput(e.target.value, allowDecimal, maxLength));
-        };
+            (e: React.ChangeEvent<HTMLInputElement>) => {
+                setter(sanitizeNumberInput(e.target.value, allowDecimal, maxLength));
+            };
 
     // Clamp + reformat on blur so the final value always respects min/max
     const handleNumberBlur =
         (setter: (v: string) => void, min: number, max: number, decimals: number) =>
-        (e: React.ChangeEvent<HTMLInputElement>) => {
-            const parsed = parseFloat(e.target.value);
-            const clamped = clamp(parsed, min, max);
-            setter(decimals > 0 ? clamped.toFixed(decimals) : String(clamped));
-        };
+            (e: React.ChangeEvent<HTMLInputElement>) => {
+                const parsed = parseFloat(e.target.value);
+                const clamped = clamp(parsed, min, max);
+                setter(decimals > 0 ? clamped.toFixed(decimals) : String(clamped));
+            };
 
     // Range sliders always show the clamped value, even while the text box
     // temporarily holds something out of range mid-typing.
@@ -147,9 +147,9 @@ export default function PaymentCalculator() {
             <Header />
             <div className="bg-white">
                 {/* ---------------- Hero ---------------- */}
-                <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[420px] sm:min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center py-12 lg:py-0">
+                <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[420px] sm:min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex flex-col lg:flex-row items-center py-12 lg:py-0">
                     {/* RIGHT SIDE: Large Dealership Image */}
-                    <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[55%] overflow-hidden pointer-events-none opacity-20 lg:opacity-100">
+                    <div className="hidden lg:block  absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[55%] overflow-hidden pointer-events-none opacity-20 lg:opacity-100">
                         <div
                             className="relative w-full h-full"
                             style={{
@@ -179,6 +179,21 @@ export default function PaymentCalculator() {
                         />
                     </div>
 
+
+
+                    <div className="block lg:hidden w-full px-6 pt-6 order-2">
+                        <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
+                            <Image
+                                src="/images/PC1.png"
+                                alt="Carma Credit auto financing security documents on desk"
+                                fill
+                                className="block w-full h-full object-cover object-center"
+                                priority
+                                unoptimized
+                            />
+                        </div>
+                    </div>
+
                     {/* LEFT CONTENT */}
                     <div className="relative z-20 w-full">
                         <div className={`${WRAPPER} grid grid-cols-1 lg:grid-cols-2 gap-10 items-center`}>
@@ -203,7 +218,7 @@ export default function PaymentCalculator() {
                 </section>
 
                 {/* ---------------- Calculator ---------------- */}
-                <section className="py-10 md:py-16">
+                <section className="py-6 md:py-16">
                     <div className={`${WRAPPER} grid grid-cols-1 lg:grid-cols-3 gap-6`}>
                         {/* Form */}
                         <div className="lg:col-span-2 rounded-2xl border border-gray-200 p-6 sm:p-8">
@@ -327,15 +342,15 @@ export default function PaymentCalculator() {
                                                 style={
                                                     term === m
                                                         ? {
-                                                              borderColor: PINK,
-                                                              color: PINK,
-                                                              backgroundColor: PANEL_PINK,
-                                                          }
+                                                            borderColor: PINK,
+                                                            color: PINK,
+                                                            backgroundColor: PANEL_PINK,
+                                                        }
                                                         : {
-                                                              borderColor: '#D1D5DB',
-                                                              color: '#374151',
-                                                              backgroundColor: 'white',
-                                                          }
+                                                            borderColor: '#D1D5DB',
+                                                            color: '#374151',
+                                                            backgroundColor: 'white',
+                                                        }
                                                 }
                                             >
                                                 {m} Months
@@ -636,4 +651,3 @@ function FactorItem({ icon, label }: { icon: React.ReactNode; label: string }) {
         </div>
     );
 }
-    

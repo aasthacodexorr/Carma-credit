@@ -9,121 +9,121 @@ export const metadata: Metadata = {
 };
 
 export default function WhatDoINeedPage() {
- const essentials = [
-  {
-    title: "Valid Driver's Licence",
-    subtitle: "",
-    description: "A clear copy of your current government-issued ID.",
-    icon: (
-      /* Driver's License Card Icon */
-      <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <rect x="3" y="6" width="26" height="20" rx="3.5" fill="#ff385c" />
-        <rect x="5.5" y="9.5" width="21" height="2.2" rx="1" fill="#fae2ef" />
-        <circle cx="10" cy="17" r="2.2" fill="#fae2ef" />
-        <path
-          d="M6.5 22.8C6.5 20.6 8 19.8 10 19.8C12 19.8 13.5 20.6 13.5 22.8"
-          stroke="#fae2ef"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-        />
-        <rect x="16.5" y="16" width="9" height="2" rx="1" fill="#fae2ef" />
-        <rect x="16.5" y="20" width="6" height="2" rx="1" fill="#fae2ef" />
-      </svg>
-    ),
-  },
-  {
-    title: "Proof of Income",
-    subtitle: "",
-    description: "Recent pay stubs, employment letter or other proof of regular income.",
-    icon: (
-      /* Briefcase with Heart / Buckle Clasp */
-      <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <path
-          d="M12 9V6.5C12 5.67 12.67 5 13.5 5H18.5C19.33 5 20 5.67 20 6.5V9"
-          stroke="#ff385c"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        />
-        <rect x="4" y="9" width="24" height="18" rx="3.5" fill="#ff385c" />
-        <path
-          d="M16 20.5L13.2 17.5C12.3 16.5 12.3 15 13.4 14.1C14.3 13.3 15.6 13.5 16 14.3C16.4 13.5 17.7 13.3 18.6 14.1C19.7 15 19.7 16.5 18.8 17.5L16 20.5Z"
-          fill="#fae2ef"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Employment information",
-    subtitle: "",
-    description: "Details regarding your current employer, position, and length of employment.",
-    icon: (
-      /* Classical Bank / Professional Building Facade */
-      <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <path d="M16 5L5 12H27L16 5Z" fill="#ff385c" />
-        <rect x="5" y="13" width="22" height="2.5" rx="0.5" fill="#ff385c" />
-        <rect x="7" y="16.5" width="4" height="8" rx="0.5" fill="#ff385c" />
-        <rect x="14" y="16.5" width="4" height="8" rx="0.5" fill="#ff385c" />
-        <rect x="21" y="16.5" width="4" height="8" rx="0.5" fill="#ff385c" />
-        <rect x="4" y="25.5" width="24" height="2.5" rx="0.5" fill="#ff385c" />
-      </svg>
-    ),
-  },
-  {
-    title: "Residence information",
-    subtitle: "",
-    description: "A recent utility bill, bank statement or government document showing your address.",
-    icon: (
-      /* House Silhouette with Chimney and Doorway */
-      <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <rect x="21" y="9" width="3" height="6" fill="#ff385c" />
-        <path
-          d="M16 5L4 15.5H7.5V26.5C7.5 27.05 7.95 27.5 8.5 27.5H23.5C24.05 27.5 24.5 27.05 24.5 26.5V15.5H28L16 5Z"
-          fill="#ff385c"
-        />
-        <rect x="13.5" y="18" width="5" height="9.5" rx="1" fill="#fae2ef" />
-      </svg>
-    ),
-  },
-  {
-    title: "Identity verification",
-    subtitle: "",
-    description: "Additional documents or information to verify your identity securely.",
-    icon: (
-      /* Shield / Checkmark / User Verification */
-      <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <path
-          d="M16 4L26 8V15C26 21.6 21.8 27.5 16 29C10.2 27.5 6 21.6 6 15V8L16 4Z"
-          fill="#ff385c"
-        />
-        <path
-          d="M11 16L14 19L21 12"
-          stroke="#fae2ef"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Down payment",
-    subtitle: " (where applicable)",
-    description: "If you have a trade-in, down payment or special circumstances, we'll let you know if anything else is needed.",
-    icon: (
-      /* Document with Folded Dog-Ear and Lines */
-      <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <path
-          d="M7 5C7 3.9 7.9 3 9 3H19L25 9V27C25 28.1 24.1 29 23 29H9C7.9 29 7 28.1 7 27V5Z"
-          fill="#ff385c"
-        />
-        <path d="M19 3V8C19 8.55 19.45 9 20 9H25L19 3Z" fill="#fae2ef" />
-        <rect x="11" y="13" width="10" height="2" rx="1" fill="#fae2ef" />
-        <rect x="11" y="17" width="10" height="2" rx="1" fill="#fae2ef" />
-        <rect x="11" y="21" width="7" height="2" rx="1" fill="#fae2ef" />
-      </svg>
-    ),
-  },
-];
+  const essentials = [
+    {
+      title: "Valid Driver's Licence",
+      subtitle: "",
+      description: "A clear copy of your current government-issued ID.",
+      icon: (
+        /* Driver's License Card Icon */
+        <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="3" y="6" width="26" height="20" rx="3.5" fill="#ff385c" />
+          <rect x="5.5" y="9.5" width="21" height="2.2" rx="1" fill="#fae2ef" />
+          <circle cx="10" cy="17" r="2.2" fill="#fae2ef" />
+          <path
+            d="M6.5 22.8C6.5 20.6 8 19.8 10 19.8C12 19.8 13.5 20.6 13.5 22.8"
+            stroke="#fae2ef"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+          <rect x="16.5" y="16" width="9" height="2" rx="1" fill="#fae2ef" />
+          <rect x="16.5" y="20" width="6" height="2" rx="1" fill="#fae2ef" />
+        </svg>
+      ),
+    },
+    {
+      title: "Proof of Income",
+      subtitle: "",
+      description: "Recent pay stubs, employment letter or other proof of regular income.",
+      icon: (
+        /* Briefcase with Heart / Buckle Clasp */
+        <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path
+            d="M12 9V6.5C12 5.67 12.67 5 13.5 5H18.5C19.33 5 20 5.67 20 6.5V9"
+            stroke="#ff385c"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+          />
+          <rect x="4" y="9" width="24" height="18" rx="3.5" fill="#ff385c" />
+          <path
+            d="M16 20.5L13.2 17.5C12.3 16.5 12.3 15 13.4 14.1C14.3 13.3 15.6 13.5 16 14.3C16.4 13.5 17.7 13.3 18.6 14.1C19.7 15 19.7 16.5 18.8 17.5L16 20.5Z"
+            fill="#fae2ef"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: "Employment information",
+      subtitle: "",
+      description: "Details regarding your current employer, position, and length of employment.",
+      icon: (
+        /* Classical Bank / Professional Building Facade */
+        <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 5L5 12H27L16 5Z" fill="#ff385c" />
+          <rect x="5" y="13" width="22" height="2.5" rx="0.5" fill="#ff385c" />
+          <rect x="7" y="16.5" width="4" height="8" rx="0.5" fill="#ff385c" />
+          <rect x="14" y="16.5" width="4" height="8" rx="0.5" fill="#ff385c" />
+          <rect x="21" y="16.5" width="4" height="8" rx="0.5" fill="#ff385c" />
+          <rect x="4" y="25.5" width="24" height="2.5" rx="0.5" fill="#ff385c" />
+        </svg>
+      ),
+    },
+    {
+      title: "Residence information",
+      subtitle: "",
+      description: "A recent utility bill, bank statement or government document showing your address.",
+      icon: (
+        /* House Silhouette with Chimney and Doorway */
+        <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="21" y="9" width="3" height="6" fill="#ff385c" />
+          <path
+            d="M16 5L4 15.5H7.5V26.5C7.5 27.05 7.95 27.5 8.5 27.5H23.5C24.05 27.5 24.5 27.05 24.5 26.5V15.5H28L16 5Z"
+            fill="#ff385c"
+          />
+          <rect x="13.5" y="18" width="5" height="9.5" rx="1" fill="#fae2ef" />
+        </svg>
+      ),
+    },
+    {
+      title: "Identity verification",
+      subtitle: "",
+      description: "Additional documents or information to verify your identity securely.",
+      icon: (
+        /* Shield / Checkmark / User Verification */
+        <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path
+            d="M16 4L26 8V15C26 21.6 21.8 27.5 16 29C10.2 27.5 6 21.6 6 15V8L16 4Z"
+            fill="#ff385c"
+          />
+          <path
+            d="M11 16L14 19L21 12"
+            stroke="#fae2ef"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: "Down payment",
+      subtitle: " (where applicable)",
+      description: "If you have a trade-in, down payment or special circumstances, we'll let you know if anything else is needed.",
+      icon: (
+        /* Document with Folded Dog-Ear and Lines */
+        <svg className="w-9 h-9" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path
+            d="M7 5C7 3.9 7.9 3 9 3H19L25 9V27C25 28.1 24.1 29 23 29H9C7.9 29 7 28.1 7 27V5Z"
+            fill="#ff385c"
+          />
+          <path d="M19 3V8C19 8.55 19.45 9 20 9H25L19 3Z" fill="#fae2ef" />
+          <rect x="11" y="13" width="10" height="2" rx="1" fill="#fae2ef" />
+          <rect x="11" y="17" width="10" height="2" rx="1" fill="#fae2ef" />
+          <rect x="11" y="21" width="7" height="2" rx="1" fill="#fae2ef" />
+        </svg>
+      ),
+    },
+  ];
   return (
     <>
       <Header />
@@ -131,9 +131,9 @@ export default function WhatDoINeedPage() {
         {/* ========================================================================= */}
         {/* SECTION 1: HERO (Single Full-Width Continuous Banner like About Us page) */}
         {/* ========================================================================= */}
-        <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[580px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
-         {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
-         <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
+        <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[580px] lg:min-h-[540px] xl:min-h-[580px] flex flex-col lg:flex-row items-center">
+          {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
+          <div className="absolute hidden lg:block inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
             {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
             <div
               className="relative w-full h-full"
@@ -144,6 +144,7 @@ export default function WhatDoINeedPage() {
                   "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 5%, rgba(0, 0, 0, 0.7) 14%, black 26%)",
               }}
             >
+
               <Image
                 src="/images/what_do_i_need_hero_hd.png"
                 alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
@@ -166,10 +167,23 @@ export default function WhatDoINeedPage() {
             />
             {/* Mobile Black Overlay for legibility */}
             <div className="absolute inset-0 bg-white/80 lg:hidden pointer-events-none" aria-hidden="true" />
-         </div>
+          </div>
 
-         {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
-         <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20 -mt-10">
+          <div className="block lg:hidden w-full px-6 order-2">
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
+              <Image
+                src="/images/what_do_i_need_hero_hd.png"
+                alt="Carma Credit auto financing security documents on desk"
+                fill
+                className="block w-full h-full object-cover object-center"
+                priority
+                unoptimized
+              />
+            </div>
+          </div>
+
+          {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
+          <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-8 sm:py-16 lg:py-20 lg:-mt-10">
             <div className="max-w-[500px] xl:max-w-[600px] flex flex-col items-start justify-center">
               <span className="text-base sm:text-[18px] font-bold tracking-[0.2em] text-brand uppercase">
                 What do you need to finance a vehicle?
@@ -262,13 +276,13 @@ export default function WhatDoINeedPage() {
                 </div>
               </div>
             </div>
-         </div>
-      </section>
+          </div>
+        </section>
 
         {/* ========================================================================= */}
         {/* SECTION 2: THE ESSENTIALS — Documents You'll Need (6 Feature Cards) */}
         {/* ========================================================================= */}
-        <section className="relative w-full py-16 sm:py-20 lg:py-16 bg-white -mt-20">
+        <section className="relative w-full py-16 sm:py-20 lg:py-16 bg-white lg:-mt-20">
           <div className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
@@ -276,7 +290,7 @@ export default function WhatDoINeedPage() {
                 The Essentials
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[36px] font-extrabold text-[#131b4d] tracking-tight leading-[1.15] mb-3 sm:mb-3">
-               What do you need to finance a vehicle?
+                What do you need to finance a vehicle?
               </h2>
               <p className="text-[#4b5563] text-base sm:text-base leading-[1.65] max-w-2xl mx-auto">
                 Here&apos;s what you&apos;ll typically need to get started with your auto financing

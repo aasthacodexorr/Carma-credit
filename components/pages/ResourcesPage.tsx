@@ -90,10 +90,23 @@ export default function ResourcesPage() {
       <Header />
       <div className="bg-white text-slate-900 selection:bg-[#ff385c] selection:text-white">
         {/* SECTION 1: HERO */}
-        <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[500px] flex items-center">
-          {/* RIGHT SIDE: Large Flat Lay Image starting right next to the text and extending to the right edge */}
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none opacity-80 lg:opacity-100">
-            {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
+        <section className="relative w-full overflow-hidden bg-[#fff7fb] flex flex-col lg:flex-row lg:items-center lg:min-h-[540px] xl:min-h-[500px]">
+          {/* MOBILE/TABLET ONLY: Clearly visible standalone image box stacked right below text */}
+          <div className="block lg:hidden w-full px-6 pb-2 pt-6 order-2">
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
+              <Image
+                src="/images/a1.png"
+                alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
+                fill
+                className="block w-full h-full"
+                priority
+                unoptimized
+              />
+            </div>
+          </div>
+
+          {/* DESKTOP ONLY: Large Flat Lay Image with soft mask fade, positioned behind text on the right */}
+          <div className="absolute inset-y-0 right-0 w-[60%] xl:w-[58%] overflow-hidden pointer-events-none hidden lg:block">
             <div
               className="relative w-full h-full"
               style={{
@@ -107,21 +120,15 @@ export default function ResourcesPage() {
                 src="/images/a1.png"
                 alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
                 fill
-                className="block w-full h-full object-cover lg:h-auto"
+                className="block w-full h-full object-cover"
                 priority
                 unoptimized
               />
             </div>
 
-            {/* MOBILE WHITE OVERLAY: Applied strictly to the absolute image container on mobile only */}
+            {/* SOFT HORIZONTAL FADE: Seamless transition into the text side, desktop only */}
             <div
-              className="absolute inset-0 bg-white/80 lg:hidden pointer-events-none z-10"
-              aria-hidden="true"
-            />
-
-            {/* SOFT HORIZONTAL FADE: Seamless transition located right nearby the text */}
-            <div
-              className="absolute inset-0 pointer-events-none hidden lg:block z-10"
+              className="absolute inset-0 pointer-events-none z-10"
               style={{
                 background:
                   "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
@@ -130,8 +137,8 @@ export default function ResourcesPage() {
             />
           </div>
 
-          {/* Main Container */}
-          <div className="relative z-20 mx-auto w-full max-w-[1480px] px-6 py-0 sm:px-12 xl:px-16 lg:-mt-20 -mt-44">
+          {/* TEXT CONTENT — sits cleanly on its own on mobile, overlays the masked image on desktop */}
+          <div className="relative z-20 mx-auto w-full max-w-[1480px] px-6 pt-10 sm:px-12 sm:pt-14 xl:px-16 lg:py-0">
             <div className="max-w-xl">
               {/* Small Top Tagline */}
               <motion.div {...enter(0.0, 10)} className="mb-2">
@@ -160,10 +167,10 @@ export default function ResourcesPage() {
         </section>
 
         {/* SECTION 2: FEATURES BAR */}
-        <section className="bg-white border-b border-gray-200 py-6 -mt-52 lg:-mt-2 px-4 sm:px-6 lg:px-8">
+        <section className="bg-white border-b border-gray-200 pt-6 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto grid grid-cols-2 lg:flex lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-0">
             {features.map((feature, index) => (
-              <div key={index} className="flex items-center gap-4 w-full lg:w-auto relative group">
+              <div key={index} className="flex items-start gap-4 w-full lg:w-auto relative group">
                 <div className="w-5 h-5 lg:w-11 lg:h-11 bg-[#ff385c] text-white rounded-full flex items-center justify-center shrink-0">
                   <span className="text-xs font-bold">{index + 1}</span>
                 </div>
@@ -184,7 +191,7 @@ export default function ResourcesPage() {
         </section>
 
         {/* SECTION 3: GUIDES AND TOOLS GRID */}
-        <section className="py-16 bg-white">
+        <section className="py-12 bg-white">
           <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <span className="text-brand font-bold text-md uppercase tracking-widest block mb-2">
@@ -316,7 +323,7 @@ export default function ResourcesPage() {
                   Still Have Questions?
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-[#1e1b4b] tracking-tight mb-3">
-                  We're Here to Help.
+                  We&apos;re Here to Help.
                 </h3>
                 <p className="text-slate-600 text-lg leading-relaxed mb-6">
                   Our team is ready to answer your questions and provide the support you need.
@@ -335,39 +342,36 @@ export default function ResourcesPage() {
 
         {/* SECTION 6: READY TO GET STARTED? (Dark Sunset Highway CTA Banner) */}
         <section className="relative w-full overflow-hidden bg-[#080b18] py-10 sm:py-12 lg:py-14">
-                  {/* Background Image on Right Side */}
-                  <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none opacity-85 lg:opacity-100">
-                    <Image
-                      src="/images/what_do_i_need_sunset_hd.png"
-                      alt="Carma Credit auto financing specialist meeting with customer"
-                      fill
-                      className="block w-full h-auto"
-                      priority
-                      unoptimized
-                    />
-        
-                    {/* Smooth gradient blend into the dark left side */}
-                    <div
-                      className="absolute inset-0 bg-gradient-to-r from-[#080b18] via-[#080b18]/60 to-transparent"
-                      aria-hidden="true"
-                    />
-        
-                    {/* Overlay Text positioned on the right side image */}
-                    <div className="absolute right-12 bottom-12 lg:right-20 lg:bottom-16 z-10 hidden sm:block text-right">
-                      <p className="font-handwriting italic text-white text-2xl lg:text-3xl leading-snug tracking-wide drop-shadow-md">
-                        Same Roads.<br />
-                        Brighter<br />
-                        Tomorrows.
-                      </p>
-                      <div className="w-28 lg:w-32 h-[3px] bg-[#ff385c] mt-2 ml-auto rounded-full" />
-                    </div>
-                  </div>
+          {/* Background Image on Right Side */}
+          <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none opacity-85 lg:opacity-100">
+            <Image
+              src="/images/what_do_i_need_sunset_hd.png"
+              alt="Carma Credit auto financing specialist meeting with customer"
+              fill
+              className="block w-full h-auto object-cover"
+              priority
+              unoptimized
+            />
+
+            {/* Smooth gradient blend into the dark left side */}
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-[#080b18] via-[#080b18]/60 to-transparent"
+              aria-hidden="true"
+            />
+
+            {/* Overlay Text positioned on the right side image */}
+            <div className="absolute right-12 bottom-12 lg:right-20 lg:bottom-16 z-10 hidden sm:block text-right">
+              <p className="font-handwriting italic text-white text-2xl lg:text-3xl leading-snug tracking-wide drop-shadow-md">
+                Same Roads.<br />
+                Brighter<br />
+                Tomorrows.
+              </p>
+              <div className="w-28 lg:w-32 h-[3px] bg-[#ff385c] mt-2 ml-auto rounded-full" />
+            </div>
+          </div>
 
           <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto relative z-10">
             <div className="max-w-xl">
-              {/* <span className="text-sm lg:text-md uppercase lg:tracking-widest text-brand lg:font-bold block mb-2">
-                Same Roads. Brighter Tomorrows.
-              </span> */}
               <h2 className="text-2xl sm:text-4xl text-white font-extrabold tracking-tight mb-3">
                 Start Your Journey Today.
               </h2>
@@ -383,7 +387,7 @@ export default function ResourcesPage() {
               </Link>
             </div>
           </div>
-          
+
         </section>
       </div>
       <Footer />

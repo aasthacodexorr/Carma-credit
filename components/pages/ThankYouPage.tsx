@@ -81,20 +81,9 @@ export default function ThankYouPage() {
 
             {/* ================= MOBILE BACKGROUND IMAGE CONTAINER ================= */}
             {/* Mobile only: The image acts as a blurred background wrapper behind the top hero text */}
-            <div className="md:hidden relative w-[calc(100%+2rem)] -ml-4 px-4 pt-16 pb-20 mb-8 overflow-hidden rounded-2xl">
+            <div className="md:hidden relative w-[calc(100%+2rem)] -ml-4 px-4 pt-16 pb-2 mb-8 overflow-hidden rounded-2xl">
               {/* Background Image with Blur */}
-              <div className="absolute inset-0 z-0">
-                <Image
-                  src="/images/section_1.png"
-                  alt="Car driving towards a golden sunset"
-                  fill
-                  priority
-                  className="object-cover object-[center_right] filter blur-[2px] scale-105"
-                  sizes="100vw"
-                />
-                {/* White translucent overlay to ensure text readability */}
-                <div className="absolute inset-0 bg-white/85 backdrop-blur-[2px]" />
-              </div>
+
 
               {/* ================= TOP HERO TEXT (Inside Mobile Background) ================= */}
               <div className="relative z-10 max-w-[620px] flex flex-col items-start pt-1 sm:pt-2">
@@ -113,29 +102,17 @@ export default function ThankYouPage() {
                 </p>
               </div>
 
-              {/* Mobile Handwritten Text */}
-              <div className="relative z-10 transform -rotate-[4deg] pointer-events-none select-none mt-2">
-                <span className="font-script text-[#102a5c] text-2xl sm:text-[30px] font-bold leading-[1.08] block">
-                  Same Roads.
-                  <br />
-                  Brighter
-                  <br />
-                  Tomorrows.
-                </span>
-
-                <svg
-                  className="w-24 sm:w-28 h-2.5 mt-0.5"
-                  viewBox="0 0 120 10"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M2 5C30 3 80 4 118 6"
-                    stroke="#ff385c"
-                    strokeWidth="2.8"
-                    strokeLinecap="round"
+              <div className="block lg:hidden w-full px-2 order-2">
+                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
+                  <Image
+                    src="/images/autoFinance.png"
+                    alt="Carma Credit auto financing security documents on desk"
+                    fill
+                    className="block w-full h-full object-center"
+                    priority
+                    unoptimized
                   />
-                </svg>
+                </div>
               </div>
             </div>
 
