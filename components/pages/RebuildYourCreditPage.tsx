@@ -70,61 +70,24 @@ export default function UnderstandingCreditPage() {
       <main className="bg-white text-[#1a1b35] overflow-hidden">
 
         {/* ================= SECTION 1: HERO ================= */}
-        <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-start">
+        <section className="relative w-full overflow-hidden bg-[#fff7fb] flex flex-col lg:flex-row lg:items-center lg:min-h-[540px] xl:min-h-[500px]">
 
-          {/* Main Grid Container: Allocates explicit layout columns on large screens to prevent clipping */}
-          <div className="relative z-20 mx-auto w-full max-w-[1600px] px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-32 grid grid-cols-1 lg:grid-cols-12 items-start">
-
-            {/* LEFT CONTENT: Sits safely within its own grid column span */}
-            <div className="max-w-[480px] xl:max-w-[610px] lg:col-span-6 flex flex-col items-start justify-center z-20">
-              <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-brand uppercase px-1">
-                UNDERSTANDING YOUR CREDIT
-              </span>
-
-              <h1 className="text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-extrabold tracking-tight leading-[1.12] mb-5">
-                <span className="text-[#1a1b35] block">Knowledge Puts You</span>
-                <span className="text-[#ff385c] block">in the Driver’s Seat.</span>
-              </h1>
-
-              <p className="text-[#4a4b65] text-xl lg:text-base leading-[1.65] mb-8">
-                Understand your credit, make informed decisions, and feel confident about your auto financing journey.
-              </p>
-
-              <div className="mb-8">
-                <Link href={"/financing"} className="bg-[#ff385c] w-fit hover:bg-brand cursor-pointer text-white font-semibold px-8 py-4 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 group">
-                  Check My Credit Score
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-
-              {/* Feature Badges */}
-              <div className="flex flex-col lg:flex-row flex-wrap items-start lg:items-center gap-y-4 lg:gap-y-3 gap-x-6 text-xl lg:text-base text-[#4a4b65] lg:font-medium">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
-                    <span className="text-xs font-bold">✓</span>
-                  </div>
-                  <span>Soft pull</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
-                    <span className="text-xs font-bold">✓</span>
-                  </div>
-                  <span>No impact to your credit</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
-                    <span className="text-xs font-bold">✓</span>
-                  </div>
-                  <span>Instant results</span>
-                </div>
-              </div>
+          {/* MOBILE/TABLET ONLY: Clearly visible standalone image box stacked right below text */}
+          <div className="block lg:hidden w-full px-6 order-2">
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
+              <Image
+                src="/images/rebuild.png"
+                alt="Carma Credit documents checklist on desk with clipboard, car key, pen and coffee cup"
+                fill
+                className="block w-full h-full object-cover object-center"
+                priority
+                unoptimized
+              />
             </div>
           </div>
 
-          {/* RIGHT SIDE IMAGE CONTAINER: Absolutely anchored to the right viewport edge */}
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] xl:w-[55%] overflow-hidden pointer-events-none z-10">
-
-            {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
+          {/* DESKTOP ONLY: Large Flat Lay Image with soft mask fade, positioned behind text on the right */}
+          <div className="absolute inset-y-0 right-0 w-[60%] xl:w-[58%] overflow-hidden pointer-events-none hidden lg:block">
             <div
               className="relative w-full h-full"
               style={{
@@ -140,29 +103,72 @@ export default function UnderstandingCreditPage() {
                 width={1730}
                 height={909}
                 priority
-                className="block w-full h-full object-cover object-center lg:object-right"
+                className="block w-full h-full object-cover object-right"
                 unoptimized
               />
             </div>
 
-            {/* SOFT HORIZONTAL FADE */}
+            {/* SOFT HORIZONTAL FADE: Seamless transition into the text side, desktop only */}
             <div
-              className="absolute inset-0 pointer-events-none hidden lg:block z-10"
+              className="absolute inset-0 pointer-events-none z-10"
               style={{
                 background:
                   "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
               }}
               aria-hidden="true"
             />
+          </div>
 
-            {/* Mobile Black Overlay for legibility */}
-            <div className="absolute inset-0 bg-white/80 lg:hidden pointer-events-none z-10" aria-hidden="true" />
+          {/* TEXT CONTENT — sits cleanly on its own on mobile, overlays the masked image on desktop */}
+          <div className="relative z-20 mx-auto w-full max-w-[1480px] px-6 pt-10 pb-8 sm:px-12 sm:pt-14 xl:px-16 lg:py-0">
+            <div className="max-w-xl">
+
+              <div className="mb-2">
+                <span className="text-[15px] font-bold tracking-[0.18em] text-brand uppercase">
+                  Understanding Your Credit
+                </span>
+              </div>
+
+              <h1 className="text-3xl font-black tracking-tight text-[#131b4d] sm:text-5xl md:text-[52px] leading-[1.08] mb-4">
+                Knowledge Puts You <br />
+                <span className="text-[#ff385c]">in the Driver’s Seat.</span>
+              </h1>
+
+              <div className="mb-6">
+                <p className="text-base font-normal text-[#4b5563] sm:text-base leading-relaxed">
+                  Understand your credit, make informed decisions, and feel confident about your auto financing journey.
+                </p>
+              </div>
+
+              <div className="mb-8">
+                <Link
+                  href="/financing"
+                  className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-8 py-4 text-base font-bold text-white shadow-lg shadow-[#ff385c]/20 transition-all duration-300 hover:bg-brand group"
+                >
+                  <span>Check My Credit Score</span>
+                  <ArrowRight className="h-5 w-5 stroke-[2.5] group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+
+              {/* Feature Badges */}
+              <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-y-3 gap-x-6 text-sm sm:text-base font-medium text-[#4b5563]">
+                {["Soft pull", "No impact to your credit", "Instant results"].map((badge, idx) => (
+                  <div key={idx} className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
+                      <span className="text-xs font-bold">✓</span>
+                    </div>
+                    <span>{badge}</span>
+                  </div>
+                ))}
+              </div>
+
+            </div>
           </div>
 
         </section>
 
         {/* ================= SECTION 2: WHAT IS A CREDIT SCORE ================= */}
-        <section className="py-20 bg-white">
+        <section className="py-10 lg:py-16 bg-white">
           <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-brand uppercase tracking-widest text-base font-bold block mb-2">

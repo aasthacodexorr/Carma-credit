@@ -1,8 +1,9 @@
 "use client";
+
+import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { Footer, Header } from "@/components/layout";
-import Link from "next/link";
-import Image from "next/image";
 
 const steps = [
   {
@@ -15,7 +16,7 @@ const steps = [
       </svg>
     ),
     image: "images/q1.png",
-    text:"It only takes 2 minutes."
+    text: "It only takes 2 minutes."
   },
   {
     number: "2",
@@ -27,7 +28,7 @@ const steps = [
       </svg>
     ),
     image: "images/q2.png",
-     text:"Real people. Real support."
+    text: "Real people. Real support."
   },
   {
     number: "3",
@@ -39,7 +40,7 @@ const steps = [
       </svg>
     ),
     image: "images/q3.png",
-     text:"More opportunities for you."
+    text: "More opportunities for you."
   },
   {
     number: "4",
@@ -52,7 +53,7 @@ const steps = [
       </svg>
     ),
     image: "images/q4.png",
-     text:"From approval to keys."
+    text: "From approval to keys."
   },
 ];
 
@@ -60,13 +61,28 @@ export default function HowItWorksPage() {
   return (
     <>
       <Header />
-      <main className="bg-white text-[#1a1b35] overflow-hidden">
+      <main className="w-full overflow-hidden bg-white text-slate-900 selection:bg-[#ff385c] selection:text-white">
 
-        {/* ================= SECTION 1: HERO ================= */}
-        <section className="relative w-full overflow-hidden bg-[#fff7fb] min-h-[480px] lg:min-h-[540px] xl:min-h-[580px] flex items-center">
-          {/* RIGHT SIDE: Large Image starting right next to the text and extending to the right edge */}
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[60%] xl:w-[58%] overflow-hidden pointer-events-none">
-            {/* Inner image with CSS mask providing immediate soft fade right beside the text */}
+        {/* ========================================================================= */}
+        {/* SECTION 1: HERO */}
+        {/* ========================================================================= */}
+        <section className="relative w-full overflow-hidden bg-[#fff7fb] flex flex-col lg:flex-row lg:items-center lg:min-h-[540px] xl:min-h-[580px]">
+          {/* MOBILE/TABLET ONLY: Clearly visible standalone image box stacked right below text */}
+          <div className="block lg:hidden w-full px-6 order-2">
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
+              <Image
+                src="/images/howitworks_1.png"
+                alt="Carma Credit dealership building"
+                fill
+                className="block w-full h-full object-cover"
+                priority
+                unoptimized
+              />
+            </div>
+          </div>
+
+          {/* DESKTOP ONLY: Large Flat Lay Image with soft mask fade, positioned behind text on the right */}
+          <div className="absolute inset-y-0 right-0 w-[60%] xl:w-[58%] overflow-hidden pointer-events-none hidden lg:block">
             <div
               className="relative w-full h-full"
               style={{
@@ -80,75 +96,73 @@ export default function HowItWorksPage() {
                 src="/images/howitworks_1.png"
                 alt="Carma Credit dealership building"
                 fill
-                priority
                 className="object-cover object-center lg:object-[left_center]"
                 sizes="100vw"
+                priority
+                unoptimized
               />
             </div>
 
-            {/* SOFT HORIZONTAL FADE: Seamless transition located right nearby the text */}
+            {/* SOFT HORIZONTAL FADE: Seamless transition into the text side, desktop only */}
             <div
-              className="absolute inset-0 pointer-events-none"
+              className="absolute inset-0 pointer-events-none z-10"
               style={{
                 background:
                   "linear-gradient(to right, #fff7fb 0%, rgba(255, 247, 251, 0.9) 5%, rgba(255, 247, 251, 0.55) 12%, rgba(255, 247, 251, 0.18) 22%, transparent 34%)",
               }}
               aria-hidden="true"
             />
-            {/* Mobile Black Overlay for legibility */}
-            <div className="absolute inset-0 bg-white/80 lg:hidden pointer-events-none" aria-hidden="true" />
           </div>
 
-          {/* LEFT CONTENT: Vertically centered on solid light background with no overlap */}
-          <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-14 sm:py-16 lg:py-20">
-            <div className="max-w-[480px] xl:max-w-[610px] flex flex-col items-start justify-center">
-              <span className="text-base sm:text-[13px] font-bold tracking-[0.2em] text-brand uppercase px-1">
-                HOW IT WORKS
-              </span>
+          {/* TEXT CONTENT — sits cleanly on its own on mobile, overlays the masked image on desktop */}
+          <div className="relative z-20 mx-auto w-full max-w-[1480px] px-6 pt-10 pb-8 sm:px-12 sm:pt-14 xl:px-16 lg:py-0">
+            <div className="max-w-xl">
+              <div className="mb-2">
+                <span className="text-[15px] font-bold tracking-[0.18em] text-brand uppercase">
+                  How It Works
+                </span>
+              </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-extrabold tracking-tight leading-[1.12] mb-5">
-                <span className="text-[#1a1b35] block">From Application</span>
-                <span className="text-[#ff385c] block">to Car Keys.</span>
+              <h1 className="text-3xl font-black tracking-tight text-[#131b4d] sm:text-5xl md:text-[52px] leading-[1.08] mb-4">
+                From Application <br />
+                to <span className="text-[#ff385c]">Car Keys.</span>
               </h1>
 
-              <p className="text-gray-800  lg:text-[#4a4b65] text-base leading-[1.65] mb-8">
-                A simple process. Real people. Real support. Carma Credit helps you get approved for automotive financing and find the right vehicle — all in one place.
-              </p>
+              <div className="mb-6">
+                <p className="text-base font-normal text-[#4b5563] sm:text-base leading-relaxed">
+                  A simple process. Real people. Real support. Carma Credit helps you get approved for automotive financing and find the right vehicle — all in one place.
+                </p>
+              </div>
 
               <div className="mb-8">
-                <Link href={"/financing"} className="bg-[#ff385c] w-fit hover:bg-brand cursor-pointer text-white font-semibold px-8 py-4 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 group">
-                  Start My Auto Financing Quiz
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <Link
+                  href="/financing"
+                  className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-8 py-4 text-base font-bold text-white shadow-lg shadow-[#ff385c]/20 transition-all duration-300 hover:bg-brand group"
+                >
+                  <span>Start My Auto Financing Quiz</span>
+                  <ArrowRight className="h-5 w-5 stroke-[2.5] group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
 
               {/* Feature Badges */}
-              <div className="flex flex-col lg:flex-row flex-wrap items-start lg:items-center gap-y-4 lg:gap-y-3 gap-x-6 text-xl lg:text-base text-gray-800 lg:text-[#4a4b65] font-medium">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white  shrink-0">
-                    <Check className="w-3 h-3 stroke-[3]" />
+              <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-y-3 gap-x-6 text-sm sm:text-base font-medium text-[#4b5563]">
+                {["No judgment.", "No obligation.", "Automotive financing only"].map((badge, idx) => (
+                  <div key={idx} className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white shrink-0">
+                      <Check className="w-3 h-3 stroke-[3]" />
+                    </div>
+                    <span>{badge}</span>
                   </div>
-                  <span>No judgment.</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white  shrink-0">
-                    <Check className="w-3 h-3 stroke-[3]" />
-                  </div>
-                  <span>No obligation.</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#ff385c] flex items-center justify-center text-white  shrink-0">
-                    <Check className="w-3 h-3 stroke-[3]" />
-                  </div>
-                  <span>Automotive financing only</span>
-                </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* ================= SECTION 2: 4-STEP PROCESS ================= */}
-        <section className="py-20 bg-white">
+        {/* ========================================================================= */}
+        {/* SECTION 2: 4-STEP PROCESS */}
+        {/* ========================================================================= */}
+        <section className="py-10 sm:py-16 bg-white">
           <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto">
 
             <div className="text-center max-w-2xl mx-auto mb-20">
@@ -178,7 +192,7 @@ export default function HowItWorksPage() {
                       <div className="w-16 h-16 rounded-full bg-[#ff385c] text-white flex items-center justify-center font-bold text-xl shadow-md flex-shrink-0 z-10">
                         {step.number}
                       </div>
-                     
+
                       <div>
                         <h3 className="text-2xl font-extrabold text-[#1a1b35] mb-2">{step.title}</h3>
                         <p className="text-[#4a4b65] text-base leading-relaxed">
