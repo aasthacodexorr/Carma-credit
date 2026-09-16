@@ -75,6 +75,8 @@ export default async function RootLayout({
       style={CSS_VARIABLES as React.CSSProperties}
     >
       <head>
+        <link rel="icon" href="/favicon.jpg?v=2" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/favicon.jpg?v=2" />
         {/* Load form validation script before any interactive content */}
         <ScriptLoader />
         <script
