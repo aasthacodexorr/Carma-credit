@@ -68,7 +68,7 @@ export default function HowItWorksPage() {
         {/* ========================================================================= */}
         <section className="relative w-full overflow-hidden bg-[#fff7fb] flex flex-col lg:flex-row lg:items-center lg:min-h-[540px] xl:min-h-[580px]">
           {/* MOBILE/TABLET ONLY: Clearly visible standalone image box stacked right below text */}
-          <div className="block lg:hidden w-full px-6 order-2">
+          <div className="block lg:hidden w-full px-6 pb-12 order-2">
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
               <Image
                 src="/images/howitworks_1.png"

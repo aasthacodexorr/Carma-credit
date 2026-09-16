@@ -13,7 +13,7 @@ export default function Home() {
         {/* ========================================================================= */}
         <section className="relative w-full overflow-hidden bg-[#fff7fb] lg:min-h-[540px] xl:min-h-[580px] flex flex-col lg:flex-row items-center">
           {/* MOBILE/TABLET IMAGE (Visible only on smaller screens, stacked below content cleanly) */}
-          <div className="block lg:hidden w-full px-6 order-2">
+          <div className="block lg:hidden w-full px-6 pb-12 order-2">
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
               <Image
                 src="/images/hero-building.png"
@@ -60,7 +60,7 @@ export default function Home() {
           {/* LEFT CONTENT */}
           <div className="relative z-20 w-full max-w-[1480px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 py-10 sm:py-16 lg:py-20">
             <div className="max-w-full sm:max-w-[480px] xl:max-w-[610px] flex flex-col items-start justify-center">
-              <span className="text-sm sm:text-[13px] font-bold tracking-[0.2em] text-brand uppercase px-1">
+              <span className="text-sm sm:text-[13px] font-bold tracking-[0.2em] text-brand uppercase px-1 pb-2">
                 About Carma Credit
               </span>
 
