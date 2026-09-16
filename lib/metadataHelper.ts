@@ -86,5 +86,9 @@ export async function generateMetadata(
       description,
       images: resolvedImages,
     },
+    icons: {
+      icon: "/favicon.jpg?v=2",
+      apple: "/favicon.jpg?v=2",
+    },
   };
 }

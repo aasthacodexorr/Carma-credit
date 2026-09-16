@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function CreditSpecialists() {
   const specialists = [
     {
-      name: "Simran",
+      name: "Andy",
       role: "Auto Financing Specialist",
       image: "images/team1.png",
       quote: "“Your goals are our priority.”",
@@ -15,7 +15,7 @@ export default function CreditSpecialists() {
       quote: "“Here to find solutions together.”",
     },
     {
-      name: "Andy",
+      name: "Simran",
       role: "Auto Financing Specialist",
       image: "/images/team2.png",
       quote: "“Let's get you back on the road.”",
