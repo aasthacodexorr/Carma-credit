@@ -14,11 +14,11 @@ export default function FaqPage() {
             aria-hidden
             className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-[radial-gradient(ellipse_at_top,_rgba(20,81,181,0.10),_transparent_65%)]"
           />
-          <Reveal className="relative mx-auto max-w-[900px] text-center">
-            <p className="mb-3 text-[13px] font-semibold uppercase tracking-[0.14em] text-brand">
+          <Reveal className="relative mx-auto max-w-[900px] text-left">
+            <p className="mb-1 text-[13px] font-semibold uppercase tracking-[0.14em] text-brand">
               Help center
             </p>
-            <h1 className="mb-3 text-[clamp(1.75rem,6vw,3rem)] font-bold tracking-tight text-zinc-900">
+            <h1 className="mb-1 text-[clamp(1.75rem,6vw,3rem)] font-bold tracking-tight text-zinc-900">
               Frequently asked questions
             </h1>
             <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-zinc-500 sm:text-[16px]">

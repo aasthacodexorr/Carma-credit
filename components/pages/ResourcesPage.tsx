@@ -92,7 +92,7 @@ export default function ResourcesPage() {
         {/* SECTION 1: HERO */}
         <section className="relative w-full overflow-hidden bg-[#fff7fb] flex flex-col lg:flex-row lg:items-center lg:min-h-[540px] xl:min-h-[500px]">
           {/* MOBILE/TABLET ONLY: Clearly visible standalone image box stacked right below text */}
-          <div className="block lg:hidden w-full px-6 pb-2 pt-6 order-2">
+          <div className="block lg:hidden w-full px-6 pb-12 pt-6 order-2">
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
               <Image
                 src="/images/a1.png"
@@ -167,7 +167,7 @@ export default function ResourcesPage() {
         </section>
 
         {/* SECTION 2: FEATURES BAR */}
-        <section className="bg-white border-b border-gray-200 pt-6 px-4 sm:px-6 lg:px-8">
+        <section className="bg-white lg:border-b border-gray-200 pt-6 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto grid grid-cols-2 lg:flex lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-0">
             {features.map((feature, index) => (
               <div key={index} className="flex items-start gap-4 w-full lg:w-auto relative group">
