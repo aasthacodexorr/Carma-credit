@@ -322,16 +322,10 @@ export default async function TermsOfService() {
             <h2 className="text-lg font-bold text-gray-900 mb-3">
               21. Contact Information
             </h2>
-            <p className="text-[15px] leading-relaxed text-gray-600 mb-4">
-              Questions about the Terms of Service should be sent to us at
-            </p>
             <div className="mt-2 text-[15px] text-gray-900">
               <h5 className="text-[17px] font-bold text-gray-900 mb-1">
                 {dealership_name}
               </h5>
-              <p className="font-bold">
-                {full_address_1}, {city_1}, {province_1}
-              </p>
               <p className="mt-1">
                 <span className="font-bold">Sales: </span>
                 <a href={`tel:${sales_number_1}`} className="text-brand-green hover:underline">
