@@ -161,7 +161,7 @@ export default function ContactUs() {
               </div>
 
               {/* CONTACT FORM (IFRAME) */}
-              <div className="w-full min-w-0 rounded-2xl p-0  sm:p-6 shadow-[0_16px_50px_rgba(230,0,126,0.08)] ring-1 ring-[#ff385c]/15">
+              <div className="w-full min-w-0 rounded-2xl p-0  sm:p-6 shadow-[0_16px_50px_rgba(255,255,255,1)] border-[1px] border-[#eaeaea] bg-white">
                 <iframe
                   ref={iframeRef}
                   id="contact_form"
