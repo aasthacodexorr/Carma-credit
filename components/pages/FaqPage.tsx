@@ -21,7 +21,7 @@ export default function FaqPage() {
             <h1 className="mb-1 text-[clamp(1.75rem,6vw,3rem)] font-bold tracking-tight text-zinc-900">
               Frequently asked questions
             </h1>
-            <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-zinc-500 sm:text-[16px]">
+            <p className="max-w-xl text-[15px] leading-relaxed text-zinc-500 sm:text-[16px]">
               You&apos;ve got questions? We&apos;ve got answers about financing, credit, and getting
               approved with Carma Credit.
             </p>
