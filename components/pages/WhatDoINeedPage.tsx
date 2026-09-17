@@ -332,7 +332,7 @@ export default function WhatDoINeedPage() {
         {/* ========================================================================= */}
         {/* SECTION 3: HELPFUL TIPS — Make the Process Even Smoother */}
         {/* ========================================================================= */}
-        <section className="relative w-full py-12 sm:py-16 lg:pb-20 lg:pt-0 bg-white">
+        <section className="relative w-full py-0 sm:py-16 lg:pb-20 lg:pt-0 bg-white">
           <div className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Single Unified Light-Pink Card Container containing both Heading and 3 Columns */}
             <div className="w-full rounded-2xl sm:rounded-3xl bg-[#fdf6fa] border border-[#f8dfea]/80 py-10 px-6 sm:py-14 sm:px-8 lg:py-16 lg:px-12">
