@@ -199,7 +199,7 @@ export default function Home() {
         {/* ========================================================================= */}
         {/* SECTION 3: WHY WE DO IT / WE'VE BEEN THERE TOO. */}
         {/* ========================================================================= */}
-        <section className="relative w-full py-16 sm:py-16 bg-white">
+        <section className="relative w-full pt-6 pb-16 sm:pb-16 sm:py-0  bg-white">
           <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
               {/* Left Column: Dealership Cars Image with Script Overlay */}
