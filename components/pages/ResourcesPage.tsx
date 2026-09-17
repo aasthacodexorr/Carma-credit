@@ -12,41 +12,49 @@ const creditCards = [
     title: "Rebuilding Credit",
     description: "Steps you can take to improve your credit over time.",
     image: "images/a2.png",
+    link:"/rebuild-your-credit",
   },
   {
     title: "New to Canada",
     description: "Information and tips for newcomers looking to finance a vehicle.",
     image: "images/a4.png",
+    link:"/what-do-i-need",
   },
   {
     title: "Limited Credit History",
     description: "See the documents and information required to apply.",
     image: "images/a3.png",
+    link:"/rebuild-your-credit",
   },
   {
     title: "Challenged Credit",
     description: "Learn how credit works and what your score means.",
     image: "images/a5.png",
+    link:"/rebuild-your-credit",
   },
   {
     title: "Previous Credit Challenges",
     description: "Learn how to protect yourself and your information.",
     image: "images/a6.png",
+    link:"/rebuild-your-credit",
   },
   {
     title: "Non-Prime Financing",
     description: "A step-by-step guide to buying a car with confidence.",
     image: "images/a7.png",
+    link:"/how-it-works",
   },
   {
     title: "Less-Than-Perfect Credit",
     description: "Tips to help you plan payments, insurance, and ownership costs.",
     image: "images/a8.png",
+    link:"/rebuild-your-credit",
   },
   {
     title: "Car Ownership Tips",
     description: "Helpful advice to keep your vehicle running smoothly for the road ahead.",
     image: "images/a9.png",
+    link:"/how-it-works",
   },
 ];
 
@@ -207,7 +215,8 @@ export default function ResourcesPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {creditCards.map((card) => (
-                <div
+                <Link
+                  href={card?.link}
                   key={card.title}
                   className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group"
                 >
@@ -229,7 +238,7 @@ export default function ResourcesPage() {
                       <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -248,7 +257,7 @@ export default function ResourcesPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white p-6 rounded-xl border border-slate-200/70 shadow-sm flex flex-col justify-between group hover:border-[#ff385c]/30 transition-all">
+              <Link href={"/financing"} className="bg-white p-6 rounded-xl border border-slate-200/70 shadow-sm flex flex-col justify-between group hover:border-[#ff385c]/30 transition-all">
                 <div>
                   <h3 className="font-bold text-slate-900 text-base mb-1">Check Your Credit Score</h3>
                   <p className="text-slate-600 text-sm leading-relaxed">View your score with no impact to your credit.</p>
@@ -258,9 +267,9 @@ export default function ResourcesPage() {
                     <ArrowRight className="w-3 h-3" />
                   </span>
                 </div>
-              </div>
+              </Link>
 
-              <div className="bg-white p-6 rounded-xl border border-slate-200/70 shadow-sm flex flex-col justify-between group hover:border-[#ff385c]/30 transition-all">
+              <Link href={"/payment-calculator"} className="bg-white p-6 rounded-xl border border-slate-200/70 shadow-sm flex flex-col justify-between group hover:border-[#ff385c]/30 transition-all">
                 <div>
                   <h3 className="font-bold text-slate-900 text-base mb-1">Payment Estimator</h3>
                   <p className="text-slate-600 text-sm leading-relaxed">Get an idea of what your payments could be.</p>
@@ -270,9 +279,9 @@ export default function ResourcesPage() {
                     <ArrowRight className="w-3 h-3" />
                   </span>
                 </div>
-              </div>
+              </Link>
 
-              <div className="bg-white p-6 rounded-xl border border-slate-200/70 shadow-sm flex flex-col justify-between group hover:border-[#ff385c]/30 transition-all">
+              <Link href={"/what-do-i-need"} className="bg-white p-6 rounded-xl border border-slate-200/70 shadow-sm flex flex-col justify-between group hover:border-[#ff385c]/30 transition-all">
                 <div>
                   <h3 className="font-bold text-slate-900 text-base mb-1">Glossary of Terms</h3>
                   <p className="text-slate-600 text-sm leading-relaxed">Understand common auto financing terms.</p>
@@ -282,9 +291,9 @@ export default function ResourcesPage() {
                     <ArrowRight className="w-3 h-3" />
                   </span>
                 </div>
-              </div>
+              </Link>
 
-              <div className="bg-white p-6 rounded-xl border border-slate-200/70 shadow-sm flex flex-col justify-between group hover:border-[#ff385c]/30 transition-all">
+              <Link href={"/faq"} className="bg-white p-6 rounded-xl border border-slate-200/70 shadow-sm flex flex-col justify-between group hover:border-[#ff385c]/30 transition-all">
                 <div>
                   <h3 className="font-bold text-slate-900 text-base mb-1">FAQs</h3>
                   <p className="text-slate-600 text-sm leading-relaxed">Find quick answers to popular questions.</p>
@@ -294,9 +303,9 @@ export default function ResourcesPage() {
                     <ArrowRight className="w-3 h-3" />
                   </span>
                 </div>
-              </div>
+              </Link>
             </div>
-          </div>
+            </div>
         </section>
 
         {/* SECTION 5: SPECIALIST SUPPORT */}
