@@ -17,10 +17,8 @@ const kalam = Kalam({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const appConfig = await getAppConfig();
   return generateMetadataHelper({
-    title: appConfig.site.home_page_title,
-    description: appConfig.site.home_page_description,
+    pageKey: "home",
     canonicalPath: "",
   });
 }
@@ -41,7 +39,7 @@ export default async function RootLayout({
     if (headerHost) {
       host = headerHost;
     }
-  } catch (e) {
+  } catch {
     // Fallback for static generation
   }
 

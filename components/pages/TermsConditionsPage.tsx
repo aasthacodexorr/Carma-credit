@@ -4,10 +4,8 @@ import { generateMetadata as generateMetadataHelper } from '@/lib/metadataHelper
 import type { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const appConfig = await getAppConfig();
   return generateMetadataHelper({
-    title: appConfig.site.terms_and_conditions_page_title,
-    description: appConfig.site.terms_and_conditions_page_description,
+    pageKey: "termsConditions",
     canonicalPath: "/terms-conditions",
   });
 }

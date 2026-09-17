@@ -1,12 +1,11 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { Footer, Header } from "../layout";
+import { generateMetadata as generateMetadataHelper } from "@/lib/metadataHelper";
 
-export const metadata: Metadata = {
-  title: "Thank You / Application Submitted | Carma Credit",
-  description:
-    "We've received your information and our team will be in touch soon to discuss your auto financing options.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generateMetadataHelper({ pageKey: "thankYou" });
+}
 
 export default function ThankYouPage() {
   return (

@@ -1,12 +1,11 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { Footer, Header } from "../layout";
+import { generateMetadata as generateMetadataHelper } from "@/lib/metadataHelper";
 
-export const metadata: Metadata = {
-  title: "What do you need to finance a vehicle? | Carma Credit - Get Prepared. Get Approved.",
-  description:
-    "Having the right information ready helps us find the best auto financing options for you — faster and easier. Learn what documents you need to get approved.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generateMetadataHelper({ pageKey: "whatDoINeed" });
+}
 
 export default function WhatDoINeedPage() {
   const essentials = [

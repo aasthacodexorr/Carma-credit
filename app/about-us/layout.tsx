@@ -3,9 +3,7 @@ import { generateMetadata as generateMetadataHelper } from "@/lib/metadataHelper
 
 export async function generateMetadata(): Promise<Metadata> {
   return generateMetadataHelper({
-    title: "About Carma Credit | The Easiest Way to Sell Your Car in Canada",
-    description:
-      "Learn how Carma Credit makes selling your car simple, fair, and stress-free — with clear online offers and a trusted process from start to payday.",
+    pageKey: "aboutUs",
     canonicalPath: "/about-us",
   });
 }
