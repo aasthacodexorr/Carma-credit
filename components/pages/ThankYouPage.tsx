@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { Footer, Header } from "../layout";
 import { generateMetadata as generateMetadataHelper } from "@/lib/metadataHelper";
+import { CreditSpecialists } from "../home/driveway";
 
 export async function generateMetadata(): Promise<Metadata> {
   return generateMetadataHelper({ pageKey: "thankYou" });
@@ -370,79 +371,7 @@ export default function ThankYouPage() {
           </div>
 
           {/* 3 Horizontally Aligned Team Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 items-stretch">
-            {/* Card 1: Simran */}
-            <div className="bg-white rounded-2xl border border-[#e8ecf2] shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-4 sm:p-5 flex items-center gap-4.5 hover:shadow-md transition-shadow">
-              <div className="relative w-[110px] h-[115px] sm:w-[122px] sm:h-[128px] rounded-xl overflow-hidden bg-[#edf0f5] flex-shrink-0">
-                <Image
-                  src="/images/simran.png"
-                  alt="Simran - Credit Specialist"
-                  fill
-                  className="object-cover"
-                  sizes="130px"
-                />
-              </div>
-              <div className="flex flex-col justify-center">
-                <h3 className="text-[17px] sm:text-[18px] font-bold text-[#102a5c] leading-tight">
-                  Simran
-                </h3>
-                <span className="text-[13.5px] sm:text-[14px] text-[#4b5563] font-medium mt-0.5 mb-2">
-                  Credit Specialist
-                </span>
-                <p className="text-[13px] sm:text-[13.5px] text-[#4b5563] leading-[1.4]">
-                  Here to guide you through your options and answer any questions.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 2: Jaspreet */}
-            <div className="bg-white rounded-2xl border border-[#e8ecf2] shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-4 sm:p-5 flex items-center gap-4.5 hover:shadow-md transition-shadow">
-              <div className="relative w-[110px] h-[115px] sm:w-[122px] sm:h-[128px] rounded-xl overflow-hidden bg-[#edf0f5] flex-shrink-0">
-                <Image
-                  src="/images/jaspreet.png"
-                  alt="Jaspreet - Credit Specialist"
-                  fill
-                  className="object-cover"
-                  sizes="130px"
-                />
-              </div>
-              <div className="flex flex-col justify-center">
-                <h3 className="text-[17px] sm:text-[18px] font-bold text-[#102a5c] leading-tight">
-                  Jaspreet
-                </h3>
-                <span className="text-[13.5px] sm:text-[14px] text-[#4b5563] font-medium mt-0.5 mb-2">
-                  Credit Specialist
-                </span>
-                <p className="text-[13px] sm:text-[13.5px] text-[#4b5563] leading-[1.4]">
-                  Focused on finding the right solutions for your situation.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 3: Kevin */}
-            <div className="bg-white rounded-2xl border border-[#e8ecf2] shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-4 sm:p-5 flex items-center gap-4.5 hover:shadow-md transition-shadow">
-              <div className="relative w-[110px] h-[115px] sm:w-[122px] sm:h-[128px] rounded-xl overflow-hidden bg-[#edf0f5] flex-shrink-0">
-                <Image
-                  src="/images/kevin.png"
-                  alt="Kevin - Credit Specialist"
-                  fill
-                  className="object-cover"
-                  sizes="130px"
-                />
-              </div>
-              <div className="flex flex-col justify-center">
-                <h3 className="text-[17px] sm:text-[18px] font-bold text-[#102a5c] leading-tight">
-                  Kevin
-                </h3>
-                <span className="text-[13.5px] sm:text-[14px] text-[#4b5563] font-medium mt-0.5 mb-2">
-                  Credit Specialist
-                </span>
-                <p className="text-[13px] sm:text-[13.5px] text-[#4b5563] leading-[1.4]">
-                  Committed to helping you get back on the road with confidence.
-                </p>
-              </div>
-            </div>
-          </div>
+          <CreditSpecialists />
         </section>
 
         {/* ========================================================================= */}
