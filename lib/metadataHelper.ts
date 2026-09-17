@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { getAppConfig, getSafeDealershipConfig } from "./appConfig";
+import { resolvePageMetadata, type MetadataPageKey } from "./metadataConfig";
 import { headers } from "next/headers";
 
 interface MetadataGeneratorOptions {
-  title: string;
-  description: string;
+  pageKey?: MetadataPageKey;
+  title?: string;
+  description?: string;
   additionalReplacements?: Record<string, string>;
   canonicalPath?: string;
   images?: string[];
@@ -43,9 +45,15 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const appConfig = await getAppConfig();
   const safeD = getSafeDealershipConfig(appConfig.dealership);
+  const pageMetadata = options.pageKey
+    ? resolvePageMetadata(options.pageKey, appConfig.site)
+    : {
+        title: options.title || "",
+        description: options.description || "",
+      };
 
-  const title = replacePlaceholders(options.title, safeD, options.additionalReplacements);
-  const description = replacePlaceholders(options.description, safeD, options.additionalReplacements);
+  const title = replacePlaceholders(pageMetadata.title, safeD, options.additionalReplacements);
+  const description = replacePlaceholders(pageMetadata.description, safeD, options.additionalReplacements);
 
   let host = "www.carmacredit.ca";
   try {
@@ -54,7 +62,7 @@ export async function generateMetadata(
     if (headerHost) {
       host = headerHost;
     }
-  } catch (e) {
+  } catch {
     // Fallback for static generation where headers are unavailable
   }
 

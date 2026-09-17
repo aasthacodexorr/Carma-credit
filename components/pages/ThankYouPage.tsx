@@ -1,12 +1,12 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { Footer, Header } from "../layout";
+import { generateMetadata as generateMetadataHelper } from "@/lib/metadataHelper";
+import { CreditSpecialists } from "../home/driveway";
 
-export const metadata: Metadata = {
-  title: "Thank You / Application Submitted | Carma Credit",
-  description:
-    "We've received your information and our team will be in touch soon to discuss your auto financing options.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generateMetadataHelper({ pageKey: "thankYou" });
+}
 
 export default function ThankYouPage() {
   return (
@@ -371,79 +371,7 @@ export default function ThankYouPage() {
           </div>
 
           {/* 3 Horizontally Aligned Team Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 items-stretch">
-            {/* Card 1: Simran */}
-            <div className="bg-white rounded-2xl border border-[#e8ecf2] shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-4 sm:p-5 flex items-center gap-4.5 hover:shadow-md transition-shadow">
-              <div className="relative w-[110px] h-[115px] sm:w-[122px] sm:h-[128px] rounded-xl overflow-hidden bg-[#edf0f5] flex-shrink-0">
-                <Image
-                  src="/images/simran.png"
-                  alt="Simran - Credit Specialist"
-                  fill
-                  className="object-cover"
-                  sizes="130px"
-                />
-              </div>
-              <div className="flex flex-col justify-center">
-                <h3 className="text-[17px] sm:text-[18px] font-bold text-[#102a5c] leading-tight">
-                  Simran
-                </h3>
-                <span className="text-[13.5px] sm:text-[14px] text-[#4b5563] font-medium mt-0.5 mb-2">
-                  Credit Specialist
-                </span>
-                <p className="text-[13px] sm:text-[13.5px] text-[#4b5563] leading-[1.4]">
-                  Here to guide you through your options and answer any questions.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 2: Jaspreet */}
-            <div className="bg-white rounded-2xl border border-[#e8ecf2] shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-4 sm:p-5 flex items-center gap-4.5 hover:shadow-md transition-shadow">
-              <div className="relative w-[110px] h-[115px] sm:w-[122px] sm:h-[128px] rounded-xl overflow-hidden bg-[#edf0f5] flex-shrink-0">
-                <Image
-                  src="/images/jaspreet.png"
-                  alt="Jaspreet - Credit Specialist"
-                  fill
-                  className="object-cover"
-                  sizes="130px"
-                />
-              </div>
-              <div className="flex flex-col justify-center">
-                <h3 className="text-[17px] sm:text-[18px] font-bold text-[#102a5c] leading-tight">
-                  Jaspreet
-                </h3>
-                <span className="text-[13.5px] sm:text-[14px] text-[#4b5563] font-medium mt-0.5 mb-2">
-                  Credit Specialist
-                </span>
-                <p className="text-[13px] sm:text-[13.5px] text-[#4b5563] leading-[1.4]">
-                  Focused on finding the right solutions for your situation.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 3: Kevin */}
-            <div className="bg-white rounded-2xl border border-[#e8ecf2] shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-4 sm:p-5 flex items-center gap-4.5 hover:shadow-md transition-shadow">
-              <div className="relative w-[110px] h-[115px] sm:w-[122px] sm:h-[128px] rounded-xl overflow-hidden bg-[#edf0f5] flex-shrink-0">
-                <Image
-                  src="/images/kevin.png"
-                  alt="Kevin - Credit Specialist"
-                  fill
-                  className="object-cover"
-                  sizes="130px"
-                />
-              </div>
-              <div className="flex flex-col justify-center">
-                <h3 className="text-[17px] sm:text-[18px] font-bold text-[#102a5c] leading-tight">
-                  Kevin
-                </h3>
-                <span className="text-[13.5px] sm:text-[14px] text-[#4b5563] font-medium mt-0.5 mb-2">
-                  Credit Specialist
-                </span>
-                <p className="text-[13px] sm:text-[13.5px] text-[#4b5563] leading-[1.4]">
-                  Committed to helping you get back on the road with confidence.
-                </p>
-              </div>
-            </div>
-          </div>
+          <CreditSpecialists />
         </section>
 
         {/* ========================================================================= */}
@@ -462,7 +390,7 @@ export default function ThankYouPage() {
             </div>
 
             {/* 4 Resource Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-4.5">
               {/* Card 1: What do you need to finance a vehicle?? */}
               <a
                 href="/what-do-i-need"
@@ -562,44 +490,6 @@ export default function ThankYouPage() {
                     </h3>
                     <p className="text-[12px] sm:text-[12.5px] text-[#6b7280] mt-0.5 leading-tight truncate">
                       Tips to protect yourself.
-                    </p>
-                  </div>
-                </div>
-                <svg
-                  className="w-4 h-4 text-[#ff385c] flex-shrink-0 transform group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-
-              {/* Card 4: Browse Vehicles */}
-              <a
-                href="/"
-                className="bg-white rounded-2xl p-4 sm:p-4.5 flex items-center justify-between border border-[#e5e9f2] shadow-[0_2px_6px_rgba(0,0,0,0.02)] hover:shadow-md hover:border-[#ff385c]/30 transition-all duration-200 group cursor-pointer min-h-[82px]"
-              >
-                <div className="flex items-center min-w-0 pr-2">
-                  <div className="w-11 h-11 rounded-full bg-[#fceaf5] flex items-center justify-center text-[#ff385c] flex-shrink-0 mr-3">
-                    {/* Car Silhouette Icon */}
-                    <svg
-                      className="w-5 h-5"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5H6.5C5.84 5 5.28 5.42 5.08 6.01L3 12V20C3 20.55 3.45 21 4 21H5C5.55 21 6 20.55 6 20V19H18V20C18 20.55 18.45 21 19 21H20C20.55 21 21 20.55 21 20V12L18.92 6.01ZM6.85 7H17.14L18.22 10H5.78L6.85 7ZM19 17H5V12.78C5.08 12.83 5.18 12.87 5.29 12.91L5.5 13H18.5L18.71 12.91C18.82 12.87 18.92 12.83 19 12.78V17ZM7.5 16C8.33 16 9 15.33 9 14.5C9 13.67 8.33 13 7.5 13C6.67 13 6 13.67 6 14.5C6 15.33 6.67 16 7.5 16ZM16.5 16C17.33 16 18 15.33 18 14.5C18 13.67 17.33 13 16.5 13C15.67 13 15 13.67 15 14.5C15 15.33 15.67 16 16.5 16Z" />
-                    </svg>
-                  </div>
-                  <div className="flex flex-col min-w-0">
-                    <h3 className="text-[14.5px] sm:text-[15px] font-bold text-[#102a5c] group-hover:text-[#ff385c] transition-colors leading-tight truncate">
-                      Browse Vehicles
-                    </h3>
-                    <p className="text-[12px] sm:text-[12.5px] text-[#6b7280] mt-0.5 leading-tight truncate">
-                      Explore 2,500+ vehicles through our dealer network.
                     </p>
                   </div>
                 </div>

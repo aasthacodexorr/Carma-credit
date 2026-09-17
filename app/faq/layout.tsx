@@ -3,8 +3,8 @@ import { generateMetadata as generateMetadataHelper } from "@/lib/metadataHelper
 
 export async function generateMetadata(): Promise<Metadata> {
   return generateMetadataHelper({
-    pageKey: "appointment",
-    canonicalPath: "/book-an-appointment",
+    pageKey: "faq",
+    canonicalPath: "/faq",
   });
 }
 

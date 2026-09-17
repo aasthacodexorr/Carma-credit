@@ -139,7 +139,7 @@ export default function ContactUs() {
                     href="tel:+18559793500"
                     className="mt-1 block text-[16px] font-semibold text-[#121212] hover:text-[#ff385c] md:text-[18px]"
                   >
-                    1-855-979-3500
+                    +1-855-979-3500
                   </Link>
                 </div>
 
@@ -161,7 +161,7 @@ export default function ContactUs() {
               </div>
 
               {/* CONTACT FORM (IFRAME) */}
-              <div className="w-full min-w-0 rounded-2xl p-0  sm:p-6 shadow-[0_16px_50px_rgba(230,0,126,0.08)] ring-1 ring-[#ff385c]/15">
+              <div className="w-full min-w-0 rounded-2xl p-0  sm:p-6 shadow-[0_16px_50px_rgba(255,255,255,1)] border-[1px] border-[#eaeaea] bg-white">
                 <iframe
                   ref={iframeRef}
                   id="contact_form"

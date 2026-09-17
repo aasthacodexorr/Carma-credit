@@ -4,10 +4,8 @@ import { generateMetadata as generateMetadataHelper } from '@/lib/metadataHelper
 import type { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const appConfig = await getAppConfig();
   return generateMetadataHelper({
-    title: appConfig.site.privacy_policy_page_title,
-    description: appConfig.site.privacy_policy_page_description,
+    pageKey: "privacyPolicy",
     canonicalPath: "/privacy-policy",
   });
 }
