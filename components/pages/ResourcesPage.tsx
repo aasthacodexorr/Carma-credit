@@ -167,7 +167,7 @@ export default function ResourcesPage() {
         </section>
 
         {/* SECTION 2: FEATURES BAR */}
-        <section className="bg-white lg:border-b border-gray-200 pt-6 px-4 sm:px-6 lg:px-8">
+        <section className="bg-white lg:border-b border-gray-200 pt-6 px-4 sm:px-6 lg:px-8 lg:pb-6">
           <div className="max-w-7xl mx-auto grid grid-cols-2 lg:flex lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-0">
             {features.map((feature, index) => (
               <div key={index} className="flex items-start gap-4 w-full lg:w-auto relative group">
