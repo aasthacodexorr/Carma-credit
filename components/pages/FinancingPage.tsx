@@ -1,149 +1,98 @@
+/* =========================
+   Financing Page
+   Embeds the Cardora financing application form
+   via an iframe. Listens for postMessage events
+   from the iframe to dynamically resize the iframe
+   height, preventing scroll bars inside the embed.
+========================= */
+
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Layout
-import { PageShell } from "@/components/layout";
+import { Header, Footer } from "@/components/layout";
+
+// Shared components
+import { GetInTouch } from "@/components/common";
 
 // Config
 import { getConstants } from "@/constants";
 import { useAppConfig } from "@/app/providers";
 
-const MIN_HEIGHT = 2000;
-const FALLBACK_HEIGHT = 2000;
+/*  Constants */
+const MIN_HEIGHT = 1540;
+const FALLBACK_HEIGHT = 1900;
 
+/*  Page Component */
 const Finance = () => {
   const appConfig = useAppConfig();
   const { SITE_CONFIG } = getConstants(appConfig);
-
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const resizeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
   const [height, setHeight] = useState<number>(FALLBACK_HEIGHT);
+  const prevHeightRef = useRef<number>(FALLBACK_HEIGHT);
 
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  }, []);
-
+  // Listen for height updates from the embedded financing form
   useEffect(() => {
-    const requestIframeResize = () => {
-      const iframe = iframeRef.current;
-
-      if (!iframe?.contentWindow) return;
-
-      iframe.contentWindow.postMessage(
-        {
-          type: "resize",
-          element_id: "finance_form",
-        },
-        "*"
-      );
-    };
-
     const handleMessage = (event: MessageEvent) => {
       const data = event.data;
-
       if (
         data &&
         typeof data === "object" &&
         data.type === "css" &&
-        (data.element_id === "finance_form" ||
-          data.element_id === "financing_form") &&
+        data.element_id === "financing_form" &&
         typeof data.value === "number"
       ) {
-        const newHeight = Math.max(
-          MIN_HEIGHT,
-          Math.ceil(data.value) + 20
-        );
+        const newHeight = Math.max(MIN_HEIGHT, Math.ceil(data.value) + 24);
 
+        // If height changes significantly, it usually means a step change.
+        // Scroll the iframe into view so the top isn't hidden under the mobile header.
+        if (Math.abs(prevHeightRef.current - newHeight) > 50) {
+          if (iframeRef.current) {
+            const rect = iframeRef.current.getBoundingClientRect();
+            const headerHeight = 90; // approximate mobile header height
+            if (rect.top < headerHeight) {
+              window.scrollTo({
+                top: window.scrollY + rect.top - headerHeight - 20,
+                behavior: "smooth",
+              });
+            }
+          }
+        }
+
+        prevHeightRef.current = newHeight;
         setHeight(newHeight);
       }
     };
 
-    const handleResize = () => {
-      /*
-       * Reset to a safe height while the iframe
-       * recalculates its responsive layout.
-       */
-      setHeight((currentHeight) =>
-        Math.max(currentHeight, FALLBACK_HEIGHT)
-      );
-
-      if (resizeTimeoutRef.current) {
-        clearTimeout(resizeTimeoutRef.current);
-      }
-
-      resizeTimeoutRef.current = setTimeout(() => {
-        requestIframeResize();
-      }, 150);
-    };
-
     window.addEventListener("message", handleMessage);
-    window.addEventListener("resize", handleResize);
-
-    // Initial request
-    const initialTimeout = setTimeout(() => {
-      requestIframeResize();
-    }, 300);
-
-    return () => {
-      window.removeEventListener("message", handleMessage);
-      window.removeEventListener("resize", handleResize);
-
-      clearTimeout(initialTimeout);
-
-      if (resizeTimeoutRef.current) {
-        clearTimeout(resizeTimeoutRef.current);
-      }
-    };
+    return () => window.removeEventListener("message", handleMessage);
   }, []);
 
-  const handleIframeLoad = () => {
-    const iframe = iframeRef.current;
-
-    if (!iframe?.contentWindow) return;
-
-    /*
-     * Ask the embedded financing form to recalculate
-     * its responsive height.
-     */
-    iframe.contentWindow.postMessage(
-      {
-        type: "resize",
-        element_id: "finance_form",
-      },
-      "*"
-    );
-  };
-
   return (
-    <div className="bg-background w-full">
-      <PageShell>
-        <section className="w-full py-4 md:py-6">
-          <div className="mx-auto w-full max-w-[1100px] px-3 sm:px-4 md:px-6">
-            <div className="w-full">
-              <iframe
-                ref={iframeRef}
-                id="finance_form"
-                src={`${SITE_CONFIG.urls.financeRenderApiUrl}?`}
-                name="iframe_a"
-                title="Carma Credit financing application"
-                scrolling="no"
-                onLoad={handleIframeLoad}
-                className="block w-full max-w-full border-0"
-                style={{
-                  width: "100%",
-                  minHeight: `${MIN_HEIGHT}px`,
-                  height: `${height}px`,
-                  display: "block",
-                }}
-              />
-            </div>
+    <div className="min-h-screen bg-background">
+      <Header />
+      <section className="py-6 md:py-10 pb-16 mb-52 lg:mt-2 mt-8">
+        <div className="mx-auto max-w-[1100px] px-4 md:px-6">
+          <div className="overflow-hidden">
+            <iframe
+              ref={iframeRef}
+              id="financing_form"
+              src={`${SITE_CONFIG.urls.financeRenderApiUrl}?`}
+              name="iframe_a"
+              title="Cardora financing application"
+              scrolling="no"
+              className="w-full block transition-[height] duration-300 ease-out border-0"
+              style={{
+                minHeight: MIN_HEIGHT,
+                height: `${height}px`,
+              }}
+            />
           </div>
-        </section>
-      </PageShell>
+        </div>
+      </section>
+      <Footer />
+
     </div>
   );
 };

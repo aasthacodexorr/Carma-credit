@@ -24,7 +24,7 @@ const SECTION_GRAY = '#F4F5F7';
 
 const WRAPPER = 'max-w-[1480px] px-4 sm:px-12 xl:px-16 mx-auto';
 
-const TERM_OPTIONS = [24, 36, 48, 60, 72];
+const TERM_OPTIONS = [24, 36, 48, 60, 72, 84, 96];
 
 // ---- Field limits (min/max + how many characters the user can type) ------
 const FIELD_LIMITS = {
@@ -88,10 +88,10 @@ function sanitizeNumberInput(raw: string, allowDecimal: boolean, maxLength: numb
 }
 
 const DEFAULTS = {
-    vehiclePrice: 25000,
-    downPayment: 2500,
-    term: 48,
-    apr: 9.99,
+    vehiclePrice: 20000,
+    downPayment: 500,
+    term: 72,
+    apr: 7.99,
 };
 
 export default function PaymentCalculator() {
