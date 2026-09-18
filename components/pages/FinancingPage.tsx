@@ -1,18 +1,19 @@
-
 /* =========================
    Financing Page
-   Embeds the Cardora financing application form
-   via an iframe.
+   Embeds the Carma financing application form
+   through an iframe.
 
-   The iframe sends postMessage events containing
-   the required height of the financing form.
-   The parent page only updates the iframe height
-   and does NOT control the page scroll position.
+   Important:
+   The financing steps themselves are rendered
+   inside the cross-origin Carma iframe.
 
-   This avoids iOS Safari issues where changing the
-   iframe height + programmatically scrolling the
-   parent page can cause Step 2 content to be cut
-   from the top or buttons to collapse.
+   The parent page therefore only:
+   - receives the iframe height through postMessage
+   - updates the iframe height
+   - prevents unnecessary layout/scroll changes
+
+   It does NOT attempt to control the iframe's
+   internal scroll position.
 ========================= */
 
 "use client";
@@ -44,10 +45,10 @@ const Finance = () => {
   const [height, setHeight] = useState<number>(FALLBACK_HEIGHT);
 
   const resizeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const lastHeightRef = useRef<number>(FALLBACK_HEIGHT);
 
   /* =========================
-     Listen for iframe height
-     updates
+     Receive iframe height
   ========================= */
 
   useEffect(() => {
@@ -59,15 +60,17 @@ const Finance = () => {
         typeof data !== "object" ||
         data.type !== "css" ||
         data.element_id !== "financing_form" ||
-        typeof data.value !== "number"
+        typeof data.value !== "number" ||
+        !Number.isFinite(data.value)
       ) {
         return;
       }
 
       /*
-       * Add a small amount of extra space so the bottom
-       * of the form, including buttons such as
-       * "Continue to Financial Details", is not clipped.
+       * The iframe reports its required height.
+       *
+       * Keep a small amount of extra space at the bottom
+       * so the final button is not clipped.
        */
       const newHeight = Math.max(
         MIN_HEIGHT,
@@ -75,28 +78,33 @@ const Finance = () => {
       );
 
       /*
-       * The embedded form can send multiple height
-       * messages while moving between steps.
+       * Ignore tiny height changes.
        *
-       * Debouncing prevents iOS Safari from repeatedly
-       * resizing the iframe during the transition.
+       * This prevents Safari from continuously recalculating
+       * the iframe layout for very small changes.
+       */
+      if (Math.abs(lastHeightRef.current - newHeight) < 10) {
+        return;
+      }
+
+      /*
+       * Clear any pending resize.
        */
       if (resizeTimeoutRef.current) {
         clearTimeout(resizeTimeoutRef.current);
       }
 
+      /*
+       * Give the iframe a very small amount of time to finish
+       * its internal layout before changing the iframe height.
+       *
+       * This is especially helpful on iOS Safari when moving
+       * between the financing steps.
+       */
       resizeTimeoutRef.current = setTimeout(() => {
-        setHeight((currentHeight) => {
-          /*
-           * Ignore very small changes to prevent
-           * unnecessary iframe layout recalculations.
-           */
-          if (Math.abs(currentHeight - newHeight) < 10) {
-            return currentHeight;
-          }
+        lastHeightRef.current = newHeight;
 
-          return newHeight;
-        });
+        setHeight(newHeight);
       }, 100);
     };
 
@@ -111,31 +119,39 @@ const Finance = () => {
     };
   }, []);
 
-  /* =========================
-     Render
-  ========================= */
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      <section className="mt-8 mb-52 py-6 pb-16 md:mt-2 md:py-10">
+      <section className="mt-8 mb-52 w-full py-6 pb-16 md:mt-2 md:py-10">
         <div className="mx-auto w-full max-w-[1100px] px-4 md:px-6">
-          <div className="w-full overflow-visible">
+          <div
+            className="w-full"
+            style={{
+              overflow: "visible",
+              overflowAnchor: "none",
+            }}
+          >
             <iframe
               id="financing_form"
               src={SITE_CONFIG.urls.financeRenderApiUrl}
               name="iframe_a"
-              title="Cardora financing application"
+              title="Carma Credit financing application"
               scrolling="no"
+              frameBorder="0"
+              allow="payment"
               className="block w-full border-0"
               style={{
                 display: "block",
                 width: "100%",
                 height: `${height}px`,
                 minHeight: `${MIN_HEIGHT}px`,
+                margin: "0",
+                padding: "0",
                 border: "0",
                 overflow: "hidden",
+                background: "transparent",
+                overflowAnchor: "none",
               }}
             />
           </div>
