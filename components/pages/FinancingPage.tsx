@@ -9,8 +9,8 @@ import { PageShell } from "@/components/layout";
 import { getConstants } from "@/constants";
 import { useAppConfig } from "@/app/providers";
 
-const MIN_HEIGHT = 1100;
-const FALLBACK_HEIGHT = 1102;
+const MIN_HEIGHT = 2000;
+const FALLBACK_HEIGHT = 2000;
 
 const Finance = () => {
   const appConfig = useAppConfig();
@@ -121,7 +121,7 @@ const Finance = () => {
   return (
     <div className="bg-background w-full">
       <PageShell>
-        <section className="py-4 md:py-6 w-full mt-10 lg:mt-0">
+        <section className="w-full py-4 md:py-6">
           <div className="mx-auto w-full max-w-[1100px] px-3 sm:px-4 md:px-6">
             <div className="w-full">
               <iframe
