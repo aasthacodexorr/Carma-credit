@@ -1,29 +1,8 @@
-/* =========================
-   Financing Page
-   Embeds the Carma financing application form
-   through an iframe.
-
-   Important:
-   The financing steps themselves are rendered
-   inside the cross-origin Carma iframe.
-
-   The parent page therefore only:
-   - receives the iframe height through postMessage
-   - updates the iframe height
-   - prevents unnecessary layout/scroll changes
-
-   It does NOT attempt to control the iframe's
-   internal scroll position.
-========================= */
-
 "use client";
 
 import { useEffect, useRef, useState } from "react";
 
-// Layout
 import { Header, Footer } from "@/components/layout";
-
-// Config
 import { getConstants } from "@/constants";
 import { useAppConfig } from "@/app/providers";
 
@@ -34,6 +13,16 @@ import { useAppConfig } from "@/app/providers";
 const MIN_HEIGHT = 1540;
 const FALLBACK_HEIGHT = 1900;
 
+/*
+ * Large temporary height used while the iframe
+ * is changing between financing steps.
+ *
+ * This prevents iOS Safari from repeatedly
+ * shrinking/expanding the iframe viewport while
+ * the embedded form is rendering.
+ */
+const TRANSITION_HEIGHT = 3000;
+
 /* =========================
    Page Component
 ========================= */
@@ -42,14 +31,14 @@ const Finance = () => {
   const appConfig = useAppConfig();
   const { SITE_CONFIG } = getConstants(appConfig);
 
-  const [height, setHeight] = useState<number>(FALLBACK_HEIGHT);
+  const [height, setHeight] = useState(FALLBACK_HEIGHT);
 
   const resizeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const lastHeightRef = useRef<number>(FALLBACK_HEIGHT);
+  const transitionTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null
+  );
 
-  /* =========================
-     Receive iframe height
-  ========================= */
+  const lastHeightRef = useRef(FALLBACK_HEIGHT);
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
@@ -66,46 +55,56 @@ const Finance = () => {
         return;
       }
 
-      /*
-       * The iframe reports its required height.
-       *
-       * Keep a small amount of extra space at the bottom
-       * so the final button is not clipped.
-       */
+      const reportedHeight = Math.ceil(data.value) + 50;
+
       const newHeight = Math.max(
         MIN_HEIGHT,
-        Math.ceil(data.value) + 40
+        reportedHeight
       );
 
       /*
-       * Ignore tiny height changes.
-       *
-       * This prevents Safari from continuously recalculating
-       * the iframe layout for very small changes.
-       */
-      if (Math.abs(lastHeightRef.current - newHeight) < 10) {
-        return;
-      }
-
-      /*
-       * Clear any pending resize.
+       * Clear previous resize.
        */
       if (resizeTimeoutRef.current) {
         clearTimeout(resizeTimeoutRef.current);
       }
 
       /*
-       * Give the iframe a very small amount of time to finish
-       * its internal layout before changing the iframe height.
-       *
-       * This is especially helpful on iOS Safari when moving
-       * between the financing steps.
+       * Clear any existing transition timeout.
        */
-      resizeTimeoutRef.current = setTimeout(() => {
-        lastHeightRef.current = newHeight;
+      if (transitionTimeoutRef.current) {
+        clearTimeout(transitionTimeoutRef.current);
+      }
 
-        setHeight(newHeight);
-      }, 100);
+      /*
+       * First give Safari a large stable iframe viewport.
+       *
+       * This is important when the embedded form changes
+       * from Step 1 -> Step 2 -> Step 3.
+       */
+      setHeight((currentHeight) => {
+        if (currentHeight < TRANSITION_HEIGHT) {
+          return TRANSITION_HEIGHT;
+        }
+
+        return currentHeight;
+      });
+
+      /*
+       * Wait for the embedded document to finish
+       * its step transition before applying its
+       * final reported height.
+       */
+      transitionTimeoutRef.current = setTimeout(() => {
+        resizeTimeoutRef.current = setTimeout(() => {
+          if (
+            Math.abs(lastHeightRef.current - newHeight) >= 10
+          ) {
+            lastHeightRef.current = newHeight;
+            setHeight(newHeight);
+          }
+        }, 100);
+      }, 350);
     };
 
     window.addEventListener("message", handleMessage);
@@ -115,6 +114,10 @@ const Finance = () => {
 
       if (resizeTimeoutRef.current) {
         clearTimeout(resizeTimeoutRef.current);
+      }
+
+      if (transitionTimeoutRef.current) {
+        clearTimeout(transitionTimeoutRef.current);
       }
     };
   }, []);
