@@ -29,15 +29,15 @@ export interface MetadataDefinition {
 
 export const pageMetadata: Record<MetadataPageKey, MetadataDefinition> = {
   home: {
-    title: "Auto Financing in Brampton, Ontario | Carma Credit",
+    title: "Auto Financing in Ontario | Carma Credit",
     description:
-      "Looking for auto financing with good, bad, or limited credit? Carma Credit in Brampton, Ontario helps you explore car loan options and take the next step toward getting approved.",
+      "Looking for auto financing with good, bad, or limited credit? Carma Credit in Ontario helps you explore car loan options and take the next step toward getting approved.",
 //     titleConfigKey: "home_page_title",
 //     descriptionConfigKey: "home_page_description",
   },
 
   aboutUs: {
-    title: "About Carma Credit | Auto Financing in Brampton, Ontario",
+    title: "About Carma Credit | Auto Financing in Ontario",
     description:
       "Learn how Carma Credit helps Canadians with different credit backgrounds explore vehicle financing options and find a path toward getting approved.",
   },
@@ -45,15 +45,15 @@ export const pageMetadata: Record<MetadataPageKey, MetadataDefinition> = {
   appointment: {
     title: "Book an Auto Financing Appointment | Carma Credit",
     description:
-      "Book an appointment with Carma Credit in Brampton, Ontario to discuss your auto financing options, credit situation, and next steps toward getting approved for a vehicle.",
+      "Book an appointment with Carma Credit in Ontario to discuss your auto financing options, credit situation, and next steps toward getting approved for a vehicle.",
 //     titleConfigKey: "book_an_appointment_page_title",
 //     descriptionConfigKey: "book_an_appointment_page_description",
   },
 
   contact: {
-    title: "Contact Carma Credit | Auto Financing in Brampton",
+    title: "Contact Carma Credit | Auto Financing in Ontario",
     description:
-      "Have questions about auto financing or your credit options? Contact Carma Credit in Brampton, Ontario to discuss your situation and learn more about getting approved for a vehicle.",
+      "Have questions about auto financing or your credit options? Contact Carma Credit in Ontario to discuss your situation and learn more about getting approved for a vehicle.",
 //     titleConfigKey: "contact_us_page_title",
 //     descriptionConfigKey: "contact_us_page_description",
   },
@@ -61,7 +61,7 @@ export const pageMetadata: Record<MetadataPageKey, MetadataDefinition> = {
   finance: {
     title: "Car Financing for Bad or Good Credit | Carma Credit",
     description:
-      "Explore auto financing options for good, bad, or limited credit with Carma Credit in Brampton, Ontario. Apply online and take the next step toward getting approved.",
+      "Explore auto financing options for good, bad, or limited credit with Carma Credit in Ontario. Apply online and take the next step toward getting approved.",
 //     titleConfigKey: "finance_page_title",
 //     descriptionConfigKey: "finance_page_description",
   },
@@ -95,7 +95,7 @@ export const pageMetadata: Record<MetadataPageKey, MetadataDefinition> = {
   privacyPolicy: {
     title: "Privacy Policy | Carma Credit",
     description:
-      "Review the privacy policy for Carma Credit in Brampton, Ontario. Learn how your personal information is collected, used, and protected.",
+      "Review the privacy policy for Carma Credit in Ontario. Learn how your personal information is collected, used, and protected.",
 //     titleConfigKey: "privacy_policy_page_title",
 //     descriptionConfigKey: "privacy_policy_page_description",
   },
@@ -117,7 +117,7 @@ export const pageMetadata: Record<MetadataPageKey, MetadataDefinition> = {
   termsConditions: {
     title: "Terms and Conditions | Carma Credit",
     description:
-      "Review the terms and conditions for Carma Credit in Brampton, Ontario. Contact us at %sales_number_1 or %email_1 if you have questions.",
+      "Review the terms and conditions for Carma Credit in Ontario. Contact us at %sales_number_1 or %email_1 if you have questions.",
 //     titleConfigKey: "terms_and_conditions_page_title",
 //     descriptionConfigKey: "terms_and_conditions_page_description",
   },

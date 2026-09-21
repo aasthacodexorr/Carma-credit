@@ -99,4 +99,5 @@ declare module 'lucide-react' {
   export const Landmark:Icon;
   export const CalendarDays:Icon;
   export const Info:Icon;
+  export const ArrowDown:Icon;
 }

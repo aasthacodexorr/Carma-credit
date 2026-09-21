@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <g fill="none" stroke="#FF385C" stroke-linecap="round" stroke-linejoin="round">
+    <!-- document outline -->
+    <path d="M35 22h82c4.4 0 8 3.6 8 8v100c0 4.4-3.6 8-8 8H35c-4.4 0-8-3.6-8-8V30c0-4.4 3.6-8 8-8Z" stroke-width="9"/>
+    <!-- text lines -->
+    <path d="M47 52h54M47 73h54M47 94h38" stroke-width="8"/>
+    <!-- pencil -->
+    <path d="M91 111 126 76l13 13-35 35-17 5Z" fill="#FF385C" stroke-width="5"/>
+    <path d="m126 76 5-5c2.2-2.2 5.8-2.2 8 0l6 6c2.2 2.2 2.2 5.8 0 8l-5 5Z" fill="#FF385C" stroke-width="5"/>
+    <path d="m93 126-6 2 2-6" fill="#FF385C" stroke-width="5"/>
+  </g>
+</svg>
