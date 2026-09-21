@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <g fill="none" stroke="#FF385C" stroke-linecap="round" stroke-linejoin="round">
+    <!-- document body with folded corner -->
+    <path
+      d="M43 20h70l20 20v100c0 5.5-4.5 10-10 10H43c-5.5 0-10-4.5-10-10V30c0-5.5 4.5-10 10-10Z"
+      stroke-width="9"/>
+    <!-- folded corner -->
+    <path d="M113 20v20h20" stroke-width="9"/>
+    <!-- text lines -->
+    <path d="M52 57h39M52 78h57M52 99h25M87 99h22" stroke-width="8"/>
+  </g>
+</svg>
