@@ -1,167 +1,164 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
-import { Header, Footer } from "@/components/layout";
+// Layout
+import { PageShell } from "@/components/layout";
+
+// Config
 import { getConstants } from "@/constants";
 import { useAppConfig } from "@/app/providers";
 
-/* =========================
-   Constants
-========================= */
+const DESKTOP_MIN_HEIGHT = 1100;
+const DESKTOP_FALLBACK_HEIGHT = 1102;
 
-const MIN_HEIGHT = 1540;
-const FALLBACK_HEIGHT = 1900;
-
-/*
- * Large temporary height used while the iframe
- * is changing between financing steps.
- *
- * This prevents iOS Safari from repeatedly
- * shrinking/expanding the iframe viewport while
- * the embedded form is rendering.
- */
-const TRANSITION_HEIGHT = 3000;
-
-/* =========================
-   Page Component
-========================= */
+const MOBILE_MIN_HEIGHT = 350;
+const MOBILE_FALLBACK_HEIGHT = 450;
 
 const Finance = () => {
   const appConfig = useAppConfig();
   const { SITE_CONFIG } = getConstants(appConfig);
 
-  const [height, setHeight] = useState(FALLBACK_HEIGHT);
-
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const resizeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const transitionTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
-    null
-  );
 
-  const lastHeightRef = useRef(FALLBACK_HEIGHT);
+  const getInitialHeight = () => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      return MOBILE_FALLBACK_HEIGHT;
+    }
+
+    return DESKTOP_FALLBACK_HEIGHT;
+  };
+
+  const [height, setHeight] = useState<number>(getInitialHeight());
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, []);
 
   useEffect(() => {
+    const getMinHeight = () => {
+      return window.innerWidth < 768
+        ? MOBILE_MIN_HEIGHT
+        : DESKTOP_MIN_HEIGHT;
+    };
+
+    const requestIframeResize = () => {
+      const iframe = iframeRef.current;
+
+      if (!iframe?.contentWindow) return;
+
+      iframe.contentWindow.postMessage(
+        {
+          type: "resize",
+          element_id: "finance_form",
+        },
+        "*"
+      );
+    };
+
     const handleMessage = (event: MessageEvent) => {
       const data = event.data;
 
       if (
-        !data ||
-        typeof data !== "object" ||
-        data.type !== "css" ||
-        data.element_id !== "financing_form" ||
-        typeof data.value !== "number" ||
-        !Number.isFinite(data.value)
+        data &&
+        typeof data === "object" &&
+        data.type === "css" &&
+        (data.element_id === "finance_form" ||
+          data.element_id === "financing_form") &&
+        typeof data.value === "number"
       ) {
-        return;
+        const minHeight = getMinHeight();
+
+        const newHeight = Math.max(
+          minHeight,
+          Math.ceil(data.value)
+        );
+
+        setHeight(newHeight);
       }
+    };
 
-      const reportedHeight = Math.ceil(data.value) + 50;
+    const handleResize = () => {
+      const fallbackHeight =
+        window.innerWidth < 768
+          ? MOBILE_FALLBACK_HEIGHT
+          : DESKTOP_FALLBACK_HEIGHT;
 
-      const newHeight = Math.max(
-        MIN_HEIGHT,
-        reportedHeight
+      setHeight((currentHeight) =>
+        Math.max(currentHeight, fallbackHeight)
       );
 
-      /*
-       * Clear previous resize.
-       */
       if (resizeTimeoutRef.current) {
         clearTimeout(resizeTimeoutRef.current);
       }
 
-      /*
-       * Clear any existing transition timeout.
-       */
-      if (transitionTimeoutRef.current) {
-        clearTimeout(transitionTimeoutRef.current);
-      }
-
-      /*
-       * First give Safari a large stable iframe viewport.
-       *
-       * This is important when the embedded form changes
-       * from Step 1 -> Step 2 -> Step 3.
-       */
-      setHeight((currentHeight) => {
-        if (currentHeight < TRANSITION_HEIGHT) {
-          return TRANSITION_HEIGHT;
-        }
-
-        return currentHeight;
-      });
-
-      /*
-       * Wait for the embedded document to finish
-       * its step transition before applying its
-       * final reported height.
-       */
-      transitionTimeoutRef.current = setTimeout(() => {
-        resizeTimeoutRef.current = setTimeout(() => {
-          if (
-            Math.abs(lastHeightRef.current - newHeight) >= 10
-          ) {
-            lastHeightRef.current = newHeight;
-            setHeight(newHeight);
-          }
-        }, 100);
-      }, 350);
+      resizeTimeoutRef.current = setTimeout(() => {
+        requestIframeResize();
+      }, 150);
     };
 
     window.addEventListener("message", handleMessage);
+    window.addEventListener("resize", handleResize);
+
+    const initialTimeout = setTimeout(() => {
+      requestIframeResize();
+    }, 300);
 
     return () => {
       window.removeEventListener("message", handleMessage);
+      window.removeEventListener("resize", handleResize);
+
+      clearTimeout(initialTimeout);
 
       if (resizeTimeoutRef.current) {
         clearTimeout(resizeTimeoutRef.current);
-      }
-
-      if (transitionTimeoutRef.current) {
-        clearTimeout(transitionTimeoutRef.current);
       }
     };
   }, []);
 
+  const handleIframeLoad = () => {
+    const iframe = iframeRef.current;
+
+    if (!iframe?.contentWindow) return;
+
+    iframe.contentWindow.postMessage(
+      {
+        type: "resize",
+        element_id: "finance_form",
+      },
+      "*"
+    );
+  };
+
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-
-      <section className="mt-8 mb-52 w-full py-6 pb-16 md:mt-2 md:py-10">
-        <div className="mx-auto w-full max-w-[1100px] px-4 md:px-6">
-          <div
-            className="w-full"
-            style={{
-              overflow: "visible",
-              overflowAnchor: "none",
-            }}
-          >
-            <iframe
-              id="financing_form"
-              src={SITE_CONFIG.urls.financeRenderApiUrl}
-              name="iframe_a"
-              title="Carma Credit financing application"
-              scrolling="no"
-              frameBorder="0"
-              allow="payment"
-              className="block w-full border-0"
-              style={{
-                display: "block",
-                width: "100%",
-                height: `${height}px`,
-                minHeight: `${MIN_HEIGHT}px`,
-                margin: "0",
-                padding: "0",
-                border: "0",
-                overflow: "hidden",
-                background: "transparent",
-                overflowAnchor: "none",
-              }}
-            />
+    <div className="bg-background w-full">
+      <PageShell>
+        <section className="py-4 md:py-6 w-full mt-10 lg:mt-0">
+          <div className="mx-auto w-full max-w-[1100px] px-3 sm:px-4 md:px-6">
+            <div className="w-full">
+              <iframe
+                ref={iframeRef}
+                id="finance_form"
+                src={`${SITE_CONFIG.urls.financeRenderApiUrl}?`}
+                name="iframe_a"
+                title="Carma Credit financing application"
+                scrolling="no"
+                onLoad={handleIframeLoad}
+                className="block w-full max-w-full border-0"
+                style={{
+                  width: "100%",
+                  minHeight: "850px",
+                  height: `${height}px`,
+                  display: "block",
+                }}
+              />
+            </div>
           </div>
-        </div>
-      </section>
-
-      <Footer />
+        </section>
+      </PageShell>
     </div>
   );
 };
