@@ -416,18 +416,18 @@ export default function WhatDoINeedPage() {
         {/* ========================================================================= */}
         {/* SECTION 4: YOU'RE NOT ALONE — We're Here to Help (Specialist Two-Column) */}
         {/* ========================================================================= */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-0 bg-white">
-          <div className="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-0">
+        <section className="relative w-full py-12 sm:py-16 lg:py-0 bg-white lg:mb-16">
+          <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-12 xl:px-18">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
               {/* Left Column: Specialist Photo with Script Overlay */}
               <div className="lg:col-span-6">
-                <div className="relative w-full overflow-hidden shadow-md bg-slate-100">
+                <div className="relative w-full overflow-hidden shadow-md bg-slate-100 rounded-2xl">
                   <Image
                     src="/images/what_do_i_need_specialist_hd.png"
                     alt="Carma Credit auto financing specialist meeting with customer"
                     width={1730}
                     height={909}
-                    className="block w-full h-auto"
+                    className="block w-full h-auto object-cover rounded-2xl"
                     priority
                     unoptimized
                   />

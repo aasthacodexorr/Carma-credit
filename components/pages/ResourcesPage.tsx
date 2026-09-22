@@ -309,25 +309,25 @@ export default function ResourcesPage() {
         </section>
 
         {/* SECTION 5: SPECIALIST SUPPORT */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-0 bg-white">
-          <div className="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-0">
+        <section className="relative w-full py-12 sm:py-16 lg:py-0 bg-white lg:my-16">
+          <div className="w-full max-w-[1480px] mx-auto px-4 sm:px-12 xl:px-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
               {/* Left Column: Specialist Photo with Script Overlay */}
               <div className="lg:col-span-6">
-                <div className="relative w-full overflow-hidden shadow-md bg-slate-100">
+                <div className="relative w-full overflow-hidden shadow-md bg-slate-100 rounded-2xl">
                   <Image
                     src="/images/what_do_i_need_specialist_hd.png"
                     alt="Carma Credit auto financing specialist meeting with customer"
                     width={1730}
                     height={909}
-                    className="block w-full h-auto"
+                    className="block w-full h-auto rounded-2xl object-cover"
                     priority
                     unoptimized
                   />
                 </div>
               </div>
 
-              <div className="lg:col-span-6 bg-slate-50 p-8 sm:p-12 rounded-2xl flex flex-col items-start justify-center">
+              <div className="lg:col-span-6 bg-slate-50 p-2 sm:p-12 rounded-2xl flex flex-col items-start justify-center">
                 <span className="text-brand font-bold text-md uppercase tracking-widest block mb-2">
                   Still Have Questions?
                 </span>
@@ -339,7 +339,7 @@ export default function ResourcesPage() {
                 </p>
                 <Link
                   href="/financing"
-                  className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-[#ff385c]/20 transition-all duration-300 hover:bg-brand"
+                  className="inline-flex items-center space-x-2 rounded-full bg-[#ff385c] px-4 text-sm lg:px-7 py-3.5 lg:text-base font-bold text-white shadow-lg shadow-[#ff385c]/20 transition-all duration-300 hover:bg-brand"
                 >
                   <span>Talk to an Auto Financing Specialist</span>
                   <ArrowRight className="h-4 w-4 stroke-[2.5]" />
@@ -357,7 +357,7 @@ export default function ResourcesPage() {
               src="/images/what_do_i_need_sunset_hd.png"
               alt="Carma Credit auto financing specialist meeting with customer"
               fill
-              className="block w-full h-auto object-cover"
+              className="block w-full h-auto object-cover "
               priority
               unoptimized
             />

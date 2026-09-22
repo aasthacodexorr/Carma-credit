@@ -19,22 +19,22 @@ const HOURS_STRING = "Mon - Fri: 9:00 AM - 8:00 PM | Sat: 9:00 AM - 6:00 PM | Su
 
 const FEATURES = [
   {
-    icon: "💬",
+    icon: "/images/chat.png",
     title: "Quick Response",
     description: "We typically reply within 1 business hour.",
   },
   {
-    icon: "👥",
+    icon: "/images/people.png",
     title: "Real People",
     description: "Speak with our experienced financing team.",
   },
   {
-    icon: "🍁",
+    icon: "/images/deal.png",
     title: "Canadian & Local",
     description: "Proudly serving customers across Ontario.",
   },
   {
-    icon: "🛡️",
+    icon: "/images/verified.png",
     title: "Your Privacy Matters",
     description: "Your information is always kept confidential.",
   },
@@ -191,9 +191,22 @@ export default function ContactUs() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {FEATURES.map((feat, idx) => (
                 <div key={idx} className="flex flex-col items-center text-center p-4">
-                  <div className="w-24 h-24 rounded-full bg-[#fff5f8] text-[#ff385c] flex items-center justify-center text-3xl mb-4 shadow-sm">
-                    {feat.icon}
+                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full sm:h-12 sm:w-12 lg:h-16 lg:w-16 bg-[#ff385c]/20">
+                    <div
+                      className="h-full w-full bg-[#ff385c]"
+                      style={{
+                        maskImage: `url(${feat.icon})`,
+                        WebkitMaskImage: `url(${feat.icon})`,
+                        maskRepeat: "no-repeat",
+                        WebkitMaskRepeat: "no-repeat",
+                        maskPosition: "center",
+                        WebkitMaskPosition: "center",
+                        maskSize: "50%", // Uniform scaling for all icons
+                        WebkitMaskSize: "45%",
+                      }}
+                    />
                   </div>
+
                   <h3 className="font-bold text-[17px] text-[#121212] mb-1">
                     {feat.title}
                   </h3>
@@ -209,8 +222,8 @@ export default function ContactUs() {
         {/* =========================
             SECTION 3: REAL PEOPLE BANNER & FAQS
         ========================= */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-0 bg-white">
-          <div className="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-0">
+        <section className="relative w-full py-12 sm:py-16 lg:py-0 my-16">
+          <div className="w-full max-w-[1480px] mx-auto px-4 sm:px-12 xl:px-16">
             <div className="flex gap-8 flex-col lg:flex-row items-start">
               {/* Left Column: Specialist Photo with Script Overlay */}
               <div className="lg:col-span-6">
@@ -220,7 +233,7 @@ export default function ContactUs() {
                     alt="Carma Credit auto financing specialist meeting with customer"
                     width={1730}
                     height={909}
-                    className="block w-full h-auto"
+                    className="block w-full h-auto rounded-2xl object-cover"
                     priority
                     unoptimized
                   />
@@ -239,7 +252,7 @@ export default function ContactUs() {
                   You might find the answer in our FAQs.
                 </p>
 
-                <div className="mt-6 space-y-4 w-full lg:pr-20">
+                <div className="mt-6 space-y-4 w-full">
                   <FaqAccordion faqs={FAQS}/>
                 </div>
 
