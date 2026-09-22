@@ -165,7 +165,7 @@ export default function HowItWorksPage() {
         <section className="py-10 sm:py-16 bg-white">
           <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto">
 
-            <div className="text-center max-w-2xl mx-auto mb-20">
+            <div className="text-center max-w-2xl mx-auto mb-10">
               <span className="text-brand uppercase tracking-widest text-base font-bold block mb-2">
                 A SIMPLE 4-STEP PROCESS
               </span>
@@ -185,15 +185,15 @@ export default function HowItWorksPage() {
                 {steps.map((step, index) => (
                   <div
                     key={step.number}
-                    className={`flex flex-col lg:flex-row  px-5 items-start lg:items-center gap-8 w-full ${index !== 0 ? "mt-12" : ""}`}
+                    className={`flex flex-col lg:flex-row  px-5 items-center gap-4 lg:gap-8 w-full ${index !== 0 ? "mt-12" : ""}`}
                   >
                     {/* Left: Number + Icon + Text Group */}
-                    <div className="flex flex-col lg:flex-row items-center gap-8 lg:max-w-xl lg:min-w-xl max-w-full">
+                    <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-8 lg:max-w-xl lg:min-w-xl max-w-full">
                       <div className="w-16 h-16 rounded-full bg-[#ff385c] text-white flex items-center justify-center font-bold text-xl shadow-md flex-shrink-0 z-10">
                         {step.number}
                       </div>
 
-                      <div>
+                      <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-2">
                         <h3 className="text-2xl font-extrabold text-[#1a1b35] mb-2">{step.title}</h3>
                         <p className="text-[#4a4b65] text-base leading-relaxed">
                           {step.description}
@@ -221,7 +221,7 @@ export default function HowItWorksPage() {
         </section>
 
         {/* ================= SECTION 3: WHY CHOOSE CARMA CREDIT ================= */}
-        <section className="bg-[#fdf4f7] py-20">
+        <section className="bg-[#fdf4f7] py-10 lg:py-20">
           <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto">
 
             <h2 className="text-3xl font-extrabold text-center text-[#1a1b35] mb-12">

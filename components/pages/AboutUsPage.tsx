@@ -108,7 +108,7 @@ export default function Home() {
           <div className="w-full max-w-[1360px] mx-auto px-6 sm:px-6 lg:px-8">
             {/* Top Mission Content (Centered) */}
             <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-              <span className="text-sm sm:text-[13px] font-bold tracking-[0.2em] text-brand uppercase block mb-1">
+              <span className="text-sm sm:text-[13px] font-bold tracking-[0.2em] text-brand uppercase block mb-2">
                 Our Mission
               </span>
               <h2 className="text-2xl sm:text-4xl lg:text-[44px] font-extrabold text-[#131b4d] tracking-tight leading-[1.15] mb-4">
