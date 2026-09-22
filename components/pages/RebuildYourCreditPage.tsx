@@ -307,13 +307,13 @@ export default function UnderstandingCreditPage() {
         </section>
 
         {/* ================= SECTION 4: FAQ / COMMON QUESTIONS ================= */}
-        <section className="py-20 bg-white">
+        <section className="pt-16 pb-4 bg-white">
           <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto">
             <div className="text-center mb-12">
               <span className="text-base font-bold tracking-widest text-brand uppercase mb-2 block">
                 COMMON QUESTIONS
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1b35]">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1a1b35]">
                 Your Credit Questions, Answered.
               </h2>
             </div>
