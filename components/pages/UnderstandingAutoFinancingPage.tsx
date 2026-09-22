@@ -152,7 +152,7 @@ export default function AutoLoanFraudPage() {
         </section>
 
         {/* ================= SECTION 3: TYPES OF AUTO LOAN FRAUD ================= */}
-        <section className="py-20 bg-[#fdf4f7]">
+        <section className="py-10 lg:py-20 bg-[#fdf4f7]">
           <div className="max-w-[1480px] px-6 sm:px-12 xl:px-16 mx-auto">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-brand uppercase tracking-widest text-base font-bold block mb-2">

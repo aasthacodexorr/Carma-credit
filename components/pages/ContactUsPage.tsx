@@ -186,17 +186,21 @@ export default function ContactUs() {
         {/* =========================
             SECTION 2: FEATURE BADGES
         ========================= */}
-        <section className="w-full bg-[#fcfcfc] py-12">
-          <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-12 xl:px-16">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {FEATURES.map((feat, idx) => (
-                <div key={idx} className="flex flex-col items-center text-center p-4">
-                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full sm:h-12 sm:w-12 lg:h-16 lg:w-16 bg-[#ff385c]/20">
+        <section className="w-full border-b border-slate-200 bg-white py-6 shadow-sm">
+          <div className="mx-auto max-w-[1480px] px-3 sm:px-12 xl:px-16">
+            <div className="grid grid-cols-4 gap-2 lg:gap-6 lg:divide-x lg:divide-slate-200">
+              {FEATURES.map((perk, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center justify-start text-center lg:px-6 first:lg:pl-0 last:lg:pr-0"
+                >
+                  {/* Icon Container */}
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full sm:h-12 sm:w-12 lg:h-16 lg:w-16 bg-[#ff385c]/20">
                     <div
                       className="h-full w-full bg-[#ff385c]"
                       style={{
-                        maskImage: `url(${feat.icon})`,
-                        WebkitMaskImage: `url(${feat.icon})`,
+                        maskImage: `url(${perk.icon})`,
+                        WebkitMaskImage: `url(${perk.icon})`,
                         maskRepeat: "no-repeat",
                         WebkitMaskRepeat: "no-repeat",
                         maskPosition: "center",
@@ -207,12 +211,12 @@ export default function ContactUs() {
                     />
                   </div>
 
-                  <h3 className="font-bold text-[17px] text-[#121212] mb-1">
-                    {feat.title}
-                  </h3>
-                  <p className="text-[14px] text-[#666] leading-relaxed">
-                    {feat.description}
-                  </p>
+                  {/* Text Container with fixed height/flex alignment to match start lines */}
+                  <div className="mt-2 flex h-10 sm:h-12 items-start justify-center">
+                    <p className="w-full max-w-[90px] text-[11px] font-medium leading-tight text-[#131b4d] sm:max-w-[135px] sm:text-sm lg:text-base lg:font-bold">
+                      {perk.title}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -222,7 +226,7 @@ export default function ContactUs() {
         {/* =========================
             SECTION 3: REAL PEOPLE BANNER & FAQS
         ========================= */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-0 my-16">
+        <section className="relative w-full py-0 sm:py-16 lg:py-0 my-16">
           <div className="w-full max-w-[1480px] mx-auto px-4 sm:px-12 xl:px-16">
             <div className="flex gap-8 flex-col lg:flex-row items-start">
               {/* Left Column: Specialist Photo with Script Overlay */}
