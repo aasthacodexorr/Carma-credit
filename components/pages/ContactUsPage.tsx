@@ -85,7 +85,7 @@ export default function ContactUs() {
       ) {
         const newHeight = Math.max(
           MIN_HEIGHT,
-          Math.ceil(data.value) + 80
+          Math.ceil(data.value) + 120
         );
 
         setHeight(newHeight);

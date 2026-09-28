@@ -18,12 +18,6 @@ const Finance = () => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState<number>(MIN_HEIGHT);
 
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  }, []);
-
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       if (event.origin !== "https://carma.zopsoftware.com") {
@@ -44,7 +38,7 @@ const Finance = () => {
       ) {
         const newHeight = Math.max(
           MIN_HEIGHT,
-          Math.ceil(data.value) + 280
+          Math.ceil(data.value) + 200
         );
         setHeight(newHeight);
         console.log("new height", newHeight);
