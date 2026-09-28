@@ -9,28 +9,14 @@ import { PageShell } from "@/components/layout";
 import { getConstants } from "@/constants";
 import { useAppConfig } from "@/app/providers";
 
-const DESKTOP_MIN_HEIGHT = 1100;
-const DESKTOP_FALLBACK_HEIGHT = 1102;
-
-const MOBILE_MIN_HEIGHT = 350;
-const MOBILE_FALLBACK_HEIGHT = 450;
+const MIN_HEIGHT = 1100;
 
 const Finance = () => {
   const appConfig = useAppConfig();
   const { SITE_CONFIG } = getConstants(appConfig);
 
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const resizeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const getInitialHeight = () => {
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
-      return MOBILE_FALLBACK_HEIGHT;
-    }
-
-    return DESKTOP_FALLBACK_HEIGHT;
-  };
-
-  const [height, setHeight] = useState<number>(getInitialHeight());
+  const [height, setHeight] = useState<number>(MIN_HEIGHT);
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
@@ -39,27 +25,11 @@ const Finance = () => {
   }, []);
 
   useEffect(() => {
-    const getMinHeight = () => {
-      return window.innerWidth < 768
-        ? MOBILE_MIN_HEIGHT
-        : DESKTOP_MIN_HEIGHT;
-    };
-
-    const requestIframeResize = () => {
-      const iframe = iframeRef.current;
-
-      if (!iframe?.contentWindow) return;
-
-      iframe.contentWindow.postMessage(
-        {
-          type: "resize",
-          element_id: "finance_form",
-        },
-        "*"
-      );
-    };
-
     const handleMessage = (event: MessageEvent) => {
+      if (event.origin !== "https://carma.zopsoftware.com") {
+        return;
+      }
+
       const data = event.data;
 
       if (
@@ -68,77 +38,34 @@ const Finance = () => {
         data.type === "css" &&
         (data.element_id === "finance_form" ||
           data.element_id === "financing_form") &&
-        typeof data.value === "number"
+        typeof data.value === "number" &&
+        Number.isFinite(data.value) &&
+        data.value > 0
       ) {
-        const minHeight = getMinHeight();
-
         const newHeight = Math.max(
-          minHeight,
-          Math.ceil(data.value)
+          MIN_HEIGHT,
+          Math.ceil(data.value) + 80
         );
 
         setHeight(newHeight);
       }
     };
 
-    const handleResize = () => {
-      const fallbackHeight =
-        window.innerWidth < 768
-          ? MOBILE_FALLBACK_HEIGHT
-          : DESKTOP_FALLBACK_HEIGHT;
-
-      setHeight((currentHeight) =>
-        Math.max(currentHeight, fallbackHeight)
-      );
-
-      if (resizeTimeoutRef.current) {
-        clearTimeout(resizeTimeoutRef.current);
-      }
-
-      resizeTimeoutRef.current = setTimeout(() => {
-        requestIframeResize();
-      }, 150);
-    };
-
     window.addEventListener("message", handleMessage);
-    window.addEventListener("resize", handleResize);
-
-    const initialTimeout = setTimeout(() => {
-      requestIframeResize();
-    }, 300);
 
     return () => {
       window.removeEventListener("message", handleMessage);
-      window.removeEventListener("resize", handleResize);
-
-      clearTimeout(initialTimeout);
-
-      if (resizeTimeoutRef.current) {
-        clearTimeout(resizeTimeoutRef.current);
-      }
     };
   }, []);
-
-  const handleIframeLoad = () => {
-    const iframe = iframeRef.current;
-
-    if (!iframe?.contentWindow) return;
-
-    iframe.contentWindow.postMessage(
-      {
-        type: "resize",
-        element_id: "finance_form",
-      },
-      "*"
-    );
-  };
 
   return (
     <div className="bg-background w-full">
       <PageShell>
         <section className="py-4 md:py-6 w-full mt-10 lg:mt-0">
-          <div className="mx-auto w-full max-w-[1100px] px-3 sm:px-4 md:px-6">
-            <div className="w-full">
+          <div className="mx-auto w-full px-3 sm:px-4 md:px-6">
+            <div
+              className="w-full rounded-2xl bg-white overflow-hidden"
+            >
               <iframe
                 ref={iframeRef}
                 id="finance_form"
@@ -146,13 +73,12 @@ const Finance = () => {
                 name="iframe_a"
                 title="Carma Credit financing application"
                 scrolling="no"
-                onLoad={handleIframeLoad}
-                className="block w-full max-w-full border-0"
+                className="block w-full  border-0 rounded-2xl bg-transparent"
                 style={{
                   width: "100%",
-                  minHeight: "850px",
                   height: `${height}px`,
-                  display: "block",
+                  minHeight: `${MIN_HEIGHT}px`,
+                  border: "none",
                 }}
               />
             </div>
