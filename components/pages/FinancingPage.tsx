@@ -38,7 +38,7 @@ const Finance = () => {
       ) {
         const newHeight = Math.max(
           MIN_HEIGHT,
-          Math.ceil(data.value) + 200
+          Math.ceil(data.value) + 400
         );
         setHeight(newHeight);
         console.log("new height", newHeight);
