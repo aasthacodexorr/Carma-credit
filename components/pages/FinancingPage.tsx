@@ -9,7 +9,7 @@ import { PageShell } from "@/components/layout";
 import { getConstants } from "@/constants";
 import { useAppConfig } from "@/app/providers";
 
-const MIN_HEIGHT = 1100;
+const MIN_HEIGHT = 1200;
 
 const Finance = () => {
   const appConfig = useAppConfig();
@@ -44,7 +44,7 @@ const Finance = () => {
       ) {
         const newHeight = Math.max(
           MIN_HEIGHT,
-          Math.ceil(data.value) + 80
+          Math.ceil(data.value) + 280
         );
         setHeight(newHeight);
         console.log("new height", newHeight);
