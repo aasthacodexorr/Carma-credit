@@ -47,6 +47,10 @@ const Finance = () => {
           Math.ceil(data.value) + 80
         );
 
+
+        console.log("height",newHeight);
+        console.log("[Contact iframe] height event:", data.value);
+
         setHeight(newHeight);
       }
     };
@@ -77,7 +81,7 @@ const Finance = () => {
                 style={{
                   width: "100%",
                   height: `${height}px`,
-                  minHeight: `${MIN_HEIGHT}px`,
+                  minHeight: `${height}px`,
                   border: "none",
                 }}
               />
