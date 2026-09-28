@@ -46,12 +46,9 @@ const Finance = () => {
           MIN_HEIGHT,
           Math.ceil(data.value) + 80
         );
-
-
-        console.log("height",newHeight);
-        console.log("[Contact iframe] height event:", data.value);
-
         setHeight(newHeight);
+        console.log("new height", newHeight);
+        console.log("[Finance iframe] height event:", data.value);
       }
     };
 
@@ -69,6 +66,9 @@ const Finance = () => {
           <div className="mx-auto w-full px-3 sm:px-4 md:px-6">
             <div
               className="w-full rounded-2xl bg-white overflow-hidden"
+              style={{
+                minHeight: `${height}px`,
+              }}
             >
               <iframe
                 ref={iframeRef}
