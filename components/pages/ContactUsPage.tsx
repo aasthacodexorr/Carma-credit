@@ -13,7 +13,6 @@ const LIVE_CONTACT_FORM_URL =
   "https://carma.zopsoftware.com/api/templates/render/2";
 
 const MIN_HEIGHT = 500;
-const DEFAULT_HEIGHT = 400;
 
 const HOURS_STRING = "Mon - Fri: 9:00 AM - 8:00 PM | Sat: 9:00 AM - 6:00 PM | Sun: 11:00 AM - 5:00 PM";
 
@@ -64,7 +63,7 @@ export default function ContactUs() {
     SITE_CONFIG?.urls.contactUsBaseUrl || LIVE_CONTACT_FORM_URL;
 
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [height, setHeight] = useState(DEFAULT_HEIGHT);
+  const [height, setHeight] = useState(MIN_HEIGHT);
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
@@ -80,11 +79,13 @@ export default function ContactUs() {
         data.type === "css" &&
         (data.element_id === "contact_us" ||
           data.element_id === "contact_form") &&
-        typeof data.value === "number"
+        typeof data.value === "number" &&
+        Number.isFinite(data.value) &&
+        data.value > 0
       ) {
         const newHeight = Math.max(
           MIN_HEIGHT,
-          Math.ceil(data.value) + 20
+          Math.ceil(data.value) + 80
         );
 
         setHeight(newHeight);
@@ -161,7 +162,12 @@ export default function ContactUs() {
               </div>
 
               {/* CONTACT FORM (IFRAME) */}
-              <div className="w-full min-w-0 rounded-2xl p-0  sm:p-6 shadow-[0_16px_50px_rgba(255,255,255,1)] border-[1px] border-[#eaeaea] bg-white">
+              <div
+                className="w-full min-w-0 rounded-2xl p-0 sm:p-6 shadow-[0_16px_50px_rgba(255,255,255,1)] border border-[#eaeaea] bg-white overflow-hidden"
+                style={{
+                  minHeight: `${MIN_HEIGHT}px`,
+                }}
+              >
                 <iframe
                   ref={iframeRef}
                   id="contact_form"
