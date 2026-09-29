@@ -35,6 +35,21 @@ const Finance = () => {
       window.scrollTo({ top: Math.max(top, 0), behavior: "auto" });
     };
 
+    // iOS Safari can keep a stale scroll offset / stale paint for the iframe
+    // layer after it resizes (it only recovers on app resume). Forcing a
+    // relayout of the iframe makes WebKit recompute it immediately.
+    const nudgeIframeLayout = () => {
+      const iframe = iframeRef.current;
+      if (!iframe) return;
+
+      iframe.style.width = "calc(100% - 1px)";
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          iframe.style.width = "100%";
+        });
+      });
+    };
+
     const handleMessage = (event: MessageEvent) => {
       if (event.origin !== "https://carma.zopsoftware.com") {
         return;
@@ -66,17 +81,34 @@ const Finance = () => {
         // The iframe sends this event on every step change, including the first
         // render. Skip the first one so the page doesn't jump on load.
         if (hasLoadedFirstStep.current) {
-          requestAnimationFrame(scrollToFormTop);
+          requestAnimationFrame(() => {
+            scrollToFormTop();
+            nudgeIframeLayout();
+          });
         } else {
           hasLoadedFirstStep.current = true;
         }
       }
     };
 
+    // A failed "Next"/"Submit" inside the iframe scrolls to the first invalid
+    // field without posting any message, and iOS can leave part of the iframe
+    // unpainted afterwards. Repaint the iframe whenever a scroll settles,
+    // whoever started it.
+    let scrollEndTimer: number | undefined;
+
+    const handleScroll = () => {
+      window.clearTimeout(scrollEndTimer);
+      scrollEndTimer = window.setTimeout(nudgeIframeLayout, 150);
+    };
+
     window.addEventListener("message", handleMessage);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener("message", handleMessage);
+      window.removeEventListener("scroll", handleScroll);
+      window.clearTimeout(scrollEndTimer);
     };
   }, []);
 
@@ -89,21 +121,19 @@ const Finance = () => {
               className="w-full rounded-2xl bg-white overflow-hidden"
               style={{
                 minHeight: `${height}px`,
+                // Own compositing layer: iOS Safari mis-clips iframes inside
+                // an overflow-hidden + border-radius parent without it.
+                transform: "translateZ(0)",
+                WebkitTransform: "translateZ(0)",
               }}
             >
-              {/*
-                No scrolling="no": on iOS Safari it lets the form's own
-                "scroll to first invalid field" animation push the iframe
-                content past its top, where the user can't scroll it back.
-                The iframe is always taller than its content, so no inner
-                scrollbar shows.
-              */}
               <iframe
                 ref={iframeRef}
                 id="finance_form"
                 src={`${SITE_CONFIG.urls.financeRenderApiUrl}?`}
                 name="iframe_a"
                 title="Carma Credit financing application"
+                scrolling="no"
                 className="block w-full  border-0 rounded-2xl bg-transparent"
                 style={{
                   width: "100%",
