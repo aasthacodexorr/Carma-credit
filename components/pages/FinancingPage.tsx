@@ -37,16 +37,17 @@ const Finance = () => {
 
     // iOS Safari can keep a stale scroll offset / stale paint for the iframe
     // layer after it resizes (it only recovers on app resume). Forcing a
-    // relayout of the iframe makes WebKit recompute it immediately. Height is
-    // used rather than width so the form's text never re-wraps (no flicker).
+    // relayout of the iframe makes WebKit recompute it immediately. This must
+    // be a width change: a height change doesn't invalidate the iframe's
+    // content (it's already taller than the form), so iOS doesn't repaint.
     const nudgeIframeLayout = () => {
       const iframe = iframeRef.current;
       if (!iframe) return;
 
-      iframe.style.height = `${heightRef.current + 1}px`;
+      iframe.style.width = "calc(100% - 1px)";
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          iframe.style.height = `${heightRef.current}px`;
+          iframe.style.width = "100%";
         });
       });
     };
