@@ -84,6 +84,7 @@ const Finance = () => {
           requestAnimationFrame(() => {
             scrollToFormTop();
             nudgeIframeLayout();
+            releaseIframeFocus();
           });
         } else {
           hasLoadedFirstStep.current = true;
@@ -91,10 +92,39 @@ const Finance = () => {
       }
     };
 
+    // A failed "Next"/"Submit" inside the iframe animates its own scrollTop
+    // (250ms) but sends no message. The only signal we get is the parent
+    // window blurring when a tap moves focus into the iframe, so repair the
+    // iframe layout once that animation has finished.
+    const repairTimers: number[] = [];
+
+    const handleWindowBlur = () => {
+      if (document.activeElement !== iframeRef.current) return;
+
+      repairTimers.push(
+        window.setTimeout(nudgeIframeLayout, 400),
+        window.setTimeout(nudgeIframeLayout, 900)
+      );
+    };
+
+    // After a step change no field inside the iframe is being edited, so hand
+    // focus back to the parent. The next tap in the iframe (e.g. an empty
+    // "Submit") then fires a fresh blur that handleWindowBlur can catch.
+    const releaseIframeFocus = () => {
+      const iframe = iframeRef.current;
+      if (!iframe || document.activeElement !== iframe) return;
+
+      iframe.blur();
+      window.focus();
+    };
+
     window.addEventListener("message", handleMessage);
+    window.addEventListener("blur", handleWindowBlur);
 
     return () => {
       window.removeEventListener("message", handleMessage);
+      window.removeEventListener("blur", handleWindowBlur);
+      repairTimers.forEach((id) => window.clearTimeout(id));
     };
   }, []);
 
