@@ -153,10 +153,10 @@ export default function ContactUs() {
                     </h2>
                   </div>
                   <Link
-                    href="mailto:sales#carmacredit.ca"
+                    href="mailto:sales@carmacredit.ca"
                     className="mt-1 block text-[16px] font-semibold text-[#121212] hover:text-[#ff385c] md:text-[18px]"
                   >
-                    sales#carmacredit.ca
+                    sales@carmacredit.ca
                   </Link>
                 </div>
               </div>
