@@ -137,10 +137,10 @@ export default function ContactUs() {
                     </h2>
                   </div>
                   <Link
-                    href="tel:+18559793500"
+                    href="tel:+1-(855)647-8500"
                     className="mt-1 block text-[16px] font-semibold text-[#121212] hover:text-[#ff385c] md:text-[18px]"
                   >
-                    +1-855-979-3500
+                    +1-(855)647-8500
                   </Link>
                 </div>
 
