@@ -84,7 +84,6 @@ const Finance = () => {
           requestAnimationFrame(() => {
             scrollToFormTop();
             nudgeIframeLayout();
-            releaseIframeFocus();
           });
         } else {
           hasLoadedFirstStep.current = true;
@@ -92,39 +91,24 @@ const Finance = () => {
       }
     };
 
-    // A failed "Next"/"Submit" inside the iframe animates its own scrollTop
-    // (250ms) but sends no message. The only signal we get is the parent
-    // window blurring when a tap moves focus into the iframe, so repair the
-    // iframe layout once that animation has finished.
-    const repairTimers: number[] = [];
+    // A failed "Next"/"Submit" inside the iframe scrolls to the first invalid
+    // field without posting any message, and iOS can leave part of the iframe
+    // unpainted afterwards. Repaint the iframe whenever a scroll settles,
+    // whoever started it.
+    let scrollEndTimer: number | undefined;
 
-    const handleWindowBlur = () => {
-      if (document.activeElement !== iframeRef.current) return;
-
-      repairTimers.push(
-        window.setTimeout(nudgeIframeLayout, 400),
-        window.setTimeout(nudgeIframeLayout, 900)
-      );
-    };
-
-    // After a step change no field inside the iframe is being edited, so hand
-    // focus back to the parent. The next tap in the iframe (e.g. an empty
-    // "Submit") then fires a fresh blur that handleWindowBlur can catch.
-    const releaseIframeFocus = () => {
-      const iframe = iframeRef.current;
-      if (!iframe || document.activeElement !== iframe) return;
-
-      iframe.blur();
-      window.focus();
+    const handleScroll = () => {
+      window.clearTimeout(scrollEndTimer);
+      scrollEndTimer = window.setTimeout(nudgeIframeLayout, 150);
     };
 
     window.addEventListener("message", handleMessage);
-    window.addEventListener("blur", handleWindowBlur);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener("message", handleMessage);
-      window.removeEventListener("blur", handleWindowBlur);
-      repairTimers.forEach((id) => window.clearTimeout(id));
+      window.removeEventListener("scroll", handleScroll);
+      window.clearTimeout(scrollEndTimer);
     };
   }, []);
 
@@ -137,6 +121,10 @@ const Finance = () => {
               className="w-full rounded-2xl bg-white overflow-hidden"
               style={{
                 minHeight: `${height}px`,
+                // Own compositing layer: iOS Safari mis-clips iframes inside
+                // an overflow-hidden + border-radius parent without it.
+                transform: "translateZ(0)",
+                WebkitTransform: "translateZ(0)",
               }}
             >
               <iframe
