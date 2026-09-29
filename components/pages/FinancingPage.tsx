@@ -37,15 +37,16 @@ const Finance = () => {
 
     // iOS Safari can keep a stale scroll offset / stale paint for the iframe
     // layer after it resizes (it only recovers on app resume). Forcing a
-    // relayout of the iframe makes WebKit recompute it immediately.
+    // relayout of the iframe makes WebKit recompute it immediately. Height is
+    // used rather than width so the form's text never re-wraps (no flicker).
     const nudgeIframeLayout = () => {
       const iframe = iframeRef.current;
       if (!iframe) return;
 
-      iframe.style.width = "calc(100% - 1px)";
+      iframe.style.height = `${heightRef.current + 1}px`;
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          iframe.style.width = "100%";
+          iframe.style.height = `${heightRef.current}px`;
         });
       });
     };
@@ -93,13 +94,20 @@ const Finance = () => {
 
     // A failed "Next"/"Submit" inside the iframe scrolls to the first invalid
     // field without posting any message, and iOS can leave part of the iframe
-    // unpainted afterwards. Repaint the iframe whenever a scroll settles,
-    // whoever started it.
+    // unpainted afterwards. Repaint the iframe as soon as a scroll starts (so
+    // content is there while the user scrolls) and again once it settles.
     let scrollEndTimer: number | undefined;
 
     const handleScroll = () => {
+      if (scrollEndTimer === undefined) {
+        nudgeIframeLayout();
+      }
+
       window.clearTimeout(scrollEndTimer);
-      scrollEndTimer = window.setTimeout(nudgeIframeLayout, 150);
+      scrollEndTimer = window.setTimeout(() => {
+        scrollEndTimer = undefined;
+        nudgeIframeLayout();
+      }, 150);
     };
 
     window.addEventListener("message", handleMessage);
