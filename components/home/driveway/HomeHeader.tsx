@@ -22,8 +22,8 @@ import Logo from "@/components/common/Logo";
 import { DW_NAV } from "./constants";
 import { easeOut } from "./motion";
 
-const PHONE_DISPLAY = "+1-855-979-3500";
-const PHONE_HREF = "tel:+18559793500";
+const PHONE_DISPLAY = "+1-(855)647-8500";
+const PHONE_HREF = "tel:+1-(855)647-8500";
 
 type NavIcon =
   | "howItWorks"
