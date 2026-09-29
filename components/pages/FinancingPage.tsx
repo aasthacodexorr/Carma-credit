@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Layout
 import { PageShell } from "@/components/layout";
@@ -10,6 +10,8 @@ import { getConstants } from "@/constants";
 import { useAppConfig } from "@/app/providers";
 
 const MIN_HEIGHT = 1200;
+// Room for validation messages, which appear without a new height event.
+const ERROR_BUFFER = 300;
 
 const Finance = () => {
   const appConfig = useAppConfig();
@@ -17,8 +19,37 @@ const Finance = () => {
 
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState<number>(MIN_HEIGHT);
+  const heightRef = useRef<number>(MIN_HEIGHT);
+  const hasLoadedFirstStep = useRef(false);
 
   useEffect(() => {
+    // Scroll the parent page so the top of the form sits just below the sticky header.
+    const scrollToFormTop = () => {
+      const iframe = iframeRef.current;
+      if (!iframe) return;
+
+      const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+      const top =
+        iframe.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+
+      window.scrollTo({ top: Math.max(top, 0), behavior: "auto" });
+    };
+
+    // iOS Safari can keep a stale scroll offset / stale paint for the iframe
+    // layer after it resizes (it only recovers on app resume). Forcing a
+    // relayout of the iframe makes WebKit recompute it immediately.
+    const nudgeIframeLayout = () => {
+      const iframe = iframeRef.current;
+      if (!iframe) return;
+
+      iframe.style.width = "calc(100% - 1px)";
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          iframe.style.width = "100%";
+        });
+      });
+    };
+
     const handleMessage = (event: MessageEvent) => {
       if (event.origin !== "https://carma.zopsoftware.com") {
         return;
@@ -36,13 +67,27 @@ const Finance = () => {
         Number.isFinite(data.value) &&
         data.value > 0
       ) {
-        const newHeight = Math.max(
-          MIN_HEIGHT,
-          Math.ceil(data.value) + 800
-        );
-        setHeight(newHeight);
-        console.log("new height", newHeight);
-        console.log("[Finance iframe] height event:", data.value);
+        // The iframe reports $(document).height(), which is never smaller than
+        // the iframe's own height. A value at or below the current height just
+        // means "content fits", so only grow when the content is really taller.
+        // Growing on every event would add the buffer again on each step change.
+        const reported = Math.ceil(data.value);
+        if (reported > heightRef.current + 2) {
+          const newHeight = Math.max(MIN_HEIGHT, reported + ERROR_BUFFER);
+          heightRef.current = newHeight;
+          setHeight(newHeight);
+        }
+
+        // The iframe sends this event on every step change, including the first
+        // render. Skip the first one so the page doesn't jump on load.
+        if (hasLoadedFirstStep.current) {
+          requestAnimationFrame(() => {
+            scrollToFormTop();
+            nudgeIframeLayout();
+          });
+        } else {
+          hasLoadedFirstStep.current = true;
+        }
       }
     };
 
