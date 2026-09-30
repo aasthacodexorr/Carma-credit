@@ -328,7 +328,7 @@ export default async function TermsOfService() {
               </h5>
               <p className="mt-1">
                 <span className="font-bold">Sales: </span>
-                <a href={`tel:${sales_number_1}`} className="text-brand-green hover:underline">
+                <a href={`tel:+${sales_number_1}`} className="text-brand-green hover:underline">
                   {sales_number_1}
                 </a>
               </p>

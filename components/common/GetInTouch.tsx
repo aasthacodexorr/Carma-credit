@@ -33,7 +33,7 @@ const GetInTouch = () => {
     title: "Call us",
     subtitle: "Call Us Anytime Now",
     icon: callIcon,
-    href: PHONE_HREF || `tel:${d.sales_number_1}`,
+    href: PHONE_HREF || `tel:+${d.sales_number_1}`,
     order: "order-1",
   },
   {

@@ -18,8 +18,8 @@ import { Phone } from "lucide-react";
 
 const LINK = "text-[14px] font-medium leading-[24.5px] text-white transition-colors hover:text-white";
 const HEADING = "mb-6 text-[18px] font-bold text-white";
-const PHONE_DISPLAY = "+1-(855) 647-8500";
-const PHONE_HREF = "tel:+1-(855)647-8500";
+const PHONE_DISPLAY = "1-(855)-647-8500";
+const PHONE_HREF = "tel:+1-(855)-647-8500";
 
 const Footer = () => {
   const appConfig = useAppConfig();
