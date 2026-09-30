@@ -158,7 +158,7 @@ export const HitCard = ({ hit }: { hit: any }) => {
           <div className="w-full rounded-[12px] mb-3 px-3 mt-auto flex gap-1">
             {/* Call Button */}
             <a
-              href={phoneNumber ? `tel:${phoneNumber}` : "#"}
+              href={phoneNumber ? `tel:+${phoneNumber}` : "#"}
               onClick={(e) => e.stopPropagation()}
               className="cursor-pointer text-center w-26 rounded-full text-gray-800 bg-white hover:bg-gray-100 py-[10px] text-[14px] sm:text-[15px] font-medium transition-colors border-2 border-gray-300 flex items-center justify-center gap-2"
             >
