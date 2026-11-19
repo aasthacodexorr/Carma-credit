@@ -10,21 +10,11 @@ export default function CreditScoreBanner() {
 
         {/* Left Content Area */}
         <div className="flex-1 max-w-xl text-left">
-          {/* Top Subtitle */}
-          <p className="text-sm lg:text-base mb-1 font-bold tracking-widest text-brand uppercase px-1">
-            KNOW YOUR CREDIT BEFORE YOU SHOP
-          </p>
-
           {/* Main Headline */}
-          <h1 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold text-[#111827] leading-[1.15] mb-4 tracking-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold text-[#111827] leading-[1.15] mb-6 tracking-tight">
             Check Your Credit Score{' '}<br/>
             <span className=" block sm:inline mt-1 sm:mt-0 text-[#ff385c]">(No Impact to Your Credit)</span>
           </h1>
-
-          {/* Description Paragraph */}
-          <p className="text-gray-600 text-base sm:text-lg mb-8 leading-relaxed">
-            See where your credit stands before starting your auto financing journey. It's a quick, secure soft credit check with no impact to your credit score.
-          </p>
 
           {/* CTA Button */}
           <div className="mb-8 flex justify-start">

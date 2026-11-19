@@ -79,16 +79,7 @@ const DrivewayHero = () => {
             a <span className="text-[#ff385c]">Second <br className="lg:hidden"/> Chance.</span>
           </motion.h1>
 
-          {/* Subtitle / Description - Hidden on mobile, visible on lg and up */}
-          <motion.div {...enter(0.15)} className=" mt-4 space-y-3">
-            <p className="text-base font-semibold text-[#131b4d] max-w-[160px] lg:max-w-full">
-              Less than perfect credit? No credit? Bankruptcy or consumer proposal?
-            </p>
 
-            <p className=" hidden lg:block text-base font-normal text-[#131b4d] leading-relaxed max-w-lg">
-              Carma Credit helps Canadians explore auto financing options and get back on the road.
-            </p>
-          </motion.div>
         </div>
 
         {/* Call to Action Button (Placed at bottom on mobile, original flow on desktop) */}

@@ -38,18 +38,13 @@ const HowItWorksSteps = () => {
     <section className="w-full bg-slate-50 py-10 text-slate-900">
       <div className="mx-auto max-w-[1480px] px-6 text-center sm:px-12 xl:px-16">
         {/* Section Header */}
-        <span className="text-base font-bold uppercase tracking-widest text-brand">
-          How It Works
-        </span>
+        {/* <span className="text-base font-bold uppercase tracking-widest text-slate-950">
+        
+        </span> */}
 
         <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
-          Your Road Back Starts Here.
+            How It Works, Your Road Starts Here.
         </h2>
-
-        <p className="mx-auto mt-3 max-w-xl text-base font-medium text-slate-600">
-          Getting back into the driver's seat shouldn't be stressful. Follow
-          our simple 4-step process.
-        </p>
 
         {/* Steps Grid */}
         <div className="mt-14 lg:mt-10 grid gap-24 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-8">
