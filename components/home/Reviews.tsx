@@ -264,10 +264,6 @@ const Reviews = () => {
       <div className="mx-auto max-w-[1480px] px-5 sm:px-12 xl:px-14">
         <Reveal className="mb-8 flex flex-col items-start justify-between gap-4 md:mb-10 md:flex-row md:items-end">
           <div>
-            <p className="mb-2 text-[13px] font-bold uppercase tracking-[1.5px] text-brand">
-              Real Customers. Real Stories.
-            </p>
-
             <h2 className="max-w-[560px] text-[clamp(1.75rem,4vw,2.5rem)] font-extrabold leading-[1.15] tracking-[-0.6px] text-[#0F1B3D]">
               People Like You. Approved for What&apos;s Next.
             </h2>
