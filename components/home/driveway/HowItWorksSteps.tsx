@@ -43,7 +43,7 @@ const HowItWorksSteps = () => {
         </span> */}
 
         <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
-            How It Works, Your Road Starts Here.
+            How It Works
         </h2>
 
         {/* Steps Grid */}
